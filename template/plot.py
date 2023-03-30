@@ -70,7 +70,7 @@ with open('build/m.tex', 'w') as f:
 	f.write(r'\num{')
 	f.write(f'{par_2[0]:.2f}({err_2[0]:.2f})')
 	f.write(r'}')
-with open('build/b.tex', 'w') as f: 
+with open('build/n.tex', 'w') as f: 
 	f.write(r'\qty{')
 	f.write(f'{par_2[1]:.2f}({err_2[1]:.2f})')
 	f.write(r'}{\milli\meter\squared}')
