@@ -21,6 +21,7 @@ build/main.pdf: FORCE | build
 		--interaction=batchmode \
 		--halt-on-error \
 	main.tex
+	cp build/main.pdf .
 
 build:
 	mkdir -p build
