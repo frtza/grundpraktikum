@@ -5,27 +5,27 @@
 \subsection{Magnetismus und Materie}
 
 Der im Vakuum geltende Zusammenhang zwischen magnetischer Flussdichte $\symbf B$ und magnetischer Feldstärke $\symbf H$
-\begin{equation}
+\begin{equation*}
 	\symbf B = \mu_0 \symbf H
 	\label{eqn:vakuum}
-\end{equation}
+\end{equation*}
 muss unter Anwesenheit von Materie um die Magnetisierung $\symbf M$ zu
-\begin{equation}
+\begin{equation*}
 	\symbf B = \mu_0 \symbf H + \symbf M
 	\label{eqn:materie}
-\end{equation}
+\end{equation*}
 ergänzt werden. Dabei beschreibt $\mu_0$ die magnetische Feldkonstante. Verantwortlich für das Auftreten von $\symbf M$
 sind atomare magnetische Momente im betrachteten Material. Daher lässt sich die Magnetisierung mit dem mittleren
 magnetischen Moment $\bar{\symbf \mu}$ und der Anzahl der Momente pro Volumen $N$ als
-\begin{equation}
+\begin{equation*}
 	\symbf M = N \mu_0 \bar{\symbf \mu}
 	\label{eqn:magnet_moment}
-\end{equation}
+\end{equation*}
 ausdrücken. Ihre Abhängigkeit zu $\symbf H$ wird über
-\begin{equation}
+\begin{equation*}
 	\symbf M = \mu_0 \chi \symbf H
 	\label{eqn:magnet_feld}
-\end{equation}
+\end{equation*}
 formuliert. Der Faktor $\chi$ heißt magnetische Suszeptibilität und weist selbst komplexe Beziehungen zur Feldstärke
 $\symbf H$ und Temperatur $T$ auf.
 
@@ -50,16 +50,15 @@ thermischen Bewegung temperaturabhängig. Anhand dieses Modells kann $\chi$ nun 
 Der atomare Gesamtdrehimpuls $\symbf J$ setzt sich aus Bahndrehimpuls der Elektronenhülle und Eigendrehimpuls der
 Elektronen, dem Spin, zusammen. Für den Paramagnetismus kann der Beitrag des zusätzlich auftretenden Kerndrehimpulses
 vernachlässigt werden. Solange das äußere Magnetfeld nicht zu stark ist, wird von LS-Kopplung mit
-\begin{equation}
+\begin{equation*}
 	\symbf J = \symbf L + \symbf S
 	\label{eqn:kopplung}
-\end{equation}
+\end{equation*}
 ausgegangen, also der Annahme, dass $\symbf J$ der Vektorsumme von Gesamtbahndrehimpuls~$\symbf L$ und Gesamtspin
 $\symbf S$ entspricht. Dabei setzen sich $\symbf L$ und $\symbf S$ nach
-\begin{align}
+\begin{align*}
 	\symbf L = \sum_i \symbf l_i && \symbf S = \sum_i \symbf s_i
-	\label{eqn:einzel}
-\end{align}
+\end{align*}
 aus der jeweiligen Vektorsumme der Einzeldrehimpulse sämtlicher in der Hülle enthaltenen Elektronen zusammen. Anwenden
 quantenmechanischer Mittel liefert dann die zugehörigen magnetischen Momente, welche sich auf
 \begin{align}
@@ -70,20 +69,81 @@ quantenmechanischer Mittel liefert dann die zugehörigen magnetischen Momente, w
 belaufen. Dabei entspricht $\hbar = \frac{h}{2\pi}$ der reduzierten Planck-Konstante, die mit Wirkungsquantum $h$,
 Frequenz $\nu$ und Kreisfrequenz $\omega$ die Beziehung $h \nu = \hbar \omega$ erfüllt. Mit der Ladung $e_0$ und
 Ruhemasse $m_0$ des Elektrons bezeichnet das Bohrsche Magneton
-\begin{equation}
+\begin{equation*}
 	\mu_B = \frac{1}{2} \frac{e_0}{m_0} \hbar
-	\label{eqn:mu_B}
-\end{equation}
-das zur Drehimpulseinheit $\hbar$ gehörige magnetische Moment. Der Faktor $g_S$ entspricht dem gyromagnetischen
+	\label{eqn:magneton}
+\end{equation*}
+das zur Drehimpulseinheit $\hbar$ gehörige magnetische Moment. Ebenso ist mit der negativen Ladung des Elektrons das
+negative Vorzeichen in \eqref{eqn:mu_L} und \eqref{eqn:mu_S} erklärt. Der Faktor $g_S$ entspricht dem gyromagnetischen
 Verhältnis des freien Elektrons.
 
+Unter Verwendung der Bahndrehimpulsquantenzahl $L$, Spinquantenzahl $S$ und Gesamtdrehimpulsquantenzahl $J$ des Atoms lässt sich
+\begin{align}
+	| \symbf L | = \sqrt{L(L+1)} \hbar &&
+	| \symbf S | = \sqrt{S(S+1)} \hbar &&
+	| \symbf J | = \sqrt{J(J+1)} \hbar \label{eqn:abs}
+\end{align}
+für die Beträge der Drehimpulse schreiben. Aus \eqref{eqn:mu_L} und \eqref{eqn:mu_S} folgt damit weiter
+\begin{align}
+	| \symbf \mu_L | &= \frac{\mu_B}{\hbar} | \symbf L | = \mu_B \sqrt{L(L+1)} \label{eqn:abs_mu_L}
+	\shortintertext{und}
+	| \symbf \mu_S | &= g_s \frac{\mu_B}{\hbar} | \symbf S | = g_S \mu_B \sqrt{S(S+1)} \label{eqn:abs_mu_S}
+\end{align}
+für die entsprechenden magnetischen Momente. Bei LS-Kopplung verschwindet die zu $\symbf J$ orthogonale Komponente von $\symbf \mu$,
+sodass nur $\symbf \mu_J \parallel \symbf J$ messbar ist. In Abbildung \ref{fig:diagramm} kann dazu der Zusammenhang
+\begin{equation}
+	| \symbf \mu_J | = | \symbf \mu_S | \cos \alpha + | \symbf \mu_L | \cos \beta
+	\label{eqn:abs_mu_J}
+\end{equation}
+abgelesen werden. Zudem lässt sich nach dem Cosinussatz mittels des Dreiecks $OAB$
+\begin{align}
+	\cos \alpha = \frac{ | \symbf J |^2 - | \symbf L |^2 + | \symbf S |^2 }{2| \symbf J || \symbf S |} &&
+	\cos \beta = \frac{ | \symbf J |^2 + | \symbf L |^2 - | \symbf S |^2 }{2| \symbf J || \symbf S |}
+	\label{eqn:cosine}
+\end{align}
+aus Abbildung \ref{fig:diagramm} herleiten.
+
 \begin{figure}[H]
-	\label{fig:diagramm}
 	\centering
 	\includegraphics{content/diagramm.pdf}
-	\caption{Vektordiagramm aus den Drehimpulsvektoren einer Elektronenhülle und den daraus resultierenden magnetischen
-		Momenten.}
+	\caption{Vektordiagramm der Drehimpulse einer Elektronenhülle mit den resultierenden magnetischen Momenten.}
+	\label{fig:diagramm}
 \end{figure}
+
+Einsetzen von \eqref{eqn:abs}, \eqref{eqn:abs_mu_L}, \eqref{eqn:abs_mu_S} und \eqref{eqn:cosine} in die Beziehung
+\eqref{eqn:abs_mu_J} liefert nun
+\begin{align*}
+	| \symbf \mu_J | &= \mu_B \left( g_S \sqrt{S(S+1)} \cos \alpha + \sqrt{L(L+1)} \cos \beta \right) \\
+	&= \mu_B \frac{(g_S + 1)J(J+1) + (g_S - 1) \left( S(S+1) - L(L+1) \right) }{2\sqrt{J(J+1)}}
+\end{align*}
+als Betrag des magnetischen Moments. Anhand der Größe $g_S$ kann mit guter Genauigkeit die Näherung $g_S \approx 2$ ausgenutzt werden,
+um über den für das Atom spezifischen Landé-Faktor
+\begin{equation*}
+	g_J = \frac{3J(J+1) + \left( S(S+1) - L(L+1) \right)}{2J(J+1)}
+	\label{eqn:lande}
+\end{equation*}
+den Ausdruck
+\begin{equation}
+	| \symbf \mu_J | \approx \mu_B g_J \sqrt{J(J+1)}
+	\label{eqn:approx_abs_mu_J}
+\end{equation}
+zusammenzufassen. Ein weiteres quantenmechanisches Phänomen ist die Richtungsquantelung, wonach der Winkel zwischen einem äußeren
+Magnetfeld und $\symbf \mu_J$ nicht beliebig ist, sondern nur solche Werte einnimmt, bei denen die Komponente $\mu_{J_z}$ von
+$\symbf \mu_J$ in Feldrichtung ein ganzzahliges Vielfaches von $\mu_B g_J$ darstellt. Entsprechend muss
+\begin{equation*}
+	\mu_{J_z} = - \mu_B g_J m
+	\label{eqn:komponente}
+\end{equation*}
+gelten, wobei $m \in \symbb{Z}$ die Orientierungsquantenzahl bezeichnet. Da $\mu_{J_z}$ als Komponente von $\symbf \mu_J$ immer
+$| \mu_{J_z} | \leq | \symbf \mu_J |$, also laut \eqref{eqn:approx_abs_mu_J} $m \leq \sqrt{J(J+1)}$ erfüllt, führt die Einschränkung
+$m \in \{ -J, -J+1, \dotsc, 0, \dotsc, J-1, J \}$ zu dem Schluss, dass genau $2J+1$ Möglichkeiten zur Einstellung des magnetischen
+Moments relativ zur äußeren Feldrichtung existieren. Jeder dieser Einstellrichtungen lässt sich eine spezifische potentielle
+Energie
+\begin{equation*}
+	E_m = - \symbf \mu_J \cdot \symbf B = \mu_{J_z} B = \mu_B g_J m B
+	\label{eqn:zeeman}
+\end{equation*}
+zuordnen. Dieses Auftreten von $2J+1$ Unterenergieniveaus heißt Zeeman-Effekt.
 
 \subsubsection{Seltene-Erd-Verbindungen}
 
@@ -92,26 +152,26 @@ Verhältnis des freien Elektrons.
 \subsubsection{Apparatur zur Induktivitätsmessung}
 
 \begin{figure}[H]
-	\label{fig:schaltung}
 	\centering
 	\includegraphics{content/schaltung.pdf}
 	\caption{Brückenschaltung für eine Suszeptibilitätsmessung.}
+	\label{fig:schaltung}
 \end{figure}
 
 \subsubsection{Unterdrückung von Störspannungen}
 
 \begin{figure}[H]
-	\label{fig:kurve}
 	\centering
 	\includegraphics{content/kurve.pdf}
 	\caption{Filterkurve eines Selektivverstärkers.}
+	\label{fig:kurve}
 \end{figure}
 
 \begin{figure}[H]
-	\label{fig:schaltbild}
 	\centering
 	\includegraphics{content/schaltbild.pdf}
 	\caption{Blockschaltbild der verwendeten Messapparatur.}
+	\label{fig:schaltbild}
 \end{figure}
 
-$\symbffrak r$ \\ $\hbar$
+$\symbffrak r$
