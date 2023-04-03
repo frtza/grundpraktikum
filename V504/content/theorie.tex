@@ -1,6 +1,86 @@
 % Theorie: Physikalische Grundlagen von Versuch/Messverfahren, Gleichungen ohne Herleitung knapp erklären
 \section{Theorie}
 \label{sec:theorie}
-Begriffe der Austrittsarbeit und die Energieverteilung der Leitungselektronen
+
+Im Folgenden wird bla bla
+
+\subsection{Begriffe der Austrittsarbeit und die Energieverteilung der Leitungselektronen}
+\label{sec:Begriffe der Austrittsarbeit und die Energieverteilung der Leitungselektronen}
+
 Eine große Anzahl der Metalle sind kristalline Festkörper, welche ausgezeichnete elektrische Leitfähigkeit besitzen.
-Diese Tatsache lässt sich damit erklären, dass 
+Diese Tatsache lässt sich damit erklären, dass die Atome, welche auf den kristallgitterplätzen sitzen, komplett ionisiert sind.
+Somit bilden die Inonen ein periodisches Gitter, welches von freigesetzten Elektronen eingehüllt ist.
+Diese Elektronen befinden sich im Kraftfeld sämtlicher Inonen und werden als Leitungselektronen bezeoichnet.
+Das Gitterpotential ist eine vom Ort abhängige periodische Funktion. Diese nimmt an den Gitterpunkten einen hohen positiven Wert an, weiter 
+entfernt von den Punkten ist der Wert des Gitterpotentials nur wenig veränderlich. Somit lässt sich durch eine
+Näherung sagen, dass das Gitterpotential konstant ist. Zusammenfassendkann gesagt werden, dass im Metallinnere ein konstantes 
+positvives Potential, welches um $\phi$ verschieden zum Außenraum ist, herrscht. Die Elektronen können sich daher 
+frei bewegen und demnach die elektrische Leitfähigkeit erzeugen.
+
+Wenn ein Elektron das Metallinnere verlassen will, muss dieses die Austrittsarbeit zu dem gegeben Potential $\xi$ leisten.
+In \autoref{fig:potentialtopf} wird dies anhand des Poetentialtopf-Modells gezeigt.
+% hier abbildung nutzen
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{data/potential.png}
+    \caption{Darstellung des Potentialtopf-Modells eines Metalls.\cite{elektron}}
+    \label{fig:potentialtopf}
+\end{figure}
+
+Die Quantentheorie beantwortet die Frage, ob das Elektron die benötigte Energie aufbringen kann.
+Elektronen können ausschließlich diskrete Energiewerte annehmen. Das Elekron hat einen habzahligen Spin und 
+unterliegt demnach dem Pauli-Verbot. Dieses besagt, dass jeder mögliche Zustand mit der vorausgesetzten Energie $E$ nur von zwei
+Elektronen eingenommen werden kann, wenn diese entgegengesetzten Spin haben. Somit besitzen die Elektronen auch am Nullpunkt
+eine endlich Energie. Diese ist abhängig von den Elektronen pro Volumeneinheit im Metall. Der Begriff für diese Energie bei $T = 0$
+wird Fermische Grenzenergie $\zeta $ genannt. Für Zimmertemperatur gilt für alle Metalle $\zeta \gg \symup{k}\symup{T}$.
+Durch die Fermi-Dirscsche Verteilungs Funktion 
+\begin{equation}
+    f(E)= \frac{1}{\exp{\frac{E -\zeta}{\symup{k}\symup{T}}}+1} ,
+    \label{eqn:fermi-dis}
+\end{equation}
+wird die Wahrscheinlichkeit angegeben, dass im thermischen Gleichgewicht der Zustand
+mit der Energie $E$ erreicht ist.
+Der Verlauf des Graphen der Fermi-Diracschen Verteilungsfunktion ist in \autoref{fig:fermi} zu sehen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{data/fermi.png}
+    \caption{Der Verlauf der Fermi-Diracschen Verteilungsfunktion am absoluten Nullpunkt.\cite{elektron}}
+    \label{fig:fermi}
+\end{figure}
+
+Es kann abgelesen werden, dass ein Eletron mindestens eine Energie von $\zeta + e_0 \phi$ vorweisen muss, damit 
+es die Metalloberfläche verlassen kann. Für den Fall,dass das gegebenen Metall Wolfram ist, kann eine
+Näherung getroffen werden
+\begin{equation}
+    f(E) \approx \exp{\frac{E -\zeta}{\symup{k}\symup{T}}} .
+\label{eqn:naehrung}
+\end{equation}
+
+\subsection{Berechnung der Sättigungsstromdichte bei der thermischen Elektonenemission}
+\label{sec:Berechnung der Sättigungsstromdichte bei der thermischen Elektonenemission}
+
+Mithilde der \autoref{eqn:naehrung} lässt sich die Sättigungsstromdichte in Abhängigkeit zur Temperatur errechnen.
+Schlussendlich folgt für für die Sättigungsstromdichte $j_S(T)$ die Richardson-Gleichungen
+\begin{equation}
+    j_S(T) = 4\sumup{\pi} \frac{e_0\cdot m_0 \cdot \symup{k}^2}{h^3} \symup{T}^3 \exp{\frac{-e_0 \phi}{\symup{k}\symup{T}}}.
+\end{equation}
+
+\subsection{Die Hochvakuum-Diode}
+\label{sec:Die Hochvakuum-Diode}
+
+Um den Sättigungsstrom einer emittierenden Metalloberfläche zu messen, muss ein Hochvakuum vorliegen, da sonst die
+Elektronen mit den Gasmolekülen wechselwirken würden. Weiter wird ein elektrisches Feld benötigt, welches die ausgetretenden Elektronen
+absaugt. Diese dafür vorgesehene Apperatur heißt Hochvakuum-Diode. Die Schaltskizze einer solchen Apperatir ist in \autoref{fig:diode} 
+dargestellt.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{data/diode.png}
+    \caption{Die grundlegende Schaltskizze einer Hochvakuum-Diode.\cite{elektron}}
+    \label{fig:diode}
+\end{figure}
+
+\subsection{Die Langmuir-Schottkysche Raumladungsgleichung}
+\label{sec:Die Langmuir-Schottkysche Raumladungsgleichung}
+
