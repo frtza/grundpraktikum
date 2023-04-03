@@ -1,20 +1,13 @@
 # Fdb version 3
-["biber build/main"] 1680526553 "build/main.bcf" "build/main.bbl" "build/main" 1680526615
+["biber build/main"] 1680526553 "build/main.bcf" "build/main.bbl" "build/main" 1680527818
   "../lit.bib" 1680520884 6358 bd9cdd986ab1f3889a93d1ba166cb540 ""
   "build/main.bcf" 1680526607 107528 6ee4ee73c8ab4dcf655863a76b81442a "lualatex"
   (generated)
   "build/main.bbl"
   "build/main.blg"
-["lualatex"] 1680526595 "main.tex" "build/main.pdf" "main" 1680526615
+["lualatex"] 1680527818 "main.tex" "build/main.pdf" "main" 1680527818
   "../header.tex" 1680520884 3895 2b2511d98f92ea1ad7bd9a5489dec3d2 ""
   "../template/extension/latex/pfrac.tex" 1680520884 2454 7ab4724fee3f6506beb697db18b11207 ""
-  "/home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf" 1429396570 733736 0b8cd5044567d896491fd777c12d5cda ""
-  "/home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf" 1255129361 111240 0af0b64d6d3df41bead3f9de314afbd4 ""
-  "/home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf" 1255129361 118828 4d461c73423fe2666dad2ff0dfc3ca68 ""
-  "/home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf" 1255129361 111536 ae9d1b331000d544f47e5223081b7b54 ""
-  "/home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf" 1255129361 110496 b9c8767d4cc3bf3f4b21f676bf89aa78 ""
-  "/home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf" 1255129361 110400 d844cffffa1af59f9d2bb1bfdb6f1a2c ""
-  "/home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf" 1255129361 107448 a9e5b7aaaf5f74194deee407f2fd1552 ""
   "/home/strati/.local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/home/strati/.local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1246382020 924 9904cf1d39e9767e7a3622f2a125a565 ""
   "/home/strati/.local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1246382020 928 2dc8d444221b7a635bb58038579b861a ""
@@ -312,7 +305,6 @@
   "/home/strati/.local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1664713288 4596517 f719b5a8ae6bcef65193829da478188b ""
   "/home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/latinmodern-math.luc" 1664968137 637093 02426e23b8e5035e81e24e145a2258e1 ""
   "/home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1664884756 128419 57baa92480577d37e35dbac213d038b6 ""
-  "/home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-italic.luc" 1665063674 136321 f6cb799be21b76077e6e83ae3d1783cd ""
   "/home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1664884754 127336 01f9f5224c939ec759def6e545eba504 ""
   "/home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc" 1669100690 128308 3f6ba53aeb5bf467c5da3acdbf859d52 ""
   "/home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-regular.luc" 1664889441 127679 110be731e199fe6884e658743ad4c194 ""
@@ -326,13 +318,8 @@
   "/home/strati/.local/texlive/2022/texmf-var/web2c/luahbtex/lualatex.fmt" 1664713304 4784846 fb25e3a114dabee5b300ca38145146b2 ""
   "build/main.aux" 1680526607 7638 4a7d5fd7febe58ab93fbd670f502cbc4 "lualatex"
   "build/main.bbl" 1680526549 910 596820b2ae18c288c4773387c8c776af "biber build/main"
-  "build/main.run.xml" 1680526607 2396 e189e87700d890de7fc36228f7e6118b "lualatex"
   "build/main.toc" 1680526607 823 f9ff5039359e2c075822f5725974796a "lualatex"
-  "content/anhang.tex" 1680520884 85 470dcb27a3e9199a3bdd87948485c857 ""
-  "content/auswertung.tex" 1680520884 214 64fd87858e6c8febaa114d425c3e0e09 ""
-  "content/diskussion.tex" 1680520884 267 36dbe819b257bdd441c81fc714a290ff ""
-  "content/durchfuehrung.tex" 1680520884 190 57feb042756d2719905d9243944e0328 ""
-  "content/theorie.tex" 1680526481 3817 b795977f7ceb2a6446e4514a22011594 ""
+  "content/theorie.tex" 1680527673 4899 ba60ee915186186fb25be048dfa70ad2 ""
   "content/zielsetzung.tex" 1680521647 380 74d3cf4c102d296cfd5676d36ec8d754 ""
   "data/fermi.png" 1680525122 20292 cdff05c86d8826a87a66deaf4ce6b5f7 ""
   "data/potential.png" 1680523258 8586 7f13c0e47b3bc0eb22174dec724fa64a ""
@@ -342,5 +329,4 @@
   "build/main.bcf"
   "build/main.log"
   "build/main.pdf"
-  "build/main.run.xml"
   "build/main.toc"

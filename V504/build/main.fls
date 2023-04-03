@@ -636,17 +636,3 @@ INPUT /home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/
 INPUT ./data/fermi.png
 INPUT ./data/fermi.png
 INPUT ./data/fermi.png
-INPUT ./content/durchfuehrung.tex
-INPUT ./content/durchfuehrung.tex
-INPUT ./content/auswertung.tex
-INPUT ./content/auswertung.tex
-INPUT ./content/diskussion.tex
-INPUT ./content/diskussion.tex
-INPUT /home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-italic.luc
-INPUT ./content/anhang.tex
-INPUT ./content/anhang.tex
-INPUT build/main.aux
-INPUT build/main.aux
-INPUT build/main.toc
-INPUT build/main.run.xml
-OUTPUT build/main.run.xml
