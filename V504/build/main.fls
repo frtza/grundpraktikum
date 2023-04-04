@@ -351,6 +351,11 @@ INPUT /home/strati/.local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /home/strati/.local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /home/strati/.local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /home/strati/.local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/tex-gyre-math/texgyrepagella-math.otf
+INPUT /home/strati/.local/texlive/2022/texmf-dist/tex/luatex/luaotfload/luaotfload-glyphlist.lua
+OUTPUT /home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/texgyrepagella-math.lua
+INPUT /home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/texgyrepagella-math.lua
+OUTPUT /home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/texgyrepagella-math.luc
 INPUT /home/strati/.local/texlive/2022/texmf-dist/tex/latex/siunitx/siunitx.sty
 INPUT /home/strati/.local/texlive/2022/texmf-dist/tex/latex/siunitx/siunitx.sty
 INPUT /home/strati/.local/texlive/2022/texmf-dist/tex/latex/siunitx/siunitx.sty
@@ -597,10 +602,6 @@ INPUT /home/strati/.local/texlive/2022/texmf-dist/tex/latex/biblatex/lbx/german.
 INPUT /home/strati/.local/texlive/2022/texmf-dist/tex/latex/biblatex/lbx/german.lbx
 INPUT /home/strati/.local/texlive/2022/texmf-dist/tex/latex/biblatex/lbx/german.lbx
 OUTPUT build/main.bcf
-INPUT build/main.bbl
-INPUT build/main.bbl
-INPUT build/main.bbl
-INPUT build/main.bbl
 OUTPUT build/main.pdf
 INPUT /home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc
 INPUT /home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-regular.luc

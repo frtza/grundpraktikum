@@ -1,13 +1,13 @@
 # Fdb version 3
-["biber build/main"] 1680526553 "build/main.bcf" "build/main.bbl" "build/main" 1680527818
-  "../lit.bib" 1680520884 6358 bd9cdd986ab1f3889a93d1ba166cb540 ""
-  "build/main.bcf" 1680526607 107528 6ee4ee73c8ab4dcf655863a76b81442a "lualatex"
+["biber build/main"] 1680592911 "build/main.bcf" "build/main.bbl" "build/main" 1680592911
+  "build/main.bcf" 1680527830 106029 2ec8ea797d1211b813faab4d3c94df0b "lualatex"
   (generated)
   "build/main.bbl"
   "build/main.blg"
-["lualatex"] 1680527818 "main.tex" "build/main.pdf" "main" 1680527818
-  "../header.tex" 1680520884 3895 2b2511d98f92ea1ad7bd9a5489dec3d2 ""
+["lualatex"] 1680592912 "main.tex" "build/main.pdf" "main" 1680592912
+  "../header.tex" 1680590885 3948 2722a9fc0842d0d5c7c60640eadf7d51 ""
   "../template/extension/latex/pfrac.tex" 1680520884 2454 7ab4724fee3f6506beb697db18b11207 ""
+  "/home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/tex-gyre-math/texgyrepagella-math.otf" 1429396594 601220 5ba9edcf6604dc0d9cbd28b39d3272bc ""
   "/home/strati/.local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/home/strati/.local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1246382020 924 9904cf1d39e9767e7a3622f2a125a565 ""
   "/home/strati/.local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1246382020 928 2dc8d444221b7a635bb58038579b861a ""
@@ -281,6 +281,7 @@
   "/home/strati/.local/texlive/2022/texmf-dist/tex/luatex/luaotfload/luaotfload-embolden.lua" 1655410798 1004 2050240a6c33c2cfbb4573f2c3f25507 ""
   "/home/strati/.local/texlive/2022/texmf-dist/tex/luatex/luaotfload/luaotfload-fallback.lua" 1655410798 4047 56b58f94896f842ef46f25cad0be39bb ""
   "/home/strati/.local/texlive/2022/texmf-dist/tex/luatex/luaotfload/luaotfload-features.lua" 1655410798 33478 cba1c85ff9f4bb3d1af3d3e40db30536 ""
+  "/home/strati/.local/texlive/2022/texmf-dist/tex/luatex/luaotfload/luaotfload-glyphlist.lua" 1655410798 102502 a1eda1d4588777f77459f86bbe1f7500 ""
   "/home/strati/.local/texlive/2022/texmf-dist/tex/luatex/luaotfload/luaotfload-harf-define.lua" 1655410798 18975 ff5743a2e17370ec42e2715e7dcd3efa ""
   "/home/strati/.local/texlive/2022/texmf-dist/tex/luatex/luaotfload/luaotfload-harf-plug.lua" 1655410798 42301 061fac6736fbe443c13fa66b1780366d ""
   "/home/strati/.local/texlive/2022/texmf-dist/tex/luatex/luaotfload/luaotfload-harf-var-cff2.lua" 1655410798 14285 0ab0bc8ffcc36f0c8910c0524bad65b7 ""
@@ -312,19 +313,22 @@
   "/home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman8-regular.luc" 1664968138 128155 5d38f86c2bbb7c23cf429b0939ea1b32 ""
   "/home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-bold.luc" 1664888470 128113 4013a7639b385b3e958c24b611f05121 ""
   "/home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-regular.luc" 1664888470 127655 d2c8c5705f8ceb14bdbe79280669531a ""
+  "/home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/texgyrepagella-math.lua" 0 -1 0 "lualatex"
   "/home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/names/luaotfload-lookup-cache.luc" 1673815771 8673 4e0fef603c3786f3c7fb2a9a9c9253aa ""
   "/home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1664884754 278080 81cd4acfb399c65a16a76ef178d3564a ""
   "/home/strati/.local/texlive/2022/texmf-var/tex/generic/config/language.dat" 1664713285 6647 3d8cd697c4446fa3933e33baa7367934 ""
   "/home/strati/.local/texlive/2022/texmf-var/web2c/luahbtex/lualatex.fmt" 1664713304 4784846 fb25e3a114dabee5b300ca38145146b2 ""
-  "build/main.aux" 1680526607 7638 4a7d5fd7febe58ab93fbd670f502cbc4 "lualatex"
-  "build/main.bbl" 1680526549 910 596820b2ae18c288c4773387c8c776af "biber build/main"
-  "build/main.toc" 1680526607 823 f9ff5039359e2c075822f5725974796a "lualatex"
-  "content/theorie.tex" 1680527673 4899 ba60ee915186186fb25be048dfa70ad2 ""
+  "build/main.aux" 1680527830 4441 e188d1ed51b0ae0ae9569ef67ab810d4 "lualatex"
+  "build/main.bbl" 0 -1 0 "biber build/main"
+  "build/main.toc" 0 -1 0 "lualatex"
+  "content/theorie.tex" 1680592881 7133 5a9e35ca3f775ea34e5bd2bb9372f91d ""
   "content/zielsetzung.tex" 1680521647 380 74d3cf4c102d296cfd5676d36ec8d754 ""
   "data/fermi.png" 1680525122 20292 cdff05c86d8826a87a66deaf4ce6b5f7 ""
   "data/potential.png" 1680523258 8586 7f13c0e47b3bc0eb22174dec724fa64a ""
   "main.tex" 1680520884 597 94ec9eec1823edc881564eb7c8c2cbbc ""
   (generated)
+  "/home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/texgyrepagella-math.lua"
+  "/home/strati/.local/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/texgyrepagella-math.luc"
   "build/main.aux"
   "build/main.bcf"
   "build/main.log"

@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.10.2)  3 APR 2023 15:16
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.10.2)  4 APR 2023 09:21
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -700,13 +700,13 @@ Package fontspec Info: Font family 'LatinModernMath(1)' created for font
 (fontspec)             \__um_luatex_copy_fontdimens: 
 
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 50.
+(Font)              `operators' in the math version `normal' on input line 48.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/LatinModernMath(1)/m/n on input line 50.
+(Font)                  OT1/cmr/m/n --> TU/LatinModernMath(1)/m/n on input line 48.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 50.
+(Font)              `operators' in the math version `bold' on input line 48.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/LatinModernMath(1)/b/n on input line 50.
+(Font)                  OT1/cmr/bx/n --> TU/LatinModernMath(1)/b/n on input line 48.
 
 Package fontspec Info: LatinModernMath scale = 1.0001.
 
@@ -762,13 +762,13 @@ Package fontspec Info: Font family 'LatinModernMath(2)' created for font
 (fontspec)             \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 50.
+(Font)              `symbols' in the math version `normal' on input line 48.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> TU/LatinModernMath(2)/m/n on input line 50.
+(Font)                  OMS/cmsy/m/n --> TU/LatinModernMath(2)/m/n on input line 48.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 50.
+(Font)              `symbols' in the math version `bold' on input line 48.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> TU/LatinModernMath(2)/b/n on input line 50.
+(Font)                  OMS/cmsy/b/n --> TU/LatinModernMath(2)/b/n on input line 48.
 
 Package fontspec Info: LatinModernMath scale = 0.9999.
 
@@ -812,33 +812,54 @@ Package fontspec Info: Font family 'LatinModernMath(3)' created for font
 (fontspec)             \fontdimen 13\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 50.
+(Font)              `largesymbols' in the math version `normal' on input line 48.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> TU/LatinModernMath(3)/m/n on input line 50.
+(Font)                  OMX/cmex/m/n --> TU/LatinModernMath(3)/m/n on input line 48.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 50.
+(Font)              `largesymbols' in the math version `bold' on input line 48.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> TU/LatinModernMath(3)/b/n on input line 50.
+(Font)                  OMX/cmex/m/n --> TU/LatinModernMath(3)/b/n on input line 48.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 10.95116pt on input line 50.
+(Font)              scaled to size 10.95116pt on input line 48.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 7.6658pt on input line 50.
+(Font)              scaled to size 7.6658pt on input line 48.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 5.47559pt on input line 50.
+(Font)              scaled to size 5.47559pt on input line 48.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 10.94882pt on input line 50.
+(Font)              scaled to size 10.94882pt on input line 48.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 7.66417pt on input line 50.
+(Font)              scaled to size 7.66417pt on input line 48.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 5.47441pt on input line 50.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 50.
+(Font)              scaled to size 5.47441pt on input line 48.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 48.
 (/home/strati/.local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 48.
 (/home/strati/.local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (/home/strati/.local/texlive/2022/texmf-dist/tex/latex/siunitx/siunitx.sty
+)
+
+Package fontspec Info: Font family 'texgyrepagella-math.otf(0)' created for
+(fontspec)             font 'texgyrepagella-math.otf' with options
+(fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=9.3075-},{Size=6.57-9.3075,Font=texgyrepagella-math.otf,Style=MathScript},{Size=-6.57,Font=texgyrepagella-math.otf,Style=MathScriptScript}},FontAdjustment={\__um_luatex_copy_fontdimens:
+(fontspec)             }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <9.3075->"[texgyrepagella-math.otf]:mode=base;script=math;language=dflt;"<6.57-9.3075>"[texgyrepagella-math.otf]:mode=base;script=math;language=dflt;+ssty=0;"<-6.57>"[texgyrepagella-math.otf]:mode=base;script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: 
+
+\sym__um_fam1=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `__um_fam1' in version `normal'
+(Font)                  TU/texgyrepagella-math.otf(0)/m/n --> TU/texgyrepagella-math.otf(0)/m/n on input line 51.
+LaTeX Font Info:    Overwriting symbol font `__um_fam1' in version `bold'
+(Font)                  TU/texgyrepagella-math.otf(0)/m/n --> TU/texgyrepagella-math.otf(0)/b/n on input line 51.
+(/home/strati/.local/texlive/2022/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2022-09-07 v3.1.7 A comprehensive (SI) units package
 \l__siunitx_angle_tmp_dim=\dimen272
 \l__siunitx_angle_marker_box=\box66
@@ -959,7 +980,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks38
 \@floatcapt=\box78
 )
-Package scrhack Info: loading float hack on input line 74.
+Package scrhack Info: loading float hack on input line 75.
 (/home/strati/.local/texlive/2022/texmf-dist/tex/latex/koma-script/float.hak
 File: float.hak 2022/07/04 v3.37 KOMA-Script scrhack part (hacking package float)
 Package scrhack Info: redefining \newfloat on input line 163.
@@ -1367,7 +1388,7 @@ Package: blx-case-expl3 2022/07/12 v3.18b expl3 case changing code for biblatex
 ))
 Package scrhack Info: hyperref hack deactivated because of
 (scrhack)             detection of KOMA-Script class, that doesn't
-(scrhack)             need that hack, on input line 130.
+(scrhack)             need that hack, on input line 131.
 (/home/strati/.local/texlive/2022/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2022-09-22 v7.00t Hypertext links for LaTeX
 (/home/strati/.local/texlive/2022/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
@@ -1578,8 +1599,8 @@ Package biblatex Info: Automatic encoding selection.
 
 \openout4 = main.bcf
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' found.
-(./build/main.bbl)
+Package biblatex Info: ... file 'main.bbl' not found.
+No file main.bbl.
 Package biblatex Info: Reference section=0 on input line 10.
 Package biblatex Info: Reference segment=0 on input line 10.
 Package hyperref Info: Link coloring OFF on input line 10.
@@ -1607,7 +1628,12 @@ LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 ) (/home/strati/.local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) [1
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `texgyrepagella-math.otf' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+[1
 
 {/home/strati/.local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Package tocbasic Info: character protrusion at toc deactivated on input line 19.
@@ -1618,28 +1644,46 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 19.
 [1
 
 ] (./content/zielsetzung.tex) (./content/theorie.tex
-<data/potential.png, id=44, 231.86626pt x 107.65219pt>
+<data/potential.png, id=24, 231.86626pt x 107.65219pt>
 File: data/potential.png Graphic file (type png)
 <use data/potential.png>
 Package luatex.def Info: data/potential.png  used on input line 25.
 (luatex.def)             Requested size: 209.12778pt x 97.09631pt.
+
+LaTeX Warning: Citation 'elektron' on page 2 undefined on input line 26.
+
+
+LaTeX Warning: Citation 'elektron' on page 2 undefined on input line 26.
+
 [2<./data/potential.png>]
-<data/fermi.png, id=58, 358.33875pt x 207.77625pt>
+
+LaTeX Warning: Reference `fig:fermi' on page 3 undefined on input line 43.
+
+<data/fermi.png, id=38, 358.33875pt x 207.77625pt>
 File: data/fermi.png Graphic file (type png)
 <use data/fermi.png>
 Package luatex.def Info: data/fermi.png  used on input line 47.
 (luatex.def)             Requested size: 209.12778pt x 121.26167pt.
+
+LaTeX Warning: Citation 'elektron' on page 3 undefined on input line 48.
+
+
+LaTeX Warning: Citation 'elektron' on page 3 undefined on input line 48.
+
+
+LaTeX Warning: Reference `eqn:naehrung' on page 3 undefined on input line 63.
+
 ! Undefined control sequence.
 l.66     j_S(T) = 4\sumup
                        {\pi} \frac{e_0\cdot m_0 \cdot \symup{k}^2}{h^3} \sym...
 
 Here is how much of LuaTeX's memory you used:
- 65763 strings out of 477352
+ 65750 strings out of 477352
  100000,3417909 words of node,token memory allocated
- 19229 words of node memory still in use:
-   92 hlist, 7 vlist, 11 rule, 209 disc, 9 local_par, 2 dir, 25 math, 299 glue, 127 kern, 50 penalty, 1 choice, 15 noad, 7 math_char, 4 sub_box, 5 sub_mlist, 10 margin_kern, 1586 glyph, 292 attribute, 79 glue_spec, 148 attribute_list, 1 temp, 6 write, 3 pdf_start_link, 3 pdf_end_link, 8 pdf_dest, 3 pdf_action, 6 pdf_colorstack, 1 pdf_setmatrix, 1 pdf_save, 1 pdf_restore nodes
-   avail lists: 1:2,2:135,3:68,4:61,5:203,6:18,7:3131,8:10,9:47,10:22,11:390,12:1
- 85150 multiletter control sequences out of 65536+600000
- 67 fonts using 20346519 bytes
- 114i,8n,118p,10617b,2453s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 19020 words of node memory still in use:
+   93 hlist, 7 vlist, 11 rule, 207 disc, 9 local_par, 2 dir, 25 math, 298 glue, 125 kern, 48 penalty, 1 choice, 15 noad, 7 math_char, 4 sub_box, 5 sub_mlist, 10 margin_kern, 1574 glyph, 286 attribute, 75 glue_spec, 145 attribute_list, 1 temp, 6 write, 8 pdf_dest, 6 pdf_colorstack, 1 pdf_setmatrix, 1 pdf_save, 1 pdf_restore nodes
+   avail lists: 1:3,3:49,4:47,5:205,6:14,7:3161,8:13,9:48,10:22,11:394,12:1
+ 85145 multiletter control sequences out of 65536+600000
+ 76 fonts using 26467839 bytes
+ 114i,8n,118p,10617b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!
