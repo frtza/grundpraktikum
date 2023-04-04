@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.10.2)  4 APR 2023 09:21
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.10.2)  4 APR 2023 14:25
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1599,8 +1599,8 @@ Package biblatex Info: Automatic encoding selection.
 
 \openout4 = main.bcf
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' not found.
-No file main.bbl.
+Package biblatex Info: ... file 'main.bbl' found.
+(./build/main.bbl)
 Package biblatex Info: Reference section=0 on input line 10.
 Package biblatex Info: Reference segment=0 on input line 10.
 Package hyperref Info: Link coloring OFF on input line 10.
@@ -1644,46 +1644,62 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 19.
 [1
 
 ] (./content/zielsetzung.tex) (./content/theorie.tex
-<data/potential.png, id=24, 231.86626pt x 107.65219pt>
+<data/potential.png, id=50, 231.86626pt x 107.65219pt>
 File: data/potential.png Graphic file (type png)
 <use data/potential.png>
 Package luatex.def Info: data/potential.png  used on input line 25.
 (luatex.def)             Requested size: 209.12778pt x 97.09631pt.
-
-LaTeX Warning: Citation 'elektron' on page 2 undefined on input line 26.
-
-
-LaTeX Warning: Citation 'elektron' on page 2 undefined on input line 26.
-
 [2<./data/potential.png>]
-
-LaTeX Warning: Reference `fig:fermi' on page 3 undefined on input line 43.
-
-<data/fermi.png, id=38, 358.33875pt x 207.77625pt>
+<data/fermi.png, id=64, 358.33875pt x 207.77625pt>
 File: data/fermi.png Graphic file (type png)
 <use data/fermi.png>
 Package luatex.def Info: data/fermi.png  used on input line 47.
 (luatex.def)             Requested size: 209.12778pt x 121.26167pt.
+[3<./data/fermi.png>]
+<data/diode.png, id=80, 275.52937pt x 145.29282pt>
+File: data/diode.png Graphic file (type png)
+<use data/diode.png>
+Package luatex.def Info: data/diode.png  used on input line 79.
+(luatex.def)             Requested size: 209.12778pt x 110.28178pt.
+[4<./data/diode.png>]
+<data/raumladung.png, id=98, 715.92468pt x 291.33844pt>
+File: data/raumladung.png Graphic file (type png)
+<use data/raumladung.png>
+Package luatex.def Info: data/raumladung.png  used on input line 120.
+(luatex.def)             Requested size: 209.12778pt x 85.09946pt.
+LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
+(Font)              scaled to size 5.00053pt on input line 122.
+LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 122.
+<data/anlauf.png, id=103, 473.51906pt x 248.42813pt>
+File: data/anlauf.png Graphic file (type png)
+<use data/anlauf.png>
+Package luatex.def Info: data/anlauf.png  used on input line 141.
+(luatex.def)             Requested size: 209.12778pt x 109.71431pt.
+) (./content/durchfuehrung.tex) (./content/auswertung.tex) (./content/diskussion.tex) [5<./data/raumladung.png><./data/anlauf.png>] [6] (./content/anhang.tex) [7] (./build/main.aux)
+Package rerunfilecheck Info: File `main.aux' has not changed.
+(rerunfilecheck)             Checksum: 0EF94F3721D58E68D4A051C32615A054;11938.
+Package rerunfilecheck Info: File `main.toc' has not changed.
+(rerunfilecheck)             Checksum: 0886D4A4ABE7B6E38B03E06ED31A3DA1;1131.
+Package logreq Info: Writing requests to 'main.run.xml'.
 
-LaTeX Warning: Citation 'elektron' on page 3 undefined on input line 48.
-
-
-LaTeX Warning: Citation 'elektron' on page 3 undefined on input line 48.
-
-
-LaTeX Warning: Reference `eqn:naehrung' on page 3 undefined on input line 63.
-
-! Undefined control sequence.
-l.66     j_S(T) = 4\sumup
-                       {\pi} \frac{e_0\cdot m_0 \cdot \symup{k}^2}{h^3} \sym...
+\openout1 = main.run.xml
+)
 
 Here is how much of LuaTeX's memory you used:
- 65750 strings out of 477352
+ 65940 strings out of 477352
  100000,3417909 words of node,token memory allocated
- 19020 words of node memory still in use:
-   93 hlist, 7 vlist, 11 rule, 207 disc, 9 local_par, 2 dir, 25 math, 298 glue, 125 kern, 48 penalty, 1 choice, 15 noad, 7 math_char, 4 sub_box, 5 sub_mlist, 10 margin_kern, 1574 glyph, 286 attribute, 75 glue_spec, 145 attribute_list, 1 temp, 6 write, 8 pdf_dest, 6 pdf_colorstack, 1 pdf_setmatrix, 1 pdf_save, 1 pdf_restore nodes
-   avail lists: 1:3,3:49,4:47,5:205,6:14,7:3161,8:13,9:48,10:22,11:394,12:1
- 85145 multiletter control sequences out of 65536+600000
- 76 fonts using 26467839 bytes
+ 772 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 5 glue, 4 kern, 1 glyph, 40 attribute, 83 glue_spec, 22 attribute_list, 2 write nodes
+   avail lists: 1:3,2:699,3:192,4:90,5:359,6:39,7:5035,8:49,9:292,10:22,11:599,12:1
+ 85239 multiletter control sequences out of 65536+600000
+ 86 fonts using 30036371 bytes
  114i,8n,118p,10617b,2933s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+</home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></home/strati/.local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf>
+Output written on main.pdf (8 pages, 198746 bytes).
+
+PDF statistics: 225 PDF objects out of 1000 (max. 8388607)
+ 171 compressed objects within 2 object streams
+ 37 named destinations out of 1000 (max. 131072)
+ 112 words of extra memory for PDF output out of 10000 (max. 100000000)
+

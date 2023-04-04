@@ -1,0 +1,14 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {section}{\numberline {1}Zielsetzung}{2}{section.1}%
+\contentsline {section}{\numberline {2}Theorie}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Begriffe der Austrittsarbeit und die Energieverteilung der Leitungselektronen}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Berechnung der Sättigungsstromdichte bei der thermischen Elektonenemission}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Die Hochvakuum-Diode}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Die Langmuir-Schottkysche Raumladungsgleichung}{4}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Das Anlaufstromgebite einer Hochvakuum-Diode}{5}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Durchführung}{6}{section.3}%
+\contentsline {section}{\numberline {4}Auswertung}{6}{section.4}%
+\contentsline {section}{\numberline {5}Diskussion}{6}{section.5}%
+\contentsline {section}{\nonumberline Literatur}{6}{section*.8}%
+\contentsline {section}{Anhang}{7}{section*.9}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

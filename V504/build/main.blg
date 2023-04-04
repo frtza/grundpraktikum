@@ -1,5 +1,15 @@
 [0] Config.pm:306> INFO - This is Biber 2.18
-[0] Config.pm:309> INFO - Logfile is 'build/main.blg'
-[48] biber:340> INFO - === Di Apr  4, 2023, 09:21:52
-[66] Utils.pm:410> ERROR - build/main.bcf is malformed, last biblatex run probably failed. Deleted build/main.bbl
-[66] Biber.pm:135> INFO - ERRORS: 1
+[1] Config.pm:309> INFO - Logfile is 'build/main.blg'
+[110] biber:340> INFO - === Di Apr  4, 2023, 14:24:39
+[140] Biber.pm:418> INFO - Reading 'build/main.bcf'
+[262] Biber.pm:978> INFO - Found 1 citekeys in bib section 0
+[283] Biber.pm:4401> INFO - Processing section 0
+[298] Biber.pm:4592> INFO - Looking for bibtex file 'lit.bib' for section 0
+[593] bibtex.pm:1713> INFO - LaTeX decoding ...
+[630] bibtex.pm:1518> INFO - Found BibTeX data source '../lit.bib'
+[706] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[707] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[708] Biber.pm:4221> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[708] Biber.pm:4227> INFO - No sort tailoring available for locale 'de-DE'
+[711] bbl.pm:654> INFO - Writing 'build/main.bbl' with encoding 'UTF-8'
+[712] bbl.pm:757> INFO - Output to build/main.bbl
