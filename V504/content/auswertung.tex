@@ -19,8 +19,8 @@ als zusätzlicher Freiheitsgrad dient. Zur Modellierung des Sättigungsstroms wi
 	I = u + \frac{v}{U^w}
 	\label{eqn:fit_2}
 \end{equation}
-mit deren Asymptote $u$ herangezogen, wobei $v < 0$ und $w > 0$ gilt. Die Parameter der passenden Ausgleichrechnungen lassen sich mittels
-\verb+scipy.optimize.curve_fit+~\cite{scipy} bestimmen, wobei die Streuung über die Quadratwurzel der Diagonalelemente der
+mit deren Asymptote $u$ genutzt, wobei $v < 0$ und $w > 0$ gilt. Die Parameter der passenden Ausgleichrechnungen lassen sich mittels
+\verb+scipy.optimize.curve_fit+ bestimmen, wobei die Streuung über die Quadratwurzel der Diagonalelemente der
 Kovarianzmatrix gegeben ist. Zur grafischen Darstellung von Messdaten und Regression wird Matplotlib~\cite{matplotlib} verwendet,
 die Bibliothek Uncertainties~\cite{uncertainties} erlaubt eine automatisierte Fehlerfortpflanzung.
 
@@ -99,9 +99,9 @@ Die Messwerte für den Anlaufstrom werden in Tabelle \ref{tab:table_2} aufgetrag
 \end{table}
 
 Zur Ausgleichsrechnung muss die Anodenspannung zunächst um den Einfluss des Innenwiderstands $R = \qty{1}{\mega\ohm}$ im
-Nanoamperemeter bereinigt werden, es ist also $\hat U_{-A} = U_{-A} - RI_A$ zu berücksichtigen. Da die Korrektur $-RI_A$ jedoch
-geringer als die Genauigkeit der initialen Spannungsmessung am Konstantspannunsgerät ausfällt, kann dieser Schritt für das weitere
-Vorgehen vernachlässigt werden.
+Nanoamperemeter bereinigt werden, es ist also $\hat U_{-A} = U_{-A} - RI_A$ zu berücksichtigen. Da die Korrektur jedoch
+geringer als die Genauigkeit der initialen Messung am Konstantspannunsgerät ausfällt, kann dieser Schritt für das
+weitere Vorgehen vernachlässigt werden.
 
 \begin{figure}[H]
 	\includegraphics{build/plot_4.pdf}
@@ -140,14 +140,34 @@ aus dem Energiesatz, womit über
 \begin{equation*}
 	T = \left( \frac{I_H U_H - N_{WL}}{f \eta \sigma} \right)^{\!\! 1/4}
 \end{equation*}
-die Kathodentemperatur in Tabelle \ref{tab:table_3} bestimmt werden kann.
+die Kathodentemperatur in Tabelle \ref{tab:table_3} bestimmt werden kann. Weiter lässt sich durch Umstellen der
+Richardson-Gleichung~\eqref{eqn:richard} nach $e_0 \phi$ die Austrittsarbeit
+\begin{equation*}
+	W = e_0 \phi = -kT \, \ln \!\left( \frac{j_S h^3}{4\pi e_0 m_0 k^2 T^2} \right)
+	= -kT \, \ln \!\left( \frac{I_S h^3}{4\pi e_0 m_0 f k^2 T^2} \right)
+\end{equation*}
+berechnen. Dabei ist $h = \qty{6.626e-34}{\joule\second}$ die Planck-Konstante,
+\begin{equation*}
+	j_S = \frac{I_S}{f}
+\end{equation*}
+drückt die Sättigungsstromdichte durch den Sättigungsstrom aus. Die Ergebnisse sind ebenfalls in Tabelle \ref{tab:table_3} eingetragen.
+
 \begin{table}[H]
-	\caption{Temperatur der Kathode in der Hochvakuumdiode mit zugehörigem Heizstrom $I_H$ und passender Heizspannung $U_H$.}
+	\caption{Die Temperatur $T$ der Kathode in der Hochvakuumdiode wird aus dem zugehörigem Heizstrom $I_H$ und der passenden
+			 Heizspannung $U_H$ berechnet. Mit dem entsprechenden Sättigungsstrom $I_S$ ergibt sich die Austrittsarbeit~$W$ für
+			 das verwendete Kathodenmaterial Wolfram.}
 	\centering
 	\input{build/table_3.tex}
 	\label{tab:table_3}
 \end{table}
 
-
-
+Um Fehlereinflüsse zu kompensieren wird für die Austrittsarbeit der nach der inversen Varianz gewichtete Mittelwert
+\begin{equation*}
+	x_w = \frac{\sum_i w_i x_i}{\sum_i w_i} = \frac{\sum_i x_i / \sigma_i^2}{\sum_i 1/\sigma_i^2}
+\end{equation*}
+mit der dazugehörigen Abweichung
+\begin{equation*}
+	\increment x_w = \sqrt{\frac{1}{\sum_i w_i}} = \sqrt{\frac{1}{\sum_i 1/\sigma_i^2}}
+\end{equation*}
+aufgestellt. Dieser ist schließlich mit $W = \input{build/W.tex}$ gegeben.
 

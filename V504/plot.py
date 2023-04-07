@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.constants as const
 from scipy.optimize import curve_fit
+import uncertainties.unumpy as unp
+from uncertainties.unumpy import nominal_values as noms, std_devs as stds
 from uncertainties import ufloat
 
 # read columns of data from txt file
@@ -21,6 +23,7 @@ eps_0 = const.epsilon_0
 e_0 = const.e
 m_0 = const.m_e
 k_B = const.k
+h_0 = const.h
 
 # functions for nonlinear regression
 def anlauf(x, p, q):
@@ -155,22 +158,39 @@ with open('build/table_2.tex', 'w') as f:
 	f.write(table_footer)
 
 N_WL = 1.0
-I_H = np.array([2.0, 2.2, 2.4, 2.5])
-U_H = np.array([3.5, 4.5, 5.0, 5.5])
+I_H = np.array([2.0, 2.2, 2.4])
+U_H = np.array([3.5, 4.5, 5.0])
+T_H = ((I_H*U_H - N_WL)/(0.32*0.28*5.7e-12))**(1/4)
+I_S = unp.uarray([par_12[0], par_22[0], par_32[0]], [err_12[0], err_22[0], err_32[0]]) * 1e-3
+W_J = -k_B * T_H * unp.log((I_S * h_0**3)/(4*np.pi * e_0 * m_0 * 0.000032 * k_B**2 * T_H**2))
+W_eV = W_J / e_0
+W_w = ufloat(sum(noms(W_eV)/(stds(W_eV)**2))/sum(1/(stds(W_eV)**2)), np.sqrt(1/sum(1/(stds(W_eV)**2))))
 table_header = r'''	\begin{tabular}
 		{S[table-format=1.1]
 		 S[table-format=1.1]
-		 S[table-format=4.0]}
+		 S[table-format=4.0]
+		 S[table-format=1.3]
+		 @{${}\pm{}$}
+		 S[table-format=1.3]
+		 S[table-format=3.1]
+		 @{${}\pm{}$}
+		 S[table-format=1.1, table-number-alignment=left]
+		 S[table-format=1.3]
+		 @{${}\pm{}$}
+		 S[table-format=1.3]}
 		\toprule
 		{$I_H \mathbin{/} \unit{\ampere}$} &
 		{$U_H \mathbin{/} \unit{\volt}$} &
-		{$T \mathbin{/} \unit{\kelvin}$} \\
+		{$T \mathbin{/} \unit{\kelvin}$} &
+		\multicolumn{2}{c}{$I_S \mathbin{/} \unit{\milli\ampere}$} &
+		\multicolumn{2}{c}{$W \mathbin{/} \qty{e-21}{\joule}$} &
+		\multicolumn{2}{c}{$W \mathbin{/} \unit{\electronvolt}$} \\
 		\midrule
 '''
-row_template = r'		{0:1.1f} & {1:1.1f} & {2:4.0f} \\'
+row_template = r'		{0:1.1f} & {1:1.1f} & {2:4.0f} & {3:1.3f} & {4:1.3f} & {5:3.1f} & {6:1.1f} & {7:1.3f} & {8:1.3f} \\'
 with open('build/table_3.tex', 'w') as f:
 	f.write(table_header)
-	for row in zip(I_H, U_H, ((I_H*U_H - N_WL)/(0.32*0.28*5.7e-12))**(1/4)):
+	for row in zip(I_H, U_H, T_H, noms(I_S) * 1e3, stds(I_S) * 1e3, noms(W_J) * 1e21, stds(W_J) * 1e21, noms(W_eV), stds(W_eV)):
 		f.write(row_template.format(*row))
 		f.write('\n')
 	f.write(table_footer)
@@ -258,4 +278,9 @@ with open('build/T.tex', 'w') as f:
 	f.write(r'\qty[per-mode=reciprocal]{')
 	f.write(f'{(-e_0/(k_B*w)).n:.0f}({(-e_0/(k_B*w)).s:.0f})')
 	f.write(r'}{\kelvin}')
+
+with open('build/W.tex', 'w') as f:
+	f.write(r'\qty[per-mode=reciprocal]{')
+	f.write(f'{W_w.n:.3f}({W_w.s:.3f})')
+	f.write(r'}{\electronvolt}')
 
