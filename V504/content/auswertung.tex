@@ -35,7 +35,7 @@ die Bibliothek Uncertainties~\cite{uncertainties} erlaubt eine automatisierte Fe
 
 \begin{figure}[H]
 	\includegraphics{build/plot_1.pdf}
-	\caption{Messwerte und Regressionskurven für $I_H = \qty{2.0}{\ampere}$ und $U_H = \qty{3.5}{\volt}$.}
+	\caption{Messwerte und Regressionskurven der Kennlinie für $I_H = \qty{2.0}{\ampere}$ und $U_H = \qty{3.5}{\volt}$.}
 	\label{fig:plot_1}
 \end{figure}
 
@@ -52,7 +52,7 @@ und liefern einen Sättigungsstrom von $I_S = u = \input{build/u_1.tex}$.
 
 \begin{figure}[H]
 	\includegraphics{build/plot_2.pdf}
-	\caption{Messwerte und Regressionskurven für $I_H = \qty{2.2}{\ampere}$ und $U_H = \qty{4.5}{\volt}$.}
+	\caption{Messwerte und Regressionskurven der Kennlinie für $I_H = \qty{2.2}{\ampere}$ und $U_H = \qty{4.5}{\volt}$.}
 	\label{fig:plot_2}
 \end{figure}
 
@@ -69,7 +69,7 @@ und liefern einen Sättigungsstrom von $I_S = u = \input{build/u_2.tex}$.
 
 \begin{figure}[H]
 	\includegraphics{build/plot_3.pdf}
-	\caption{Messwerte und Regressionskurven für $I_H = \qty{2.4}{\ampere}$ und $U_H = \qty{5.0}{\volt}$.}
+	\caption{Messwerte und Regressionskurven der Kennlinie für $I_H = \qty{2.4}{\ampere}$ und $U_H = \qty{5.0}{\volt}$.}
 	\label{fig:plot_3}
 \end{figure}
 
@@ -84,7 +84,10 @@ als Parameter nach \eqref{eqn:fit_1}. Weiter folgen aus \eqref{eqn:fit_2}
 \end{align*}
 und liefern einen Sättigungsstrom von $I_S = u = \input{build/u_3.tex}$. 
 
+\newpage
 \subsection{Kathodentemperatur unter maximaler Heizleistung}
+
+Die Messwerte für den Anlaufstrom werden in Tabelle \ref{tab:table_2} aufgetragen. 
 
 \begin{table}[H]
 	\caption{Anodenstrom $I_A$ zur Gegenfeldspannung $U_{-A}$ an der Anode der Hochvakuumdiode bei maximaler Heizleistung mit
@@ -95,22 +98,32 @@ und liefern einen Sättigungsstrom von $I_S = u = \input{build/u_3.tex}$.
 	\label{tab:table_2}
 \end{table}
 
+Zur Ausgleichsrechnung muss die Anodenspannung zunächst um den Einfluss des Innenwiderstands $R = \qty{1}{\mega\ohm}$ im
+Nanoamperemeter bereinigt werden, es ist also $\hat U_{-A} = U_{-A} - RI_A$ zu berücksichtigen. Da die Korrektur $-RI_A$ jedoch
+geringer als die Genauigkeit der initialen Spannungsmessung am Konstantspannunsgerät ausfällt, kann dieser Schritt für das weitere
+Vorgehen vernachlässigt werden.
+
 \begin{figure}[H]
 	\includegraphics{build/plot_4.pdf}
-	\caption{}
+	\caption{Messwerte und Regressionskurve für den Anlaufstrom bei $I_H = \qty{2.5}{\ampere}$ und $U_H = \qty{5.5}{\volt}$. Es gilt
+			 $U_A = -U_{-A}$ für Saug- und Gegenspannung.}
 	\label{fig:plot_4}
 \end{figure}
 
+Wie zuvor wird mittels SciPy \cite{scipy} eine Regressionsrechnung durchgeführt. Dazu dient
 \begin{equation*}
-	I = p \exp(qU)
+	I = p \exp(q U_{-A})
 \end{equation*}
-
+als Modell, entlang dem die Daten verlaufen. Es ergeben sich
 \begin{align*}
 	p = \input{build/p.tex} && q = \input{q.tex}
 \end{align*}
+als fehlerbehaftete Koeffizienten. Nach \eqref{eqn:anlauf_exp} ist dann $q = -\frac{e_0}{kT}$, sodass
 \begin{equation*}
-	T = \input{build/T.tex}
+	T = -\frac{e_0}{qk} = \input{build/T.tex}
 \end{equation*}
+die Temperatur der Kathode bemisst, wobei Elementarladung $e_0 = \qty{1.6e-19}{\coulomb}$ und Boltzmann-Konstante
+$k = \qty{1.38e-23}{\joule\per\kelvin}$ aus der Datenbank \verb+scipy.constants+ entnommen werden.
 
 \subsection{Austrittsarbeit des Kathodenmaterials}
 
