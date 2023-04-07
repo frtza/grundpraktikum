@@ -127,3 +127,27 @@ $k = \qty{1.38e-23}{\joule\per\kelvin}$ aus der Datenbank \verb+scipy.constants+
 
 \subsection{Austrittsarbeit des Kathodenmaterials}
 
+Aus einer Leistungsbilanz des Heizstromfadens lässt sich die Kathodentemperatur errechnen. Die zugeführte Leistung
+$N_Z = I_H U_H$ wird von der Apparatur über Wärmeleitung mit $N_{WL} \approx \qty{1}{\watt}$ und nach dem
+Stefan-Boltzmannschen Gesetz über Wärmestrahlung mit $N_{WS} = f \eta \sigma T^4$ abgegeben, wobei
+$\sigma = \qty{5.7e-12}{\watt\per\square\centi\meter\kelvin\tothe{-4}}$ die Stefan-Boltzmannsche
+Strahlungskonstante bezeichnet. Apparatspezifisch ist mit $f = \qty{0.32}{\centi\meter\squared}$ die Oberfläche und mit
+$\eta = \num{0.28}$ der Emissionsgrad der Kathode gegeben. Damit folgt
+\begin{equation*}
+	N_Z = I_H U_H = f \eta \sigma T^4 + N_{WL} = N_{WS} + N_{WL}
+\end{equation*}
+aus dem Energiesatz, womit über
+\begin{equation*}
+	T = \left( \frac{I_H U_H - N_{WL}}{f \eta \sigma} \right)^{\!\! 1/4}
+\end{equation*}
+die Kathodentemperatur in Tabelle \ref{tab:table_3} bestimmt werden kann.
+\begin{table}[H]
+	\caption{Temperatur der Kathode in der Hochvakuumdiode mit zugehörigem Heizstrom $I_H$ und passender Heizspannung $U_H$.}
+	\centering
+	\input{build/table_3.tex}
+	\label{tab:table_3}
+\end{table}
+
+
+
+

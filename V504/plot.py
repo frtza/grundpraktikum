@@ -154,6 +154,27 @@ with open('build/table_2.tex', 'w') as f:
 		f.write('\n')
 	f.write(table_footer)
 
+N_WL = 1.0
+I_H = np.array([2.0, 2.2, 2.4, 2.5])
+U_H = np.array([3.5, 4.5, 5.0, 5.5])
+table_header = r'''	\begin{tabular}
+		{S[table-format=1.1]
+		 S[table-format=1.1]
+		 S[table-format=4.0]}
+		\toprule
+		{$I_H \mathbin{/} \unit{\ampere}$} &
+		{$U_H \mathbin{/} \unit{\volt}$} &
+		{$T \mathbin{/} \unit{\kelvin}$} \\
+		\midrule
+'''
+row_template = r'		{0:1.1f} & {1:1.1f} & {2:4.0f} \\'
+with open('build/table_3.tex', 'w') as f:
+	f.write(table_header)
+	for row in zip(I_H, U_H, ((I_H*U_H - N_WL)/(0.32*0.28*5.7e-12))**(1/4)):
+		f.write(row_template.format(*row))
+		f.write('\n')
+	f.write(table_footer)
+
 # format and export calculated values to build directory
 with open('build/a_1.tex', 'w') as f:
 	f.write(r'\num{')
