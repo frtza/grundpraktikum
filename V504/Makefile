@@ -23,7 +23,7 @@ build/main.pdf: FORCE | build
 	main.tex
 	cp build/main.pdf .
 
-build/only.pdf: FORCE | build
+only: FORCE | build
 	# find header file in main directory
 	# find bib file in main directory
 	TEXINPUTS=..: \

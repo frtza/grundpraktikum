@@ -3,61 +3,97 @@
 \section{Auswertung}
 \label{sec:auswertung}
 
-\subsection{Kennlinien}
+\subsection{Sättigungsstrom und Gültigkeit des Raumladungsgesetzes}
 
-\begin{table}
-	\caption{}
+Wie beschrieben wird die in Tabelle \ref{tab:table_1} nachgehaltene Kennlinienschar aufgenommen. Anhand dieser Daten
+wird der Wendepunkt als Übergang vom Raumladungs- zum Sättigungsstrombereich abgeschätzt. Die so aufgeteilten Messwerte, deren
+Schnittmenge nur noch diesen approximierten Wendepunkt enthält, werden weiter separat unter Python~\cite{python} ausgewertet. Zur
+Untersuchung des Exponenten $b$ der Strom-Spannungs-Beziehung bietet sich eine Funktion der Form
+\begin{equation}
+    I = a \frac{4}{9} \xi_0 \sqrt{2 e_0/m_0} U^b ,
+	\label{eqn:fit_1}
+\end{equation}
+nach dem Langmuir-Schottkyschen Raumladungsgesetz~\eqref{eqn:langmuir} an, wobei der hier dimensionslose Skalierungsfaktor $a$
+als zusätzlicher Freiheitsgrad dient. Zur Modellierung des Sättigungsstroms dient eine Beziehung
+\begin{equation}
+	I = u + \frac{v}{U^w}
+	\label{eqn:fit_2}
+\end{equation}
+mit deren Asymptote $u$, wobei $v < 0$ und $w > 0$ gilt. Die Parameter der passenden Ausgleichrechnungen lassen sich mittels
+\verb+scipy.optimize.curve_fit+~\cite{scipy} bestimmen, wobei die Streuung über die Quadratwurzel der Diagonalelemente der
+Kovarianzmatrix gegeben ist. Zur grafischen Darstellung von Messdaten und Regression wird Matplotlib~\cite{matplotlib} verwendet,
+die Bibliothek Uncertainties~\cite{uncertainties} erlaubt eine automatisierte Fehlerfortpflanzung.
+
+\begin{table}[H]
+	\caption{Anodenstrom $I_A$ einer Hochvakuumdiode bei entsprechender Saugspannung $U_A$ unter Variation von
+			 Heizstrom $I_H$ und -spannung $U_H$ an der Glühkathode. Hervorgehobene Werte stammen aus nachträglicher
+			 Messung zur genaueren Untersuchung des Raumladungsstromgebiets.}
 	\centering
 	\input{build/table_1.tex}
 	\label{tab:table_1}
 \end{table}
 
-\begin{equation*}
-    I = a \frac{4}{9} \xi_0 \sqrt{2 e_0/m_0} U^b ,
-\end{equation*}
-
-\begin{equation*}
-	I = u + \frac{v}{U^w}
-\end{equation*}
-
 \begin{figure}[H]
 	\includegraphics{build/plot_1.pdf}
-	\caption{}
+	\caption{Messwerte und Regressionskurven für $I_H = \qty{2.0}{\ampere}$ und $U_H = \qty{3.5}{\volt}$.}
 	\label{fig:plot_1}
 \end{figure}
 
+Der Wendepunkt lässt sich grob bei $U_A = \qty{20}{\volt}$ einordnen. Für den Gültigkeitsbereich des Raumladungsgesetzes
+ergeben sich damit
 \begin{align*}
 	a = \input{build/a_1.tex} && b = \input{b_1.tex}
 \end{align*}
+als Parameter nach \eqref{eqn:fit_1}. Weiter folgen aus \eqref{eqn:fit_2}
 \begin{align*}
 	u = \input{build/u_1.tex} && v = \input{v_1.tex} && w = \input{build/w_1.tex}
 \end{align*}
+und liefern einen Sättigungsstrom von $I_S = u = \input{build/u_1.tex}$. 
 
 \begin{figure}[H]
 	\includegraphics{build/plot_2.pdf}
-	\caption{}
+	\caption{Messwerte und Regressionskurven für $I_H = \qty{2.2}{\ampere}$ und $U_H = \qty{4.5}{\volt}$.}
 	\label{fig:plot_2}
 \end{figure}
 
+Der Wendepunkt lässt sich grob bei $U_A = \qty{50}{\volt}$ einordnen. Für den Gültigkeitsbereich des Raumladungsgesetzes
+ergeben sich damit
 \begin{align*}
 	a = \input{build/a_2.tex} && b = \input{b_2.tex}
 \end{align*}
+als Parameter nach \eqref{eqn:fit_1}. Weiter folgen aus \eqref{eqn:fit_2}
 \begin{align*}
 	u = \input{build/u_2.tex} && v = \input{v_2.tex} && w = \input{build/w_2.tex}
 \end{align*}
+und liefern einen Sättigungsstrom von $I_S = u = \input{build/u_2.tex}$. 
 
 \begin{figure}[H]
 	\includegraphics{build/plot_3.pdf}
-	\caption{}
+	\caption{Messwerte und Regressionskurven für $I_H = \qty{2.4}{\ampere}$ und $U_H = \qty{5.0}{\volt}$.}
 	\label{fig:plot_3}
 \end{figure}
 
+Der Wendepunkt lässt sich grob bei $U_A = \qty{100}{\volt}$ einordnen. Für den Gültigkeitsbereich des Raumladungsgesetzes
+ergeben sich damit
 \begin{align*}
 	a = \input{build/a_3.tex} && b = \input{b_3.tex}
 \end{align*}
+als Parameter nach \eqref{eqn:fit_1}. Weiter folgen aus \eqref{eqn:fit_2}
 \begin{align*}
 	u = \input{build/u_3.tex} && v = \input{v_3.tex} && w = \input{build/w_3.tex}
 \end{align*}
+und liefern einen Sättigungsstrom von $I_S = u = \input{build/u_3.tex}$. 
+
+\subsection{Kathodentemperatur unter maximaler Heizleistung}
+
+\begin{table}[H]
+	\caption{Anodenstrom $I_A$ zur Gegenfeldspannung $U_{-A}$ an der Anode der Hochvakuumdiode bei maximaler Heizleistung mit
+			 $I_H = \qty{2.5}{\ampere}$ und $U_H = \qty{5.5}{\volt}$. Hervorgehobene Werte werden wegen unzuverlässiger Anzeige
+			 für weitere Rechnungen ausgeschlossen.}
+	\centering
+	\input{build/table_2.tex}
+	\label{tab:table_2}
+\end{table}
 
 \begin{figure}[H]
 	\includegraphics{build/plot_4.pdf}
@@ -75,3 +111,6 @@
 \begin{equation*}
 	T = \input{build/T.tex}
 \end{equation*}
+
+\subsection{Austrittsarbeit des Kathodenmaterials}
+
