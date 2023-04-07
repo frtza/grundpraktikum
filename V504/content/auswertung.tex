@@ -14,12 +14,12 @@ Untersuchung des Exponenten $b$ der Strom-Spannungs-Beziehung bietet sich eine F
 	\label{eqn:fit_1}
 \end{equation}
 nach dem Langmuir-Schottkyschen Raumladungsgesetz~\eqref{eqn:langmuir} an, wobei der hier dimensionslose Skalierungsfaktor $a$
-als zusätzlicher Freiheitsgrad dient. Zur Modellierung des Sättigungsstroms dient eine Beziehung
+als zusätzlicher Freiheitsgrad dient. Zur Modellierung des Sättigungsstroms wird eine Beziehung
 \begin{equation}
 	I = u + \frac{v}{U^w}
 	\label{eqn:fit_2}
 \end{equation}
-mit deren Asymptote $u$, wobei $v < 0$ und $w > 0$ gilt. Die Parameter der passenden Ausgleichrechnungen lassen sich mittels
+mit deren Asymptote $u$ herangezogen, wobei $v < 0$ und $w > 0$ gilt. Die Parameter der passenden Ausgleichrechnungen lassen sich mittels
 \verb+scipy.optimize.curve_fit+~\cite{scipy} bestimmen, wobei die Streuung über die Quadratwurzel der Diagonalelemente der
 Kovarianzmatrix gegeben ist. Zur grafischen Darstellung von Messdaten und Regression wird Matplotlib~\cite{matplotlib} verwendet,
 die Bibliothek Uncertainties~\cite{uncertainties} erlaubt eine automatisierte Fehlerfortpflanzung.
