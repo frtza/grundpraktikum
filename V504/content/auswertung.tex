@@ -3,75 +3,171 @@
 \section{Auswertung}
 \label{sec:auswertung}
 
-\subsection{Kennlinien}
+\subsection{Sättigungsstrom und Gültigkeit des Raumladungsgesetzes}
 
-\begin{table}
-	\caption{}
+Wie beschrieben wird die in Tabelle \ref{tab:table_1} nachgehaltene Kennlinienschar aufgenommen. Anhand dieser Daten
+wird der Wendepunkt als Übergang vom Raumladungs- zum Sättigungsstrombereich abgeschätzt. Die so aufgeteilten Messwerte, deren
+Schnittmenge nur noch diesen approximierten Wendepunkt enthält, werden weiter separat unter Python~\cite{python} ausgewertet. Zur
+Untersuchung des Exponenten $b$ der Strom-Spannungs-Beziehung bietet sich eine Funktion der Form
+\begin{equation}
+    I = a \frac{4}{9} \xi_0 \sqrt{2 e_0/m_0} U^b ,
+	\label{eqn:fit_1}
+\end{equation}
+nach dem Langmuir-Schottkyschen Raumladungsgesetz~\eqref{eqn:langmuir} an, wobei der hier dimensionslose Skalierungsfaktor $a$
+als zusätzlicher Freiheitsgrad dient. Zur Modellierung des Sättigungsstroms wird eine Beziehung
+\begin{equation}
+	I = u + \frac{v}{U^w}
+	\label{eqn:fit_2}
+\end{equation}
+mit deren Asymptote $u$ genutzt, wobei $v < 0$ und $w > 0$ gilt. Die Parameter der passenden Ausgleichrechnungen lassen sich mittels
+\verb+scipy.optimize.curve_fit+ bestimmen, wobei die Streuung über die Quadratwurzel der Diagonalelemente der
+Kovarianzmatrix gegeben ist. Zur grafischen Darstellung von Messdaten und Regression wird Matplotlib~\cite{matplotlib} verwendet,
+die Bibliothek Uncertainties~\cite{uncertainties} erlaubt eine automatisierte Fehlerfortpflanzung.
+
+\begin{table}[H]
+	\caption{Anodenstrom $I_A$ einer Hochvakuumdiode bei entsprechender Saugspannung $U_A$ unter Variation von
+			 Heizstrom $I_H$ und -spannung $U_H$ an der Glühkathode. Hervorgehobene Werte stammen aus nachträglicher
+			 Messung zur genaueren Untersuchung des Raumladungsstromgebiets.}
 	\centering
 	\input{build/table_1.tex}
 	\label{tab:table_1}
 \end{table}
 
-\begin{equation*}
-    I = a \frac{4}{9} \xi_0 \sqrt{2 e_0/m_0} U^b ,
-\end{equation*}
-
-\begin{equation*}
-	I = u + \frac{v}{U^w}
-\end{equation*}
-
 \begin{figure}[H]
 	\includegraphics{build/plot_1.pdf}
-	\caption{}
+	\caption{Messwerte und Regressionskurven der Kennlinie für $I_H = \qty{2.0}{\ampere}$ und $U_H = \qty{3.5}{\volt}$.}
 	\label{fig:plot_1}
 \end{figure}
 
+Der Wendepunkt lässt sich grob bei $U_A = \qty{20}{\volt}$ einordnen. Für den Gültigkeitsbereich des Raumladungsgesetzes
+ergeben sich damit
 \begin{align*}
 	a = \input{build/a_1.tex} && b = \input{b_1.tex}
 \end{align*}
+als Parameter nach \eqref{eqn:fit_1}. Weiter folgen aus \eqref{eqn:fit_2}
 \begin{align*}
 	u = \input{build/u_1.tex} && v = \input{v_1.tex} && w = \input{build/w_1.tex}
 \end{align*}
+und liefern einen Sättigungsstrom von $I_S = u = \input{build/u_1.tex}$. 
 
 \begin{figure}[H]
 	\includegraphics{build/plot_2.pdf}
-	\caption{}
+	\caption{Messwerte und Regressionskurven der Kennlinie für $I_H = \qty{2.2}{\ampere}$ und $U_H = \qty{4.5}{\volt}$.}
 	\label{fig:plot_2}
 \end{figure}
 
+Der Wendepunkt lässt sich grob bei $U_A = \qty{50}{\volt}$ einordnen. Für den Gültigkeitsbereich des Raumladungsgesetzes
+ergeben sich damit
 \begin{align*}
 	a = \input{build/a_2.tex} && b = \input{b_2.tex}
 \end{align*}
+als Parameter nach \eqref{eqn:fit_1}. Weiter folgen aus \eqref{eqn:fit_2}
 \begin{align*}
 	u = \input{build/u_2.tex} && v = \input{v_2.tex} && w = \input{build/w_2.tex}
 \end{align*}
+und liefern einen Sättigungsstrom von $I_S = u = \input{build/u_2.tex}$. 
 
 \begin{figure}[H]
 	\includegraphics{build/plot_3.pdf}
-	\caption{}
+	\caption{Messwerte und Regressionskurven der Kennlinie für $I_H = \qty{2.4}{\ampere}$ und $U_H = \qty{5.0}{\volt}$.}
 	\label{fig:plot_3}
 \end{figure}
 
+Der Wendepunkt lässt sich grob bei $U_A = \qty{100}{\volt}$ einordnen. Für den Gültigkeitsbereich des Raumladungsgesetzes
+ergeben sich damit
 \begin{align*}
 	a = \input{build/a_3.tex} && b = \input{b_3.tex}
 \end{align*}
+als Parameter nach \eqref{eqn:fit_1}. Weiter folgen aus \eqref{eqn:fit_2}
 \begin{align*}
 	u = \input{build/u_3.tex} && v = \input{v_3.tex} && w = \input{build/w_3.tex}
 \end{align*}
+und liefern einen Sättigungsstrom von $I_S = u = \input{build/u_3.tex}$. 
+
+\newpage
+\subsection{Kathodentemperatur unter maximaler Heizleistung}
+
+Die Messwerte für den Anlaufstrom werden in Tabelle \ref{tab:table_2} aufgetragen. 
+
+\begin{table}[H]
+	\caption{Anodenstrom $I_A$ zur Gegenfeldspannung $U_{-A}$ an der Anode der Hochvakuumdiode bei maximaler Heizleistung mit
+			 $I_H = \qty{2.5}{\ampere}$ und $U_H = \qty{5.5}{\volt}$. Hervorgehobene Werte werden wegen unzuverlässiger Anzeige
+			 für weitere Rechnungen ausgeschlossen.}
+	\centering
+	\input{build/table_2.tex}
+	\label{tab:table_2}
+\end{table}
+
+Zur Ausgleichsrechnung muss die Anodenspannung zunächst um den Einfluss des Innenwiderstands $R = \qty{1}{\mega\ohm}$ im
+Nanoamperemeter bereinigt werden, es ist also $\hat U_{-A} = U_{-A} - RI_A$ zu berücksichtigen. Da die Korrektur jedoch
+geringer als die Genauigkeit der initialen Messung am Konstantspannunsgerät ausfällt, kann dieser Schritt für das
+weitere Vorgehen vernachlässigt werden.
 
 \begin{figure}[H]
 	\includegraphics{build/plot_4.pdf}
-	\caption{}
+	\caption{Messwerte und Regressionskurve für den Anlaufstrom bei $I_H = \qty{2.5}{\ampere}$ und $U_H = \qty{5.5}{\volt}$. Es gilt
+			 $U_A = -U_{-A}$ für Saug- und Gegenspannung.}
 	\label{fig:plot_4}
 \end{figure}
 
+Wie zuvor wird mittels SciPy \cite{scipy} eine Regressionsrechnung durchgeführt. Dazu dient
 \begin{equation*}
-	I = p \exp(qU)
+	I = p \exp(q U_{-A})
 \end{equation*}
-
+als Modell, entlang dem die Daten verlaufen. Es ergeben sich
 \begin{align*}
 	p = \input{build/p.tex} && q = \input{q.tex}
 \end{align*}
+als fehlerbehaftete Koeffizienten. Nach \eqref{eqn:anlauf_exp} ist dann $q = -\frac{e_0}{kT}$, sodass
 \begin{equation*}
-	T = \input{build/T.tex}
+	T = -\frac{e_0}{qk} = \input{build/T.tex}
 \end{equation*}
+die Temperatur der Kathode bemisst, wobei Elementarladung $e_0 = \qty{1.6e-19}{\coulomb}$ und Boltzmann-Konstante
+$k = \qty{1.38e-23}{\joule\per\kelvin}$ aus der Datenbank \verb+scipy.constants+ entnommen werden.
+
+\subsection{Austrittsarbeit des Kathodenmaterials}
+
+Aus einer Leistungsbilanz des Heizstromfadens lässt sich die Kathodentemperatur errechnen. Die zugeführte Leistung
+$N_Z = I_H U_H$ wird von der Apparatur über Wärmeleitung mit $N_{WL} \approx \qty{1}{\watt}$ und nach dem
+Stefan-Boltzmannschen Gesetz über Wärmestrahlung mit $N_{WS} = f \eta \sigma T^4$ abgegeben, wobei
+$\sigma = \qty{5.7e-12}{\watt\per\square\centi\meter\kelvin\tothe{-4}}$ die Stefan-Boltzmannsche
+Strahlungskonstante bezeichnet. Apparatspezifisch ist mit $f = \qty{0.32}{\centi\meter\squared}$ die Oberfläche und mit
+$\eta = \num{0.28}$ der Emissionsgrad der Kathode gegeben. Damit folgt
+\begin{equation*}
+	N_Z = I_H U_H = f \eta \sigma T^4 + N_{WL} = N_{WS} + N_{WL}
+\end{equation*}
+aus dem Energiesatz, womit über
+\begin{equation*}
+	T = \left( \frac{I_H U_H - N_{WL}}{f \eta \sigma} \right)^{\!\! 1/4}
+\end{equation*}
+die Kathodentemperatur in Tabelle \ref{tab:table_3} bestimmt werden kann. Weiter lässt sich durch Umstellen der
+Richardson-Gleichung~\eqref{eqn:richard} nach $e_0 \phi$ die Austrittsarbeit
+\begin{equation*}
+	W = e_0 \phi = -kT \, \ln \!\left( \frac{j_S h^3}{4\pi e_0 m_0 k^2 T^2} \right)
+	= -kT \, \ln \!\left( \frac{I_S h^3}{4\pi e_0 m_0 f k^2 T^2} \right)
+\end{equation*}
+berechnen. Dabei ist $h = \qty{6.626e-34}{\joule\second}$ die Planck-Konstante,
+\begin{equation*}
+	j_S = \frac{I_S}{f}
+\end{equation*}
+drückt die Sättigungsstromdichte durch den Sättigungsstrom aus. Die Ergebnisse sind ebenfalls in Tabelle \ref{tab:table_3} eingetragen.
+
+\begin{table}[H]
+	\caption{Die Temperatur $T$ der Kathode in der Hochvakuumdiode wird aus dem zugehörigem Heizstrom $I_H$ und der passenden
+			 Heizspannung $U_H$ berechnet. Mit dem entsprechenden Sättigungsstrom $I_S$ ergibt sich die Austrittsarbeit~$W$ für
+			 das verwendete Kathodenmaterial Wolfram.}
+	\centering
+	\input{build/table_3.tex}
+	\label{tab:table_3}
+\end{table}
+
+Um Fehlereinflüsse zu kompensieren wird für die Austrittsarbeit der nach der inversen Varianz gewichtete Mittelwert
+\begin{equation*}
+	x_w = \frac{\sum_i w_i x_i}{\sum_i w_i} = \frac{\sum_i x_i / \sigma_i^2}{\sum_i 1/\sigma_i^2}
+\end{equation*}
+mit der dazugehörigen Abweichung
+\begin{equation*}
+	\increment x_w = \sqrt{\frac{1}{\sum_i w_i}} = \sqrt{\frac{1}{\sum_i 1/\sigma_i^2}}
+\end{equation*}
+aufgestellt. Dieser ist schließlich mit $W = \input{build/W.tex}$ gegeben.
+
