@@ -3,3 +3,33 @@
 % Anhang: Kopie der analog eingetragenen Messdaten
 \section{Diskussion}
 \label{sec:diskussion}
+
+Die Kennlinien der Abbildungen \ref{fig:plot_1}, \ref{fig:plot_2} und \ref{fig:plot_3} zeigen eine hohe Übereinstimmung mit dem
+erwarteten Verlauf nach Abbildung~\ref{fig:kennlinie} auf. Im Gültigkeitsbereich des Langmuir-Schottkyschen
+Raumladungsgesetzes~\eqref{eqn:langmuir} ergeben sich dazu nach Ausgleichsrechnung mit steigender Heizleistung die Werte
+\input{build/b_1}, \input{build/b_2} und \input{build/b_3} für den Exponenten, der laut Vorhersage $b = 3/2$ erfüllt. Diese
+Resultate fallen damit zwar geringer als in der Theorie aus, lassen sich aber dennoch mit dieser vereinbaren: Es ist davon
+auszugehen, dass genauere Wahl des Übergangspunktes vom Raumladungs- zum Sättigungsstromgebiet die Regressionskurve
+steiler verlaufen lassen und den Exponenten so an \num{1.5} angleichen würde. Die gleiche Störquelle betrifft auch die
+berechneten Sättigungsströme $I_S$. Hinzu kommt weiter, dass das Modell \ref{eqn:fit_2} nicht auf konkreten physikalischen
+Zusammenhängen aufbaut, sondern ausschließlich zur Bestimmung der Asymptote dient. Trotzdem wird die Erwartung eindeutig erfüllt:
+Mit wachsendem Heizstrom steigt auch $I_S$ mit den \mbox{Werten \input{build/u_1.tex}, \input{build/u_2.tex} und \input{build/u_3.tex}
+stetig an.}
+
+Auch der exponentielle Zusammenhang des Anlaufstromgebietes in Abbildung \ref{fig:plot_4} folgt der Vorhersage. Die Messung des
+Anodenstroms gestaltet sich für größere Gegenfeldspannungen jedoch schwierig, da die Empfindlichkeit der Messapparatur so hoch
+eingestellt werden muss, dass das Signal vom Hintergrundrauschen verdeckt wird. Die daraus per nonlineare Regression errechnete
+Kathodentemperatur $T = \input{build/T.tex}$ liegt in der passenden Größenordnung, steht jedoch im Konflikt zu den Werten in
+Tabelle~\ref{tab:table_3}, die sich aus der Leistungsbilanz ergeben und für geringere Heizleistungen bereits höher ausfallen.
+Eine mögliche Ursache dafür könnte eine unbekannte Verlustquelle darstellen, für die bei der Berechnung aus der Gesamtleistung
+nicht kontrolliert wird.
+
+Der Literaturwert für polykristalline Wolfram-Aggregate wird mit \qty{4.54(0.05)}{\electronvolt}~\cite{hop_riv_work_function}
+angegeben, Monokristalle weisen je nach Oberflächenstruktur Werte von \qty{4.63(0.02)}{\electronvolt} über
+\qty{4.47(0.02)}{\electronvolt} bis \qty{5.25(0.02)}{\electronvolt} \cite{str_mac_swa_work_function} auf.
+Die hier ermittelte Austrittsarbeit von $W = \input{build/W.tex}$ verträgt sich demnach gut mit den geläufigen
+Ergebnissen verschiedener Messmethoden. Dabei bezieht sich die vergleichsweise hohe Genuigkeit auf die rechnerischen
+Fehlerquellen. Abweichungen aus Strom- und Spannungsmessung sowie aus dem Abschätzen des Wendepunkts der Kennlinien dürften
+bereits zuvor signifikante Störfaktoren in den verwendeten Datensatz einführen, welche nicht berücksichtigt sind.
+
+\vfill
