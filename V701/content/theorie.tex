@@ -1,3 +1,33 @@
 % Theorie: Physikalische Grundlagen von Versuch/Messverfahren, Gleichungen ohne Herleitung knapp erklären
 \section{Theorie}
 \label{sec:theorie}
+
+Durch das Messen der Reichweite von $\alpha$-Teilchen kann die Energie dieser bestimmt werden.
+Die $\alpha$-Teilchen geben durch elastische Stöße mit dem Material Energie ab, dies spielt bei dem Energieverlust schlussendlich
+nur eine untergeordnete Rolle. Die Teilchen können dur h Anregung oder Dissoziation von Molkülen verlieren.
+Der Energieverlust $\frac{d E_\alpha}{d x}$ hängt von der Energie der $\alpha$-Teilchen  und der Dichte des zu durchlaufenden 
+Materials ab. Dabei ist zu beachten, dass bei kleineren Geschwindigkeit die Wahrscheinlichkeit der Wechselwirkungen zunimmt.
+Für hinreichend große Energien lässt sich der Energieverlust der $\alpha$-Teilchen über die Bethe-Bolch-Gleichung beschreiben 
+\begin{equation}
+    -\frac{d E_\alpha}{d x}=\frac{z^2 e^4}{4 \pi \epsilon_0 m_e} \frac{n Z}{v^2} \ln \left(\frac{2 m_e v^2}{I}\right),
+    \label{eqn:bethe}
+\end{equation}
+wobei $z$ die Ladung der $\alpha$-Teilchen ist und $v$ die Geschwindigekit dieser. $Z$ ist die Ordnungszahl, $n$ die Teilchendichte 
+und $I$ die Ioniesierungsenergie des Targetgases. Die \autoref{eqn:bethe} verliert an Gültigkeit, wenn das $\alpha$-Teilchen sehr 
+kleine Energien hat.
+Die Reichweite der $\alpha$-Teilchen, also die Strecke bis zur vollkommenen Ausbremsung, lässt sich über den Zusammenhang
+\begin{equation}
+    R=\int_0^{E_\alpha} \frac{d E_\alpha}{-d E_\alpha / d x}
+    \label{eqn:reichweite}
+\end{equation}
+bestimmen.
+Da bei niedrig werdener Energie die \autoref{eqn:bethe} nicht mehr gilt, wird zur Bestimmung der mittleren Reichweite
+empirisch gewonnene Kurven verwendet. Für die mittlere Reichweite von $\alpha$-Strahlung in Luft mit der Energie $E_{\alpha} \preceq \SI{2.5}{MeV}$
+kann die Bezeichnung $R_m = \SI{3.1} {E_{\alpha}}^{3/2}$ verwendet werden.
+Bei einer konstanten Temperatur und konstantem Volumen ist die Reichwite von $\alpha$-Teilchen in Gasen proportiona zum Druck $\rho$.
+Dementsprechend kann eine Absorptionsmessung, bei der der Druck variiert wird, durchgeführt werden. Für einen festen
+Abstand $x_0$ zwischen Detektor und $\alpha$-Strahler gilt für die "effektive Länge" $x$ 
+\begin{equation}
+    x = x_0 \frac{\rho}{\rho_0},
+\end{equation}
+wobei für der Normaldruck mit $\rho_0 = \SI{1013}{m\bar}$ eingesetzt werden muss.
