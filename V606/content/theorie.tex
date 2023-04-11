@@ -18,12 +18,12 @@ ergänzt werden. Dabei beschreibt $\mu_0$ die magnetische Feldkonstante. Verantw
 sind atomare magnetische Momente im betrachteten Material. Daher lässt sich die Magnetisierung mit dem mittleren
 magnetischen Moment $\bar{\symbf \mu}$ und der Anzahl der Momente pro Volumen $N$ als
 \begin{equation*}
-	\symbf M = N \mu_0 \bar{\symbf \mu}
+	\symbf M = N \mu_0 \, \bar{\symbf \mu}
 	\label{eqn:magnet_moment}
 \end{equation*}
 ausdrücken. Ihre Abhängigkeit zu $\symbf H$ wird über
 \begin{equation*}
-	\symbf M = \mu_0 \chi \symbf H
+	\symbf M = \mu_0 \, \chi \symbf H
 	\label{eqn:magnet_feld}
 \end{equation*}
 formuliert. Der Faktor $\chi$ heißt magnetische Suszeptibilität und weist selbst komplexe Beziehungen zur Feldstärke
@@ -185,11 +185,52 @@ zuordnen. Dieses Auftreten von $2J+1$ Unterenergieniveaus heißt Zeeman-Effekt.
 	\label{eqn:zaehler}
 \end{equation*}
 
+\begin{equation*}
+	M = N \mu_0 \, \bar{\mu} = N \mu_0 \, \mu_B^2 \, g_J^2 \, \frac{J(J+1)B}{3kT}
+	\label{eqn:magnet_betrag}
+\end{equation*}
+
+\begin{equation*}
+	\chi = \frac{N \mu_0 \, \mu_B^2 \, g_J^2 \, J(J+1)}{3kT}
+	\label{eqn:chi}
+\end{equation*}
+
+\begin{equation*}
+	\chi \sim \pfrac{1}{T\,}
+	\label{eqn:curie}
+\end{equation*}
+
 \subsubsection{Seltene-Erd-Verbindungen}
 
 \subsection{Messverfahren}
 
 \subsubsection{Apparatur zur Induktivitätsmessung}
+
+\begin{equation*}
+	L = \mu_0 \pfrac{n^2}{\! I} F
+	\label{eqn:spule_vak}
+\end{equation*}
+
+\begin{equation*}
+	L_{\widehat{M}} = \mu \, \mu_0 \pfrac{n^2}{\! I} F
+	\label{eqn:spule_mat}
+\end{equation*}
+
+\begin{equation*}
+	L_M = \mu_0 \pfrac{n^2}{\! I} F + (\mu - 1) \mu_0 \pfrac{n^2}{\! I} Q =
+	\mu_0 \pfrac{n^2}{\! I} F + \chi \mu_0 \pfrac{n^2}{\! I} Q
+	\label{eqn:spule_real}
+\end{equation*}
+
+\begin{equation*}
+	\increment L = \chi \mu_0 \pfrac{n^2}{\! I} Q
+	\label{eqn:diff_real}
+\end{equation*}
+
+\begin{equation*}
+	\symbffrak{ U_\text{Br} = \frac{r_4 r_1 - r_3 r_2}{(r_1 + r_2)(r_3 + r_4)} \, U_\text{Sp} }
+	\label{eqn:bruecke_gen}
+\end{equation*}
 
 \begin{figure}[H]
 	\centering
