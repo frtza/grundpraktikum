@@ -18,12 +18,12 @@ ergänzt werden. Dabei beschreibt $\mu_0$ die magnetische Feldkonstante. Verantw
 sind atomare magnetische Momente im betrachteten Material. Daher lässt sich die Magnetisierung mit dem mittleren
 magnetischen Moment $\bar{\symbf \mu}$ und der Anzahl der Momente pro Volumen $N$ als
 \begin{equation*}
-	\symbf M = N \mu_0 \bar{\symbf \mu}
+	\symbf M = N \mu_0 \, \bar{\symbf \mu}
 	\label{eqn:magnet_moment}
 \end{equation*}
 ausdrücken. Ihre Abhängigkeit zu $\symbf H$ wird über
 \begin{equation*}
-	\symbf M = \mu_0 \chi \symbf H
+	\symbf M = \mu_0 \, \chi \symbf H
 	\label{eqn:magnet_feld}
 \end{equation*}
 formuliert. Der Faktor $\chi$ heißt magnetische Suszeptibilität und weist selbst komplexe Beziehungen zur Feldstärke
@@ -87,7 +87,7 @@ für die Beträge der Drehimpulse schreiben. Aus \eqref{eqn:mu_L} und \eqref{eqn
 \begin{align}
 	| \symbf \mu_L | &= \frac{\mu_B}{\hbar} | \symbf L | = \mu_B \sqrt{L(L+1)} \label{eqn:abs_mu_L}
 	\shortintertext{und}
-	| \symbf \mu_S | &= g_s \frac{\mu_B}{\hbar} | \symbf S | = g_S \mu_B \sqrt{S(S+1)} \label{eqn:abs_mu_S}
+	| \symbf \mu_S | &= g_s \frac{\mu_B}{\hbar} | \symbf S | = g_S \, \mu_B \sqrt{S(S+1)} \label{eqn:abs_mu_S}
 \end{align}
 für die entsprechenden magnetischen Momente. Bei LS-Kopplung verschwindet die zu $\symbf J$ orthogonale Komponente von $\symbf \mu$,
 sodass nur $\symbf \mu_J \parallel \symbf J$ messbar ist. In Abbildung \ref{fig:diagramm} kann dazu der Zusammenhang
@@ -124,14 +124,14 @@ um über den für das Atom spezifischen Landé-Faktor
 \end{equation*}
 den Ausdruck
 \begin{equation}
-	| \symbf \mu_J | \approx \mu_B g_J \sqrt{J(J+1)}
+	| \symbf \mu_J | \approx \mu_B \, g_J \sqrt{J(J+1)}
 	\label{eqn:approx_abs_mu_J}
 \end{equation}
 zusammenzufassen. Ein weiteres quantenmechanisches Phänomen ist die Richtungsquantelung, wonach der Winkel zwischen einem äußeren
 Magnetfeld und $\symbf \mu_J$ nicht beliebig ist, sondern nur solche Werte einnimmt, bei denen die Komponente $\mu_{J_z}$ von
 $\symbf \mu_J$ in Feldrichtung ein ganzzahliges Vielfaches von $\mu_B g_J$ darstellt. Entsprechend muss
 \begin{equation*}
-	\mu_{J_z} = - \mu_B g_J m
+	\mu_{J_z} = - \mu_B \, g_J \, m
 	\label{eqn:komponente}
 \end{equation*}
 gelten, wobei $m \in \symbb{Z}$ die Orientierungsquantenzahl bezeichnet. Da $\mu_{J_z}$ als Komponente von $\symbf \mu_J$ immer
@@ -140,16 +140,97 @@ $m \in \{ -J, -J+1, \dotsc, 0, \dotsc, J-1, J \}$ zu dem Schluss, dass genau $2J
 Moments relativ zur äußeren Feldrichtung existieren. Jeder dieser Einstellrichtungen lässt sich eine spezifische potentielle
 Energie
 \begin{equation*}
-	E_m = - \symbf \mu_J \cdot \symbf B = \mu_{J_z} B = \mu_B g_J m B
+	E_m = - \symbf \mu_J \cdot \symbf B = \mu_{J_z} B = \mu_B \, g_J \, m B
 	\label{eqn:zeeman}
 \end{equation*}
 zuordnen. Dieses Auftreten von $2J+1$ Unterenergieniveaus heißt Zeeman-Effekt.
+
+\begin{equation*}
+	Z(E,T) = \exp \! \left( - \pfrac{E}{kT \,} \right)
+	\label{eqn:boltzmann}
+\end{equation*}
+
+\begin{equation*}
+	\mu_{ges} = \sum_{m = -J}^J -\mu_B \, g_J \, m Z(E,T) = -\mu_B \, g_J
+	\sum_{m = -J}^J m \, \exp \! \left( - \frac{\mu_B \, g_J \, mB}{kT \,} \right)
+	\label{eqn:mu_ges}
+\end{equation*}
+
+\begin{equation*}
+	\bar{\mu} = - \mu_B \, g_J \, \frac{\displaystyle{\sum_{m = -J}^J m \, \exp \! \left( - \frac{\mu_B \, g_J \, mB}{kT \,} \right)}}
+	{\displaystyle{\sum_{m = -J}^J \exp \! \left( - \frac{\mu_B \, g_J \, mB}{kT \,} \right)}}
+	\label{eqn:mu_mittel}
+\end{equation*}
+
+\begin{equation*}
+	\frac{\mu_B \, g_J \, mB}{kT} \ll 1
+	\label{eqn:kleiner}
+\end{equation*}
+
+\begin{equation*}
+	\exp \! \left( - \frac{\mu_B \, g_J \, mB}{kT \,} \right) = 1 - \frac{\mu_B \, g_J \, mB}{kT \,} + \dotsb
+	\label{eqn:naeherung}
+\end{equation*}
+
+\begin{equation*}
+	\sum_{m = -J}^J \left( 1 - \frac{\mu_B \, g_J \, mB}{kT \,} \right) =
+	2J + 1 - \frac{\mu_B \, g_J \, B}{kT \,} \sum_{m = -J}^J m = 2J + 1
+	\label{eqn:nenner}
+\end{equation*}
+
+\begin{equation*}
+	\sum_{m = -J}^J \left( m - \frac{\mu_B \, g_J \, m^2 B}{kT \,} \right) =
+	- \frac{\mu_B \, g_J \, B}{kT \,} \sum_{m = -J}^J m^2 =
+	- \frac{\mu_B \, g_J \, B}{3kT \,} J(J+1)(2J+1)
+	\label{eqn:zaehler}
+\end{equation*}
+
+\begin{equation*}
+	M = N \mu_0 \, \bar{\mu} = N \mu_0 \, \mu_B^2 \, g_J^2 \, \frac{J(J+1)B}{3kT}
+	\label{eqn:magnet_betrag}
+\end{equation*}
+
+\begin{equation*}
+	\chi = \frac{N \mu_0 \, \mu_B^2 \, g_J^2 \, J(J+1)}{3kT}
+	\label{eqn:chi}
+\end{equation*}
+
+\begin{equation*}
+	\chi \sim \pfrac{1}{T\,}
+	\label{eqn:curie}
+\end{equation*}
 
 \subsubsection{Seltene-Erd-Verbindungen}
 
 \subsection{Messverfahren}
 
 \subsubsection{Apparatur zur Induktivitätsmessung}
+
+\begin{equation*}
+	L = \mu_0 \pfrac{n^2}{\! I} F
+	\label{eqn:spule_vak}
+\end{equation*}
+
+\begin{equation*}
+	L_{\widehat{M}} = \mu \, \mu_0 \pfrac{n^2}{\! I} F
+	\label{eqn:spule_mat}
+\end{equation*}
+
+\begin{equation*}
+	L_M = \mu_0 \pfrac{n^2}{\! I} F + (\mu - 1) \mu_0 \pfrac{n^2}{\! I} Q =
+	\mu_0 \pfrac{n^2}{\! I} F + \chi \mu_0 \pfrac{n^2}{\! I} Q
+	\label{eqn:spule_real}
+\end{equation*}
+
+\begin{equation*}
+	\increment L = \chi \mu_0 \pfrac{n^2}{\! I} Q
+	\label{eqn:diff_real}
+\end{equation*}
+
+\begin{equation*}
+	\symbffrak{ U_\text{Br} = \frac{r_4 r_1 - r_3 r_2}{(r_1 + r_2)(r_3 + r_4)} \, U_\text{Sp} }
+	\label{eqn:bruecke_gen}
+\end{equation*}
 
 \begin{figure}[H]
 	\centering
