@@ -16,12 +16,13 @@ from uncertainties.unumpy import (nominal_values as noms,   # Wert:             
 v, U = np.genfromtxt('data/filterkurve.txt', unpack=True, skip_header=1)      # Normierung 
 n = len(v)                              #the number of data
 mean = sum(v*U)/n                       #note this correction
-# sigma = sum(U*(nu - mean)**2)/n        #note this correction
-sigma = np.sqrt(sum(U*(v - mean)**2))
+sigma = sum(U*(v - mean)**2)/n        #note this correction
+#sigma = np.sqrt(sum(U*(v - mean)**2))
 
 # Ausgleichsrechung nach Gaußverteilung
 def g(x,a,x0,b):
     return a*np.exp(-(x-x0)**2/(b)) # b = 2*sigma**2
+#return beta/(np.sqrt(2 * np.pi *sigma**(2))) * np.exp(-(x-alpha)**2 / (2* sigma**2))
 
 para, pcov = curve_fit(g, v, U, p0=[1,mean,sigma])
 a, nu0, b = para
@@ -34,7 +35,7 @@ ub = ufloat(b, fb)
 unu0 = ufloat(nu0, fnu0)
 
 xx = np.linspace(0, 31, 10**4)
-
+print('lalelu')
 plt.plot(v, U, 'xr', markersize=6 , label = 'Messdaten', alpha=0.5)
 plt.plot(xx, g(xx, *para), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
 plt.xlabel(r'$v \, / \, kHz$')
@@ -44,11 +45,12 @@ plt.grid(True)                          # grid style
 #plt.xlim(22, 40)
 #plt.ylim(-0.05, 1.05)
 
-plt.savefig('build/plot.pdf', bbox_inches = "tight")
-#plt.show()
+#plt.savefig('build/plot.pdf', bbox_inches = "tight")
+plt.show()
 plt.clf() 
 
 #Tabelle der Filterkurve
 #print('Tabelle zur Filterkurve:')
 #filter=pd.read_csv('data/filterkurve.txt',sep=' ', header=None, names=['Frequenz', 'Impulse'])
 #print(filter.to_latex(index=False, column_format="c c"))
+
