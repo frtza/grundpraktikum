@@ -16,6 +16,7 @@
     Für den Fehler des Mittelwertes gilt
     \begin{equation}
         \Delta \bar{x}=\frac{1}{\sqrt{N}} \sqrt{\frac{1}{N-1} \sum_{i=1}^N\left(x_i-\bar{x}\right)^2}.
+        \label{eqn:mittelwert}
         \end{equation}
 
     Für die Gaußsche Fehlerfortpflanzung gilt
@@ -113,7 +114,7 @@ In der \eqref{tab:quer}stehen die gemessenen Werte für die Stoffe ,sowie die br
   \toprule
   Stoff &  $m / \si{g}$ &  $l / \si{cm}$ &  $\rho / \si{g} \cdot \si{cm}^3$ & $Q / \si{cm}^2$ \\
   \midrule
-  $D_y2O_3$ & 14,38 &  16,3 &           7,80 & 0,113104 \\
+  $Dy_2O_3$ & 14,38 &  16,3 &           7,80 & 0,113104 \\
   $Gd_2O_3$ & 14,08 &  17,3 &           7,40 & 0,109983 \\
   $Nd_2O_3$ & 18,48 &  14,5 &           7,24 & 0,176034 \\
   \bottomrule
@@ -124,22 +125,30 @@ In der \eqref{tab:quer}stehen die gemessenen Werte für die Stoffe ,sowie die br
 
 \subsection{Suszeptibilität}
 Im Folgenden wird die Suszeptibilität $\chi$ unterschiedlicher Stoffe untersucht.
+
+In der Tabelle \eqref{tab:dy} sind die Messwerte der Probe $Dy_2O_3$ angegeben. Es sind die 
+Werte ohne die Probe für die Spannung und den Widerstand angebenen und für den Fall, dass die Probe
+verwendet wurde. Daraus wurde die Differenz des Widerstände $\Delta R\mathbin{/}\SI{\ohm}$ berechnet.
+
 \begin{table}
   \centering
-  \caption{Messwerte für den Stoff $Dy_2O_3$}
-\begin{tabular}{c c c}
-  \toprule
-  Wi& ohne &   mit \\
-  \midrule
-             m &    oP &    mP \\
-             1 &  15.5 &    15 \\
-             1 & 2.620 & 0.925 \\
-             2 &    16 &  15.5 \\
-             2 & 2.565 &  1.05 \\
-             3 &  16.5 &    15 \\
-             3 & 2.445 & 1.170 \\
-             4 &    16 &  14.2 \\
-             4 & 2.525 & 0.925 \\
+  \caption{Messwerte der Probe $Dy_2O_3$ sowie die Differenz $\Delta R$.}
+  \label{tab:dy}
+\begin{tabular}{c c | c c | c}
+  \hline
+  \multicolumn{2}{c}{ohne Probe} & \multicolumn{3}{c}{mit Probe} \\
+  \hline
+  $U\mathbin{/} \SI{\mV}$ & $R_{3/4}\mathbin{/} \SI{\ohm}$ & $U\mathbin{/} \SI{\mV}$ & $R_{3/4}\mathbin{/} \SI{\ohm}$ & $\Delta R\mathbin{/}\SI{\ohm}$ \\
+  \hline
+  15.5  & 2.62 & 15    & 3.265 & 0.645\\
+  16  & 2.565 & 15.5   & 3.245 & 0.68\\
+  16.5 & 2.445 & 15   & 3.245 & 0.8\\
+  16  & 2.525 & 14.3   & 3.245 & 0.72\\
   \bottomrule
   \end{tabular}
 \end{table}
+
+Aus den brechneten Werten der Differenz wird anschließend der Mittelwert \eqref{eqn:mittelwert} bestimmt
+\begin{equation}
+  \bar{\Delta R} \approx 0.711 \SI{\ohm}.
+\end{equation}
