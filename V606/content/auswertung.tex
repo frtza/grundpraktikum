@@ -33,7 +33,7 @@
 
 Zunächst wird die Filterkurve eines Selektivverstärkers untersucht, wobei eine effektive Spannung $U_E$ in Höhe von $ \SI{1}{\volt}$ 
 verwendet. Aufgenommen wird dabei die Ausgangspannung $U_A$ in Anhängigkeit von der Frequenz $v$. Die Frequenz wurde von $\SI{2}{\kHz}$ auf 
-$\SI{31}{\kHz}$ hochgedreht. In der \autoref{tab:filterkurve} sind die aufgenommen Messwerte aufgetragen.
+$\SI{31}{\kHz}$ hochgedreht. In der \eqref{tab:filterkurve} sind die aufgenommen Messwerte aufgetragen.
 
 \begin{table}[H]
     \centering
@@ -84,7 +84,7 @@ $\SI{31}{\kHz}$ hochgedreht. In der \autoref{tab:filterkurve} sind die aufgenomm
     \end{tabular}
 \end{table}
 
-In der \autoref{fig:plot} wird die Durchlasskurve der aufgenommenen Messwerte abgebildet.
+In der \eqref{fig:plot} wird die Durchlasskurve der aufgenommenen Messwerte abgebildet.
 Dabei ist der Quotient $\frac{U_A}{U_E}$ gegen die Frequenz $v$ aufgetragen. Anhand des Graphens lässt sich ablesen, dass das 
 Maximum bei $\SI{21.8}{kHz}$ liegt mit einer Spannung von $\SI{4.4}{\volt}$. Dieses Maximum ist dann die Durchlassfrequenz.
 
@@ -94,6 +94,51 @@ Maximum bei $\SI{21.8}{kHz}$ liegt mit einer Spannung von $\SI{4.4}{\volt}$. Die
 	\label{fig:plot}
 \end{figure}
 
-\subsection{Suszeptibilität}
-
 \subsection{Effektiver Querschnitt}
+\label{sec:Effektiver Querschnitt}
+
+Der effektive Querschnitt wird im Folgenden von vier unterschiedlioche Stoffe bestimmt.
+Für die Berechnung des realen Querschnitts gilt 
+\begin{equation}
+  Q_{real}=\frac{m}{l \cdot \rho_w}.
+\end{equation}
+
+In der \eqref{tab:quer}stehen die gemessenen Werte für die Stoffe ,sowie die brechneten effektiven Querschnitte.
+
+\begin{table}
+  \centering
+  \caption{Maße der Stoffe und der daraus berechnete effektive Querschnitt}
+  \label{tab:quer}
+\begin{tabular}{c c c c}
+  \toprule
+  Stoff &  $m / \SI{g}$ &  $l / \SI{cm}$ &  $\rho / \SI{g} \cdot \SI{cm}^3$& $Q / \SI{cm}^2$ \\
+  \midrule
+  $D_y2O_3$ & 14,38 &  16,3 &           7,80 & 0,113104 \\
+  $Gd_2O_3$ & 14,08 &  17,3 &           7,40 & 0,109983 \\
+  $Nd_2O_3$ & 18,48 &  14,5 &           7,24 & 0,176034 \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+In der \eqref{tab:quer}stehen die gemessenen Werte für die Stoffe ,sowie die brechneten effektiven Querschnitte.
+
+\subsection{Suszeptibilität}
+Im Folgenden wird die Suszeptibilität $\chi$ unterschiedlicher Stoffe untersucht.
+\begin{table}
+  \centering
+  \caption{Messwerte für den Stoff $Dy_2O_3$}
+\begin{tabular}{c c c}
+  \toprule
+  Wi& ohne &   mit \\
+  \midrule
+             m &    oP &    mP \\
+             1 &  15.5 &    15 \\
+             1 & 2.620 & 0.925 \\
+             2 &    16 &  15.5 \\
+             2 & 2.565 &  1.05 \\
+             3 &  16.5 &    15 \\
+             3 & 2.445 & 1.170 \\
+             4 &    16 &  14.2 \\
+             4 & 2.525 & 0.925 \\
+  \bottomrule
+  \end{tabular}
