@@ -29,6 +29,14 @@ a, nu0, b = para
 pcov = np.sqrt(np.diag(pcov))
 fa, fnu0, fb = pcov
 
+# Test-Fit alternative Glockenkurve
+def test(x, a, b, c, d, e, f):
+#	return a / ((x - b)**2 + c)
+#	return c / ((x**2 - a**2)**2 + b**2 * a**2)
+	return (a * np.exp(b * np.abs((x - c))**d) + np.sqrt(np.exp((x - c)**2 * e))) * f
+par_test, cov_test = curve_fit(test, v, U, p0=[4,-1,20,1,-0.1,0.99])
+err_test = np.sqrt(np.diag(cov_test))
+
 # Fehler der Parameter
 ua = ufloat(a, fa) 
 ub = ufloat(b, fb)
@@ -37,7 +45,8 @@ unu0 = ufloat(nu0, fnu0)
 xx = np.linspace(0, 31, 10**4)
 
 plt.plot(v, U, 'xr', markersize=6 , label = 'Messdaten', alpha=0.5)
-plt.plot(xx, g(xx, *para), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
+#plt.plot(xx, g(xx, *para), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
+plt.plot(xx, test(xx, *par_test), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
 plt.xlabel(r'$v \, / \, kHz$')
 plt.ylabel(r'$U_A \, / \, U_E v$')
 plt.legend(loc="best")                  # legend position
