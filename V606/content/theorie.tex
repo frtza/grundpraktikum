@@ -17,15 +17,15 @@ muss unter Anwesenheit von Materie um die Magnetisierung $\symbf M$ zu
 ergänzt werden. Dabei beschreibt $\mu_0$ die magnetische Feldkonstante. Verantwortlich für das Auftreten von $\symbf M$
 sind atomare magnetische Momente im betrachteten Material. Daher lässt sich die Magnetisierung mit dem mittleren
 magnetischen Moment $\bar{\symbf \mu}$ und der Anzahl der Momente pro Volumen $N$ als
-\begin{equation*}
+\begin{equation}
 	\symbf M = N \mu_0 \, \bar{\symbf \mu}
 	\label{eqn:magnet_moment}
-\end{equation*}
+\end{equation}
 ausdrücken. Ihre Abhängigkeit zu $\symbf H$ wird über
-\begin{equation*}
+\begin{equation}
 	\symbf M = \mu_0 \, \chi \symbf H
 	\label{eqn:magnet_feld}
-\end{equation*}
+\end{equation}
 formuliert. Der Faktor $\chi$ heißt magnetische Suszeptibilität und weist selbst komplexe Beziehungen zur Feldstärke
 $\symbf H$ und Temperatur $T$ auf.
 
@@ -143,62 +143,68 @@ Energie
 	E_m = - \symbf \mu_J \cdot \symbf B = \mu_{J_z} B = \mu_B \, g_J \, m B
 	\label{eqn:zeeman}
 \end{equation*}
-zuordnen. Dieses Auftreten von $2J+1$ Unterenergieniveaus heißt Zeeman-Effekt.
-
+zuordnen. Dieses Auftreten von $2J+1$ Unterenergieniveaus heißt Zeeman-Effekt. Deren Besetzungshäufigkeit folgt mit
 \begin{equation*}
-	Z(E,T) = \exp \! \left( - \pfrac{E}{kT \,} \right)
+	Z(E_m,T) = \exp \! \left( - \pfrac{E_m}{kT \,} \right)
 	\label{eqn:boltzmann}
 \end{equation*}
-
+einer Boltzmann-Verteilung, Summation über alle Niveaus liefert
 \begin{equation*}
-	\mu_{ges} = \sum_{m = -J}^J -\mu_B \, g_J \, m Z(E,T) = -\mu_B \, g_J
+	\mu_\text{ges} = \sum_{m = -J}^J -\mu_B \, g_J \, m Z(E,T) = -\mu_B \, g_J
 	\sum_{m = -J}^J m \, \exp \! \left( - \frac{\mu_B \, g_J \, mB}{kT \,} \right)
 	\label{eqn:mu_ges}
 \end{equation*}
-
-\begin{equation*}
+für das gesamte magnetische Moment.
+\newpage
+Nach Division durch die Gesamthäufigkeit aller vorkommenden Orientierungen ergibt sich daraus
+\begin{equation}
 	\bar{\mu} = - \mu_B \, g_J \, \frac{\displaystyle{\sum_{m = -J}^J m \, \exp \! \left( - \frac{\mu_B \, g_J \, mB}{kT \,} \right)}}
 	{\displaystyle{\sum_{m = -J}^J \exp \! \left( - \frac{\mu_B \, g_J \, mB}{kT \,} \right)}}
 	\label{eqn:mu_mittel}
-\end{equation*}
-
+\end{equation}
+als Betrag des in \eqref{eqn:magnet_moment} geforderten mittleren magnetischen Moments. Der Quotient in Ausdruck~\eqref{eqn:mu_mittel}
+wird als Brillouin-Funktion bezeichnet. Bei einer Temperatur im Bereich $T \approx \qty{300}{\kelvin}$ sowie unter Einwirkung von
+Flussdichten bis $B \approx \qty{1}{\tesla}$ gilt
 \begin{equation*}
 	\frac{\mu_B \, g_J \, mB}{kT} \ll 1
 	\label{eqn:kleiner}
 \end{equation*}
-
+und erlaubt mit der Entwicklung
 \begin{equation*}
-	\exp \! \left( - \frac{\mu_B \, g_J \, mB}{kT \,} \right) = 1 - \frac{\mu_B \, g_J \, mB}{kT \,} + \dotsb
+	\exp \! \left( - \frac{\mu_B \, g_J \, mB}{kT \,} \right) \simeq 1 - \frac{\mu_B \, g_J \, mB}{kT \,}
 	\label{eqn:naeherung}
 \end{equation*}
-
-\begin{equation*}
+das Aufstellen einer Näherungsformel. So ergibt sich
+\begin{equation}
 	\sum_{m = -J}^J \left( 1 - \frac{\mu_B \, g_J \, mB}{kT \,} \right) =
 	2J + 1 - \frac{\mu_B \, g_J \, B}{kT \,} \sum_{m = -J}^J m = 2J + 1
 	\label{eqn:nenner}
-\end{equation*}
-
-\begin{equation*}
+\end{equation}
+für den Nenner der Funktion, der Zähler ist mit
+\begin{equation}
 	\sum_{m = -J}^J \left( m - \frac{\mu_B \, g_J \, m^2 B}{kT \,} \right) =
 	- \frac{\mu_B \, g_J \, B}{kT \,} \sum_{m = -J}^J m^2 =
 	- \frac{\mu_B \, g_J \, B}{3kT \,} J(J+1)(2J+1)
 	\label{eqn:zaehler}
-\end{equation*}
-
+\end{equation}
+gegeben. Einsetzen von \eqref{eqn:mu_mittel}, \eqref{eqn:nenner} und \eqref{eqn:zaehler} in Gleichung \eqref{eqn:magnet_moment}
+liefert den Term
 \begin{equation*}
 	M = N \mu_0 \, \bar{\mu} = N \mu_0 \, \mu_B^2 \, g_J^2 \, \frac{J(J+1)B}{3kT}
 	\label{eqn:magnet_betrag}
 \end{equation*}
-
-\begin{equation*}
+als Betrag der makroskopischen Magnetisierung. Aus der Äquivalenz \eqref{eqn:magnet_feld} folgt dann mit
+\begin{equation}
 	\chi = \frac{N \mu_0 \, \mu_B^2 \, g_J^2 \, J(J+1)}{3kT}
 	\label{eqn:chi}
-\end{equation*}
-
+\end{equation}
+die magnetische Suszeptibilität, welche damit dem Zusammenhang
 \begin{equation*}
 	\chi \sim \pfrac{1}{T\,}
 	\label{eqn:curie}
 \end{equation*}
+gehorcht. Dabei handelt es sich um das Curiesche Gesetz des Paramagnetismus, dessen Gültigkeit
+hiermit für ausreichend hohe Temperaturen belegt ist.
 
 \subsubsection{Seltene-Erd-Verbindungen}
 
