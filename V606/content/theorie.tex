@@ -196,7 +196,7 @@ liefert den Term
 als Betrag der makroskopischen Magnetisierung. Aus der Äquivalenz \eqref{eqn:magnet_feld} folgt dann mit
 \begin{equation}
 	\chi = \frac{N \mu_0 \, \mu_B^2 \, g_J^2 \, J(J+1)}{3kT}
-	\label{eqn:chi}
+	\label{eqn:chi_theo}
 \end{equation}
 die magnetische Suszeptibilität, welche damit dem Zusammenhang
 \begin{equation*}
@@ -208,57 +208,147 @@ hiermit für ausreichend hohe Temperaturen belegt ist.
 
 \subsubsection{Seltene-Erd-Verbindungen}
 
+Aus der experimentellen Erkenntnis, dass Verbindungen, die Ionen Seltener Erden enthalten, stark paramagnetisch sind, lässt sich
+unter Betrachtung von Formel~\eqref{eqn:chi_theo} auf die Existenz großer Drehimpulse in den Elektronenhüllen Seltener-Erd-Atome
+schließen. Dabei muss es sich zudem um innere Elektronen handeln, um den Paramagnetismus auch im ionisierten Zustand zu erklären.
+Alle Elemente der Seltenen Erden besitzen mit der vollständigen \ce{Xe}-Hülle Elektronen bis zur 5p- sowie zwei weitere in der
+6s-Schale. Diese sind in der weiteren Betrachtung jedoch nicht relevant, da sämtliche Spins und Bahndrehimpulse gesättigt sind.
+Es entsteht so kein von Null verschiedener Gesamtdrehimpuls. Vielmehr sind dafür die tiefer befindlichen 4f-Elektronen
+verantwortlich, deren Anordnung den Hundschen Regeln unterliegt:
+\begin{enumerate}
+	\item Einzelne Spins $\symbf s_i$ sind so kombiniert, dass sie den maximalen mit dem Pauli-Prinzip vereinbaren Gesamtspin
+			$\symbf S = \sum_i \symbf s_i$ erreichen, sich also möglichst parallel ausrichten. Nach dem Pauli-Prinzip dürfen
+			zwei Elektronen nie in all ihren Quantenzahlen übereinstimmen.
+	\item Individuelle Bahndrehimpulse $\symbf l_i$ setzen sich so zusammen, dass immer der maximale Gesamtbahndrehimpuls
+			$\symbf L = \sum_i \symbf l_i$ auftritt, welcher sowohl mit dem Pauli-Prinzip als auch der 1. Hundschen Regel verträglich ist.
+	\item Ist die Schale weniger als halbvoll, tritt ein Gesamtdrehimpuls $\symbf J = \symbf L - \symbf S$ auf. Ist sie mehr als zur
+			Hälfte gefüllt, so ist $\symbf J = \symbf L + \symbf S$ gegeben. Sind genau halb so viele Elektronen wie maximal
+			möglich vorhanden, folgt $\symbf L = 0$ aus der 2. Hundschen Regel, sodass immer $J = S$ gilt.
+\end{enumerate}
+Basierend auf der gegenseitigen elektrostatischen Abstoßung der Hüllenelektronen finden die Hundschen Regeln im Folgenden zur
+Berechnung der magnetischen Suszeptibilität Anwendung, indem aus ihnen Gesamtdrehimpuls $J$ und Landé-Faktor $g_J$ ermittelt werden.
+Speziell im Bezug auf die zu betrachtende 4f-Schale gelten einige Einschränkungen. Als f-Schale ist jeder einzelne Bahndrehimpuls
+mit $l_i \leq 3$ beschränkt. Daraus folgt weiter eine vollständige Belegung mit einer maximalen Anzahl von 14 Elektronen.
+
 \subsection{Messverfahren}
 
 \subsubsection{Apparatur zur Induktivitätsmessung}
 
-\begin{equation*}
-	L = \mu_0 \pfrac{n^2}{\! I} F
+Die Induktivität einer langen Zylinderspule mit Windungszahl $n$, Querschnittsfläche $F$ und Länge $l$ wird über
+\begin{equation}
+	L = \mu_0 \pfrac{n^2}{\! l} F
 	\label{eqn:spule_vak}
-\end{equation*}
-
+\end{equation}
+beschrieben. Ist ihr Inneres gänzlich mit Materie gefüllt, gilt
 \begin{equation*}
-	L_{\widehat{M}} = \mu \, \mu_0 \pfrac{n^2}{\! I} F
+	L_{\widehat{M}} = \mu \, \mu_0 \pfrac{n^2}{\! l} F
 	\label{eqn:spule_mat}
 \end{equation*}
-
+mit der Permeabilitätszahl $\mu$ als materialspezifischer Skalierungsfaktor.
+\enlargethispage*{\baselineskip}
+\newpage
+Für einen Probenquerschnitt $Q < F$ muss eine Korrektur
 \begin{equation*}
-	L_M = \mu_0 \pfrac{n^2}{\! I} F + (\mu - 1) \mu_0 \pfrac{n^2}{\! I} Q =
-	\mu_0 \pfrac{n^2}{\! I} F + \chi \mu_0 \pfrac{n^2}{\! I} Q
+	L_M = \mu_0 \pfrac{n^2}{\! l} F + (\mu - 1) \mu_0 \pfrac{n^2}{\! l} Q =
+	\mu_0 \pfrac{n^2}{\! l} F + \chi \mu_0 \pfrac{n^2}{\! l} Q = L + \increment L
 	\label{eqn:spule_real}
 \end{equation*}
-
-\begin{equation*}
-	\increment L = \chi \mu_0 \pfrac{n^2}{\! I} Q
+vorgenommen werden. Hierbei wird die Induktivitätsänderung
+\begin{equation}
+	\increment L = \chi \mu_0 \pfrac{n^2}{\! l} Q
 	\label{eqn:diff_real}
-\end{equation*}
-
-\begin{equation*}
-	\symbffrak{ U_\text{Br} = \frac{r_4 r_1 - r_3 r_2}{(r_1 + r_2)(r_3 + r_4)} \, U_\text{Sp} }
-	\label{eqn:bruecke_gen}
-\end{equation*}
+\end{equation}
+eingeführt. Diese fällt im Allgemeinen sehr gering aus, sodass es einer präzisen Messung bedarf. Diesem Zweck dient die in
+Abbildung \ref{fig:schaltung} dargestellte Brückenschaltung.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics{content/grafik/schaltung.pdf}
-	\caption{Brückenschaltung für eine Suszeptibilitätsmessung.}
+	\caption{Brückenschaltung zur präzisen Suszeptibilitätsmessung.}
 	\label{fig:schaltung}
 \end{figure}
 
+Brückenspannung $\symbffrak U_\text{Br}$ und Speisespannung $\symbffrak U_\text{Sp}$ sind dabei über die Relation
+\begin{equation}
+	\symbffrak{ U_\text{Br} = \frac{r_4 r_1 - r_3 r_2}{(r_1 + r_2)(r_3 + r_4)} \, U_\text{Sp} }
+	\label{eqn:bruecke_gen}
+\end{equation}
+miteinander verknüpft \cite{brücke}. Dazu lassen sich die komplexen Impedanzen
+\begin{align*}
+	\symbffrak r_1 = R_M + \symbffrak i \, \omega L_M &&
+	\pfrac{1}{\symbffrak r_2} = \pfrac{1}{R_P} + \pfrac{1}{R + \symbffrak i \, \omega L} &&
+	\symbffrak r_3 = R_3 && \symbffrak r_4 = R_4
+\end{align*}
+mit der imaginären Einheit $\symbffrak i$ aufstellen, mit $\omega$ ist die angelegte Spannungsfrequenz bezeichnet.
+Um kleinste Unterschiede zwischen den Verlustwiderständen $R$ und $R_M$ der beiden idealerweise identischen Spulen
+zu kompensieren, wird der Regelwiderstand $R_P$ verbaut. Für diesen kann $R_P \gg R, \omega L$ angenommen werden, sodass
+$\symbffrak r_2 \approx R + \symbffrak i \, \omega L$ gilt.
+
+Aus \eqref{eqn:bruecke_gen} folgt, dass die Abgleichbedingung der Schaltung
+\begin{equation}
+	\symbffrak r_1 R_4 = \symbffrak r_2 R_3
+	\label{eqn:abgleich_ohne}
+\end{equation}
+ohne Probe für $R_3 \approx R_4$ erfüllt ist. Mit eingebauter Probe wird bei
+\begin{equation*}
+	R'_3 = R_3 + \increment R
+	\label{eqn:R_3}
+\end{equation*}
+ein neuer Abgleichpunkt gefunden, wegen $R_3 + R_4 = R'_3 + R'_4 = \text{const}$ folgt
+\begin{equation*}
+	R'_4 = R_4 - \increment R \approx R_3 - \increment R
+	\label{eqn:R_4}
+\end{equation*}
+als Resultat der Implementierung von $R_3$ und $R_4$ als Potentiometer. Durch Einsetzen der neuen Impedanzen folgt aus
+\eqref{eqn:abgleich_ohne} die Gleichung
+\begin{equation}
+	(R_M + \symbffrak i \, \omega L_M)(R_3 - \increment R) = (R + \symbffrak i \, \omega L)(R_3 + \increment R)
+	\label{eqn:abgleich_mit}
+\end{equation}
+als Abgleichbedingung mit durch die Probe veränderter Induktivität. Ihr Imaginärteil lässt sich zu
+\begin{equation*}
+	\increment R = \frac{R_3 (L_M - L)}{L_M + L}
+	\label{eqn:R_delta_1}
+\end{equation*}
+umformulieren. Einsetzen von $L_M = L + \increment L$ mit der Annahme $\increment L \ll L$ liefert
+\begin{equation*}
+	\increment R = \frac{R_3 (\increment L)}{2L + \increment L} \approx \frac{R_3 (\increment L)}{2L} 
+	\label{eqn:R_delta_2}
+\end{equation*}
+und weiter mit \eqref{eqn:spule_vak} sowie \eqref{eqn:diff_real} die Formel
+\begin{equation*}
+	\increment R = \chi \frac{R_3}{2} \frac{Q}{\! F} 
+	\label{eqn:R_delta_3}
+\end{equation*}
+für die notwendige Widerstandsänderung, aus der sich nun
+\begin{equation}
+	\chi =  2 \pfrac{\increment R}{R_3} \pfrac{F}{Q} 
+	\label{eqn:chi_exp}
+\end{equation}
+zur experimentellen Bestimmung der magnetischen Suszeptibilität ergibt.
+
+
 \subsubsection{Unterdrückung von Störspannungen}
+
+Die Brückenspannung $\symbffrak U_\text{Br}$ fällt bei der Messung so gering aus, dass sie fast völlig durch das unvermeidbar
+auftretende Störrauschen verdeckt wird. Da es sich jedoch um eine monofrequente Signalspannung handelt, ist ein digitaler
+Filter durch Sperren aller von der Signalfrequenz $\nu$ verschiedenen Frequenzen in der Lage, die Hintergrundspannungen
+zu kompensieren. Ein solches Gerät wird annähernd durch einen Selektivverstärker realisiert, der im wesentlichen aus einem
+Bandpass mit Durchlassfrequenz $\nu_0$ besteht. In Abbildung~\ref{fig:kurve} ist ein exemplarischer Verlauf der Ausgangs-
+zur Eingangsspannung dargestellt.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics{content/grafik/kurve.pdf}
-	\caption{Filterkurve eines Selektivverstärkers.}
+	\caption{Filterkurve zu Güte und Funktion eines Selektivverstärkers.}
 	\label{fig:kurve}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics{content/grafik/schaltbild.pdf}
-	\caption{Blockschaltbild der verwendeten Messapparatur.}
-	\label{fig:schaltbild}
-\end{figure}
-
-$\symbffrak r$
+Es ist zu erkennen, dass für $\nu = \nu_0$ im angrenzenden Frequenzbereich weiter Störspannungen auftreten. Ein Maß für die Breite
+dieser Region ist durch die Güte
+\begin{equation*}
+	Q = \frac{\nu_0}{\nu_+ - \nu_-}
+	\label{eqn:gut}
+\end{equation*}
+gegeben. Das Intervall $\mathopen[ \nu_-, \nu_+ \mathclose]$ enthält hier solche Frequenzen, die
+$\sqrt{2} \, U_{\! A} \geq U_E$ erfüllen.
