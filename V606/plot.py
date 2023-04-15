@@ -93,6 +93,9 @@ print(df.to_latex(index = False, column_format= "c c c c", decimal=','))
   
 #differenz der widerstände
 
-list = [0.645, 0.68, 0.8, 0.72]
-dy = np.mean(list)
-print(dy)
+#list = [0.645, 0.68, 0.8, 0.72]
+#dy = np.mean(list)
+#print(dy)
+list = [0.685, 0.75, 0.75]
+gd = np.mean(list)
+print(gd)
