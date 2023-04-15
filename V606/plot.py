@@ -90,3 +90,9 @@ print(df.to_latex(index = False, column_format= "c c c c", decimal=','))
 #print('Tabelle Dy:')
 #dy=pd.read_csv('data/Dy203.txt',sep=' ', header=None, names=['wiederholung', 'ohne', 'mit'])
 #print(dy.to_latex(index=False, column_format="c c c"))
+  
+#differenz der widerstände
+
+list = [0.645, 0.68, 0.8, 0.72]
+dy = np.mean(list)
+print(dy)
