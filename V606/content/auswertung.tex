@@ -229,3 +229,47 @@ Die berechneten Werte der einzelen Stoffe stehen in der Tabelle \eqref{tab:sus}.
   \bottomrule
  \end{tabular}
 \end{table}
+
+Zur Bestimmung der theoretischen Suszeptibilität müssen die Hundschen Regeln auf die Ionen der untersuchten Substanzen angewendet
+werden: In der 4f-Hülle von \ce{Dy^{3+}} befinden sich neun Elektronen. Das Pauli-Prinzip gestattet, dass sieben der neun Spins
+nach Vorschrift der 1. Hundschen Regel parallel den Wert $\symbf s = \num{0.5}$ annehmen, während für die übrigen zwei Elektronen
+der Spin mit $\symbf s = \num{-0.5}$ antiparallel ausgerichtet ist. Dies ist eine Konsequenz der begrenzten Orientierungszahl
+$l \leq 3$ für 4f-Elektronen, welche nur Zustände $\symbf l \in \{-3,-2,-1,0,+1,+2,+3\}$ zulässt. Es ergibt sich
+$S = 7 (\num{0.5}) - 2 (\num{0.5}) = \num{2.5}$ für den Gesamtspin. Da die sieben Elektronen mit parallelen Spins alle Werte
+für $\symbf l$ ausschöpfen, verschwindet ihr Anteil am Bahndrehimpuls. Nach der 2. Hundschen Regel nehmen die Elektronen mit
+negativem Spin dann die maximal möglichen Werte an, sodass $L = 3 + 2 = 5$ ist. Da mit $9 > 7$ mehr als die Hälfte der 4f-Schale
+besetzt ist, lässt sich laut 3. Hundscher Regel der Gesamtdrehimpuls zu $J = L + S = 5 + \num{2.5} = \num{7.5}$ berechnen. Analog
+wird mit den weiteren Stoffen verfahren. \ce{Gd^{3+}} besitzt sieben 4f-Elektronen und füllt die Schale damit zur Hälfte. Alle
+Spins sind parallel zu $S = 7(\num{0.5}) = \num{3.5}$ gerichtet, während für den Gesamtbahndrehimpuls $L = 0$ und daher
+$J = S = \num{3.5}$ gilt. Zuletzt weist \ce{Nd^{3+}} drei Elektronen in der 4f-Schale auf, sodass der maximale Gesamtspin
+$S = 3(\num{0.5}) = \num{1.5}$ mit dem Bahndrehimpuls $L = 3 + 2 + 1 = 6$ auftritt. Wegen $3 < 7$ ist die maximale Anzahl 4f-Elektronen
+weniger als zur Hälfte ausgereizt, demnach kann $J = L - S = 6 - \num{1.5} = \num{4.5}$ gefolgert werden. Die Gültigkeit dieser
+Quantenzahlen wird auch für die Oxidverbindungen angenommen und in Tabelle \ref{tab:zahlen} mit dem entsprechenden Landé-Faktor
+\eqref{eqn:lande} zusammengefasst.
+
+\begin{table}
+	\centering
+	\caption{}
+	\label{tab:zahlen}
+	\begin{tabular}{c S[table-format=1.0] S[table-format=1.1] S[table-format=1.0] S[table-format=1.1] S[table-format=1.2] S}
+		\toprule
+		Verbindung & \ce{e-} & $S$ & $L$ & $J$ & $g_J$ & $\chi$ \\
+		\midrule
+		\ce{Dy2O3} & 9 & 2.5 & 5 & 7.5 & 1.33 & \\
+		\ce{Gd2O3} & 7 & 3.5 & 0 & 3.5 & 2.00 & \\
+		\ce{Nd2O3} & 3 & 1.5 & 6 & 4.5 & 1.73 & \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
