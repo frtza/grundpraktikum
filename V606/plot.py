@@ -93,9 +93,25 @@ print(df.to_latex(index = False, column_format= "c c c c", decimal=','))
   
 #differenz der widerstände
 
-#list = [0.645, 0.68, 0.8, 0.72]
-#dy = np.mean(list)
+list1 = [0.645, 0.68, 0.8, 0.72]
+dy = np.mean(list1)
 #print(dy)
 list = [0.685, 0.75, 0.75]
 gd = np.mean(list)
 print(gd)
+
+#Sus berechnen
+#querschnitt
+quer = 0.4**2 np.pi
+print(quer)
+
+def su(x,d,f,q):
+    return 2*((d*f)/(x*q))
+
+#definition der widerstands differenzen
+di_d = 0.711 
+di_n = 0.19
+di_g = 0.728
+chi_d = su(, )
+chi_n
+chi_d
