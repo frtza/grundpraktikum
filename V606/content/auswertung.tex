@@ -112,7 +112,7 @@ In der \eqref{tab:quer}stehen die gemessenen Werte für die Stoffe ,sowie die br
   \label{tab:quer}
 \begin{tabular}{c c c c c}
   \toprule
-  Stoff &  $m / \si{g}$ &  $l / \si{cm}$ &  $\rho / \si{g} \cdot \si{cm}^3$ & $Q / \si{cm}^2$ \\
+  Stoff &  $m / \si{g}$ &  $l / \si{cm}$ &  $\rho / \unit{\gram\per\cubic\centi\meter}$ & $Q / \si{cm}^2$ \\
   \midrule
   $Dy_2O_3$ & 14,38 &  16,3 &           7,80 & 0,113104 \\
   $Gd_2O_3$ & 14,08 &  17,3 &           7,40 & 0,109983 \\
@@ -245,31 +245,38 @@ $J = S = \num{3.5}$ gilt. Zuletzt weist \ce{Nd^{3+}} drei Elektronen in der 4f-S
 $S = 3(\num{0.5}) = \num{1.5}$ mit dem Bahndrehimpuls $L = 3 + 2 + 1 = 6$ auftritt. Wegen $3 < 7$ ist die maximale Anzahl 4f-Elektronen
 weniger als zur Hälfte ausgereizt, demnach kann $J = L - S = 6 - \num{1.5} = \num{4.5}$ gefolgert werden. Die Gültigkeit dieser
 Quantenzahlen wird auch für die Oxidverbindungen angenommen und in Tabelle \ref{tab:zahlen} mit dem entsprechenden Landé-Faktor
-\eqref{eqn:lande} zusammengefasst.
+$g_J$ nach \eqref{eqn:lande} zusammengefasst. Für die Suszeptibilität $\chi$ wird Formel \eqref{eqn:chi_theo} herangezogen, wobei
+\begin{equation*}
+	N = 2 \frac{N_{\! A} \, \rho}{M_\text{mol}}
+\end{equation*}
+mit Avogadro-Konstante $N_{\! A} = \qty{6.02e23}{\per\mole}$ und Molmasse $M_\text{mol}$ gilt. Der Vorfaktor begründet sich dadurch,
+dass alle Moleküle je zwei der Seltenen-Erd-Ionen beinhalten. Unter Verwendung der Naturkonstanten
+$e_0 = \qty{1.60e-19}{\coulomb}$, $m_0 = \qty{9.11e-31}{\kilo\gram}$ und $\hbar = \qty{1.05e-34}{\joule\second}$ ergibt sich nach
+\eqref{eqn:magneton} weiter $\mu_B = \qty{9.27e-24}{\joule\per\tesla}$ für das Bohrsche Magneton. Mit der magnetischen Feldkonstante
+$\mu_0 = \qty{1.26e-6}{\newton\per\ampere\squared}$ und der Boltzmann-Konstante $\qty{1.38e-23}{\joule\per\kelvin}$ sind nun
+alle Parameter zur Rechnung bekannt.
 
 \begin{table}
 	\centering
-	\caption{}
+	\caption{$T = \qty{300}{\kelvin}$.}
 	\label{tab:zahlen}
-	\begin{tabular}{c S[table-format=1.0] S[table-format=1.1] S[table-format=1.0] S[table-format=1.1] S[table-format=1.2] S}
+	\begin{tabular}{c
+			S[table-format=1.0]
+			S[table-format=1.1]
+			S[table-format=1.0]
+			S[table-format=1.1]
+			S[table-format=1.2]
+			S[table-format=3.2]
+			S[table-format=1.2]
+			S[table-format=1.4]}
 		\toprule
-		Verbindung & \ce{e-} & $S$ & $L$ & $J$ & $g_J$ & $\chi$ \\
+		Verbindung & \ce{e-} & $S$ & $L$ & $J$ & $g_J$ &
+		{$M_\text{mol} \mathbin{/} \unit{\gram\per\mole}$} &
+		{$N \mathbin{/} \qty{e28}{\per\cubic\meter}$} & $\chi$ \\
 		\midrule
-		\ce{Dy2O3} & 9 & 2.5 & 5 & 7.5 & 1.33 & \\
-		\ce{Gd2O3} & 7 & 3.5 & 0 & 3.5 & 2.00 & \\
-		\ce{Nd2O3} & 3 & 1.5 & 6 & 4.5 & 1.73 & \\
+		\ce{Dy2O3} & 9 & 2.5 & 5 & 7.5 & 1.33 & 373.00 & 2.52 & 0.0248 \\
+		\ce{Gd2O3} & 7 & 3.5 & 0 & 3.5 & 2.00 & 362.49 & 2.46 & 0.0135 \\
+		\ce{Nd2O3} & 3 & 1.5 & 6 & 4.5 & 0.73 & 336.48 & 2.59 & 0.0030 \\
 		\bottomrule
 	\end{tabular}
 \end{table}
-
-
-
-
-
-
-
-
-
-
-
-
