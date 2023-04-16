@@ -102,7 +102,7 @@ print(gd)
 
 #Sus berechnen
 #querschnitt
-quer = 0.4**2 np.pi
+quer = (0.4**2)*np.pi
 print(quer)
 
 def su(x,d,f,q):
@@ -112,6 +112,10 @@ def su(x,d,f,q):
 di_d = 0.711 
 di_n = 0.19
 di_g = 0.728
-chi_d = su(, )
-chi_n
-chi_d
+chi_d = su(2.539,di_d,quer,d_q )
+chi_n = su(2.5,di_n,quer,n_q)
+chi_g = su(2.485,di_g,quer,g_q)
+print('Susz:')
+print(chi_d)
+print(chi_n)
+print(chi_g)
