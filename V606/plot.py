@@ -102,7 +102,8 @@ print(gd)
 
 #Sus berechnen
 #querschnitt
-quer = (0.4**2)*np.pi
+#quer = (0.4**2)*np.pi
+quer = 0.866
 print(quer)
 
 def su(x,d,f,q):
