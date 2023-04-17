@@ -2,10 +2,14 @@
 % Auswertung: Berechnung geforderter Ergebnisse mit Schritten/Fehlerformeln/Erläuterung/Grafik (Programme)
 \section{Auswertung}
 \label{sec:auswertung}
+ Im Folgenden werden die aufgenommenen Messwerte ausgewertet. Zunächst werden für den Selektivverstärker 
+ die Werte in einem Diagramm dargestellt. Aus den Messergebnissen der einzelen Stoffe werden die 
+ experimentellen Suszeptibilitäten bestimmt.
 
 \subsection{Fehlerrechnung}
 \label{sec:Fehlerrechnung}
-
+Für die Fehlerrechnung in diesem Versuch werden die folgeneden Gleichungen verwendet, dabei wird mit den Programmen:
+Scipy \cite{scipy} ,Numpy \cite{numpy} und matplotlib \cite{mathplotlib} gearbeitet.
 %\subsection{Formeln für den Mittelwert, den Gauß-Fehler und die Standardabweichung }
 %\label{sec:Formeln fuer den Mittelwert, den Gauss-Fehler und die Standardabweichung}
     Für den Mittelwert gilt
@@ -20,7 +24,6 @@
         \end{equation}
 
     Für die Gaußsche Fehlerfortpflanzung gilt
-
     \begin{equation}
         \Delta f=\sqrt{\sum_{i=1}^N\left(\frac{\partial f}{\partial x_i}\right)^2 \cdot\left(\Delta x_i\right)^2}.
     \end{equation}
@@ -114,9 +117,9 @@ In der \eqref{tab:quer}stehen die gemessenen Werte für die Stoffe ,sowie die br
   \toprule
   Stoff &  $m / \si{g}$ &  $l / \si{cm}$ &  $\rho / \unit{\gram\per\cubic\centi\meter}$ & $Q / \si{cm}^2$ \\
   \midrule
-  $Dy_2O_3$ & 14,38 &  16,3 &           7,80 & 0,113104 \\
-  $Gd_2O_3$ & 14,08 &  17,3 &           7,40 & 0,109983 \\
-  $Nd_2O_3$ & 18,48 &  14,5 &           7,24 & 0,176034 \\
+  \ce{Dy2O3} & 14,38 &  16,3 &           7,80 & 0,113104 \\
+  \ce{Gd2O3} & 14,08 &  17,3 &           7,40 & 0,109983 \\
+  \ce{Nd2O3} & 18,48 &  14,5 &           7,24 & 0,176034 \\
   \bottomrule
   \end{tabular}
 \end{table}
@@ -125,13 +128,13 @@ In der \eqref{tab:quer}stehen die gemessenen Werte für die Stoffe ,sowie die br
 \subsection{Suszeptibilität}
 Im Folgenden wird die Suszeptibilität $\chi$ unterschiedlicher Stoffe untersucht.
 
-In der Tabelle \eqref{tab:dy} sind die Messwerte der Probe $Dy_2O_3$ angegeben. Es sind die 
+In der Tabelle \eqref{tab:dy} sind die Messwerte der Probe \ce{Dy2O3} angegeben. Es sind die 
 Werte ohne die Probe für die Spannung und den Widerstand angebenen und für den Fall, dass die Probe
 verwendet wurde. Daraus wurde die Differenz des Widerstände $\Delta R\mathbin{/}\si{\ohm}$ berechnet.
 
 \begin{table}
   \centering
-  \caption{Messwerte der Probe $Dy_2O_3$ sowie die Differenz $\Delta R$.}
+  \caption{Messwerte der Probe \ce{Dy2O3} sowie die Differenz $\Delta R$.}
   \label{tab:dy}
 \begin{tabular}{c c | c c | c}
   \hline
@@ -156,11 +159,11 @@ Ebenfalls wird der Mittelwert für den abgleich Widerstand $R_{3/4}$ ohne Probe 
   \bar{R_{3/4}} \approx 2.539.
 \end{equation*}
 
-Die Tabelle \eqref{tab:gd} beinhaltet die Messwerte für den Stoff $Gd_2O_3$. Die Werte für die Spannung und die Widerstände
+Die Tabelle \eqref{tab:gd} beinhaltet die Messwerte für den Stoff \ce{Gd2O3}. Die Werte für die Spannung und die Widerstände
 vor dem Einführen und nach dem Einführen sind angegeben. Daraus wurde dann die Differenz der Widerstände brechnet. 
 \begin{table}
   \centering
-  \caption{Messwerte der Probe $Gd_2O_3$ sowie die Differenz $\Delta R$.}
+  \caption{Messwerte der Probe \ce{Gd2O3} sowie die Differenz $\Delta R$.}
   \label{tab:gd}
 \begin{tabular}{c c | c c | c}
   \hline
@@ -175,7 +178,7 @@ vor dem Einführen und nach dem Einführen sind angegeben. Daraus wurde dann die
   \end{tabular}
 \end{table}
 
-Für den Mittelwert der Widerstandsdifferenzen für den Stoff $Gd_2O_3$ ergibt sich
+Für den Mittelwert der Widerstandsdifferenzen für den Stoff \ce{Gd2O3} ergibt sich
 \begin{equation*}
   \bar{\Delta R} \approx 0.728 \si{\ohm}.
 \end{equation*}
@@ -188,7 +191,7 @@ Für den dritten Stoff wurde die gleiche Messung durchgeführt. Die Ergebnisse w
 abgebildet. Die Differenz wurde ebenfalls berechnet und in der Tabelle \eqref{tab:nd} abgebildet.
 \begin{table}
   \centering
-  \caption{Messwerte der Probe $Nd_2O_3$ sowie die Differenz $\Delta R$.}
+  \caption{Messwerte der Probe \ce{Nd2O3} sowie die Differenz $\Delta R$.}
   \label{tab:nd}
 \begin{tabular}{c c | c c | c}
   \hline
@@ -203,7 +206,7 @@ abgebildet. Die Differenz wurde ebenfalls berechnet und in der Tabelle \eqref{ta
   \end{tabular}
 \end{table}
 
-Für den Mittelwert der Widerstandsdifferenzen für den Stoff $Nd_2O_3$ ergibt sich
+Für den Mittelwert der Widerstandsdifferenzen für den Stoff \ce{Nd2O3} ergibt sich
 \begin{equation*}
   \bar{\Delta R} \approx 0.19 \si{\ohm}.
 \end{equation*}
@@ -223,9 +226,9 @@ Die berechneten Werte der einzelen Stoffe stehen in der Tabelle \eqref{tab:sus}.
   \toprule
   Stoff & $\Chi$ \\
   \midrule
-  $Dy_2O_3$ & 4.288\\
-  $Gd_2O_3$ & 4.613\\
-  $Nd_2O_3$ & 0.748\\
+  \ce{Dy2O3} & 4.288\\
+  \ce{Gd2O3} & 4.613\\
+  \ce{Nd2O3} & 0.748\\
   \bottomrule
  \end{tabular}
 \end{table}
