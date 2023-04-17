@@ -4,19 +4,29 @@
 \section{Diskussion}
 \label{sec:diskussion}
 
-Bei der Filterkurve des Selektivverstärkers ist zu erkennen, dass der Verlauf der Messwerte sich an einer Gaußverteilung
+Bei der Filterkurve des Selektivverstärkers ist zu erkennen, dass der Verlauf der Messwerte sich an einer glockenförmigen Verteilung
 anpasst. Dennoch wurde nicht wie eigentlich gewollt eine Güte von $Q = 100$ eingestellt, sondern $Q = 20$. 
-Das hat dazu geführt, dass viel mehr Störspannungen nicht gefiltert werden konnten und daher konnte die monimale Ausgangsspannung
+Das hat dazu geführt, dass viel mehr Störspannungen nicht gefiltert werden konnten und daher konnte die minimale Ausgangsspannung
 nicht eindeutig bestimmt werden. Als angegebene Durchlassfrequenz war $\SI{35.5}{kHz}$ angegeben. Bei der Messung wurde aber
 als Durchlassfrequenz ein Wert von $\SI{21.8}{kHz}$ gemessen.
 
-Für die experimentell bestimmte Suszeptibilität des Stoffes \ce{Dy2O3} ergab sich ein Wert von $\chi_{exp} = 4.288$. 
-Bei der Berechnung des theoretischen Wertes der Suszeptibilität ergab sich der Wert $\chi_{theo} = 0.0248$. Bei den Werten
+Für die experimentell bestimmte Suszeptibilität des Stoffes \ce{Dy2O3} ergab sich ein Wert von $\chi_\text{exp} = 4.288$. 
+Bei der Berechnung des theoretischen Wertes der Suszeptibilität ergab sich der Wert $\chi_\text{theo} = 0.0248$. Bei den Werten
 liegt eine Abweichung weit über $100\%$ vor.
-Die experimentelle Suszeptibilität des Stoffes \ce{Gd2O3} beträgt $\chi_{exp} = 4.613$. Der theorethische Wert liegt bei
-$\chi_{theo} = 0.0135$ , demnach liegt auch hier eine zu große Abweichung vor als , dass der experimentelle Wert noch annehmbar ist.
-$\chi_{exp} = 0.748$ ist der experimentelle Wert der Suszeptibilität des Stoffes \ce{Nd2O3}. Der theorethische Wert lag bei
-$\chi_{theo} = 0.03$. Die Werte haben eine ähnlich große Abweichung wie bei den anderen Stoffen.
+Die experimentelle Suszeptibilität des Stoffes \ce{Gd2O3} beträgt $\chi_\text{exp} = 4.613$. Der theoretische Wert liegt bei
+$\chi_\text{theo} = 0.0135$ , demnach liegt auch hier eine zu große Abweichung vor, als dass der experimentelle Wert noch annehmbar ist.
+$\chi_\text{exp} = 0.748$ ist der experimentelle Wert der Suszeptibilität des Stoffes \ce{Nd2O3}. Der theoretische Wert lag bei
+$\chi_\text{theo} = 0.03$. Die Werte haben eine ähnlich große Abweichung wie bei den anderen Stoffen.
 
-Die Großen Abweichungen lassen sich durch die vorliegende Verstärkung der Ausgangspannung erklären.
-Diese wurde eigentlich auf $\SI{1}{\volt}$ eingestellt, bei der Messung der Filterkurve wurde jedoch eine Spannung von $\SI{4.4}{\volt}$ gemessen.
+Für die Ursache der großen Abweichungen lassen sich nur Vermutungen anstellen. Bei der Untersuchung der Filterkurve treten bereits
+unerwartete Phänomene auf. So ergibt sich für die maximale Ausgangsspannung ein Wert von \qty{4.4}{\volt}, obwohl durch mehrfache
+Messung sichergestellt wird, dass die Eingangsspannung bei \qty{1}{\volt} liegt. Es scheint also trotz abweichender Einstellung auf
+$A_V = 1$ eine Verstärkung um den Faktor $A_V = \num{4.4}$ aufzutreten. Ebenso deutet die vom Sollwert stark abweichende
+Durchlassfrequenz auf eine möglicherweise unzuverlässige Messapparatur hin. Da die experimentellen Suszeptibilitäten aber
+durch die Widerstandsänderung an der Brückenschaltung ermittelt werden, scheint der relevante Fehlereinfluss des Selektivverstärkers
+auf die Endergebnisse eher gering auszufallen. Eine weitere Schwierigkeit zeigt sich am Ausschlag der
+abgegriffenen Spannung am Voltmeter nach Einführen des Proberöhrchens. Dieser fällt teilweise so gering aus, dass das erneute Abgleichen
+der Brückenspannung kaum möglich ist und potentiell in Messfehlern der passenden Größenordnung resultiert. Zuletzt ist nicht
+auszuschließen, dass innerhalb der Messspule oder den Proben selbst Unreinheiten oder Abschirmeffekte die gemessenen Werte verfälschen.
+Eine Abweichung des Theoriemodells um mehrere Größenordnungen ist nicht plausibel und kann mit hoher Sicherheit ausgeschlossen werden.
+

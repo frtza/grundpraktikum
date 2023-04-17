@@ -47,8 +47,8 @@ xx = np.linspace(0, 31, 10**4)
 plt.plot(v, U, 'xr', markersize=6 , label = 'Messdaten', alpha=0.5)
 #plt.plot(xx, g(xx, *para), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
 plt.plot(xx, test(xx, *par_test), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
-plt.xlabel(r'$v \, / \, kHz$')
-plt.ylabel(r'$U_A \, / \, U_E v$')
+plt.xlabel(r'$\nu \mathbin{/} \unit{\kilo\hertz}$')
+plt.ylabel(r'$U_A \, / \, U_E$')
 plt.legend(loc="best")                  # legend position
 plt.grid(True)                          # grid style
 #plt.xlim(22, 40)
