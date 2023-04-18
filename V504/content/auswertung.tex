@@ -91,22 +91,20 @@ Die Messwerte für den Anlaufstrom werden in Tabelle \ref{tab:table_2} aufgetrag
 
 \begin{table}[H]
 	\caption{Anodenstrom $I_A$ zur Gegenfeldspannung $U_{-A}$ an der Anode der Hochvakuumdiode bei maximaler Heizleistung mit
-			 $I_H = \qty{2.5}{\ampere}$ und $U_H = \qty{5.5}{\volt}$. Hervorgehobene Werte werden wegen unzuverlässiger Anzeige
-			 für weitere Rechnungen ausgeschlossen.}
+			 $I_H = \qty{2.5}{\ampere}$ und $U_H = \qty{5.5}{\volt}$. Die unten beschriebene Korrektur wird für $\hat{U}_{-A}$
+			 vorgenommen. \mbox{Hervorgehobene} Werte werden wegen unzuverlässiger Anzeige für weitere Rechnungen ausgeschlossen. }
 	\centering
 	\input{build/table_2.tex}
 	\label{tab:table_2}
 \end{table}
 
 Zur Ausgleichsrechnung muss die Anodenspannung zunächst um den Einfluss des Innenwiderstands $R = \qty{1}{\mega\ohm}$ im
-Nanoamperemeter bereinigt werden, es ist also $\hat U_{-A} = U_{-A} - RI_A$ zu berücksichtigen. Da die Korrektur jedoch
-geringer als die Genauigkeit der initialen Messung am Konstantspannunsgerät ausfällt, kann dieser Schritt für das
-weitere Vorgehen vernachlässigt werden.
+Nanoamperemeter bereinigt werden, es ist also $\hat U_{-A} = U_{-A} - RI_A$ als Korrektur zu berücksichtigen. 
 
 \begin{figure}[H]
 	\includegraphics{build/plot_4.pdf}
 	\caption{Messwerte und Regressionskurve für den Anlaufstrom bei $I_H = \qty{2.5}{\ampere}$ und $U_H = \qty{5.5}{\volt}$. Es gilt
-			 $U_A = -U_{-A}$ für Saug- und Gegenspannung.}
+			 $U_A = -\hat{U}_{-A}$ für Saug- und Gegenspannung.}
 	\label{fig:plot_4}
 \end{figure}
 

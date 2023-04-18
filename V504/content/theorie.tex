@@ -8,8 +8,8 @@ Zudem wird beschrieben und teilweise hergeleitet, wie rechnerisch die Austrittsa
 \subsection{Austrittsarbeit und Energieverteilung der Leitungselektronen}
 \label{sec:Begriffe der Austrittsarbeit und die Energieverteilung der Leitungselektronen}
 
-Eine große Anzahl der Metalle sind kristalline Festkörper, welche ausgezeichnete elektrische Leitfähigkeit besitzen.
-Diese Tatsache lässt sich damit erklären, dass die Atome, welche auf den kristallgitterplätzen sitzen, komplett ionisiert sind.
+Eine große Anzahl der Metalle sind kristalline Festkörper, welche hohe elektrische Leitfähigkeit besitzen.
+Diese Tatsache lässt sich damit erklären, dass die Atome, welche auf den Kristallgitterplätzen sitzen, alle ionisiert sind.
 Somit bilden die Ionen ein periodisches Gitter, welches von freigesetzten Elektronen eingehüllt ist.
 Diese Elektronen befinden sich im Kraftfeld sämtlicher Ionen und werden als Leitungselektronen bezeichnet.
 Das Gitterpotential ist eine vom Ort abhängige periodische Funktion. Diese nimmt an den Gitterpunkten einen hohen positiven Wert an,
@@ -34,19 +34,20 @@ unterliegt demnach dem Pauli-Verbot. Dieses besagt, dass jeder mögliche Zustand
 Elektronen eingenommen werden kann, wenn diese entgegengesetzten Spin haben. Somit besitzen die Elektronen auch am Nullpunkt
 eine endlich Energie. Diese ist abhängig von den Elektronen pro Volumeneinheit im Metall. Der Begriff für diese Energie bei $T = 0$
 wird Fermische Grenzenergie $\zeta $ genannt. Für Zimmertemperatur gilt für alle Metalle $\zeta \gg \symup{k}\symup{T}$.
-Durch die Fermi-Dirscsche Verteilungs Funktion 
+Durch die Fermi-Diracsche Verteilungs Funktion 
 \begin{equation}
-    f(E)= \frac{1}{\exp{\frac{E -\zeta}{\symup{k}\symup{T}}}+1} ,
+    f(E)= \frac{1}{\exp{\frac{E -\zeta}{\symup{k}T}}+1} ,
     \label{eqn:fermi-dis}
 \end{equation}
 wird die Wahrscheinlichkeit angegeben, dass im thermischen Gleichgewicht der Zustand
-mit der Energie $E$ erreicht ist.
+mit der Energie $E$ besetzt ist.
 Der Verlauf des Graphen der Fermi-Diracschen Verteilungsfunktion ist in \autoref{fig:fermi} zu sehen.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{content/grafik/fermi.png}
-    \caption{Der Verlauf der Fermi-Diracschen Verteilungsfunktion am absoluten Nullpunkt.\cite{elektron}}
+    \caption{Der Verlauf der Fermi-Diracschen Verteilungsfunktion am absoluten Nullpunkt \qty{0}{\kelvin} und bei einer Temperatur
+			 $T \gg \qty{0}{\kelvin}$.\cite{elektron}}
     \label{fig:fermi}
 \end{figure}
 
@@ -54,17 +55,17 @@ Es kann abgelesen werden, dass ein Elektron mindestens eine Energie von $\zeta +
 es die Metalloberfläche verlassen kann. Für den Fall, dass das gegebene Metall Wolfram ist, kann eine
 Näherung getroffen werden
 \begin{equation}
-    f(E) \approx \exp{\left(\frac{E -\zeta}{\symup{k}\symup{T}}\right)} .
+    f(E) \approx \exp{\left(\frac{\zeta - E}{\symup{k}T}\right)} .
 \label{eqn:naehrung}
 \end{equation}
 
-\subsection{Sättigungsstromdichte bei thermischer Elektonenemission}
+\subsection{Sättigungsstromdichte bei thermischer Elektronenemission}
 \label{sec:Berechnung der Sättigungsstromdichte bei der thermischen Elektonenemission}
 
 Mithilfe der \autoref{eqn:naehrung} lässt sich die Sättigungsstromdichte in Abhängigkeit zur Temperatur errechnen.
 Schlussendlich folgt für die Sättigungsstromdichte $j_S(T)$ die Richardson-Gleichung
 \begin{equation}
-    j_S(T) = 4\symup{\pi} \frac{e_0\cdot m_0 \cdot \symup{k}^2}{h^3} \symup{T}^2 \exp{\frac{-e_0 \phi}{\symup{k}\symup{T}}}.
+    j_S(T) = 4\symup{\pi} \frac{e_0\cdot m_0 \cdot \symup{k}^2}{h^3} T^2 \exp{\frac{-e_0 \phi}{\symup{k}T}}.
 	\label{eqn:richard}
 \end{equation}
 
@@ -83,14 +84,16 @@ dargestellt.
     \label{fig:diode}
 \end{figure}
 
+In der dargestellten Konfiguration fließt durch die emittierten Elektronen ein Strom von Kathode zu Anode. Bei umgekehrter Polung
+wird dies durch das Gegenfeld verhindert, im Vakuum sind keine sonstigen Ladungsträger vorhanden. Entsprechend ist
+die Bezeichnung als Diode gerechtfertigt, die je nach Betriebsrichtung eine leitende oder sperrende Funktion erfüllt.
+
 \subsection{Die Langmuir-Schottkysche Raumladungsgleichung}
 \label{sec:Die Langmuir-Schottkysche Raumladungsgleichung}
 
-Die Geschwindigkeit der Elektronen ist nicht konstant, das führt dazu, dass die Elektronen
-eine beschleunigte Bewegung in Richtung auf die Anode ausüben. Dementspechend ist die Raumladungsdichte $\rho$
-der Elektronen eine Funktion des Ortes, welche zur Anode hin abnimmt.  Diese Tatsache lässt sich aus der
-Kontinuitätsgleichung, dass $j$ überall konstant ist, ableiten.
-Die Stromdichte ist gegeben durch
+Die Elektronen führen eine beschleunigte Bewegung in Richtung der Anode aus, haben also keine konstante Geschwindigkeit.
+Dementsprechend ist die Raumladungsdichte $\rho$ der Elektronen eine Funktion des Ortes, welche zur Anode hin abnimmt. Diese
+Tatsache lässt sich aus der Kontinuitätsgleichung, dass $j$ überall konstant ist, ableiten. Die Stromdichte ist gegeben durch
 \begin{equation}
     j = - \rho v .
 \label{eqn:konti}
@@ -100,7 +103,7 @@ Sie schirmt das Feld von der Kathode ab. Die emittierten Elektronen werden dann 
 Anodenfeld erfasst. Darauf folgt, dass der zu messende Kathodenstrom kleiner als der zu erwartende Sättigungsstrom ist.
 In der \autoref{eqn:poisson} ist der Zusammenhang von Anodenspannung und -strom in der Poissongleichung dargestellt
 \begin{equation}
-    \increment V = - \frac{1}{\xi_0}\rho .
+    \increment V = - \frac{1}{\varepsilon_0}\rho .
     \label{eqn:poisson}
 \end{equation} 
 Angenommen wird, dass die Anode und Kathode unendlich ausgedehnte ebene Oberflächen sind, welche
@@ -112,7 +115,7 @@ zwischen der Stromdichte $j$ und der Anodenspannung $V$
 \label{eqn:langmuir}
 \end{equation}
 welcher als Langmuir-Schottkysches Raumladungsgesetz bezeichnet wird. Der Gültigkeitsbereich 
-in einem $j$-$V$-Diagramm einer Hochvakuum-Diode wird als Raumladungsgebiet benannt.
+in einem $j$-$V$-Diagramm einer Hochvakuum-Diode wird Raumladungsgebiet genannt.
 
 In \autoref{fig:raumladung} ist die Ortsabhängigkeit des Potentials, der Feldstärke und der Ladungsdichte im Raumladungsgebiet
 eine Hochvakuumdiodenkennlinie aufgetragen.
@@ -140,10 +143,13 @@ Das Energieverhältnis im Anlaufstromgebiet ist in \autoref{fig:anlauf} dargeste
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{content/grafik/anlauf.png}
+    \includegraphics[width=0.42\linewidth]{content/grafik/anlauf.png}
     \caption{Die Potentialverhältnisse in einer Hochvakuum-Diode im Bereich ihres Anlaufstromgebietes.\cite{elektron}}
     \label{fig:anlauf}
 \end{figure}
+
+\enlargethispage*{\baselineskip}
+\newpage
 
 Da die Anzahl der Leitungselektronen mit Energien zwischen $E$ und $\symup dE$ nach \autoref{eqn:naehrung} näherungsweise
 exponentiell von $E$ abhängig ist, lässt sich mit
