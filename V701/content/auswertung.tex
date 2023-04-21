@@ -16,11 +16,44 @@
 	\label{fig:qty_6}
 \end{figure}
 
+\begin{equation*}
+	\symup{sig}(x) = \pfrac{a}{1 + \exp \left( b(x - c) \right)} + d
+\end{equation*}
+
+\begin{align*}
+	a &= \input{build/a_6.tex} & b &= \input{build/b_6.tex} \\
+	c &= \input{build/c_6.tex} & d &= \input{build/d_6.tex}
+\end{align*}
+
+$R = \input{build/c_6.tex}$
+
+$E = \input{build/E_val_6.tex}$
+
+\begin{equation*}
+	\symup{sig}^{-1}(x) = \pfrac{\ln \left( \displaystyle{\pfrac{a}{x - d}} - 1 \right)}{b} + c
+\end{equation*}
+
+$\pfrac{1}{2} \hat{N}_\text{tot} = \input{build/h_6.tex}$
+
+$R = \input{build/R_6.tex}$
+
+$E = \input{build/E_R_6.tex}$
+
 \begin{figure}[H]
 	\includegraphics{build/plot_E_6.pdf}
 	\caption{}
 	\label{fig:E_6}
 \end{figure}
+
+\begin{equation*}
+	E(x) = w - v x
+\end{equation*}
+
+\begin{align*}
+	v = \input{build/v_6.tex} && w = \input{build/w_6.tex}
+\end{align*}
+
+$-\pfrac{\symup dE}{\symup dx} = \input{build/v_6.tex}$
 
 \begin{table}
 	\centering
@@ -35,11 +68,32 @@
 	\label{fig:qty_4}
 \end{figure}
 
+\begin{align*}
+	a &= \input{build/a_4.tex} & b &= \input{build/b_4.tex} \\
+	c &= \input{build/c_4.tex} & d &= \input{build/d_4.tex}
+\end{align*}
+
+$R = \input{build/c_4.tex}$
+
+$E = \input{build/E_val_4.tex}$
+
+$\pfrac{1}{2} \hat{N}_\text{tot} = \input{build/h_4.tex}$
+
+$R = \input{build/R_4.tex}$
+
+$E = \input{build/E_R_4.tex}$
+
 \begin{figure}[H]
 	\includegraphics{build/plot_E_4.pdf}
 	\caption{}
 	\label{fig:E_4}
 \end{figure}
+
+\begin{align*}
+	v = \input{build/v_4.tex} && w = \input{build/w_4.tex}
+\end{align*}
+
+$-\pfrac{\symup dE}{\symup dx} = \input{build/v_4.tex}$
 
 \begin{table}
 	\centering
@@ -54,3 +108,16 @@
 	\label{fig:st}
 \end{figure}
 
+\begin{equation*}
+	P_{\mu \, \sigma}(x) = \pfrac{1}{\sqrt{2\pi} \sigma} \exp \left( -\pfrac{(x - \mu)^2}{2\sigma^2} \right)
+\end{equation*}
+
+\begin{equation*}
+	P_\lambda (k) = \pfrac{\lambda^k}{k!} \exp \left( -k \right)
+\end{equation*}
+
+$\,\,\overline{\!\! N}_\text{tot} = \input{build/mean.tex}$
+
+$\sigma^2 = \input{build/var.tex}$
+
+$\sigma = \input{build/std.tex}$
