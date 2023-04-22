@@ -1,5 +1,41 @@
 % Diskussion: Resultate mit Fehler/Genauigkeit zusammenstellen, Literaturwerte/Messmethoden/Ursachen vergleichen
 % Literatur: Verwendete Literatur/Grafiken/Werte/Programme
 % Anhang: Kopie der analog eingetragenen Messdaten
+\newpage
 \section{Diskussion}
 \label{sec:diskussion}
+
+Die mittlere Reichweite für Alphateilchen in Luft ergibt sich zu $\input{build/c_6.tex}$ und $\input{build/R_6.tex}$ für
+$x_0 = \qty{6}{\centi\meter}$ sowie $\input{build/c_4.tex}$ und $\input{build/R_4.tex}$ für $x_0 = \qty{4}{\centi\meter}$, wobei
+jeweils die Methoden über Wendepunkt und Messung verwendet werden. Diese Werte weisen eine gute Übereinstimmung auf und liegen
+größtenteils innerhalb der gegenseitigen Fehlerintervalle. Grafisch lässt sich am Verlauf der Sigmoid-Kurven in den
+Abbildungen~\ref{fig:qty_6}~und~\ref{fig:qty_4} erkennen, dass sich die Funktion im relevanten Bereich nahezu geradlinig verhält.
+Entsprechend könnte durch Einschränkung der zur Regression herangezogenen Messpunkte auch ein linearer Ansatz gewählt werden,
+welcher durch reduzierte Komplexität und erhöhte numerische Stabilität potentiell zuverlässigere Lösungen produziert. Aufgrund
+der hohen Übereinstimmung der Ergebnisse können mögliche Abweichungen zum realen Wert am wahrscheinlichsten auf unbekannte
+Fehler innerhalb der Messapparatur zurückgeführt werden.
+
+Zur Bestimmung der korrespondierenden Energien gelten die gleichen Methoden und Abstände. Für $x_0 = \qty{6}{\centi\meter}$
+ergeben sich $\input{build/E_val_6.tex}$ und $\input{build/E_R_6.tex}$, für $x_0 = \qty{4}{\centi\meter}$ sind es
+$\input{build/E_val_4.tex}$ und $\input{build/E_R_4.tex}$. Da es sich hier um abgeleitete Größen handelt, besitzen sie ähnlich
+große Übereinstimmungen und Toleranzbereiche wie zuvor. Allerdings ist die verwendete Näherung $E = (\num{0.32} R)^{2/3}$
+auf Energien bis $\qty{2.5}{\mega\electronvolt}$ beschränkt. Die Ergebnisse befinden sich also außerhalb des Gültigkeitsbereichs
+und sind daher von fragwürdiger Aussagekraft.
+
+Aus einer linearen Näherung ergibt sich der Energieverlust zu $\input{build/v_6.tex}$ für $x_0 = \qty{6}{\centi\meter}$ und
+$\input{build/v_4.tex}$ für $x_0 = \qty{4}{\centi\meter}$. Diese Werte passen gut zu den Messergebnissen und weisen ebenso eine
+hohe gegenseitige Übereinstimmung auf. Die Beobachtung, dass die Verlustrate für einen Abstand von $\qty{6}{\centi\meter}$ höher
+ausfällt als bei $\qty{4}{\centi\meter}$, ist damit zu erklären, dass der Zylinderdruck zu Beginn der Messung für
+$\qty{6}{\centi\meter}$ nicht in ausreichender Genauigkeit auf $p = 0$ geregelt ist. Eigentlich müsste der erste Energiewert
+also bereits unter $\qty{4}{\mega\electronvolt}$ liegen, sodass insgesamt ein flacherer Verlauf mit geringerem Energieverlust
+auftreten würde. Eine weitere Fehlerquelle könnte in der Annahme eines perfekten linearen Zusammenhangs zwischen Kanal und Energie
+liegen, obwohl die Anordnung der Messungen diese weitestgehend zu bestätigen scheint. Die mit wachsendem effektiven Abstand zunehmende
+Streuung der Messdaten, welche in den Abbildungen~\ref{fig:E_6}~und~\ref{fig:E_4} erkennbar ist, lässt sich auf die stark abfallenden
+Zählraten und die damit einhergehende schlechte statistische Signifikanz der Modalwerte zurückführen.
+
+Ein Vergleich der statistischen Verteilungen in Abbildung~\ref{fig:st} zeigt, dass der Verlauf der Messwerte in seiner Form
+eher der Form einer Gaußschen Distribution besitzt. Die Poissonverteilung verläuft dagegen deutlich steiler. An dieser Stelle
+sei angemerkt, dass der Sperrschichtzähler eine hohe Zeitauflösung im Bereich einiger $\unit{\nano\second}$ besitzt. Dennoch werden
+manche Impulse der eindringenden Alphastrahlung unweigerlich nicht registriert, weshalb die Zählrate auch nicht direkt der Anzahl der
+Zerfälle pro Zeiteinheit entspricht. Die relative Anzahl $n_\text{rel}$ sollte dadurch aufgrund der zufallsverteilten Signale jedoch
+keine Verfälschung erfahren.
