@@ -12,10 +12,10 @@ Ventil an der Vakuumpumpe dient zur Variation des Zylinderdrucks $p$, der mithil
 wird. Daraus ergibt sich nach Formel~\eqref{eqn:effektiv} die effektive Distanz $x$. Mit $N_\text{tot}$ ist die Anzahl aller
 aufgezeichneten Strompulse innerhalb eines Intervalls von \qty{120}{\second} bezeichnet. Für eine gegebene Einstellung zählt
 $N_\text{max}$ über denselben Zeitraum die maximale Anzahl der Impulse innerhalb eines Kanals. Dieser die meisten Signale
-erhaltende Kanal wird unter $\text{CH}$ aufgeführt. Im Vielkanalanalysator kann davon ausgangen werden, dass ein linearer
+erhaltende Kanal wird unter $\text{CH}$ aufgeführt. Im Vielkanalanalysator kann davon ausgegangen werden, dass ein linearer
 Zusammenhang zwischen Kanalnummer und entsprechender Energie des Alphateilchens existiert. So wird dann der Modus $E$ der
 Energieverteilung ermittelt, da $E = \qty{4}{\mega\electronvolt}$ für $p = 0$ oder äquivalent für $x = 0$ bekannt ist. 
-Der statistische Modus, auch Modalwert gennant, gibt den Wert an, der am häufigsten in einer Stichprobe vorkommt.
+Der statistische Modus, auch Modalwert genannt, gibt den Wert an, der am häufigsten in einer Stichprobe vorkommt.
 
 \begin{table}[H]
 	\centering
@@ -66,7 +66,7 @@ der Wurzel der Elemente auf der Hauptdiagonalen der Kovarianzmatrix entsprechen.
 zur Minimierung der Fehlerquadrate. $R = \input{build/c_6.tex}$ beschreibt die mittlere Reichweite über den Wendepunkt $c$ mit
 $E = \input{build/E_val_6.tex}$ als die dazugehörige Energie. Um letztere zu berechnen, wird $R = \num{3.1} E^{\, 3/2}$ zur
 Näherung mit Gültigkeit für $E \leq \qty{2.5}{\mega\electronvolt}$ ausgenutzt, wobei $R$ in \unit{\milli\meter} anzugeben ist.
-Mit Uncertainties~\cite{uncertainties} erfolgt dazu eine automatisierte Fehlerfortpflanzung.
+Die Fehlerfortpflanzung dazu erfolgt automatisiert mit der Bibliothek Uncertainties~\cite{uncertainties}.
 
 Die Hälfte der maximalen Zählrate innerhalb von \qty{120}{\second} lautet
 $\raisebox{0.2ex}{\scalebox{0.8}{\(\pfrac{1}{2}\)}} \hspace{0.1ex} \hat{N}_\text{tot} = \input{build/h_6.tex}$
@@ -149,12 +149,16 @@ $-\raisebox{0.1ex}{\scalebox{0.8}{\(\pfrac{\symup dE}{\symup dx}\)}} = \input{bu
 \begin{table}[H]
 	\centering
 	\caption{Totale Impulszählrate $N_\text{tot}$ über einen Zeitraum von \qty{10}{\second} bei Parametern
-			 $x_0 = \qty{4}{\centi\meter}$ und $p = \qty{300}{\milli\bar}$. Das entspricht einem Abstand
+			 $x_0 = \qty{4}{\centi\meter}$ und $p = \qty{300}{\milli\bar}$, entsprechend einem Abstand von
 			 $x = \qty{1.18}{\centi\meter}$ bei Normaldruck. Aufgeführt werden $n_\text{tot} = 100$ Messungen,
 			 die zur besseren Nachvollziehbarkeit aufsteigend sortiert sind.}
 	\input{build/table_st.tex}
 	\label{tab:st}
 \end{table}
+
+Die Einzelmessungen aus Tabelle~\ref{tab:st} werden in Abbildung~\ref{fig:st} mit dem gefüllten Histogramm dargestellt.
+Dabei wird die Fläche unter den Daten normiert, sodass statt der absoluten Häufigkeit $n$ die relative Anzahl der Messwerte
+mit $n_\text{rel} = n / n_\text{tot}$ angegeben ist.
 
 \begin{figure}[H]
 	\includegraphics{build/plot_st.pdf}
@@ -162,6 +166,20 @@ $-\raisebox{0.1ex}{\scalebox{0.8}{\(\pfrac{\symup dE}{\symup dx}\)}} = \input{bu
 			 Gauß- und Poisson-Verteilung (je $n_\text{tot} = 500$).}
 	\label{fig:st}
 \end{figure}
+
+Zur statistischen Analyse der gemessenen Stichprobe aus $n_\text{tot} = 100$ Elementen wird die Bibliothek NumPy \cite{numpy}
+verwendet, deren Funktionen \verb+mean+ und \verb+var+ den Mittelwert nach
+\begin{equation*}
+	\overline{x} = \pfrac{1}{N \,} \sum_{n=1}^N x_n
+\end{equation*}
+sowie die Varianz mit
+\begin{equation*}
+	(\symup{\Delta}\overline{x})^2 = \pfrac{1}{N(N-1)} \sum_{n=1}^N (x_n \! - \overline{x})^2
+\end{equation*}
+liefern. Die mittlere Zählrate über einen Zeitraum von \qty{10}{\second} wird dann mit
+\mbox{$\,\,\overline{\!\! N}_\text{tot} = \input{build/mean.tex}$} bemessen, während sich die Varianz
+auf $\sigma^2 = \input{build/var.tex}$ und ihre Quadratwurzel, die sogenannte Standardabweichung, auf
+$\sigma = \input{build/std.tex}$ belaufen. Diese beiden Werte fungieren als Maß für die Streuung der Verteilung.
 
 \begin{equation*}
 	P_{\mu \, \sigma}(x) = \pfrac{1}{\sqrt{2\pi} \sigma} \exp \left( -\pfrac{(x - \mu)^2}{2\sigma^2} \right)
@@ -171,22 +189,15 @@ $-\raisebox{0.1ex}{\scalebox{0.8}{\(\pfrac{\symup dE}{\symup dx}\)}} = \input{bu
 	P_\lambda (k) = \pfrac{\lambda^k}{k!} \exp \left( -k \right)
 \end{equation*}
 
-\begin{equation*}
-	\overline{x} = \pfrac{1}{N \,} \sum_{n=1}^N x_n
-\end{equation*}
 
-\begin{equation*}
-	(\symup{\Delta}\overline{x})^2 = \pfrac{1}{N(N-1)} \sum_{n=1}^N (x_n \! - \overline{x})^2
-\end{equation*}
 
-\begin{equation*}
-	(\symup{\Delta}f)^2 = \sum_{n=1}^N
-	\left( \! \pfrac{\partial^{\!} f}{\partial x_{\raisebox{0.2ex}{$\scriptstyle{n}$}}} \!
-	\right)^{\!\! 2} \!\! (\symup{\Delta}x_{\raisebox{0.2ex}{$\scriptstyle{n}$}})^2
-\end{equation*}
+Treppe, Bins, 
 
-$\,\,\overline{\!\! N}_\text{tot} = \input{build/mean.tex}$
 
-$\left( \increment \,\,\overline{\!\! N}_\text{tot} \right)^{\! 2} = \input{build/var.tex}$
 
-$\increment \,\,\overline{\!\! N}_\text{tot} = \input{build/std.tex}$
+
+% \begin{equation*}
+% 	(\symup{\Delta}f)^2 = \sum_{n=1}^N
+% 	\left( \! \pfrac{\partial^{\!} f}{\partial x_{\raisebox{0.2ex}{$\scriptstyle{n}$}}} \!
+% 	\right)^{\!\! 2} \!\! (\symup{\Delta}x_{\raisebox{0.2ex}{$\scriptstyle{n}$}})^2
+% \end{equation*}
