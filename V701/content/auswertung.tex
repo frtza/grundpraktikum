@@ -4,6 +4,8 @@
 \section{Auswertung}
 \label{sec:auswertung}
 
+\subsection{Reichweite und Energie}
+
 Die Ergebnisse der ersten Messreihe, für die das verwendete Präparat in einem Abstand von \qty{6}{\centi\meter} zum
 Halbleiter-Sperrschichtzähler befestigt wird, lassen sich anhand Tabelle~\ref{tab:6} nachvollziehen. Ein entsprechendes
 Ventil an der Vakuumpumpe dient zur Variation des Zylinderdrucks $p$, der mithilfe des integrierten Manometers eingestellt
@@ -34,6 +36,9 @@ den Asymptoten $d$ und $a + d$.
 
 Aus dieser Tatsache folgt speziell für das Modell der Zählrate, dass bei einer effektiven Länge $x = c$ noch genau die Hälfte der
 maximalen Pulszahl den Detektor erreicht, womit $R = c$ ein Maß für die mittlere Reichweite von Alphastrahlung in Luft ist.
+
+\enlargethispage*{\baselineskip}
+\newpage
 
 Alternativ lässt sich $R$ über die tatsächlich gemessene maximale Zählrate $\hat{N}_\text{tot}$ bestimmen, indem
 $t = \raisebox{0.2ex}{\scalebox{0.8}{\(\pfrac{1}{2}\)}} \hspace{0.1ex} \hat{N}_\text{tot}$ in die Inverse von \eqref{eqn:sig}
@@ -91,12 +96,19 @@ als Koeffizienten der optimalen Näherung. Mit
 $-\raisebox{0.1ex}{\scalebox{0.8}{\(\pfrac{\symup dE}{\symup dx}\)}} = \input{build/v_6.tex}$ folgt daraus die pro Streckeneinheit
 abgegebene Energie. 
 
+Analog zum bisherigen Vorgehen für $x = \qty{6}{\centi\meter}$ werden nun die Ergebnisse für einen weiteren Abstand
+$x_0 = \qty{4}{\centi\meter}$ betrachtet. Die entsprechenden Messwerte dazu sind in Tabelle~\ref{tab:4} eingetragen.
+
 \begin{table}[H]
 	\centering
 	\caption{Messdaten bei festem Abstand $x_0 = \qty{4}{\centi\meter}$ zwischen Probe und Detektor.}
 	\input{build/table_4.tex}
 	\label{tab:4}
 \end{table}
+
+Abbildung~\ref{fig:qty_4} stellt die Zählraten sowie den Graphen der optimierten Fit-Funktion dar.
+
+\enlargethispage*{\baselineskip}
 
 \begin{figure}[H]
 	\includegraphics{build/plot_qty_4.pdf}
@@ -105,20 +117,18 @@ abgegebene Energie.
 	\label{fig:qty_4}
 \end{figure}
 
+\newpage
+
+Die der Sigmoidfunktion~\eqref{eqn:sig} zugehörigen Parameter lauten jetzt
 \begin{align*}
 	a &= \input{build/a_4.tex} & b &= \input{build/b_4.tex} \\
 	c &= \input{build/c_4.tex} & d &= \input{build/d_4.tex}
 \end{align*}
-
-$R = \input{build/c_4.tex}$
-
-$E = \input{build/E_val_4.tex}$
-
+und führen über den Wendepunkt auf eine mittlere Reichweite $R = \input{build/c_4.tex}$ sowie auf die Energie
+$E = \input{build/E_val_4.tex}$ als abgeleitete Größe. Mit
 $\raisebox{0.2ex}{\scalebox{0.8}{\(\pfrac{1}{2}\)}} \hspace{0.1ex} \hat{N}_\text{tot} = \input{build/h_4.tex}$
-
-$R = \input{build/R_4.tex}$
-
-$E = \input{build/E_R_4.tex}$
+ergibt sich nach Einsetzen in Zusammenhang \eqref{eqn:inv} der Wert $R = \input{build/R_4.tex}$ mit $E = \input{build/E_R_4.tex}$
+für Reichweite und Energie. 
 
 \begin{figure}[H]
 	\includegraphics{build/plot_E_4.pdf}
@@ -126,17 +136,22 @@ $E = \input{build/E_R_4.tex}$
 	\label{fig:E_4}
 \end{figure}
 
+In Abbildung~\ref{fig:E_4} sind die Moden der Energie und eine dazu passende lineare Regression nach
+Ansatz~\eqref{eqn:lin} mit optimalen Steuerwerten
 \begin{align*}
 	v = \input{build/v_4.tex} && w = \input{build/w_4.tex}
 \end{align*}
+wiedergegeben. Daraus folgt der Energieverlust
+$-\raisebox{0.1ex}{\scalebox{0.8}{\(\pfrac{\symup dE}{\symup dx}\)}} = \input{build/v_4.tex}$.
 
-$-\pfrac{\symup dE}{\symup dx} = \input{build/v_4.tex}$
+\subsection{Zerfallsstatistik}
 
 \begin{table}[H]
 	\centering
 	\caption{Totale Impulszählrate $N_\text{tot}$ über einen Zeitraum von \qty{10}{\second} bei Parametern
-			 $x_0 = \qty{4}{\centi\meter}$ und $p = \qty{300}{\milli\bar}$, also einem effektiven Abstand
-			 $x = \qty{1.18}{\centi\meter}$. $n_\text{tot} = 100$ Messungen, zur Nachvollziehbarkeit aufsteigend sortiert.}
+			 $x_0 = \qty{4}{\centi\meter}$ und $p = \qty{300}{\milli\bar}$. Das entspricht einem Abstand
+			 $x = \qty{1.18}{\centi\meter}$ bei Normaldruck. Aufgeführt werden $n_\text{tot} = 100$ Messungen,
+			 die zur besseren Nachvollziehbarkeit aufsteigend sortiert sind.}
 	\input{build/table_st.tex}
 	\label{tab:st}
 \end{table}
@@ -156,8 +171,22 @@ $-\pfrac{\symup dE}{\symup dx} = \input{build/v_4.tex}$
 	P_\lambda (k) = \pfrac{\lambda^k}{k!} \exp \left( -k \right)
 \end{equation*}
 
+\begin{equation*}
+	\overline{x} = \pfrac{1}{N \,} \sum_{n=1}^N x_n
+\end{equation*}
+
+\begin{equation*}
+	(\symup{\Delta}\overline{x})^2 = \pfrac{1}{N(N-1)} \sum_{n=1}^N (x_n \! - \overline{x})^2
+\end{equation*}
+
+\begin{equation*}
+	(\symup{\Delta}f)^2 = \sum_{n=1}^N
+	\left( \! \pfrac{\partial^{\!} f}{\partial x_{\raisebox{0.2ex}{$\scriptstyle{n}$}}} \!
+	\right)^{\!\! 2} \!\! (\symup{\Delta}x_{\raisebox{0.2ex}{$\scriptstyle{n}$}})^2
+\end{equation*}
+
 $\,\,\overline{\!\! N}_\text{tot} = \input{build/mean.tex}$
 
-$\sigma^2 = \input{build/var.tex}$
+$\left( \increment \,\,\overline{\!\! N}_\text{tot} \right)^{\! 2} = \input{build/var.tex}$
 
-$\sigma = \input{build/std.tex}$
+$\increment \,\,\overline{\!\! N}_\text{tot} = \input{build/std.tex}$
