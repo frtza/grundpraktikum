@@ -179,22 +179,26 @@ sowie die Varianz mit
 liefern. Die mittlere Zählrate über einen Zeitraum von \qty{10}{\second} wird dann mit
 \mbox{$\,\,\overline{\!\! N}_\text{tot} = \input{build/mean.tex}$} bemessen, während sich die Varianz
 auf $\sigma^2 = \input{build/var.tex}$ und ihre Quadratwurzel, die sogenannte Standardabweichung, auf
-$\sigma = \input{build/std.tex}$ belaufen. Diese beiden Werte fungieren als Maß für die Streuung der Verteilung.
+$\sigma = \input{build/std.tex}$ belaufen. Diese beiden Werte geben je ein Maß für die Streuung der Verteilung an.
 
+Weiter werden Methoden aus \verb+numpy.random+ verwendet, um Stichproben zum Vergleich verschiedener Wahrscheinlichsverteilungen
+zu generieren. Damit dabei Reproduzierbarkeit gewährleistet ist, wird ein deterministischer Generator \verb+default_rng+
+mit konstantem Initialisierungswert zur Erzeugung einer Folge von Pseudozufallszahlen genutzt.
+
+Eine gaußsche Normalverteilung folgt allgemein der Formel
 \begin{equation*}
 	P_{\mu \, \sigma}(x) = \pfrac{1}{\sqrt{2\pi} \sigma} \exp \left( -\pfrac{(x - \mu)^2}{2\sigma^2} \right)
 \end{equation*}
-
+und besitzt ihr Maximum beim Mittelwert $\mu$, wobei ihre Breite durch $\sigma$ beziehungsweise $\sigma^2$ bestimmt wird. Dagegen
+ist eine Poissonverteilung nur diskret für alle $k \in \mathbb{N}$ über
 \begin{equation*}
 	P_\lambda (k) = \pfrac{\lambda^k}{k!} \exp \left( -k \right)
 \end{equation*}
-
-
-
-Treppe, Bins, 
-
-
-
+definiert. Der Mittelwert wird hier auf $\lambda$ gesetzt, gibt aber gleichzeitig die Varianz bezüglich der Verteilung an.
+Über die Generatorattribute \verb+normal+ und \verb+poisson+ werden nun jeweils Stichproben aus $n_\text{tot} = 500$ Werten
+gezogen, wobei die zuvor berechneten Eigenschaften der Messverteilung als Eingabeparameter für $\mu$, $\sigma$ und $\lambda$
+Verwendung finden. Die resultierenden Verteilungen sind ebenfalls normiert als Treppenhistogramme in Abbildung \ref{fig:st}
+dargestellt. 
 
 % \begin{equation*}
 % 	(\symup{\Delta}f)^2 = \sum_{n=1}^N
