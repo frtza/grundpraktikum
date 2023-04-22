@@ -1,70 +1,107 @@
 % Messwerte: Alle gemessenen Größen tabellarisch darstellen
 % Auswertung: Berechnung geforderter Ergebnisse mit Schritten/Fehlerformeln/Erläuterung/Grafik (Programme)
+\newpage
 \section{Auswertung}
 \label{sec:auswertung}
 
+Die Ergebnisse der ersten Messreihe, für die das verwendete Präparat in einem Abstand von \qty{6}{\centi\meter} zum
+Halbleiter-Sperrschichtzähler befestigt wird, lassen sich anhand Tabelle~\ref{tab:6} nachvollziehen. Ein entsprechendes
+Ventil an der Vakuumpumpe dient zur Variation des Zylinderdrucks $p$, der mithilfe des integrierten Manometers eingestellt
+wird. Daraus ergibt sich nach Formel~\eqref{eqn:effektiv} die effektive Distanz $x$. Mit $N_\text{tot}$ ist die Anzahl aller
+aufgezeichneten Strompulse innerhalb eines Intervalls von \qty{120}{\second} bezeichnet. Für eine gegebene Einstellung zählt
+$N_\text{max}$ über denselben Zeitraum die maximale Anzahl der Impulse innerhalb eines Kanals. Dieser die meisten Signale
+erhaltende Kanal wird unter $\text{CH}$ aufgeführt. Im Vielkanalanalysator kann davon ausgangen werden, dass ein linearer
+Zusammenhang zwischen Kanalnummer und entsprechender Energie des Alphateilchens existiert. So wird dann der Modus $E$ der
+Energieverteilung ermittelt, da $E = \qty{4}{\mega\electronvolt}$ für $p = 0$ oder äquivalent für $x = 0$ bekannt ist. 
+Der statistische Modus, auch Modalwert gennant, gibt den Wert an, der am häufigsten in einer Stichprobe vorkommt.
+
 \begin{table}[H]
 	\centering
-	\caption{}
+	\caption{Messdaten bei festem Abstand $x_0 = \qty{6}{\centi\meter}$ zwischen Probe und Detektor.}
 	\input{build/table_6.tex}
 	\label{tab:6}
 \end{table}
 
+Zur weiteren Auswertung des Verlaufs der Zählrate $N_\text{tot}$ in Abhängigkeit zur effektiven Länge $x$ bietet sich die
+Verwendung einer Sigmoidfunktion
+\begin{equation}
+	\symup{sig}(t) = \pfrac{a}{1 + \exp \left( b(t - c) \right)} + d
+	\label{eqn:sig}
+\end{equation}
+an, welche hier mit vier Freiheitsgraden formuliert ist. Ihr einziger Wendepunkt liegt bei $t = c$, dort nimmt sie den Funktionswert
+$\symup{sig}(c) = \raisebox{0.2ex}{\scalebox{0.8}{\(\pfrac{1}{2}\)}} \hspace{0.1ex} a + d$ an. Dieser liegt genau mittig zwischen
+den Asymptoten $d$ und $a + d$.
+
+Aus dieser Tatsache folgt speziell für das Modell der Zählrate, dass bei einer effektiven Länge $x = c$ noch genau die Hälfte der
+maximalen Pulszahl den Detektor erreicht, womit $R = c$ ein Maß für die mittlere Reichweite von Alphastrahlung in Luft ist.
+
+Alternativ lässt sich $R$ über die tatsächlich gemessene maximale Zählrate $\hat{N}_\text{tot}$ bestimmen, indem
+$t = \raisebox{0.2ex}{\scalebox{0.8}{\(\pfrac{1}{2}\)}} \hspace{0.1ex} \hat{N}_\text{tot}$ in die Inverse von \eqref{eqn:sig}
+eingesetzt wird. Diese ist mit
+\begin{equation}
+	\symup{sig}^{-1}(t) = \pfrac{\ln \left( \displaystyle{\pfrac{a}{t - d}} - 1 \right)}{b} + c
+	\label{eqn:inv}
+\end{equation}
+gegeben. In Abbildung~\ref{fig:qty_6} werden die zuvor aufgetragenen Messwerte mit der beschriebenen Ausgleichskurve
+durch die Bibliothek Matplotlib~\cite{matplotlib} unter Python~\cite{python} dargestellt.
+
 \begin{figure}[H]
 	\includegraphics{build/plot_qty_6.pdf}
-	\caption{}
+	\caption{Gesamtzählrate $N_\text{tot}$ der über einen Zeitraum von \qty{120}{\second} gemessenen Impulse in Abhängigkeit zur
+			 effektiven Länge $x$ bei $x_0 = \qty{6}{\centi\meter}$.}
 	\label{fig:qty_6}
 \end{figure}
 
-\begin{equation*}
-	\symup{sig}(x) = \pfrac{a}{1 + \exp \left( b(x - c) \right)} + d
-\end{equation*}
-
+Die optimalen Parameter liefert die numerische Methode \verb+scipy.optimize.curve_fit+~\cite{scipy}, wobei die angegebenen Abweichungen
+der Wurzel der Elemente auf der Hauptdiagonalen der Kovarianzmatrix entsprechen. So ergeben sich
 \begin{align*}
 	a &= \input{build/a_6.tex} & b &= \input{build/b_6.tex} \\
 	c &= \input{build/c_6.tex} & d &= \input{build/d_6.tex}
 \end{align*}
+zur Minimierung der Fehlerquadrate. $R = \input{build/c_6.tex}$ beschreibt die mittlere Reichweite über den Wendepunkt $c$ mit
+$E = \input{build/E_val_6.tex}$ als die dazugehörige Energie. Um letztere zu berechnen, wird $R = \num{3.1} E^{\, 3/2}$ zur
+Näherung mit Gültigkeit für $E \leq \qty{2.5}{\mega\electronvolt}$ ausgenutzt, wobei $R$ in \unit{\milli\meter} anzugeben ist.
+Mit Uncertainties~\cite{uncertainties} erfolgt dazu eine automatisierte Fehlerfortpflanzung.
 
-$R = \input{build/c_6.tex}$
+Die Hälfte der maximalen Zählrate innerhalb von \qty{120}{\second} lautet
+$\raisebox{0.2ex}{\scalebox{0.8}{\(\pfrac{1}{2}\)}} \hspace{0.1ex} \hat{N}_\text{tot} = \input{build/h_6.tex}$
+und liefert über die Umkehrfunktion \eqref{eqn:inv} den Wert $R = \input{build/R_6.tex}$ für die mittlere Reichweite bei
+einer Energie von $E = \input{build/E_R_6.tex}$. 
 
-$E = \input{build/E_val_6.tex}$
-
-\begin{equation*}
-	\symup{sig}^{-1}(x) = \pfrac{\ln \left( \displaystyle{\pfrac{a}{x - d}} - 1 \right)}{b} + c
-\end{equation*}
-
-$\pfrac{1}{2} \hat{N}_\text{tot} = \input{build/h_6.tex}$
-
-$R = \input{build/R_6.tex}$
-
-$E = \input{build/E_R_6.tex}$
+Zur Regression entlang der Modalwerte $E$ bei Länge $x$ wird ein linearer Zusammenhang
+\begin{equation}
+	E(x) = w - v x
+	\label{eqn:lin}
+\end{equation}
+herangezogen. Daran lässt sich direkt der Term
+$-\raisebox{0.1ex}{\scalebox{0.8}{\(\pfrac{\symup dE}{\symup dx}\)}} = v$
+für den Energieverlust ablesen.
 
 \begin{figure}[H]
 	\includegraphics{build/plot_E_6.pdf}
-	\caption{}
+	\caption{Modus $E$ der Energieverteilung zum effektiven Abstand $x$ bei $x_0 = \qty{6}{\centi\meter}$.}
 	\label{fig:E_6}
 \end{figure}
 
-\begin{equation*}
-	E(x) = w - v x
-\end{equation*}
-
+In Abbildung~\ref{fig:E_6} werden Messpunkte und lineare Ausgleichsrechnung angezeigt. Die Funktion \verb+numpy.polyfit+ produziert
 \begin{align*}
 	v = \input{build/v_6.tex} && w = \input{build/w_6.tex}
 \end{align*}
-
-$-\pfrac{\symup dE}{\symup dx} = \input{build/v_6.tex}$
+als Koeffizienten der optimalen Näherung. Mit
+$-\raisebox{0.1ex}{\scalebox{0.8}{\(\pfrac{\symup dE}{\symup dx}\)}} = \input{build/v_6.tex}$ folgt daraus die pro Streckeneinheit
+abgegebene Energie. 
 
 \begin{table}[H]
 	\centering
-	\caption{}
+	\caption{Messdaten bei festem Abstand $x_0 = \qty{4}{\centi\meter}$ zwischen Probe und Detektor.}
 	\input{build/table_4.tex}
 	\label{tab:4}
 \end{table}
 
 \begin{figure}[H]
 	\includegraphics{build/plot_qty_4.pdf}
-	\caption{}
+	\caption{Gesamtzählrate $N_\text{tot}$ der über einen Zeitraum von \qty{120}{\second} gemessenen Impulse in Abhängigkeit zur
+			 effektiven Länge $x$ bei $x_0 = \qty{4}{\centi\meter}$.}
 	\label{fig:qty_4}
 \end{figure}
 
@@ -77,7 +114,7 @@ $R = \input{build/c_4.tex}$
 
 $E = \input{build/E_val_4.tex}$
 
-$\pfrac{1}{2} \hat{N}_\text{tot} = \input{build/h_4.tex}$
+$\raisebox{0.2ex}{\scalebox{0.8}{\(\pfrac{1}{2}\)}} \hspace{0.1ex} \hat{N}_\text{tot} = \input{build/h_4.tex}$
 
 $R = \input{build/R_4.tex}$
 
@@ -85,7 +122,7 @@ $E = \input{build/E_R_4.tex}$
 
 \begin{figure}[H]
 	\includegraphics{build/plot_E_4.pdf}
-	\caption{}
+	\caption{Modus $E$ der Energieverteilung zum effektiven Abstand $x$ bei $x_0 = \qty{4}{\centi\meter}$.}
 	\label{fig:E_4}
 \end{figure}
 
@@ -97,14 +134,17 @@ $-\pfrac{\symup dE}{\symup dx} = \input{build/v_4.tex}$
 
 \begin{table}[H]
 	\centering
-	\caption{}
+	\caption{Totale Impulszählrate $N_\text{tot}$ über einen Zeitraum von \qty{10}{\second} bei Parametern
+			 $x_0 = \qty{4}{\centi\meter}$ und $p = \qty{300}{\milli\bar}$, also einem effektiven Abstand
+			 $x = \qty{1.18}{\centi\meter}$. $n_\text{tot} = 100$ Messungen, zur Nachvollziehbarkeit aufsteigend sortiert.}
 	\input{build/table_st.tex}
 	\label{tab:st}
 \end{table}
 
 \begin{figure}[H]
 	\includegraphics{build/plot_st.pdf}
-	\caption{}
+	\caption{Histogramm der gemessenen relativen Zählratenverteilung ($n_\text{tot} = 100$) mit überlagerter
+			 Gauß- und Poisson-Verteilung (je $n_\text{tot} = 500$).}
 	\label{fig:st}
 \end{figure}
 
