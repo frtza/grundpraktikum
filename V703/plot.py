@@ -16,9 +16,45 @@ print('Tabelle zur Krnnlinie:')
 kennlinie=pd.read_csv('data/kennlinie.txt',sep=' ', header=None, names=['Spannung', 'Zählrate', 'Strom'])
 print(kennlinie.to_latex(index=False, column_format="c c c"))
 
-#Kennlinie Geiger-Müller
+U, N, I = np.genfromtxt('data/kennlinie.txt', unpack=True, skip_header=1)  
 
-U, N, I = np.genfromtxt('data/kennlinie.txt', unpack=True, skip_header=1)   
+#Fehler der Zählrate lamdda
+N_fehler = np.round((1/np.sqrt(N))*N)
+print(N_fehler)
+
+#Kennlinie Geiger-Müller
+Up = U[5:25]
+Np = N[5:25]
+Np = Np/120
+
+def g(a,b,x):
+    return a * x + b
+
+para, pcov = curve_fit(g,Up,Np)
+a, b = para
+pcov = sqrt(np.diag(pcov))
+fa, fb = pcov
+
+ua = ufloat(a, fa)
+ub = ufloat(b, fb)
+print('a = (%.3f ± %.3f)' % (noms(ua), stds(ua)))
+print('b = (%.3f ± %.3f)' % (noms(ub), stds(ub)))
+
+xx = np.linspace(410, 650, 10000)   # Spannungen für das Plateau-Gebiet
+fN = sqrt(N)                        # N Poisson-verteilt
+uN = uarray(N, fN)
+uN = uN/120                         # Impulsrate mit Fehler
+plt.errorbar(U, noms(uN), yerr = stds(uN), fmt='r.', elinewidth = 1, capsize = 2, label = 'Messdaten')
+plt.plot(xx, g(xx, a, b), '-b', linewidth = 1, label = 'Plateaugerade')
+
+plt.xlabel(r'$U \, / \, \mathrm{V}$')
+plt.ylabel(r'$N \, / \, \mathrm{s^{-1}}$')
+plt.legend(loc="best")                  # legend position
+plt.grid(True) 
+plt.savefig('build/plot_1.pdf')
+
+
+
 
 
 
