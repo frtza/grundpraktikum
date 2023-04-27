@@ -47,7 +47,7 @@ xx = np.linspace(0, 31, 10**4)
 plt.plot(v, U, 'xr', markersize=6 , label = 'Messdaten', alpha=0.5)
 #plt.plot(xx, g(xx, *para), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
 plt.plot(xx, test(xx, *par_test), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
-plt.xlabel(r'$\nu \mathbin{/} \unit{\kilo\hertz}$')
+plt.xlabel(r'$\nu \,/\, kHz$') #\unit{\kilo\hertz}
 plt.ylabel(r'$U_A \, / \, U_E$')
 plt.legend(loc="best")                  # legend position
 plt.grid(True)                          # grid style
@@ -113,9 +113,9 @@ def su(x,d,f,q):
 di_d = 0.711 
 di_n = 0.19
 di_g = 0.728
-chi_d = su(2.539,di_d,quer,d_q )
-chi_n = su(2.5,di_n,quer,n_q)
-chi_g = su(2.485,di_g,quer,g_q)
+chi_d = su(998,di_d,quer,d_q )
+chi_n = su(998,di_n,quer,n_q)
+chi_g = su(998,di_g,quer,g_q)
 print('Susz:')
 print(chi_d)
 print(chi_n)
