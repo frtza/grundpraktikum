@@ -23,8 +23,18 @@ N_fehler = np.round((1/np.sqrt(N))*N)
 print(N_fehler)
 
 #Kennlinie Geiger-Müller
-Up = U[5:25]
-Np = N[5:25]
+#Up = U[5:25]
+#Np = N[5:25]
+
+### Vorschlag zur Wahl besserer Plateau-Daten:
+# entweder
+#Up = U[4:17]
+#Np = N[4:17]
+# oder
+Up = U[3:19]
+Np = N[3:19]
+###
+
 Np = Np/120
 
 def g(a,b,x):
@@ -40,7 +50,8 @@ ub = ufloat(b, fb)
 print('a = (%.3f ± %.3f)' % (noms(ua), stds(ua)))
 print('b = (%.3f ± %.3f)' % (noms(ub), stds(ub)))
 
-xx = np.linspace(410, 650, 10000)   # Spannungen für das Plateau-Gebiet
+#xx = np.linspace(410, 650, 10000)   # Spannungen für das Plateau-Gebiet
+xx = np.linspace(370, 710, 10000)   ### Vorschlag: Gerade etwas breiter als Plateau anzeigen lassen ###
 fN = sqrt(N)                        # N Poisson-verteilt
 uN = uarray(N, fN)
 uN = uN/120                         # Impulsrate mit Fehler
