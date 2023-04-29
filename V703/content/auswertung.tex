@@ -30,7 +30,7 @@ Der Fehler des Mittelwertes ist gegeben durch
 Die aufgenommenen Messwerte zur Bestimmung der Kennlinie des Geiger-Müller-Zählrohrs sind in der \autoref{tab:kennlinie}
 dargestellt. Zudem wurde mit Hilfe der \autoref{eqn:} der statistische Fehler $\lambda$ bestimmt und ebenfalls aufgelistet.
 
-\begin{table}
+\begin{table}[H]
     \centering
     \caption{Messdaten zur Bestimmung der Kennlinie des Geiger-Müller-Zählrohrs}
     \label{tab:kennlinie}
@@ -64,4 +64,29 @@ dargestellt. Zudem wurde mit Hilfe der \autoref{eqn:} der statistische Fehler $\
     \end{tabular}
 \end{table}
 
-Die Messdaten der Detektorspannung $U$ wurden gegen die Zählraten auf
+
+Die Messdaten der Detektorspannung $U$ wurden gegen die Zählrate $N$ aufgetragen und in der
+\autoref{fig:plot_1} dargestellt. Die Ausgleichsgrade hat die Form
+\begin{equation*}
+    N = a \cdot U + b.
+\end{equation*}
+
+Mit Hilfe von Linearer Regression, welche mit SciPy \cite{scipy} durchgeführt wurde, ergeben sich die Werte
+\begin{align*}
+    a &= \qty{0.018(3)}{\per\volt} \quad \text{und} \\
+    b &= \num{149.499(172)} \, .
+\end{align*}
+Der Plateu-Bereich hat eine Länge von $\SI{340}{\volt}$.
+
+\begin{figure}[H]
+	\includegraphics{build/plot_1.pdf}
+	\caption{Messwerte der Detektorspannung wurde gegen die Zählrate aufgetragen. Zudem die Ausgleichsgrade des Plateu-Bereichs.}
+	\label{fig:plot_1}
+\end{figure}
+
+In der \autoref{tab:} sind die gemessenen Werte für die  Spannung $U$ und die Stromstärke $I$ abgebildet.
+Zusätzlich wurde die Anzahl der detektierten Ladungsträger $N_e$  pro einfallenden Teilchen anhand der Formel
+\begin{equation*}
+    N_e = \frac{t \cdot I}{e}
+\end{equation*}
+berechnet. Dabei beträgt $t = \SI{120}{\second}$ und die Elementarladung $e$ ist gegeben durch $e = 1.6 \cdot 10^{-19} \si{coloumb}$.
