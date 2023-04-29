@@ -9,10 +9,11 @@ from uncertainties import ufloat                            # Fehler:           
 from uncertainties import unumpy as unp 
 from uncertainties.unumpy import uarray                     # Array von Fehler: fehlerarray =  uarray(array, errarray)
 from uncertainties.unumpy import (nominal_values as noms,   # Wert:             noms(fehlerwert) = x
-                                  std_devs as stds)         # Abweichung:       stds(fehlerarray) = errarray
+                                  std_devs as stds)  
+                                      # Abweichung:       stds(fehlerarray) = errarray
 
 #latexTabelle der Messdaten zur Kennlinie des Geiger-Müller-Zählrohrs
-print('Tabelle zur Krnnlinie:')
+print('Tabelle zur Kennlinie:')
 kennlinie=pd.read_csv('data/kennlinie.txt',sep=' ', header=None, names=['Spannung', 'Zählrate', 'Strom'])
 print(kennlinie.to_latex(index=False, column_format="c c c"))
 
@@ -51,7 +52,7 @@ print('a = (%.3f ± %.3f)' % (noms(ua), stds(ua)))
 print('b = (%.3f ± %.3f)' % (noms(ub), stds(ub)))
 
 #xx = np.linspace(410, 650, 10000)   # Spannungen für das Plateau-Gebiet
-xx = np.linspace(370, 710, 10000)   ### Vorschlag: Gerade etwas breiter als Plateau anzeigen lassen ###
+xx = np.linspace(370, 710, 10000)   ### Vorschlag: Gerade etwas breiter als Plateau anzeigen lassen###
 fN = sqrt(N)                        # N Poisson-verteilt
 uN = uarray(N, fN)
 uN = uN/120                         # Impulsrate mit Fehler
@@ -65,9 +66,20 @@ plt.grid(True)
 plt.savefig('build/plot_1.pdf')
 
 
+#anzahl Ladungsträger
+kennlinie=pd.read_csv('data/kennlinie.txt',sep=' ', header=None, names=['Spannung', 'Zählrate', 'Strom'])
+print(kennlinie.to_latex(index=False, column_format="c c c"))
 
+#I_a = ufloat(I, 0.005)
 
+e = const.elementary_charge
+def l(i, t):
+    e = const.elementary_charge
+    return (i* 10**(-6)*t)/e
+t = 120
+fI = 0.05*1e-6       # Fehler des Stroms in μA
+uI = uarray(I, fI)
+N_e = l(uI,t)
 
-
-
-
+nomN_e = l(I, t)
+print(nomN_e)
