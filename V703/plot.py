@@ -64,7 +64,7 @@ plt.ylabel(r'$N \, / \, \mathrm{s^{-1}}$')
 plt.legend(loc="best")                  # legend position
 plt.grid(True) 
 plt.savefig('build/plot_1.pdf')
-
+plt.clf()
 
 #anzahl Ladungsträger
 kennlinie=pd.read_csv('data/kennlinie.txt',sep=' ', header=None, names=['Spannung', 'Zählrate', 'Strom'])
@@ -77,9 +77,26 @@ def l(i, t):
     e = const.elementary_charge
     return (i* 10**(-6)*t)/e
 t = 120
-fI = 0.05*1e-6       # Fehler des Stroms in μA
+fI = 0.05*1e-6       # Fehler des Stroms in μA, dieser fällt bei den werten weg, da er so klein ist
+
 uI = uarray(I, fI)
 N_e = l(uI,t)
 
 nomN_e = l(I, t)
 print(nomN_e)
+np.savetxt('build/zählrate.txt',nomN_e,delimiter=',')
+
+plt.plot(U,nomN_e, '.r',linewidth = 1)
+#plt.show()
+plt.xlabel(r'$U \, / \, \mathrm{V}$')
+plt.ylabel(r'Anzahl der Ladungsträger $Z$')
+plt.legend(loc="best")                  # legend position
+plt.grid(True) 
+plt.savefig('build/plot_2.pdf')
+plt.clf()
+
+#Bestimmung der totzeit
+N1 = 67233+37935
+N12 = 67233+67233+67233+34874
+N2 = 67233+67233+31906
+print(N1,N12,N2)
