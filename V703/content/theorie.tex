@@ -1,54 +1,103 @@
 % Theorie: Physikalische Grundlagen von Versuch/Messverfahren, Gleichungen ohne Herleitung knapp erklären
-\section{Theorie}
+\section[Theorie]{Theorie \textnormal{\cite{geiger}}}
 \label{sec:theorie}
+
+Geiger-Müller Zählrohre dienen der Detektion ionisierender Strahlung. Da die Nachweiswahrscheinlichkeit für energiereiche Bereiche des
+elektromagnetischen Spektrums wie Röntgen- oder Gammastrahlung sehr gering ist, wird hauptsächlich Teilchenstrahlung betrachtet. Diese
+kann in Alpha- und Betastrahlung eingeteilt werden: Handelt es sich um Elektronen $(\ce{e-})$ heißt sie $\beta^-$-Strahlung, für Positronen
+$(\ce{e+})$ wird sie $\beta^+$-Strahlung gennant. Setzt sie sich aus $\alpha$-Teilchen zusammen sind damit Heliumkerne
+$\left(\ce{^{4}_{2}He}\right)$ gemeint. 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{content/grafik/formen.jpg}
-	\caption{}
+	\caption{Verschiedene Bauformen von Geiger-Müller Zählrohren.}
 	\label{fig:formen}
 \end{figure}
 
+Es existieren vielfältige Bauformen (Abbildung \ref{fig:formen}), die sich aber im Wesentlichen eine Funktionsweise teilen.
+
 \subsection{Funktionsweise}
+
+Das Geiger-Müller Zählrohr besteht aus einem metallischen Zylinder entlang dessen Achse ein Zähldraht verläuft. Ein Eintrittsfenster aus
+Mylar- oder Glimmerfolie verschließt die Röhre, in der sich bei Unterdruck ein mit einem Kohlenwasserstoff versetztes Edelgas befindet.
+Zwischen Anodendraht und Kathodenzylinder wird ein radialsymmetrisches elektrisches Feld angelegt.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\linewidth]{content/grafik/diagramm.jpg}
-	\caption{}
+	\includegraphics[width=0.8\linewidth]{content/grafik/diagramm.jpg}
+	\caption{Schematischer Aufbau des Geiger-Müller Zählrohrs.}
 	\label{fig:diagramm}
 \end{figure}
 
+Einfallende ionisierende Strahlung produziert im Füllgasgemisch freie Elektronen, die wegen ihrer negativen Ladung zum Zähldraht beschleunigen,
+sowie positiv geladene Ionen, die in Richtung Zylinderwand wandern. Diese Ladungsträger können dabei weitere Moleküle ionisieren, sodass sich
+Kettenreaktionen ausbilden. Der entstehende Strom fließt über einen Widerstand im Bereich einiger \qty{e6}{\ohm} ab, sodass es bei ausreichender
+Stromstärke nahezu instantan zu einem Spannungsabfall kommt. Das Feld wird dadurch abgeschwächt und die Kettenreaktion stoppt. Nach Abfließen der
+Ladung nimmt die Feldstärke wieder zu und es kann ein weiterer Ionisationsprozess detektiert werden. Um die Spannungspulse messbar zu machen, ist
+dem Zähler noch ein Verstärker vorgeschaltet. Nachzuvollziehen ist dieser Aufbau mithilfe des Blockdiagramms in Abbildung \ref{fig:diagramm}.
+
 \subsection{Funktionsbereiche}
 
-\subsubsection{Charakteristische Kennlinie}
+Die Beziehung von Zählrate zu angelegter Spannung heißt Zählrohrcharakteristik und kann graphisch als Kennlinie (Abbildung \ref{fig:kurve})
+dargestellt werden. Daran lassen sich verschiedene Bereiche ablesen, in denen jeweils unterschiedliche physikalische Prozesse dominieren.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\linewidth]{content/grafik/kurve.jpg}
-	\caption{}
+	\includegraphics[width=0.7\linewidth]{content/grafik/kurve.jpg}
+	\caption{Typische Kennlinie eines Geiger-Müller Zählrohrs.}
 	\label{fig:kurve}
 \end{figure}
 
+\subsubsection{Charakteristik der Kennlinie}
+
+Die in Abbildung \ref{fig:kurve} eingetragenen Spannungsabschnitte werden \mbox{nun genauer beschrieben:}
+
 \paragraph{Rekombination}
+
+Bei geringen Spannungen rekombinieren sich die Ionisationsprodukte wieder zu neutralen Atomen, sodass sie nicht zum resultierenden Strom beitragen.
+Daher kann die Apparatur erst ab einer Mindestspannung Zerfälle nachweisen. Mit zunehmender Spannung wird dieser Einfluss vernachlässigbar gering.
 
 \paragraph{Ionisationskammer}
 
+Alle Ladungsträger erreichen die Elektroden, auf diese Weise stellt sich ein Sättigungsstrom ein. Es handelt sich dabei nur um durch die
+Primärstrahlung erzeugte Elektronen und Ionen, da die für sekundäre Ionisationsprozesse notwendige Energie in diesem Spannungsbereich nicht
+erreicht wird.
+
 \paragraph{Proportionalität}
+
+Die freigesetzten Elektronen erzeugen durch Stoßionisation weitere Elektronen-Ionen-Paare, lokalisiert um den Anodendraht findet
+dieser Prozess aufgrund der hohen Feldstärke lawinenartig statt. Abhängig von Zählrohrspannung, Gasdruck und Gasart, sorgen diese
+sogenannten Townsend-Lawinen für Verstärkungsfaktoren in der Ordnung \num{e3}. Der Verlauf ist hier außerdem proportional zum spezifischen
+Ionisationsvermögen und erlaubt so eine Unterscheidung der einfallenden Strahlung nach Art und Energie. Dabei erzeugt $\alpha$-Strahlung eine
+sehr große Ladung, für $\beta$- und $\gamma$-Strahlung fällt diese geringer aus.
 
 \paragraph{Geiger-Müller}
 
+Weiteres Erhöhen der Spannung sorgt dafür, dass im gesamten Zählrohrvolumen Townsend-Lawinen auftreten. Aufgrund der viel höheren trägen
+Masse der Ionen relativ zu den Elektronen, können erstere nicht ausreichend schnell abwandern, sodass sich um den Zähldraht eine abschirmende
+Raumladungswolke bildet. Diese verhindert das Auftreten weiterer Lawinen, die Magnitude der Impulse wird so unabhängig von der Strahlungsart
+auf den gleichen Wert beschränkt. Der Arbeitspunkt des Geiger-Müller Zählrohrs liegt im ersten Drittel des entstehenden Plateaus.
+
+Im Geiger-Müller Bereich treten zusätzliche Störphänomene auf: Angeregte Gasatome emittieren Photonen, die am Kathodenzylinder Photoelektronen 
+erzeugen können, welche wiederum lawinenartig verstärkt werden. Ebenso führen Stöße energetischer Ionen mit der Zylinderwand zur zeitversetzten
+Emission von Sekundärelektronen, deren als Nachentladungen bezeichnete Ausgangsimpulse die gemesse Zählrate verfälschen. Zur Mitigation beider
+Prozesse kann ein Löschgas aus langkettigen Alkoholmolekülen beigefügt werden, das Photonen absorbiert und Nachentladungsstöße dämpft.
+
 \paragraph{Dauerentladung}
 
-\subsubsection{Tot- und Erholungszeit}
+Ansetzen größerer Spannungen führt zum dauerentladungsbedingten exponentiellen Anstieg der Zählrate und zur langfristigen Zerstörung des Zählrohrs. 
 
-\subsubsection{Güte des Plateaus}
-
-\subsection{Statistik}
+\subsubsection{Kennzeichnende Zeitintervalle}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{content/grafik/zeit_soll.jpg}
-	\caption{}
+	\caption{Bestimmung von Totzeit und Erholungszeit am Oszilloskop.}
 	\label{fig:zeit_soll}
 \end{figure}
+
+\subsubsection{Güte des Plateaus}
+
+\subsection{Statistik}
 
