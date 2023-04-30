@@ -23,15 +23,6 @@ U, N, I = np.genfromtxt('data/kennlinie.txt', unpack=True, skip_header=1)
 N_fehler = np.round((1/np.sqrt(N))*N)
 print(N_fehler)
 
-#Kennlinie Geiger-Müller
-#Up = U[5:25]
-#Np = N[5:25]
-
-### Vorschlag zur Wahl besserer Plateau-Daten:
-# entweder
-#Up = U[4:17]
-#Np = N[4:17]
-# oder
 Up = U[3:19]
 Np = N[3:19]
 ###
@@ -96,7 +87,25 @@ plt.savefig('build/plot_2.pdf')
 plt.clf()
 
 #Bestimmung der totzeit
+t = 120
+
 N1 = 67233+37935
-N12 = 67233+67233+67233+34874
+fN1 = np.sqrt(N1)
+uN1 = ufloat(N1,fN1)
+
+print('N1 = (%.3f ± %.3f)' % (N1, fN1))
+
 N2 = 67233+67233+31906
-print(N1,N12,N2)
+fN2 = np.sqrt(N2)
+uN2 = ufloat(N2,fN2)
+
+print('N2 = (%.3f ± %.3f)' % (N2, fN2))
+
+N12 = 67233+67233+67233+34874
+fN12 = np.sqrt(N12)
+uN12 = ufloat(N12,fN12)
+ 
+print('N12 = (%.3f ± %.3f)' % (N12, fN12))
+
+tau = (uN1 + uN2 - uN12) / ((uN12)**2 - (uN1)**2 - (uN2)**2)
+print(tau)
