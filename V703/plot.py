@@ -75,9 +75,10 @@ N_e = l(uI,t)
 
 nomN_e = l(I, t)
 print(nomN_e)
+print(N_e)
 np.savetxt('build/zählrate.txt',nomN_e,delimiter=',')
 
-plt.plot(U,nomN_e, '.r',linewidth = 1)
+plt.plot(U,nomN_e, '.r',linewidth = 1, label='Messdaten')
 #plt.show()
 plt.xlabel(r'$U \, / \, \mathrm{V}$')
 plt.ylabel(r'Anzahl der Ladungsträger $Z$')
