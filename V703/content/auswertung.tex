@@ -86,6 +86,9 @@ Mit Hilfe von Linearer Regression, welche mit SciPy \cite{scipy} durchgeführt w
 	\label{fig:plot_1}
 \end{figure}
 
+\subsection{Anzahl der detektierten Ladungsträger}
+\label{sec:Anzahl der detektierten Ladungsträger}
+
 In der \autoref{tab:ladungs} sind die gemessenen Werte für die  Spannung $U$ und die Stromstärke $I$ abgebildet.
 Zusätzlich wurde die Anzahl der detektierten Ladungsträger $Z$ pro einfallenden Teilchen anhand der Formel
 \begin{equation*}
@@ -137,6 +140,9 @@ Plateau-Bereich ist zu erkennen, dass der Anstieg von $Z$ nachlässt.
 	\label{fig:plot_2}
 \end{figure}
 
+\subsection{Bestimmung der Totzeit}
+\label{sec:Bestimmung der Totzeit}
+
 Um die Totzeit zu bestimmen werden zwei Verfahren genutzt. Zunächst wird die Zwei-quellen Methode
 verwendet. In einem Zeitraum von $t = \SI{120}{\second}$ bei einer Spannung von $U = \SI{440}{\volt}$ wurden für zwei Proben
 die Zähkraten einmal einzelnen und zusammen gemessen.
@@ -144,7 +150,7 @@ In der \autoref{tab:tabelle} sind die aufgenommenen Zählraten der einzelnen Pro
 
 \begin{table}[H]
     \centering
-    \caption{Die Zählrate $N_1$,$N_2$ und $N_12$.}
+    \caption{Die Zählrate $N_1$,$N_2$ und $N_{12}$.}
     \label{tab:tabelle}
     \begin{tabular}{c c c}
     \toprule
@@ -160,3 +166,17 @@ Aus den gemessenen Werten ergibt sich die Totzeit $\tau$ mit
     \tau =\frac{N_1+N_2-N_{12}}{N_{12}^2-N_1^2-N_2^2} = \left(2.03 \pm 0.07\right) \si{\micro\second}.
 \end{equation*}
 
+Zur Bestimmung der Totzeit wurde als zweite Methode das angeschlossene Osziloskopverwendet. Anhand dessen kann die Totzeit
+abgelsen werden. In \autoref{fig:totzeit} ist ein solches Bild gezeigt.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{data/totzeit.jpg}
+	\caption{Aufnahme des Osziloskops, an der die Totzeit und die Erholungszeit abgelesen werden kann.}
+	\label{fig:totzeit}
+\end{figure}
+Es lässt sich der Wert 
+\begin{equation*}
+    \tau_{Osziloskop} = \left(3 \pm 0.2 \right) \cdot 50 \si{\micro\second} = \left(150 \pm  10\right) \si{\micro\second}
+\end{equation*}
+ablesen.
