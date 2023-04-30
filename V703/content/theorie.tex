@@ -105,6 +105,26 @@ registrierten neuen Puls bis zur vollständigen Erholung der Spannung auf das Ni
 	\label{fig:zeit_soll}
 \end{figure}
 
+Die Zeitintervalle lassen sich entweder wie in Abbildung \ref{fig:zeit_soll} aus dem Spannungsverlauf an einem zwischengeschalteten Oszilloskop
+ablesen oder aber über die Zwei-Quellen-Methode ermitteln. Dazu wird die Annahme getroffen, dass die Zählratenverluste durch die Totzeit $\tau$
+bei steigender Zählrate mitwachsen. Zur gemessenen Zählrate $N$ gibt
+\begin{equation*}
+	N_0 = \pfrac{N}{1 - N \tau}
+\end{equation*}
+die korrigierte Zählrate an, womit sich der passende Zählratenverlust auf
+\begin{equation*}
+	N_0 - N = \pfrac{N^2 \tau}{1 - N \tau}
+\end{equation*}
+beläuft. Sind die einzelnen Zählraten $N_1$ und $N_2$ sowie die gemeinsame Zählrate $N_{12}$ von zwei Quellen bekannt, ergibt sich
+nach Einsetzen und Umstellen die Relation
+\begin{equation}
+	\tau = \pfrac{N_1 + N_2 - N_{12}}{N_{12}^2 - N_1^2 - N_2^2}
+	\label{eqn:totzeit}
+\end{equation}
+als Rechenvorschrift zur Bestimmung der Totzeit $\tau$ des Aufbaus.
+\enlargethispage{0.5\baselineskip}
+\newpage
+
 \subsubsection{Güte des Plateaus}
 
 Die Wahrscheinlichkeit, dass eine der zuvor beschriebenen Nachentladungen auftritt, steigt mit Detektorspannung und Alter des Zählrohrs. Die
