@@ -5,8 +5,9 @@
 Geiger-Müller Zählrohre dienen der Detektion ionisierender Strahlung. Da die Nachweiswahrscheinlichkeit für energiereiche Bereiche des
 elektromagnetischen Spektrums wie Röntgen- oder Gammastrahlung sehr gering ist, wird hauptsächlich Teilchenstrahlung betrachtet. Diese
 kann in Alpha- und Betastrahlung eingeteilt werden: Handelt es sich um Elektronen $(\ce{e-})$ heißt sie $\beta^-$-Strahlung, für Positronen
-$(\ce{e+})$ wird sie $\beta^+$-Strahlung gennant. Setzt sie sich aus $\alpha$-Teilchen zusammen sind damit Heliumkerne
-$\left(\ce{^{4}_{2}He}\right)$ gemeint. 
+$(\ce{e+})$ wird sie $\beta^+$-Strahlung genannt. Setzt sie sich dagegen aus $\alpha$-Teilchen zusammen sind damit Heliumkerne
+\raisebox{0.085ex}{\scalebox{0.85}{$\left(\ce{^{4}_{2}He}\right)$}} gemeint. Wie Abbildung \ref{fig:formen} zu sehen ist,
+existieren vielfältige Bauformen, die sich aber letztendlich eine wesentliche Funktionsweise teilen.
 
 \begin{figure}[H]
 	\centering
@@ -14,8 +15,6 @@ $\left(\ce{^{4}_{2}He}\right)$ gemeint.
 	\caption{Verschiedene Bauformen von Geiger-Müller Zählrohren.}
 	\label{fig:formen}
 \end{figure}
-
-Es existieren vielfältige Bauformen (Abbildung \ref{fig:formen}), die sich aber im Wesentlichen eine Funktionsweise teilen.
 
 \subsection{Funktionsweise}
 
@@ -90,6 +89,15 @@ Ansetzen größerer Spannungen führt zum dauerentladungsbedingten exponentielle
 
 \subsubsection{Kennzeichnende Zeitintervalle}
 
+Im Geiger-Müller Betriebsbereich bezeichnet die Totzeit den Zeitraum, welcher zwischen Erreichen des Impulsmaximums und der Registrierung
+neuer Impulse liegt. Die Totzeit des Zählrohrs, im weiteren Gebrauch kurz Totzeit genannt, entspricht also der Zeit, welche die isolierende
+Raumladungswolke um den Anodendraht benötigt, um sich soweit zu verflüchtigen, dass neue Spannungspulse auftreten. Da die Apparatur jedoch
+erst für Impulse ab einer gewissen Amplitude empfindlich ist, kann eine Totzeit des Detektorsystems benannt werden, welche genau um die
+Zeit größer ist, die das elektrische Feld braucht, um wieder eine ausreichende Stärke aufzubauen. Dieses Intervall bis zur erneuten Auslösung
+der Messgerätschaft heißt weiter Auslösezeit. Da Totzeit und Auslösezeit in guter Näherung zusammenfallen beziehungsweise nicht unabhängig messbar
+sind, werden beide Größen als allgemeine Totzeit $\tau$ zusammengefasst. Mit der Erholungszeit $\Tau$ wird noch der Zeitraum ab dem ersten
+registrierten neuen Puls bis zur vollständigen Erholung der Spannung auf das Niveau vor dem ursprünglichen Impuls beschrieben.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{content/grafik/zeit_soll.jpg}
@@ -99,5 +107,31 @@ Ansetzen größerer Spannungen führt zum dauerentladungsbedingten exponentielle
 
 \subsubsection{Güte des Plateaus}
 
+Die Wahrscheinlichkeit, dass eine der zuvor beschriebenen Nachentladungen auftritt, steigt mit Detektorspannung und Alter des Zählrohrs. Die
+resultierenden zeitversetzten Pulse sorgen somit dafür, dass der Geiger-Müller Bereich nicht konstant verläuft, sondern eine Steigung besitzt.
+Diese wird mit
+\begin{equation}
+	s = \pfrac{\increment N}{N} \, \qty{100}{\percent} \mathbin{/} \qty{100}{\volt}
+	\label{eqn:steigung}
+\end{equation}
+als relative Zählrate $\increment N / N$ pro \qty{100}{\volt} Spannungsänderung definiert und gibt damit ein genormtes Maß der Güte
+des Zählrohrs an.
+
 \subsection{Statistik}
+
+Die Zählrate im Geiger-Müller Zählrohr folgt einer Poisson-Verteilung, deren Vorschrift
+\begin{equation*}
+	P(k, N) = \pfrac{N^k}{k!} \symup e^{-N}
+\end{equation*}
+lautet. Diese besitzt einen relativen mittleren Fehler
+\begin{equation}
+	\sigma_\text{rel} = \pfrac{1}{\sqrt{N \,}}
+	\label{eqn:relativ}
+\end{equation}
+und einen statistischen Fehler, der sich direkt über
+\begin{equation}
+	\sigma = N \sigma_\text{rel} = \sqrt{N \,}
+	\label{eqn:statistisch}
+\end{equation}
+ergibt und die Streubreite einordnet.
 
