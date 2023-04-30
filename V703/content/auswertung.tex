@@ -3,13 +3,13 @@
 \section{Auswertung}
 \label{sec:auswertung}
 Im Folgenden wird die Kennlinie des Geiger-Müller Zählrohrs bestimmt und 
-die Anzahl der Ladungträger wird anhand der Messwerte berechnet. Die Totzeit wird zunächst über die Zwei-Quellen-Methode
-und im Anschluss über das Osziloskop bestimmt.
+die Anzahl der Ladungsträger wird anhand der Messwerte berechnet. Die Totzeit wird zunächst über die Zwei-Quellen-Methode
+und im Anschluss über das Oszilloskop bestimmt.
 
 \subsection{Fehlerrechnung}
 \label{sec:Fehlerrechnung}
 Die Fehlerrechnung, für die Bestimmung der Messunsicherheiten, wird mit Uncertainties \cite{uncertainties} gemacht.
-Für die Formel der Gauß Fehlerfortpflanzung ist gegeben durch
+Die Formel der Gauß Fehlerfortpflanzung ist gegeben durch
 \begin{equation}
     \Delta f=\sqrt{\sum_{i=1}^N\left(\frac{\partial f}{\partial x_i}\right)^2 \cdot\left(\Delta x_i\right)^2}.
     \label{eqn:gauss}
@@ -29,17 +29,17 @@ Der Fehler des Mittelwertes ist gegeben durch
 \label{sec:Kennlinie des Geiger-Müller-Zählrohrs}
 
 Die aufgenommenen Messwerte zur Bestimmung der Kennlinie des Geiger-Müller-Zählrohrs sind in der \autoref{tab:kennlinie}
-dargestellt. Zudem wurde mit Hilfe der \autoref{eqn:} der statistische Fehler $\lambda$ bestimmt und ebenfalls aufgelistet.
+dargestellt. Zudem wurde mit Hilfe der Gleichung \eqref{eqn:statistisch} der statistische Fehler $\sigma$ bestimmt und ebenfalls aufgelistet.
 Der Plateau-Bereich hat eine Länge von $\SI{340}{\volt}$ , dieser beginnt bei $\SI{370}{\volt}$ und hört bei $\SI{710}{\volt}$ auf.
-Im ersten drittel des Plateaus lässt sich der Arbeitspunkt bei $U_A = 430$ ablesen.
+Im ersten Drittel des Plateaus lässt sich der Arbeitspunkt bei $U_A = 430$ ablesen.
 
 \begin{table}[H]
     \centering
-    \caption{Messdaten zur Bestimmung der Kennlinie des Geiger-Müller-Zählrohrs}
+    \caption{Messdaten zur Bestimmung der Kennlinie des Geiger-Müller-Zählrohrs.}
     \label{tab:kennlinie}
 \begin{tabular}{c c c c}
     \toprule
-    $U \mathbin{/} \mathrm{V}$ & $N$ &  $I \mathbin{/} \unit{\micro\ampere}$ & $\lambda$\\
+    $U \mathbin{/} \mathrm{V}$ & $N$ &  $I \mathbin{/} \unit{\micro\ampere}$ & $\sigma$\\
     \midrule
          330 &    17211 &   0.2 & 131\\
          350 &    18298 &   0.2 & 135\\
@@ -69,12 +69,12 @@ Im ersten drittel des Plateaus lässt sich der Arbeitspunkt bei $U_A = 430$ able
 
 
 Die Messdaten der Detektorspannung $U$ wurden gegen die Zählrate $N$ aufgetragen und in der
-\autoref{fig:plot_1} dargestellt. Die Ausgleichsgrade hat die Form
+\autoref{fig:plot_1} dargestellt. Die Ausgleichsgerade hat die Form
 \begin{equation*}
     N = a \cdot U + b.
 \end{equation*}
-Die Gerade beschreibt den Plateau-Bereich. Der Parameter $a$ beschreibt die Plateau-Steigung des Geiger-Müller-Zählrohrs.
-Mit Hilfe von Linearer Regression, welche mit SciPy \cite{scipy} durchgeführt wurde, ergeben sich die Werte
+Die Gerade beschreibt den Plateau-Bereich. Der Parameter $a$ beschreibt die Plateau-Steigung \eqref{eqn:steigung} des Geiger-Müller-Zählrohrs.
+Mit Hilfe von linearer Regression, welche mit SciPy \cite{scipy} durchgeführt wurde, ergeben sich die Werte
 \begin{align*}
     a &= \qty{0.018(3)}{\per\volt} \quad \text{und} \\
     b &= \num{149.499(1720)} \, .
@@ -82,7 +82,7 @@ Mit Hilfe von Linearer Regression, welche mit SciPy \cite{scipy} durchgeführt w
 
 \begin{figure}[H]
 	\includegraphics{build/plot_1.pdf}
-	\caption{Messwerte der Detektorspannung wurde gegen die Zählrate aufgetragen. Zudem die Ausgleichsgrade des Plateu-Bereichs.}
+	\caption{Messwerte der Detektorspannung wurde gegen die Zählrate aufgetragen. Zudem die Ausgleichsgerade des Plateau-Bereichs.}
 	\label{fig:plot_1}
 \end{figure}
 
@@ -131,7 +131,7 @@ berechnet. Dabei beträgt $t = \SI{120}{\second}$ und die Elementarladung $e$ is
 \end{table}
 
 In der \autoref{fig:plot_2} wurden die berechneten Werte für die Anzahl der freigesetzten Teilchen $Z$ gegen die Detektorspannung $U$
-aufgetragen. Dabei ist ein Anstieg der Ladungsträger proportional zur Spannung erkennen. In dem vorher bestimmten
+aufgetragen. Dabei ist ein Anstieg der Ladungsträger proportional zur Spannung zu erkennen. In dem vorher bestimmten
 Plateau-Bereich ist zu erkennen, dass der Anstieg von $Z$ nachlässt.
 
 \begin{figure}[H]
@@ -143,9 +143,9 @@ Plateau-Bereich ist zu erkennen, dass der Anstieg von $Z$ nachlässt.
 \subsection{Bestimmung der Totzeit}
 \label{sec:Bestimmung der Totzeit}
 
-Um die Totzeit zu bestimmen werden zwei Verfahren genutzt. Zunächst wird die Zwei-quellen Methode
+Um die Totzeit zu bestimmen werden zwei Verfahren genutzt. Zunächst wird die Zwei-Quellen Methode
 verwendet. In einem Zeitraum von $t = \SI{120}{\second}$ bei einer Spannung von $U = \SI{440}{\volt}$ wurden für zwei Proben
-die Zähkraten einmal einzelnen und zusammen gemessen.
+die Zählraten einmal einzeln und zusammen gemessen.
 In der \autoref{tab:tabelle} sind die aufgenommenen Zählraten der einzelnen Proben und beider zusammen dargestellt.
 
 \begin{table}[H]
@@ -154,33 +154,40 @@ In der \autoref{tab:tabelle} sind die aufgenommenen Zählraten der einzelnen Pro
     \label{tab:tabelle}
     \begin{tabular}{c c c}
     \toprule
-    $N_1$ & $N_2$ & $N_12$ \\
+    $N_1$ & $N_2$ & $N_{12}$ \\
     \midrule
     $105168 \pm 324.296$ & $166372 \pm 407.887$ &$236573 \pm 486.388$ \\
     \bottomrule
     \end{tabular}
 \end{table}
 
-Aus den gemessenen Werten ergibt sich die Totzeit $\tau$ mit
+Aus den gemessenen Werten ergibt sich die Totzeit $\tau$ \eqref{eqn:totzeit} mit
 \begin{equation*}
     \tau =\frac{N_1+N_2-N_{12}}{N_{12}^2-N_1^2-N_2^2} = \left(2.03 \pm 0.07\right) \si{\micro\second}.
 \end{equation*}
 
-Zur Bestimmung der Totzeit wurde als zweite Methode das angeschlossene Osziloskopverwendet. Anhand dessen kann die Totzeit
+Zur Bestimmung der Totzeit wurde als zweite Methode das angeschlossene Oszilloskop verwendet. Anhand dessen kann die Totzeit
 abgelsen werden. In \autoref{fig:totzeit} ist ein solches Bild gezeigt.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{data/totzeit.jpg}
-	\caption{Aufnahme des Osziloskops, an der die Totzeit und die Erholungszeit abgelesen werden kann.}
+%	\includegraphics[width=0.5\linewidth]{data/totzeit.jpg}
+	\includegraphics[width=0.5\linewidth]{content/grafik/zeit_1.jpg}
+	\caption{Aufnahme des Oszilloskops, an der die Totzeit und die Erholungszeit abgelesen werden kann.}
 	\label{fig:totzeit}
 \end{figure}
 Es lässt sich der Wert 
 \begin{equation*}
-    \tau_{Osziloskop} = \left(3 \pm 0.2 \right) \cdot 50 \si{\micro\second} = \left(150 \pm  10\right) \si{\micro\second}
+    \tau_\text{Oszilloskop} = \left(3 \pm 0.2 \right) \cdot 50 \si{\micro\second} = \left(150 \pm  10\right) \si{\micro\second}
 \end{equation*}
+<<<<<<< HEAD
 ablesen. Für die Erholungszeit lässt sich ein Zeitraum von
 \begin{equation*}
     T = \left(200 \pm  10\right) \si{\micro\second}
 \end{equation*}
 festlegen.
+||||||| 2ba2aca
+ablesen.
+=======
+ablesen.
+>>>>>>> 24a746ca715e3336d0d11d1071c510266cb6c6b4
