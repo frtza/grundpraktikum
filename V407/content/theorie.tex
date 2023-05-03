@@ -1,3 +1,45 @@
 % Theorie: Physikalische Grundlagen von Versuch/Messverfahren, Gleichungen ohne Herleitung knapp erklären
 \section{Theorie}
 \label{sec:theorie}
+
+Als Grundlage des Versuches dient die elektromagnetische Wellentheorie, wobei die Ausbreitung von Licht 
+mit Hilfe der Maxwellschen Gleichungen 
+\begin{align}
+    \nabla \times \vec{H}&=\vec{j}+\varepsilon \varepsilon_{0} \partial_t \vec{E} \quad \text{und} \\
+    \nabla \times \vec{E}&=-\mu \mu_{0} \partial_t \vec{H}
+    \label{eqn:maxwell}
+\end{align}
+beschrieben wird.
+Im folgenden werden nicht-ferromagnetische und nicht elektrisch leitende Materialien betrachtet, somit gilt $\mu \approx 1$
+und $\vec{j} =0$.
+Die elektrische und magnetische Arbeit 
+\begin{align*}
+    W_\text{{elektrisch}} &\coloneq \frac{1}{2} \varepsilon \varepsilon_0 \vec{E}^2 \quad \text{und}\\
+    W_{\text{magnetisch}} &\coloneq \frac{1}{2} \mu_0 \vec{H}^2
+\end{align*}
+stellen den Zusammenhang zwischen Energie pro Volumeneinheit eines elektrischen beziehungsweise magnetischen Feldes dar.
+Der Poynting Vektor 
+\begin{align}
+    \vec{S} &= \vec{E} \times \vec{H} \quad  \text{und}\\
+    |\vec{S}| &= v \varepsilon \varepsilon_0 \vec{E}^2
+    \label{eqn:poynting}
+\end{align}
+besitzt die Dimension Leistung/Fläche und stellt die Strahlungsleistung pro Flächeneinheit eines 
+elektromagnetischen Feldes dar.
+Beim Einfallen einer Welle aus dem Vakuum auf eine Grenzfläche unter einem Winkel $\alpha$, wird ein Bruchteil dieser
+refelktiert und der andere dringt in das Medium ein. Der Lichtstrahl, welcher in das Medium eindringt erfährt eine Richtungsänderung 
+und wird so gebrochen, dass der Beugungswinkel $\beta < \alpha$ ist. Es werden nur nicht absorbierende Medien verwendet und es gilt somit
+\begin{align*}
+    \symup{S}_e \symup{F}_e &= \symup{S}_r \symup{F}_e + \symup{S}_d \symup{F}_d \quad \text{oder}\\
+    \symup{S}_e \cos \alpha &= \symup{S}_r \cos \alpha + \symup{S}_d \cos \beta .
+\end{align*}
+Für den Brechnungsindex ergibt sich das Verhältnis
+\begin{equation}
+    n = \frac{c}{v}.
+    \label{eqn:brechungsindex}
+\end{equation}
+Aus den Maxwellschen Gelichungen \eqref{eqn:maxwell} ergibt sich die Maxwellsche Relation
+\begin{equation}
+    n = \varepsilon^2 .
+    \label{eqn:relation}
+\end{equation}
