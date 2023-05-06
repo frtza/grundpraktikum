@@ -65,7 +65,7 @@ dargestellt.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\linewidth]{content/grafik/bild1.png}
+	\includegraphics[width=0.6\linewidth]{content/grafik/bild1.png}
 	\caption{Reflexion und Brechung des senkrecht polarisierten Lichtstrahls. \cite{fresnel}}
 	\label{fig:bild1}
 \end{figure}
@@ -76,9 +76,64 @@ Stetigkeitsbedingungen die Beziehung
     \vec{E}_{e\perp} + \vec{E}_{r \perp} = \vec{E}_{d\perp}
 \end{equation*}
 aufgestellt werden.  
-Zusammen mit dem Snellius Brechungsgesetzt 
+Zusammen mit dem Snellius Brechungsgesetz
 \begin{equation}
     n = \frac{\sin \alpha}{\sin \beta}
     \label{eqn:snellius}
 \end{equation}
-ergeb sich die Fresnel Formeln
+ergeben sich die Fresnel Formeln
+\begin{equation}
+    \begin{aligned}
+    \vec{E}_{\mathrm{r}_{\perp}}&=-\vec{E}_{\mathrm{e}_{\perp}} \frac{\sin (\alpha-\beta)}{\sin (\alpha+\beta)} \quad \text{und}\\
+    \vec{E}_{\mathrm{r}_{\perp}}&=-\vec{E}_{\mathrm{e}_{\perp}} \frac{\left(\sqrt{\mathrm{n}^2-\sin ^2 \alpha}-\cos \alpha\right)^2}{\mathrm{n}^2-1} .
+    \label{eqn:fresnel1}
+    \end{aligned}
+\end{equation}
+
+Für den streifenden Einfall $\alpha = \frac{\pi}{2}$ gilt
+\begin{equation*}
+    \vec{E}_{r\perp}(\frac{\pi}{2}) = - \vec{E}_{r\perp}.
+\end{equation*}
+Wenn der Lichtstrahl senkrecht einfäält, also bei $\alpha = 0$ gilt
+\begin{equation*}
+    \vec{E}_{r\perp}(0) = - \vec{E}_{r\perp}\frac{n - 1}{n + 1}.
+\end{equation*}
+
+
+Die Reflexion und Brechung des parallel zur Einfallsebene einfallende Strahl ist in \autoref{fig:bild2} dargestellt.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{content/grafik/bild2.png}
+	\caption{Reflexion und Brechung des parallel polarisierten Lichtstrahls. \cite{fresnel}}
+	\label{fig:bild2}
+\end{figure}
+
+Die parallel polarisierte Komponente $\vec{E}_{\|}$ setzt sich zusammen aus einer tangentialen Komponente $\vec{E}_{\|tg}$
+und eine Komponente, welche normal zu Grenzfläche ist.
+
+Aus den Stetigkeitsbedingungen und den Tangentialkomponenten der Vektoren $\vec{E}_{e\|}$, $\vec{E}_{r\|}$ und $\vec{E}_{d\|}$
+ergibt sich die Gleichung
+\begin{equation}
+    \vec{E}_{r\|} = \vec{E}_{e\|} \frac{n \cos \alpha - \cos \beta}{n \cos \alpha + \cos \beta}.
+    \label{eqn:keinname}
+\end{equation}
+Für das parallel polarisierte Licht lassen sich ebenfalls die Fresnelschen Gleichungen aufstellen
+\begin{equation}
+    \begin{aligned}
+    \vec{E}_{r \|}&=\vec{E}_e \| \frac{\tan (\alpha-\beta)}{\tan (\alpha+\beta)} \quad \text{und}\\
+    \vec{E}_{r \|}(\alpha)&=\vec{E}_e \| \frac{n^2 \cos \alpha-\sqrt{n^2-\sin ^2 \alpha}}{n^2 \cos \alpha+\sqrt{n^2-\sin ^2 \alpha}} .
+    \label{eqn:fresnel2}
+    \end{aligned}
+\end{equation}
+Für den senkrechten Einfall $ \alpha = 0$ gilt
+\begin{equation*}
+    \vec{E}_{r\|}(0) = \vec{E}_{e\|} \frac{n - 1}{n + 1}
+\end{equation*}
+und für den streifenden Fall $\alpha= \frac{\pi}{2}$ gilt
+\begin{equation*}
+    \vec{E}_{r\|}(\frac{\pi}{2}) = -\vec{E}_{e\|}.
+\end{equation*}
+
+Fällt Licht unter einem Winkel $\alpha_p$ ,dem sogenannten Brwesterschen Winkel, auf die GHrenzfläche auf, so wird dieser
+nicht mehr reflektiert sondern dringt ganz ind das brechende Medium ein.
