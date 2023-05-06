@@ -1,13 +1,87 @@
 % Messwerte: Alle gemessenen Größen tabellarisch darstellen
 % Auswertung: Berechnung geforderter Ergebnisse mit Schritten/Fehlerformeln/Erläuterung/Grafik (Programme)
+\newpage
 \section{Auswertung}
 \label{sec:auswertung}
 
+\subsection{Methoden und Messparameter}
+
+Für alle folgenden Messungen wird der verwendete Laser in einem Wellenlängegnbereich von $\lambda_0 = \input{build/lam.tex}$ betrieben. Allgemein
+ist der Brechungsindex $n$ von Dispersion betroffen und daher nur für $\lambda_0$ gültig. Der Dunkelstrom am Detektor beträgt dabei
+$I_D = \input{build/I_d.tex}$ und erlaubt den Messwert $\check{I}$ mit der Korrektur
+\begin{equation*}
+	I = \check{I} - I_D
+\end{equation*}
+um mögliche Streulichteinflüsse zu bereinigen. Damit gibt $I_0 = \input{build/I_g.tex}$ die totale Intensität des direkten Laserlichts an, indem
+die Proportionalität zwischen Photostrom und Flächenleistungsdichte ausgenutzt wird. Die Intensität erreicht für einen Winkel
+$\alpha = \input{build/ang_min.tex}$ am Polarisationsfilter bei $I = \input{build/I_min.tex}$ ihr Minimum.
+
+Der gewichtete Mittelwert einer Messreihe $x_k$ mit Gewichten $w_k$ ist über
+\begin{equation*}
+	x = \pfrac{\sum_k w_k x_k}{\sum_k w_k}
+\end{equation*}
+gegeben, wobei hier die reziproken Varianzen $w_k = \sigma^{-2}_{x_k}$ gesetzt werden. Der Ablesefehler lässt sich auf $\qty{2}{\percent}$ der
+eingestellten Skala schätzen, abrupte Sprünge in der angegebenen Abweichung sind also darauf zurückzuführen. Um ein Maß für die
+Sicherheit der mittels \verb+scipy.optimize.curve_fit+ \cite{scipy} bestimmten Optimierungsparameter zu erhalten, wird die Quadratwurzel
+der Diagonalelemente der Kovarianzmatrix gebildet. Die Bibliothek \verb+uncertainties.unumpy+ \cite{uncertainties} dient weiter zur automatisierten
+Fehlerfortpflanzung, welche nach Gauß für unabhängige Messgrößen als Ausdruck der Form
+\begin{equation*}
+	\sigma^2_f = \sum_k \left( \pfrac{\partial f}{\partial x_k \!} \right)^{\!\!\! 2} \! \sigma^2_{x_k} 
+\end{equation*}
+formuliert ist. Grafische Darstellungen der Ergebnisse erzeugt \verb+matplotlib.pyplot+ \cite{matplotlib} indem die Datenstrukturen
+\verb+numpy.array+ und \verb+numpy.meshgrid+ \cite{numpy} verwendet werden. 
+
+Auf diese Weise werden für beide Polarisationsfälle die analytischen Lösungen von $n$ evaluiert. Die verschiedenen Lösungszweige werden
+bei einem festen Amplitudenverhältnis $E / E_0 = \pm \, \num{0.15}$ über die entsprechenden Niveaus eines Konturplots gelegt, anhand
+der Grafik lässt sich dann deren Gültigkeit prüfen.
+
+\newpage
 \subsection{Senkrechte Polarisation}
+
+Aus den Fresnelschen Formeln \eqref{eqn:fresnel1} ergibt sich bei senkrechter Polarisationsrichtung
+\begin{equation}
+	- E / E_0 = \scalebox{0.9}{$\pfrac{1}{n^2 - 1}$}
+	\raisebox{0.6ex}{\( \bigl( \raisebox{-0.6ex}{$\sqrt{n^2 - \sin^2 \alpha} - \cos \alpha $} \bigr)^{\! 2} \)}
+	\label{eqn:LS} \tag{LS}
+\end{equation}
+für das Amplitudenverhältnis. Umstellen und Anwenden der Wurzel liefert den Ausdruck
+\begin{equation*}
+	\sqrt{(1 - n^2) E / E_0} + \cos \alpha = \sqrt{n^2 - \sin^2 \alpha}
+\end{equation*}
+sowie durch erneutes beideseitiges Quadrieren
+\begin{equation*}
+	(1 - n^2) E / E_0 + 2 \cos \alpha \sqrt{(1 - n^2) E / E_0} + \cos^2 \alpha = n^2 - \sin^2 \alpha
+\end{equation*}
+als weiterführenden Term. Wegen $\sin^2 \alpha + \cos^2 \alpha = 1$ kann 
+\begin{equation*}
+	(1 - n^2) E / E_0 + 2 \cos \alpha \sqrt{(1 - n^2) E / E_0} = n^2 - 1
+\end{equation*}
+geschrieben werden. Division durch sowie anschließendes Auflösen nach $n^2 - 1$ produziert
+\begin{equation*}
+	\scalebox{0.9}{$\pfrac{1}{1 - n^2}$} = E_0 \hspace{0.2ex} / E \,
+	\Bigl( \raisebox{-0.2ex}{\scalebox{0.9}{$\pfrac{1 + E / E_0}{2 \cos \alpha}$}} \Bigr)^{\!\! 2}
+\end{equation*}
+und stellt so eine separierte Beziehung zu $n$ auf. Schließlich ist mit
+\begin{equation*}
+	n = \sqrt{1 - E / E_0 \Bigl( \raisebox{0.4ex}{\scalebox{0.9}{$\pfrac{2 \cos \alpha}{1 + E / E_0}$}} \Bigr)^{\!\! 2}}
+\end{equation*}
+der Brechungsindex aufgestellt. Einsetzen des Zusammenhangs
+\begin{equation*}
+	E / E_0 = \pm \sqrt{I / I_0}
+\end{equation*}
+führt dann über die Fallunterscheidung
+\begin{align}
+	n &= \sqrt{1 - \sqrt{I / I_0} \, \Bigl( \raisebox{0.6ex}{\scalebox{0.9}{$\pfrac{2 \cos \alpha}{1 + \sqrt{I / I_0}}$}} \Bigr)^{\!\! 2}}
+	\label{eqn:L1} \tag{L1} \\[1ex]
+	n &= \sqrt{1 + \sqrt{I / I_0} \, \Bigl( \raisebox{0.6ex}{\scalebox{0.9}{$\pfrac{2 \cos \alpha}{1 - \sqrt{I / I_0}}$}} \Bigr)^{\!\! 2}}
+	\label{eqn:L2} \tag{L2}
+\end{align}
+zwei Lösungszweige ein, welche in Abbildung \ref{fig:plot_is} dargestellt sind.
 
 \begin{figure}[H]
 	\includegraphics{build/plot_is.pdf}
-	\caption{}
+	\captionsetup{width=0.95\linewidth}
+	\caption{Fälle \eqref{eqn:L1} und \eqref{eqn:L2} mit hinterlegtem Konturplot der impliziten Lösung \eqref{eqn:LS}.}
 	\label{fig:plot_is}
 \end{figure}
 
@@ -29,13 +103,79 @@ $n = \input{nn_s.tex}$
 
 $n = \input{nnn_s.tex}$ $s = \input{s_s.tex}$
 
+\begin{figure}[H]
+	\includegraphics{build/plot_comp_s.pdf}
+	\caption{}
+	\label{fig:plot_comp_s}
+\end{figure}
+
 $n = \input{f_nnn_s.tex}$
 
+\newpage
 \subsection{Parallele Polarisation}
+
+Aus den Fresnelschen Formeln \eqref{eqn:fresnel2} ergibt sich bei paralleler Polarisationsrichtung
+\begin{equation}
+	E / E_0 = \pfrac{n^2 \cos \alpha - \sqrt{n^2 - \sin^2 \alpha}}{n^2 \cos \alpha + \sqrt{n^2 - \sin^2 \alpha}}
+	\label{eqn:LP} \tag{LP}
+\end{equation}
+für das Amplitudenverhältnis. Umstellen liefert die Gleichung
+\begin{equation*}
+	(E / E_0 - 1) \, n^2 \cos \alpha = - (E / E_0 + 1) \, \sqrt{n^2 - \sin^2 \alpha}
+\end{equation*}
+sowie durch Division und anschließendes Quadrieren
+\begin{equation*}
+	\Bigl( \scalebox{0.9}{$\pfrac{E / E_0 - 1}{E / E_0 + 1}$} \Bigr)^{\!\! 2} n^4 \cos^2 \alpha = n^2 - \sin^2 \alpha
+\end{equation*}
+als weiterführenden Term. Daraus folgt
+\begin{equation*}
+	n^4 - \Bigl( \scalebox{0.9}{$\pfrac{E / E_0 + 1}{E / E_0 - 1}$} \Bigr)^{\!\! 2} \scalebox{0.95}{$\pfrac{n^2}{\cos^2 \alpha}$}
+	+ \Bigl( \scalebox{0.9}{$\pfrac{E / E_0 + 1}{E / E_0 - 1}$} \Bigr)^{\!\! 2} \tan^2 \alpha = 0
+\end{equation*}
+und unter Anwendung quadratischer Ergänzung
+\begin{equation*}
+	n = \sqrt{\scalebox{0.95}{$\pfrac{1}{2 \cos^2 \alpha}$}
+	\Bigl( \scalebox{0.9}{$\pfrac{E / E_0 + 1}{E / E_0 - 1}$} \Bigr)^{\!\! 2^{\vphantom{h^{\sum}}}} \pm
+	\smash{ \sqrt{\scalebox{0.95}{$\pfrac{1}{4 \cos^4 \alpha}$} \Bigl( \scalebox{0.9}{$\pfrac{E / E_0 + 1}{E / E_0 - 1}$} \Bigr)^{\!\! 4} -
+	\Bigl( \scalebox{0.9}{$\pfrac{E / E_0 + 1}{E / E_0 - 1}$} \Bigr)^{\!\! 2} \tan^2 \alpha} } \, }
+\end{equation*}
+als Ausdruck des Brechungsindex. Einsetzen des Zusammenhangs
+\begin{equation*}
+	E / E_0 = \pm \sqrt{I / I_0}
+\end{equation*}
+produziert nun vier verschiedene Fälle
+\begin{align}
+	n = \sqrt{\scalebox{0.96}{\( \scalebox{0.95}{$\pfrac{1}{2 \cos^2 \alpha}$}
+	\Bigl( \scalebox{0.9}{$\pfrac{\sqrt{I / I_0} + 1}{\sqrt{I / I_0} - 1}$} \Bigr)^{\!\! 2^{\vphantom{\sum}}} -
+	\smash{ \sqrt{\scalebox{0.95}{$\pfrac{1}{4 \cos^4 \alpha}$}
+	\Bigl( \scalebox{0.9}{$\pfrac{\sqrt{I / I_0} + 1}{\sqrt{I / I_0} - 1}$} \Bigr)^{\!\! 4} -
+	\Bigl( \scalebox{0.9}{$\pfrac{\sqrt{I / I_0} + 1}{\sqrt{I / I_0} - 1}$} \Bigr)^{\!\! 2} \tan^2 \alpha} } \, \)}}
+	\label{eqn:L3a} \tag{L3a} \\[1ex]
+	n = \sqrt{\scalebox{0.96}{\( \scalebox{0.95}{$\pfrac{1}{2 \cos^2 \alpha}$}
+	\Bigl( \scalebox{0.9}{$\pfrac{\sqrt{I / I_0} - 1}{\sqrt{I / I_0} + 1}$} \Bigr)^{\!\! 2^{\vphantom{\sum}}} -
+	\smash{ \sqrt{\scalebox{0.95}{$\pfrac{1}{4 \cos^4 \alpha}$}
+	\Bigl( \scalebox{0.9}{$\pfrac{\sqrt{I / I_0} - 1}{\sqrt{I / I_0} + 1}$} \Bigr)^{\!\! 4} -
+	\Bigl( \scalebox{0.9}{$\pfrac{\sqrt{I / I_0} - 1}{\sqrt{I / I_0} + 1}$} \Bigr)^{\!\! 2} \tan^2 \alpha} } \, \)}}
+	\label{eqn:L3b} \tag{L3b} \\[1ex]
+	n = \sqrt{\scalebox{0.96}{\( \scalebox{0.95}{$\pfrac{1}{2 \cos^2 \alpha}$}
+	\Bigl( \scalebox{0.9}{$\pfrac{\sqrt{I / I_0} + 1}{\sqrt{I / I_0} - 1}$} \Bigr)^{\!\! 2^{\vphantom{\sum}}} +
+	\smash{ \sqrt{\scalebox{0.95}{$\pfrac{1}{4 \cos^4 \alpha}$}
+	\Bigl( \scalebox{0.9}{$\pfrac{\sqrt{I / I_0} + 1}{\sqrt{I / I_0} - 1}$} \Bigr)^{\!\! 4} -
+	\Bigl( \scalebox{0.9}{$\pfrac{\sqrt{I / I_0} + 1}{\sqrt{I / I_0} - 1}$} \Bigr)^{\!\! 2} \tan^2 \alpha} } \, \)}}
+	\label{eqn:L4a} \tag{L4a} \\[1ex]
+	n = \sqrt{\scalebox{0.96}{\( \scalebox{0.95}{$\pfrac{1}{2 \cos^2 \alpha}$}
+	\Bigl( \scalebox{0.9}{$\pfrac{\sqrt{I / I_0} - 1}{\sqrt{I / I_0} + 1}$} \Bigr)^{\!\! 2^{\vphantom{\sum}}} +
+	\smash{ \sqrt{\scalebox{0.95}{$\pfrac{1}{4 \cos^4 \alpha}$}
+	\Bigl( \scalebox{0.9}{$\pfrac{\sqrt{I / I_0} - 1}{\sqrt{I / I_0} + 1}$} \Bigr)^{\!\! 4} -
+	\Bigl( \scalebox{0.9}{$\pfrac{\sqrt{I / I_0} - 1}{\sqrt{I / I_0} + 1}$} \Bigr)^{\!\! 2} \tan^2 \alpha} } \, \)}}
+	\label{eqn:L4b} \tag{L4b}
+\end{align}
+für die Lösung, welche in Abbildung \ref{fig:plot_ip} dargestellt sind.
 
 \begin{figure}[H]
 	\includegraphics{build/plot_ip.pdf}
-	\caption{}
+	\caption{Lösungsfälle \eqref{eqn:L3a}, \eqref{eqn:L3b}, \eqref{eqn:L4a} und \eqref{eqn:L4b} mit hinterlegtem Konturplot der
+			 zugehörigen impliziten Lösung \eqref{eqn:LP}.}
 	\label{fig:plot_ip}
 \end{figure}
 
@@ -56,6 +196,12 @@ $n = \input{nn_p.tex}$
 \end{figure}
 
 $n = \input{nnn_p.tex}$ $s = \input{s_p.tex}$
+
+\begin{figure}[H]
+	\includegraphics{build/plot_comp_p.pdf}
+	\caption{}
+	\label{fig:plot_comp_p}
+\end{figure}
 
 $n = \input{f_nnn_p.tex}$
 

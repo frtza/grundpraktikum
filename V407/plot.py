@@ -30,8 +30,8 @@ I_s = I_s - I_d # Dunkelstromkorrektur in uA
 I_p = I_p - I_d # Dunkelstromkorrektur in uA
 
 ang_min = 49 # Intensitaetsminimumswinkel in deg
-I_min = ufloat(43e-3, 2e-3) # Intensitaetsminimum in uA
-
+I_min = ufloat(43e-3, 2e-3) # Korrigiertes Intensitaetsminimum in uA
+I_min = I_min - I_d
 
 # Implizite Gleichungen des Brechungsindex n
 def imp_p(ang, n):
@@ -96,14 +96,14 @@ with warnings.catch_warnings():
 	plt.plot(100, 100, linewidth=5, alpha=0.15, c='#ff7f0e', label='Konturen')
 	
 	xx = np.linspace(12.25, 85.25, 10000)
-	plt.plot(xx, n_p_1(xx, V), c='#d62728', label='Lösung 1a')
+	plt.plot(xx, n_p_1(xx, V), c='#d62728', label='Lösung 3a')
 	xx = np.linspace(12.25, 85.25, 500000)
-	plt.plot(xx, n_p_2(xx, V), c='#d62728', alpha=0.5, label='Lösung 1b')
+	plt.plot(xx, n_p_2(xx, V), c='#d62728', alpha=0.5, label='Lösung 3b')
 	
 	xx = np.linspace(-0.5, 75.4, 10000)
-	plt.plot(xx, n_p_3(xx, V), c='#ff7f0e', label='Lösung 2a')
+	plt.plot(xx, n_p_3(xx, V), c='#ff7f0e', label='Lösung 4a')
 	xx = np.linspace(-0.5, 82.075, 500000)
-	plt.plot(xx, n_p_4(xx, V), c='#ff7f0e', alpha=0.5, label='Lösung 2b')
+	plt.plot(xx, n_p_4(xx, V), c='#ff7f0e', alpha=0.5, label='Lösung 4b')
 	
 	plt.xlim(-3.5, 87.5)
 	plt.ylim(-0.275, 5.5)
@@ -350,16 +350,52 @@ with open('build/nn.tex', 'w') as f:
 
 
 # Vergleichsplot
-xx = np.linspace(5, 85, 10000)
+xx = np.linspace(4, 88, 10000)
 
-plt.plot(xx, amp_s(xx, nn_s.n, 1))
-plt.plot(xx, amp_s(xx, nnn_s.n, par_s[1]))
-plt.plot(xx, amp_s(xx, f_nnn_s.n, 1))
+plt.plot(xx, amp_s(xx, nnn_s.n, par_s[1]), c='olivedrab', label='Skalierter Fit')
+plt.plot(xx, amp_s(xx, f_nnn_s.n, 1), c='steelblue', label='Einfacher Fit')
+plt.plot(xx, amp_s(xx, nn_s.n, 1), c='indianred', label='Theoriekurve')
+plt.plot(xx, amp_s(xx, nnn_s.n, par_s[1]), c='olivedrab', alpha=0.25)
+plt.xlabel(r'$\alpha \mathbin{/} \unit{\degree}$')
+plt.ylabel(r'$I / I_0$')
+leg = plt.legend(borderpad=0.75, loc='best', edgecolor='k', facecolor='none')
+leg.get_frame().set_linewidth(0.25)
 plt.savefig('build/plot_comp_s')
 plt.close()
 
-plt.plot(xx, amp_p(xx, nn_p.n, 1))
-plt.plot(xx, amp_p(xx, nnn_p.n, par_p[1]))
-plt.plot(xx, amp_p(xx, f_nnn_p.n, 1))
+plt.plot(xx, amp_p(xx, nnn_p.n, par_p[1]), c='olivedrab', label='Skalierter Fit')
+plt.plot(xx, amp_p(xx, f_nnn_p.n, 1), c='steelblue', label='Einfacher Fit')
+plt.plot(xx, amp_p(xx, nn_p.n, 1), c='indianred', label='Theoriekurve')
+plt.plot(xx, amp_p(xx, f_nnn_p.n, 1), c='steelblue', alpha=0.25)
+plt.plot(xx, amp_p(xx, nnn_p.n, par_p[1]), c='olivedrab', alpha=0.25)
+plt.xlabel(r'$\alpha \mathbin{/} \unit{\degree}$')
+plt.ylabel(r'$I / I_0$')
+leg = plt.legend(borderpad=0.75, loc='best', edgecolor='k', facecolor='none')
+leg.get_frame().set_linewidth(0.25)
 plt.savefig('build/plot_comp_p')
 plt.close()
+
+
+# Parameter schreiben 
+
+with open('build/lam.tex', 'w') as f:
+	f.write(r'\qty{')
+	f.write(f'{lam.n:.0f}({lam.s:.0f})')
+	f.write(r'}{\nano\meter}')
+with open('build/I_g.tex', 'w') as f:
+	f.write(r'\qty{')
+	f.write(f'{I_g.n:.0f}({I_g.s:.0f})')
+	f.write(r'}{\micro\ampere}')
+with open('build/I_d.tex', 'w') as f:
+	f.write(r'\qty{')
+	f.write(f'{1000*I_d.n:.1f}({1000*I_d.s:.1f})')
+	f.write(r'}{\nano\ampere}')
+with open('build/ang_min.tex', 'w') as f:
+	f.write(r'\qty{')
+	f.write(f'{ang_min:.0f}')
+	f.write(r'}{\degree}')
+with open('build/I_min.tex', 'w') as f:
+	f.write(r'\qty{')
+	f.write(f'{1000*I_min.n:.0f}({1000*I_min.s:.0f})')
+	f.write(r'}{\nano\ampere}')
+
