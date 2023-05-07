@@ -8,3 +8,13 @@ from uncertainties.unumpy import nominal_values as noms, std_devs as stds
 from uncertainties import ufloat
 
 # read columns of data from txt file
+ 
+#Konstanten definieren
+
+#berechnung von v
+
+#Feldstärke kondensator
+
+#Radius der öltröpchen
+
+
