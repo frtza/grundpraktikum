@@ -4,21 +4,42 @@
 \section{Diskussion}
 \label{sec:diskussion}
 
-$n = \input{nn.tex}$
+Als Literaturwert kann für $\ce{Si}$ ein Brechungsindex von $n = \num{3.805}$ bei einer Wellenlänge
+$\lambda = \qty{681.20}{\nano\meter}$ angenommen werden \cite{asp_the_silicon}.
 
-$\ce{Si}$ $n = \num{3.805}$ $\lambda = \qty{681.20}{\nano\meter}$ \cite{asp_the_silicon}
+Bei der Messung senkrechter Polarisation besitzt der skalierte Optimierungsparameter $n = \input{build/nnn_s.tex}$ die beste Übereinstimmung,
+der einfache Fit wie auch der mittlere Brechungsindex liegen mit $n = \input{build/f_nnn_s.tex}$ und $n = \input{build/nn_s.tex}$ deutlich darunter.
+Als Konsequenz der nach Fehlergröße gewichteten Regressionseingabe zeigt der einfache Fit in Abbildung \ref{fig:plot_comp_s} für kleine Winkel
+eine gute Übereinstimmung mit den Messwerten, da in diesem Bereich durch Wahl der Skala geringere Abweichungen auftreten. Bei größeren Winkeln
+divergiert der Fit von der Messverteilung, nähert sich aber der Theoriekurve an, welche zuvor unterhalb der approximierten Messung liegt.
 
-$\ce{SiO2}$ $n = \num{1.456}$ $\lambda = \qty{680.00}{\nano\meter}$ \cite{mal_fused_silica}
+Für parallel polarisiertes Licht verträgt sich die Optimierung $n = \input{build/f_nnn_p.tex}$ am besten mit dem Literaturwert, dicht
+gefolgt vom gewichteten Mittelwert $n = \input{build/nn_p.tex}$ der Messreihe. Der skalierte Fit liegt mit $n = \input{build/nnn_p.tex}$ oberhalb
+der erwarteten Größe. Entsprechend ist das Minimum der durch die Regression mit Skalierungsfaktor genäherten Messreihe in
+Abbildung \ref{fig:plot_comp_p} zu etwas größeren Winkeln hin verschoben, über
+\begin{equation*}
+	\alpha_0 = \text{arctan} \, n
+\end{equation*}
+entspricht es dem Brewsterwinkel, bei dem der parallel polarisierte Lichtanteil vollständig absorbiert wird. Die Kurven aus Theorie und einfacher
+Ausgleichsrechnung stimmen wegen ihrer ähnlichen Ergbnisse gut miteinander überein, nähern sich den Messergebnissen aber nur im Bereich des
+Intensitätsminimums lokal an. 
 
-Teilweise oxidierte Fläche
+Es fällt auf, dass die gemessenen Amplitudenverhältnisse beider Polarisationsrichtungen Stauchungsfaktoren von $\input{build/s_s.tex}$
+beziehungsweise $\input{build/s_p.tex}$ aufweisen. Diese Tatsache weist auf die naheliegende Korrektur hin, statt der ungefilterten
+Gesamtintensität jeweils $I_0$ auf die direkte Intensität der betrachteten Polarisationsrichtung zu setzen. Damit ist dann auch die
+konkrete Gültigkeit der Fresnelschen Formeln erfüllt, welche sich auf die Verhältnisse gleich polarisierter Wellen beschränkt, und
+erfordert in jedem Fall nur eine zusätzliche Messung. Es ist davon auszugehen, dass die Berücksichtigung dieses Vorgehens die wesentlichen
+Abweichungen der Auswertungsergebnisse aufheben würde.
 
-Anordnung der Kristalle
+Eine weitere mögliche Fehlerquelle ist durch den Einfluss oxidierter Oberflächenschichten gegeben, da $\ce{SiO2}$ bei
+$\lambda = \qty{680.00}{\nano\meter}$ einen geringeren Brechungsindex von $n = \num{1.456}$ besitzt \cite{mal_fused_silica}.
+Weiter kann spekuliert werden, dass eine anisotrope Anordnung der Kristall-Struktur polarisationsspezifische Abweichungen hervorruft.
+Das gewichtete Mittel aller Resultate beträgt $n = \input{nn.tex}$ und liegt damit zwischen den bekannten Werten für $\ce{SiO2}$ und $\ce{Si}$.
+Es ist ebenso nicht auszuschließen, dass andere Verunreinigungen des Spiegels zu verfälschten Ergebnissen beitragen.
 
-Justierung des Goniometers
+Zuletzt können bei Justierung von Goniometer und Detektor Fehlereinflüsse auftreten, indem der Winkel der Spiegelfläche oder die Detektoröffnung
+unpräzise eingestellt und positioniert werden. So entstehende Abweichungen sollten aber generell durch mehrfache Messung kompensierbar sein.
 
-Verminderte Detektorfläche
-
-
-
-
+\enlargethispage*{\baselineskip}
+\newpage
 
