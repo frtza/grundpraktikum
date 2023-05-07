@@ -88,23 +88,23 @@ with warnings.catch_warnings():
 	warnings.simplefilter('ignore')
 
 	# Parallele Polarisation
-	
+
 	xx, yy = np.arange(0, 85, 0.003), np.arange(0.225, 5.2, 0.003)
 	XX, YY = np.meshgrid(xx, yy)
 	plt.contour(XX, YY, imp_p(XX, YY), [-np.sqrt(V), np.sqrt(V)], linestyles='solid', linewidths=7.5, alpha=0.15, colors='#ff7f0e')
-	
+
 	plt.plot(100, 100, linewidth=5, alpha=0.15, c='#ff7f0e', label='Konturen')
-	
+
 	xx = np.linspace(12.25, 85.25, 10000)
 	plt.plot(xx, n_p_1(xx, V), c='#d62728', label='Lösung 3a')
 	xx = np.linspace(12.25, 85.25, 500000)
 	plt.plot(xx, n_p_2(xx, V), c='#d62728', alpha=0.5, label='Lösung 3b')
-	
+
 	xx = np.linspace(-0.5, 75.4, 10000)
 	plt.plot(xx, n_p_3(xx, V), c='#ff7f0e', label='Lösung 4a')
 	xx = np.linspace(-0.5, 82.075, 500000)
 	plt.plot(xx, n_p_4(xx, V), c='#ff7f0e', alpha=0.5, label='Lösung 4b')
-	
+
 	plt.xlim(-3.5, 87.5)
 	plt.ylim(-0.275, 5.5)
 	plt.xlabel(r'$\alpha \mathbin{/} \unit{\degree}$')
@@ -113,19 +113,19 @@ with warnings.catch_warnings():
 	leg.get_frame().set_linewidth(0.25)
 	plt.savefig('build/plot_ip.pdf')
 	plt.close()
-	
+
 	# Senkrechte Polarisation
-	
+
 	xx, yy = np.arange(-6, 86, 0.01), np.arange(0.5, 1.7, 0.01)
 	XX, YY = np.meshgrid(xx, yy)
 	plt.contour(XX, YY, imp_s(XX, YY), [-np.sqrt(V), np.sqrt(V)], linestyles='solid', linewidths=7.5, alpha=0.15, colors='#ff7f0e')
-	
+
 	plt.plot(100, 100, linewidth=5, alpha=0.15, c='#ff7f0e', label='Konturen')
-	
+
 	xx = np.linspace(-6.3, 86.3, 10000)
 	plt.plot(xx, n_s_1(xx, V), c='#d62728', label='Lösung 1')
 	plt.plot(xx, n_s_2(xx, V), c='#ff7f0e', label='Lösung 2')
-	
+
 	plt.ylim(0.5, 1.7)
 	plt.xlim(-10, 90)
 	plt.xlabel(r'$\alpha \mathbin{/} \unit{\degree}$')

@@ -79,37 +79,55 @@ führt dann über die Fallunterscheidung
 zwei Lösungszweige ein, welche in Abbildung \ref{fig:plot_is} dargestellt sind.
 
 \begin{figure}[H]
+	\centering
 	\includegraphics{build/plot_is.pdf}
-	\captionsetup{width=0.95\linewidth}
+	\captionsetup{width=\linewidth}
 	\caption{Fälle \eqref{eqn:L1} und \eqref{eqn:L2} mit hinterlegtem Konturplot der impliziten Lösung \eqref{eqn:LS}.}
 	\label{fig:plot_is}
 \end{figure}
 
+Die Zweige \eqref{eqn:L1} und \eqref{eqn:L2} stimmen mit dem Konturplot der Ausgangsgleichung \eqref{eqn:LS} überein. Aus der allgemein für
+sichtbare Wellenlängen angenommenen Forderung $n \geq 1$ folgt, dass Lösung \eqref{eqn:L2} zu wählen ist. Diese wird verwendet, um aus den
+in Tabelle \ref{tab:s} geführten Winkeln und Photoströmen den jeweiligen Brechungsgindex zu bestimmen.
+
+Aus den so gewonnenen fehlerbehafteten Werten ergibt sich
+\begin{equation*}
+	n = \input{nn_s.tex}
+\end{equation*}
+als gewichtetes Mittel der Messreihe. Um eine Ausgleichsrechnung entlang der Daten durchzuführen, wird \eqref{eqn:LS} in Abbildung \ref{fig:plot_s}
+um einen Skalierungsfaktor $s$ erweitert, sodass
+\begin{align*}
+	n = \input{nnn_s.tex} && s = \input{s_s.tex}
+\end{align*}
+die Optimierungsparameter bemessen. Eine einfache Regression entlang \eqref{eqn:LS} liefert
+\begin{equation*}
+	n = \input{f_nnn_s.tex}
+\end{equation*}
+und wird in Abbildung \ref{fig:plot_comp_s} neben den Kurven der zuvor ermittelten Indizes $n$ aufgeführt. Die skalierte Regression
+dient hier als genäherte Veranschaulichung der Messdaten und ermöglicht einen übersichtlichen Vergleich der verschiedenen Verläufe.
+
+\newpage\null\vfill
 \begin{table}[H]
-	\caption{}
+	\caption{Messergebnisse bei $\qty{0}{\degree}$ am Polarisationsfilter für senkrecht polarisiertes Licht.}
 	\makebox[\textwidth]{
 		\centering
 		\input{build/table_s.tex}}
 	\label{tab:s}
 \end{table}
-
-$n = \input{nn_s.tex}$
+\vfill\null\newpage
 
 \begin{figure}[H]
 	\includegraphics{build/plot_s.pdf}
-	\caption{}
+	\caption{Fehlerbehaftete Messdaten und skalierte Ausgleichskurve nach \eqref{eqn:LS}.}
 	\label{fig:plot_s}
 \end{figure}
 
-$n = \input{nnn_s.tex}$ $s = \input{s_s.tex}$
-
 \begin{figure}[H]
 	\includegraphics{build/plot_comp_s.pdf}
-	\caption{}
+	\captionsetup{width=\linewidth}
+	\caption{Vergleich der bestimmten Brechungsindizes mittels passender Intensitätsverläufe.}
 	\label{fig:plot_comp_s}
 \end{figure}
-
-$n = \input{f_nnn_s.tex}$
 
 \newpage
 \subsection{Parallele Polarisation}
@@ -179,30 +197,45 @@ für die Lösung, welche in Abbildung \ref{fig:plot_ip} dargestellt sind.
 	\label{fig:plot_ip}
 \end{figure}
 
+Auch für parallel zur Einfallsebene polarisiertes Licht passen die Verläufe der Zweige zu den implizit aus \eqref{eqn:LP} gewonnenen
+Lösungen der Konturniveaus. Da neben $n \geq 1$ auch Stetigkeit auf dem Messintervall von $\qty{0}{\degree}$ bis $\qty{90}{\degree}$
+gefordert ist, muss Lösungsfall \eqref{eqn:L4a} zur weiteren Berechnung der in Tabelle \ref{tab:p} nachgehaltenen Ergebnisse für
+den Brechungsindex verwendet werden.
+
+Auf gleiche Weise wie für senkrechte Polarisationsrichtung ergibt sich daraus
+\begin{equation*}
+	n = \input{nn_p.tex}
+\end{equation*}
+als über die Varianz gewichteter Mittelwert. Der skalierte Ansatz in Abbildung \ref{fig:plot_p} liefert
+\begin{align*}
+	n = \input{nnn_p.tex} && s = \input{s_p.tex}
+\end{align*}
+zur Approximation des Messverlaufs, während aus einfacher Ausgleichsrechnung
+\begin{equation*}
+	n = \input{f_nnn_p.tex}
+\end{equation*}
+zur Optimierung folgt. Die entsprechenden Kurven sind ebenfalls zum grafischen Vergleich in Abbildung \ref{fig:plot_comp_p} wiedergegeben.
+
+\newpage\null\vfill
 \begin{table}[H]
-	\caption{}
+	\caption{Messergebnisse bei $\qty{90}{\degree}$ am Polarisationsfilter für parallel polarisiertes Licht.}
 	\makebox[\textwidth]{
 		\centering
 		\input{build/table_p.tex}}
 	\label{tab:p}
 \end{table}
-
-$n = \input{nn_p.tex}$
+\vfill\null\newpage
 
 \begin{figure}[H]
 	\includegraphics{build/plot_p.pdf}
-	\caption{}
+	\caption{Fehlerbehaftete Messdaten und skalierte Ausgleichskurve nach \eqref{eqn:LP}.}
 	\label{fig:plot_p}
 \end{figure}
 
-$n = \input{nnn_p.tex}$ $s = \input{s_p.tex}$
-
 \begin{figure}[H]
 	\includegraphics{build/plot_comp_p.pdf}
-	\caption{}
+	\captionsetup{width=\linewidth}
+	\caption{Vergleich der bestimmten Brechungsindizes mittels passender Intensitätsverläufe.}
 	\label{fig:plot_comp_p}
 \end{figure}
 
-$n = \input{f_nnn_p.tex}$
-
-$n = \input{nn.tex}$
