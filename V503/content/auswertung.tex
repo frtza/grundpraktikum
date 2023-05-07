@@ -2,3 +2,34 @@
 % Auswertung: Berechnung geforderter Ergebnisse mit Schritten/Fehlerformeln/Erläuterung/Grafik (Programme)
 \section{Auswertung}
 \label{sec:auswertung}
+
+
+\subsection{Fehlerrechnung}
+\label{sec:Fehlerrechnung}
+Die Fehlerrechnung, für die Bestimmung der Messunsicherheiten, wird mit Uncertainties \cite{uncertainties} gemacht.
+Die Formel der Gauß Fehlerfortpflanzung ist gegeben durch
+\begin{equation}
+    \Delta f=\sqrt{\sum_{i=1}^N\left(\frac{\partial f}{\partial x_i}\right)^2 \cdot\left(\Delta x_i\right)^2}.
+    \label{eqn:gauss}
+\end{equation}
+Für den Mittelwert bei $N$ Messwerten gilt 
+\begin{equation}
+    \bar{x} = \frac{1}{N}\sum\limits_{i = 1}^N x_i .
+    \label{eqn:mittelwert}
+\end{equation}
+Der Fehler des Mittelwertes lässt sich berechnen mit
+\begin{equation}
+    \Delta \bar{x}=\frac{1}{\sqrt{N}} \sqrt{\frac{1}{N-1} \sum_{i=1}^N\left(x_i-\bar{x}\right)^2}.
+    \label{eqn:mittelwertfehler}
+\end{equation}
+Zu Bestimmung der relativen Abweichung von den experimentellen Werten zu den theorethischen Werten wird die
+Realtion 
+\begin{equation}
+    \increment x = \frac{x_{exp}-x_{theo}}{x_{theo}}
+\end{equation} 
+genutzt.
+
+Zunächst wird überprüft, ob die einzelenen Messwerte die Bedingung $2v_0 = v_{ab}-v_{auf}$ erfüllen.#
+Wenn die Messwerte die Raltion nicht erfüllen und außerhalb des Rahmens der Messgenauigkeit sind, können 
+diese verworfen werden. Verwendet werden die Werte, die bei der die prozentuale Abweichung vom Sollwert unter
+$50 \%& liegen.
