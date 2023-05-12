@@ -23,7 +23,7 @@ Werden die Tropfen als kugelförmig angenommen, ergibt sich ihre Masse zu
 \begin{equation*}
 	m = \rho_O V = \pfrac{4}{3} \pi r^3 \rho_O \: .
 \end{equation*}
-Nach kurzzeitiger Beschleunigungsphase stellt sich eine Kräftegleichgewicht mit passender Gleichgewichtsgeschwindigkeit $\symbf v_0$ ein.
+Nach kurzzeitiger Beschleunigungsphase stellt sich ein Kräftegleichgewicht mit passender Gleichgewichtsgeschwindigkeit $\symbf v_0$ ein.
 Es gilt also
 \begin{equation*}
 	\symbf F_G = \symbf F_R + \symbf F_{\! A} \: .
@@ -80,7 +80,7 @@ die Ladung mit
 	\sqrt{ \pfrac{9 \eta_L \left( v_\text{ab} - v_\text{auf} \right) }{4g \left( \rho_O - \rho_L \right)} }
 	\label{eqn:ladung}
 \end{equation}
-beschreiben lässt. Anschließend ist noch eine letzte Einschränkung zu berücksichtigen.
+beschreiben lässt. Es ist dann noch eine zusätzliche Einschränkung zu berücksichtigen:
 \newpage
 Das Gesetz von Stokes gilt nur für Tröpfchen, die eine Ausdehnung größer als die mittlere Weglänge $\bar{l}$ in Luft aufweisen. Da dies
 für den betrachteten Versuch nicht gegeben ist, muss die Viskosität zu
@@ -89,7 +89,12 @@ für den betrachteten Versuch nicht gegeben ist, muss die Viskosität zu
 	\label{eqn:viskos}
 \end{equation}
 korrigiert werden. Dabei findet der Cunningham-Korrekturterm $B = \qty{8.226e-3}{\pascal\meter}$ Verwendung, mit $p$ wird der
-Luftdruck bezeichnet.
+Luftdruck bezeichnet. Wegen $q \sim \eta_L^{3 / 2}$ folgt direkt
+\begin{equation}
+	\hat{q} = q \left( 1 + \displaystyle{\pfrac{B}{\raisebox{1ex}{\( pr \)}}} \right)^{\!\! - 3 / 2}
+	\label{eqn:korrekt}
+\end{equation}
+als Vorschrift für die Korrektur der Ladung.
 
 Nach Bestimmung der Elementarladung $e_0$ kann über die sogenannte Faraday-Konstante $F = \qty{9.649e4}{\coulomb\per\mole}$ 
 die Avogadrokonstante $N_{\! A}$ leicht berechnet werden. Die Größe $F$ beschreibt die elektrische Ladung eines Mols einfach geladener Ionen,
