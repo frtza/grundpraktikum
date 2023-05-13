@@ -23,6 +23,15 @@ rhool = 886
 def bed(v_0,v_ab,v_auf):
     return ((2 * v_0) - (v_ab - v_auf)) / (v_ab - v_auf)
 
+### Vorschlag:
+def test(v_0, v_ab, v_auf):
+	rel = (2 * v_0) / (v_ab - v_auf)
+	if rel >= 1:
+		return rel - 1
+	else:
+		return 1 - rel
+### Gibt prozentuale Abweichung zurueck
+
 #strecke
 s = ufloat(0.0005, 0.0001) #m
 
