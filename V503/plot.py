@@ -16,10 +16,10 @@ def bed(v_0,v_ab,v_auf):
     return ((2 * v_0) - (v_ab - v_auf)) / (v_ab - v_auf)
 
 #strecke
-s = ufloat(0.5, 0.1) #mm
+s = ufloat(0.0005, 0.0001) #m
 
 #daten einlesen
-tab, tauf, t0 = np.genfromtxt('data/spannung1/1.txt', unpack=True, skip_header=1)
+tab, tauf, t0 = np.genfromtxt('data/spannung2/17.txt', unpack=True, skip_header=1)
 #mitteln der Daten
 print('t_auf:')
 mean_auf = np.mean(tauf)
@@ -38,9 +38,8 @@ def v(z,d):
     return z/d 
 vauf = v(s,t_mittel_auf)
 vab = v(s,t_mittel_ab)
-v0 = v(s,t0)
-
+v0 = v(s,t0[0])
 print('Bedingung prüfen:')
 #ver für verhältnis
-ver = bed(v0,vab,vauf)
+ver = bed(v0,vab,vauf) 
 print(ver)
