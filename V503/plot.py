@@ -32,7 +32,7 @@ def bedt(v_0, v_ab, v_auf):
 s = ufloat(0.0005, 0.0001) #m
 
 #daten einlesen
-tauf, tab, t0 = np.genfromtxt('data/spannung1/3.txt', unpack=True, skip_header=1)
+tauf, tab, t0 = np.genfromtxt('data/spannung1/1.txt', unpack=True, skip_header=1)
 #mitteln der Daten
 print('t_auf:')
 mean_auf = np.mean(tauf)
