@@ -250,14 +250,28 @@ E14 = E(t014[2])
 E16 = E(t016[2])
 E17 = E(t017[2])
 
+#viskosität
+
+visko1 = 1.8325 * 10**(-5)
+visko3 = 1.8375 * 10**(-5)
+visko4 = 1.8375 * 10**(-5)
+visko5 = 1.8420 * 10**(-5)
+visko6 = 1.8420 * 10**(-5)
+visko7 = 1.8420 * 10**(-5)
+visko8 = 1.8420 * 10**(-5)
+visko10 = 1.8475 * 10**(-5)
+visko12 = 1.8475 * 10**(-5)
+visko13 = 1.8475 * 10**(-5)
+visko14 = 1.8420 * 10**(-5)
+visko16 = 1.8475 * 10**(-5)
+visko17 = 1.8475 * 10**(-5)
+
 #Radius der Öltröpfchen
 def r(vab, vauf,visko):
     if vab-vauf<0:
         return 0
     else:
     return unp.sqrt((9/4)*(visko/g)*(vab-vauf)/(rhoOel))
-
-
 
 
 #unkorrigierte ladung
