@@ -24,7 +24,7 @@ def bed(v_0,v_ab,v_auf):
     return ((2 * v_0) - (v_ab - v_auf)) / (v_ab - v_auf)
 
 ### Vorschlag:
-def test(v_0, v_ab, v_auf):
+def bedt(v_0, v_ab, v_auf):
 	rel = (2 * v_0) / (v_ab - v_auf)
 	if rel >= 1:
 		return rel - 1
@@ -36,7 +36,7 @@ def test(v_0, v_ab, v_auf):
 s = ufloat(0.0005, 0.0001) #m
 
 #daten einlesen
-tab, tauf, t0 = np.genfromtxt('data/spannung2/9.txt', unpack=True, skip_header=1)
+tab, tauf, t0 = np.genfromtxt('data/spannung1/3.txt', unpack=True, skip_header=1)
 #mitteln der Daten
 print('t_auf:')
 mean_auf = np.mean(tauf)
