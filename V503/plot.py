@@ -25,18 +25,14 @@ def bed(v_0,v_ab,v_auf):
 
 ### Vorschlag:
 def bedt(v_0, v_ab, v_auf):
-	rel = (2 * v_0) / (v_ab - v_auf)
-	if rel >= 1:
-		return rel - 1
-	else:
-		return 1 - rel
-### Gibt prozentuale Abweichung zurueck
+	return abs((2 * v_0) / (v_ab - v_auf) - 1)
+### Gibt relative Abweichung zurueck
 
 #strecke
 s = ufloat(0.0005, 0.0001) #m
 
 #daten einlesen
-tab, tauf, t0 = np.genfromtxt('data/spannung1/3.txt', unpack=True, skip_header=1)
+tauf, tab, t0 = np.genfromtxt('data/spannung1/3.txt', unpack=True, skip_header=1)
 #mitteln der Daten
 print('t_auf:')
 mean_auf = np.mean(tauf)
@@ -58,7 +54,7 @@ vab = v(s,t_mittel_ab)
 v0 = v(s,t0[0])
 print('Bedingung prüfen:')
 #ver für verhältnis
-ver = bed(v0,vab,vauf) 
+ver = bedt(v0,vab,vauf) 
 print(ver)
 #Verwendet werden die Messwerte 1 und 9
 
