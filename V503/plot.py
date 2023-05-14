@@ -13,8 +13,8 @@ from uncertainties.unumpy import (nominal_values as noms,   # Wert:             
 
 g = const.g
 d = ufloat(7.6250, 0.0051)*10**(-3)  
-p = 1*10**(5)   
-B = 8.226 * 10**3
+p = 1*10**(5) 
+B = 8.226 * 10**(-3)
 #rholuft = 1.
 rhoOel = 886
 
@@ -271,19 +271,76 @@ def r(vab, vauf,visko):
     if vab-vauf<0:
         return 0
     else:
-    return unp.sqrt((9/4)*(visko/g)*(vab-vauf)/(rhoOel))
+        return unp.sqrt((9/4)*(visko/g)*(vab-vauf)/(rhoOel))
 
 
 #unkorrigierte ladung
-def q(vab, vauf, E, r):
+def q(vab, vauf, E, r, visko):
     if r==0:
         return 0
     else:
-        return (3/4)*np.pi*visko*r*((vab+vauf)/(E))
+        return (3)*np.pi*visko*r*((vab+vauf)/(E))
 #korrigierte ladung
 
 def qkorr(q, r):
     if q==0:
         return 0
     else:
-        return q*(1+(B/(p*r)))**(3/2)
+        return q*(1+(B/(p*r)))**(-3/2)
+
+r1 = r(vab1, vauf1, visko1)
+q1 = q(vab1, vauf1, E1, r1, visko1)
+qkorr1 = qkorr(q1, r1)
+
+r3 = r(vab3, vauf3, visko3)
+q3 = q(vab3, vauf3, E3, r3, visko3)
+qkorr3 = qkorr(q3, r3)
+
+r4 = r(vab4, vauf4, visko4)
+q4 = q(vab4, vauf4, E4, r4, visko4)
+qkorr4 = qkorr(q4, r4)
+
+r5 = r(vab5, vauf5, visko5)
+q5 = q(vab5, vauf5, E5, r5, visko5)
+qkorr5 = qkorr(q5, r5)
+
+r6 = r(vab6, vauf6, visko6)
+q6 = q(vab6, vauf6, E6, r6, visko6)
+qkorr6 = qkorr(q6, r6)
+
+r7 = r(vab7, vauf7, visko7)
+q7 = q(vab7, vauf7, E7, r7, visko7)
+qkorr7 = qkorr(q7, r7)
+
+r8 = r(vab8, vauf8, visko8)
+q8 = q(vab8, vauf8, E8, r8, visko8)
+qkorr8 = qkorr(q8, r8)
+
+r10 = r(vab10, vauf10, visko10)
+q10 = q(vab10, vauf10, E10, r10, visko10)
+qkorr10 = qkorr(q10, r10)
+
+r12 = r(vab12, vauf12, visko12)
+q12 = q(vab12, vauf12, E12, r12, visko12)
+qkorr12 = qkorr(q12, r12)
+
+r13 = r(vab13, vauf13, visko13)
+q13 = q(vab13, vauf13, E13, r13, visko13)
+qkorr13 = qkorr(q13, r13)
+
+r14 = r(vab14, vauf14, visko14)
+q14 = q(vab14, vauf14, E14, r14, visko14)
+qkorr14 = qkorr(q14, r14)
+
+r16 = r(vab16, vauf16, visko16)
+q16 = q(vab16, vauf16, E16, r16, visko16)
+qkorr16 = qkorr(q16, r16)
+
+r17 = r(vab17, vauf17, visko17)
+q17 = q(vab17, vauf17, E17, r17, visko17)
+qkorr17 = qkorr(q17, r17)
+
+
+
+print('r:\n', r1, '\nq:\n', q1, '\nqkorr:\n', qkorr1)
+
