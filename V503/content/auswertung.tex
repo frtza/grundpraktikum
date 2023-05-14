@@ -3,7 +3,7 @@
 \section{Auswertung}
 \label{sec:auswertung}
 
-
+Im Folgenden Abschnitt wird aus dem Messwerten die Elementarladung $e$ und die Avogadro-Konstante bestimmt.
 \subsection{Fehlerrechnung}
 \label{sec:Fehlerrechnung}
 Die Fehlerrechnung für die Bestimmung der Messunsicherheiten, wird mit Uncertainties \cite{uncertainties} gemacht.
@@ -30,7 +30,7 @@ Relation
 genutzt.
 
 \subsection{Bestimmung der Elementarladung}
-\label{bestimmung der elementarladung}
+\label{sec:bestimmung der elementarladung}
 
 Zunächst wird überprüft, ob die einzelenen Messwerte die Bedingung $2v_0 = v_{ab}-v_{auf}$ erfüllen.
 Wenn die Messwerte die Relation nicht erfüllen und außerhalb des Rahmens der Messgenauigkeit sind, können 
@@ -184,14 +184,14 @@ Anhand der \autoref{fig:wider} und der \autoref{fig:graph} lässt sich über die
 Die abgelesenen Werte der Viskosität $\eta_L$ und der Temperatur $T$ wurden ebenfalls in den Tabellen der Tropfen aufgelistet.
 Unter Verwendung der \autoref{eqn:radius_b} wird der Radius der Öltröpfchen bestimmt.
 Daraufhin wird die unkorrigierte Ladung nach der \autoref{eqn:ladung} ermittelt, um anschließend 
-über die \autoref{eqn:korrekt} die korrigierte Ladung der einzelnen Tropfen zu berechnen. Als Feldstärke $B$ war ein
+über die \autoref{eqn:korrekt} die korrigierte Ladung der einzelnen Tropfen zu berechnen. Als Korrekturterm $B$ war ein
 Wert von $B = \qty{8.226e-3}{\pascal\meter}$ angegeben.
 
 Die korrigierten Ladungen der Öltröpfchen wurden in der \autoref{fig:plot} zusammen mit ihren Fehlern dargestellt.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{build/plot1.pdf}
+    \includegraphics[width=0.75\linewidth]{build/plot1.pdf}
     \caption{Histogramm der korrigierten Ladungen der Öltröpfchen}
     \label{fig:plot}
 \end{figure}
@@ -204,10 +204,23 @@ Wert der Ladungen $q_3 = (4.5 \pm 1.5) \cdot 10^{-19} \, \mathrm{C}$ und bei der
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{content/grafik/plot1-korr.pdf}
+    \includegraphics[width=0.75\linewidth]{content/grafik/plot1-korr.pdf}
     \caption{Histogramm der korrigierten Ladungen der Öltröpfchen}
     \label{fig:plotkorr}
 \end{figure}
 
 Die aus den eingteilten Gruppen bestimmten Ladungen ensprechen jeweils einem Vielfachen von $e$. Daraus kann geschlossen werden,
-dass die Differenzen der Werte der unterschiedlichen Gruppen der Elementarladung entspricht. 
+dass die Differenzen der Werte der unterschiedlichen Gruppen der Elementarladung entspricht. Bei dem ersten Wert $q_1$ und den zweiten
+Wert liegt ein größerer Abstand vor, daher wird diese Differenz zunächst nicht beachtet.
+Für die Differenz der zweiten und der dritten Gruppe ergibt sich ein Wert von $d_12 = (1.4 \pm 2.4) \cdot 10^{-19} \, \mathrm{C}$. Analos ergibt sich für die
+letzten beiden Gruppen ein Wert $d_34 = (1.7 \pm 1.6) \cdot 10^{-19} \, \mathrm{C}$. 
+Aus dem Mittel der beiden Differenzen ergibt sich die Elementarladung $e_{\text{exp}} = (1.6 \pm 1.0) \cdot 10^{-19} \, \mathrm{C}$.
+
+\subsection{Bestimmung der Avogadro-Konstante}
+\label{sec:bestimmung der Avogadro-konstante}
+
+Mittels der Bestimmten Elementarladung und der Faraday-Konstante lässt sich die Avogadro-Konstnate\eqref{eqn:faraday}
+\begin{equation*} 
+	N_{\! A} = (6 \pm 4) \cdot 10^{23} \mathrm{mol}^{-1}
+\end{equation*}
+bestimmen.

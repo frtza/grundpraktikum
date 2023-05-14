@@ -70,3 +70,6 @@ print(d3)
 
 e = (d2+d3)/2
 print(e)
+F = ufloat(96485.3399, 0.0024)
+a = F/e 
+print(a)
