@@ -32,7 +32,7 @@ def bedt(v_0, v_ab, v_auf):
 s = ufloat(0.0005, 0.0001) #m
 
 #daten einlesen
-tauf, tab, t0 = np.genfromtxt('data/spannung1/2.txt', unpack=True, skip_header=1)
+tauf, tab, t0 = np.genfromtxt('data/spannung1/1.txt', unpack=True, skip_header=1)
 #mitteln der Daten
 print('t_auf:')
 mean_auf = np.mean(tauf)
@@ -250,6 +250,21 @@ E14 = E(t014[2])
 E16 = E(t016[2])
 E17 = E(t017[2])
 
+#temperatur
+T1 = 22
+T3 = 23
+T4 = 23
+T5 = 24
+T6 = 24
+T7 = 24
+T8 = 24
+T10 = 25
+T12 = 25
+T13 = 25
+T14 = 24
+T16 = 25
+T17 = 25
+
 #viskosität
 
 visko1 = 1.8325 * 10**(-5)
@@ -342,5 +357,106 @@ qkorr17 = qkorr(q17, r17)
 
 
 
-print('r:\n', r1, '\nq:\n', q1, '\nqkorr:\n', qkorr1)
+print('r:')
+print(r1)
+print('q:')
+print(q1)
+print('qkorr:')
+print(qkorr1)
+
+
+table_header = r'''	\begin{tabular}{c S[detect-weight, detect-shape, detect-mode] S[detect-weight, detect-shape, detect-mode] c c}
+		\toprule
+		{$t_0 \mathbin{/} \unit{\second}$} &
+		{$t_\text{ab} \mathbin{/} \unit{\second}$} &
+		{$t_\text{auf} \mathbin{/} \unit{\second}$} &
+		{$R \mathbin{/} \unit{\mega\ohm}$} &
+		{$U \mathbin{/} \unit{\volt}$} \\
+		\midrule
+'''
+table_mid = r'''
+		& & & & \\
+		{$v_0 \mathbin{/} \unit{\milli\meter\per\second}$} &
+		{$v_\text{ab} \mathbin{/} \unit{\milli\meter\per\second}$} &
+		{$v_\text{auf} \mathbin{/} \unit{\milli\meter\per\second}$} &
+		{$T \mathbin{/} \unit{\celsius}$} &
+		{$E \mathbin{/} \unit{\kilo\volt\per\meter}$} \\
+		\midrule
+'''
+table_footer = r''' 		\bottomrule
+	\end{tabular}
+'''
+def tab(number, t0, tab, tauf, t_mittel_ab, t_mittel_auf, v0, vab, vauf, T, E, r, visko, q, qkorr):
+	with open(f'build/table_{number}.tex', 'w') as f:
+		f.write(table_header)
+		f.write(r'		\num{')
+		f.write(f'{t0[0]:.2f}(0.10)')
+		f.write(r'} & \num{')
+		f.write(f'{tab[0]:.2f}(0.10)')
+		f.write(r'} & \num{')
+		f.write(f'{tauf[0]:.2f}(0.10)')
+		f.write(r'} & \num{')
+		f.write(f'{t0[1]:.2f}')
+		f.write(r'} & \num{')
+		f.write(f'{t0[2]:.1f}')
+		f.write(r'} \\')
+		f.write('\n')
+		f.write(r'		& \num{')
+		f.write(f'{tab[1]:.2f}(0.10)')
+		f.write(r'} & \num{')
+		f.write(f'{tauf[1]:.2f}(0.10)')
+		f.write(r'} & & \\')
+		f.write('\n')
+		f.write(r'		 & \num{')
+		f.write(f'{tab[2]:.2f}(0.10)')
+		f.write(r'} & \num{')
+		f.write(f'{tauf[2]:.2f}(0.10)')
+		f.write(r'} & & \\')
+		f.write('\n')
+		f.write(r'		 & \bfseries \num{')
+		f.write(f'{t_mittel_ab.n:.2f}({t_mittel_ab.s:.2f})')
+		f.write(r'} & \bfseries \num{')
+		f.write(f'{t_mittel_auf.n:.2f}({t_mittel_auf.s:.2f})')
+		f.write(r'} & & \\')
+		f.write(table_mid)
+		f.write(r'		\num{')
+		f.write(f'{v0.n * 1e3:.3f}({v0.s * 1e3:.3f})')
+		f.write(r'} & \num{')
+		f.write(f'{vab.n * 1e3:.3f}({vab.s * 1e3:.3f})')
+		f.write(r'} & \num{')
+		f.write(f'{vauf.n * 1e3:.3f}({vauf.s * 1e3:.3f})')
+		f.write(r'} & \num{')
+		f.write(f'{T:.0f}')
+		f.write(r'} & \num{')
+		f.write(f'{E.n * 1e-3:.2f}({E.s * 1e-3:.2f})')
+		f.write(r'} \\')
+		f.write('\n')
+		f.write(r'''		& & & & \\
+		{$r \mathbin{/} \unit{\micro\meter}$} &
+		{$\eta_L \mathbin{/} \unit{\micro\pascal\second}$} &
+		{$q \mathbin{/} \qty{e-19}{\coulomb}$} &
+		{$\hat{q} \mathbin{/} \qty{e-19}{\coulomb}$} & \\''')
+		f.write('\n')
+		f.write(r'		\cmidrule[\lightrulewidth]{1-4}')
+		f.write('\n')
+		f.write(r'		\num{')
+		f.write(f'{noms(r) * 1e6:.2f}({stds(r) * 1e6:.2f})')
+		f.write(r'} & \num{')
+		f.write(f'{visko * 1e6:.2f}')
+		f.write(r'} & \num{')
+		f.write(f'{q.n * 1e19:.2f}({q.s * 1e19:.2f})')
+		f.write(r'} & \num{')
+		f.write(f'{qkorr.n * 1e19:.2f}({qkorr.s * 1e19:.2f})')
+		f.write(r'} & \\')
+		f.write('\n')
+		f.write(table_footer)
+tab(1, t03, tab3, tauf3, t_mittel_ab3, t_mittel_auf3, v03, vab3, vauf3, T3, E3, r3, visko3, q3, qkorr3)
+
+g = globals()
+for i in [1,3,4,5,6,7,8,10,12,13,14,16,17]:
+	tab(i, g[f't0{i}'], g[f'tab{i}'], g[f'tauf{i}'], g[f't_mittel_ab{i}'], g[f't_mittel_auf{i}'], g[f'v0{i}'], g[f'vab{i}'], g[f'vauf{i}'], g[f'T{i}'], g[f'E{i}'], g[f'r{i}'], g[f'visko{i}'], g[f'q{i}'], g[f'qkorr{i}'])
+	with open(f'build/bed_{i}.tex', 'w') as f:
+		f.write(r'\num{')
+		f.write(f"{bedt(g[f'v0{i}'], g[f'vab{i}'], g[f'vauf{i}']).n:.2f}({bedt(g[f'v0{i}'], g[f'vab{i}'], g[f'vauf{i}']).s:.2f})")
+		f.write(r'}')
 
