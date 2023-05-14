@@ -5,9 +5,13 @@ build/plot.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
 	# allow matplotlib to find tex header file in main directory when running latex in tmp directory
 	# set matplotlibrc in main directory
 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python plot.py
+build/table.pdf: table.py ../matplotlibrc ../header-matplotlib.tex | build
+	# allow matplotlib to find tex header file in main directory when running latex in tmp directory
+	# set matplotlibrc in main directory
+	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python table.py
 
 # dependencies
-build/main.pdf: build/plot.pdf
+build/main.pdf: build/plot.pdf build/table.pdf
 
 build/main.pdf: FORCE | build
 	# find header file in main directory
