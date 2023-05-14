@@ -16,6 +16,10 @@ xx = np.linspace(0, 10, 100)
 #plt.plot(teil,q_korr*10**(-19),'x',linewidth = 1, label = 'Korigierte Ladungen')
 errY = fehl
 plt.errorbar(teil, (q_korr)*10**(-19), yerr = errY * 10**(-19), fmt='o' )
+plt.xlabel(r'Messung')
+plt.ylabel(r'$q [C]$')
+plt.legend(loc="best")                  # legend position
+plt.grid(True) 
 plt.savefig('build/plot1.pdf')
 
 #Stufen mitteln
