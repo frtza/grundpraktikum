@@ -356,7 +356,6 @@ q17 = q(vab17, vauf17, E17, r17, visko17)
 qkorr17 = qkorr(q17, r17)
 
 
-
 print('r:')
 print(r1)
 print('q:')
@@ -460,3 +459,17 @@ for i in [1,3,4,5,6,7,8,10,12,13,14,16,17]:
 		f.write(f"{bedt(g[f'v0{i}'], g[f'vab{i}'], g[f'vauf{i}']).n:.2f}({bedt(g[f'v0{i}'], g[f'vab{i}'], g[f'vauf{i}']).s:.2f})")
 		f.write(r'}')
 
+print('korrigierte Ladung')
+print('r:\n', r1, '\nq:\n', q1, '\nqkorr1:\n', qkorr1)
+print('r:\n', r3, '\nq:\n', q3, '\nqkorr3:\n', qkorr3)
+print('r:\n', r4, '\nq:\n', q4, '\nqkorr4:\n', qkorr4)
+print('r:\n', r5, '\nq:\n', q5, '\nqkorr5:\n', qkorr5)
+print('r:\n', r6, '\nq:\n', q6, '\nqkorr6:\n', qkorr6)
+print('r:\n', r7, '\nq:\n', q7, '\nqkorr7:\n', qkorr7)
+print('r:\n', r8, '\nq:\n', q8, '\nqkorr8:\n', qkorr8)
+print('r:\n', r10, '\nq:\n', q10, '\nqkorr10:\n', qkorr10)
+print('r:\n', r12, '\nq:\n', q12, '\nqkorr12:\n', qkorr12)
+print('r:\n', r13, '\nq:\n', q13, '\nqkorr13:\n', qkorr13)
+print('r:\n', r14, '\nq:\n', q14, '\nqkorr14:\n', qkorr14)
+print('r:\n', r16, '\nq:\n', q16, '\nqkorr16:\n', qkorr16)
+print('r:\n', r17, '\nq:\n', q17, '\nqkorr17:\n', qkorr17)
