@@ -52,3 +52,17 @@ korr4 = uarray(q4,fehler4)
 n = 4
 stufe4 = mean(korr4,4)*10**(-19)
 print(stufe4)
+
+#Differenzen
+#1 und 2
+d1 = (stufe1 - stufe2)/2
+print(d1)
+#2 und 3
+d2 = stufe2 - stufe3
+print(d2)
+#3 und 4
+d3 = stufe3 -stufe4
+print(d3)
+
+e = (d2+d3)/2
+print(e)
