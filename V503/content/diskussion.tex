@@ -1,6 +1,7 @@
 % Diskussion: Resultate mit Fehler/Genauigkeit zusammenstellen, Literaturwerte/Messmethoden/Ursachen vergleichen
 % Literatur: Verwendete Literatur/Grafiken/Werte/Programme
 % Anhang: Kopie der analog eingetragenen Messdaten
+\newpage
 \section{Diskussion}
 \label{sec:diskussion}
 
@@ -9,25 +10,33 @@
 
 
 Die experimentell bestimmte Ladung entspricht $e_{\text{exp}} = (1.6 \pm 1.0) \cdot 10^{-19} \, \mathrm{C}$, der
-theorethische Wert enspricht $e_{\text{theo}} = 1.602176634 \cdot 10^{-19} \, \mathrm{C}$ . Der berechnete
-Mittelwert stimmt mit dem Literauturwert und einer Unsicherheit von $60 \%$ überein. 
+theoretische Wert enspricht $e_{\text{theo}} = 1.602176634 \cdot 10^{-19} \, \mathrm{C}$ . Der berechnete
+Mittelwert stimmt mit dem Literaturwert bei einer Unsicherheit von $60 \%$ überein. 
 Für die experimentell bestimmte Avogadro-Konstante gilt $N_{\! A} = (6 \pm 4) \cdot 10^{23} \mathrm{mol}^{-1}$.
-Der theorethische Wert stimmt mit dem Experimentellen mit einer Unsicherheit von $70\%$ überein.
-Auffallend bei der bestimmung der Ladung ist, dass die Fehler der einzelenen Ladungen hoch ist. Bei den Messwerten wurde
-zunächst gemittel, um dann die Rechnung fortzuführen. Dadurch, dass die Messwerte für $t_{\text{ab}}$ und $t_{\text{auf}}$ eines einzelenen Teilchens
+Der theoretische Wert stimmt mit dem Experimentellen bei einer Unsicherheit von $70\%$ überein.
+Die zum Vergleich verwendeten Konstanten werden der Datenbank \verb+scipy.constants+~\cite{scipy} entnommen.
+
+Auffallend bei der Bestimmung der Ladung ist, dass die Fehler der einzelnen Ladungen hoch sind. Bei den Messwerten wurde
+zunächst gemittelt, um dann die Rechnung fortzuführen. Dadurch, dass die Messwerte für $t_{\text{ab}}$ und $t_{\text{auf}}$ eines einzelnen Teilchens
 sich teilweise stark unterscheiden, wird der Fehler des jeweiligen Mittelwertes groß. 
 Der große Fehler des Mittelwertes lässt sich dadurch begründen, dass die Messmethode nicht effektiv war. Die Zeiten wurden
 händisch über eine Stoppuhr gemessen, wobei ein Experimentator die Tropfen beobachtet hat und der andere
 die Zeit gemessen hat. Die Strecke für die die Zeit gemessen wurde, hat im Idealfall $s = 0.5 \mathrm{mm}$ betragen, jedoch
-war dies eine grobe Abschätzung, da es durch das Mikroskop sehr ungenau war diese Strecke genau für die Tropfen abgelesen
+war dies eine grobe Abschätzung, da es durch das Mikroskop sehr ungenau war diese Strecke genau für die Tropfen ablesen
 zu können. Wenn die Teilchen sehr schnell waren und demnach eine hohe Geschwindigkeit hatten, wurde der Fehler des
 Ablesens auch groß. 
 
-Eine weitere Fehlerquelle war die Kondensator-Kammmer, da diese nicht dicht war. Es kam während der Versuchdurchführung mehrmals
+Eine weitere Fehlerquelle war die Kondensator-Kammer, da diese nicht dicht war. Es kam während der Versuchsdurchführung mehrmals
 dazu, dass die Tropfen durch Luftzüge bewegt worden waren. Demnach wurde die Bewegung der Tröpfchen beeinflusst und somit 
-die Ergebnisse verfälscht. Die Luftzüge wurden bevorzugt durch vorbei gehende Menschen erzeugt, daher ist es nicht 
-möglich nachzuvollziehen, welche der Messwerte betroffen sind.
+die Ergebnisse verfälscht. Die Libelle war ebenfalls leicht ungenau ausgerichtet und demnach war die Gewichtskraft nicht
+exakt parallel zum Feld.
 
-Die Libelle war ungenau ausgerichtet und demnach war die Gewichtskraft nicht exakt parallel zum Feld.
+Die Methode zur Ladungsbestimmung beruht auf einer graphischen Abschätzung und ist somit grundsätzlich für Fehler der menschlichen Kognition
+anfällig. Da der Literaturwert der Elementarladung bereits im Voraus bekannt ist, kann also nicht ausgeschlossen werden, dass die Wahl der
+Ladungsstufen von einer Bestätigungstendez beeinflusst ist, obwohl das Theorieergebnis nie explizit in der Rechnung Verwendung findet. Um
+dies weiter zu untersuchen muss die Argumentation der Auswahl betrachtet werden. Diese stützt sich im Wesentlichen auf die Annahme, dass
+beim Zerstäuben der Öltröpfchen nur vielfache Elementarladungen im Bereich der niedrigen einstelligen Zahlen auftreten. Mit der experimentellen
+Erfahrung, dass die Umgebungsluft größtenteils elektrisch neutral ist und es demnach nur wenige freie Ladungsträger gibt, scheint damit
+eine plausible Näherung getroffen zu sein, die resultierenden Ergebnisse können also angenommen werden.
 
-
+\newpage
