@@ -69,7 +69,13 @@ d3 = stufe3 -stufe4
 print(d3)
 
 e = (d2+d3)/2
-print(e)
+et = const.e
+abweichung = (e -et) / et
+print(et)
+print(abweichung)
+
 F = ufloat(96485.3399, 0.0024)
 a = F/e 
-print(a)
+at = 6.02214086 * 10**(23)
+abweichung2 = (a -at) / at
+print(abweichung2)
