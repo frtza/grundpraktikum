@@ -129,6 +129,7 @@ plt.plot([0,5], [0,0], 'ob', mfc='none')
 plt.errorbar(noms(t1), noms(y1 / 22.99), xerr=stds(t1), yerr=stds(y1 / 22.99), fmt='none', color='b', elinewidth=0.8)
 plt.xticks(np.arange(0, 11, 1))
 plt.yticks([])
+plt.xlabel(r'$U_{\hspace{-0.2ex} A} \mathbin{/} \unit{\volt}$')
 plt.savefig('build/plot1.pdf', dpi=100)
 plt.close()
 
@@ -139,12 +140,17 @@ par, cov = curve_fit(betrag, noms(t1[-14:-4] + dt1[-13:-3] / 2), -noms(r1[-13:-3
 err = np.sqrt(np.diag(cov))
 
 a = ufloat(par[0], err[0])
+with open('build/a.tex', 'w') as f:
+	f.write(r'\qty{')
+	f.write(f'{a.n:.3f}({a.s:.3f})')
+	f.write(r'}{\volt}')
 aa = np.array([a.n - 1/3, a.n, a.n + 1/3])
 
 plt.plot(aa, betrag(aa, *par), 'r', lw=1.2)
 plt.errorbar(noms(t1[:-1] + dt1 / 2), -noms(r1), xerr=stds(t1[:-1] + dt1 / 2), yerr=stds(r1) / 40, fmt='none', color='b', elinewidth=0.8)
 plt.xticks(np.arange(0, 11, 1))
 plt.yticks([])
+plt.xlabel(r'$U_{\hspace{-0.2ex} A} \mathbin{/} \unit{\volt}$')
 plt.savefig('build/plot11.pdf')
 plt.close()
 
@@ -159,6 +165,7 @@ plt.plot([0,5], [0,0], 'ob', mfc='none')
 plt.errorbar(noms(t2), noms(y2 / 22.99), xerr=stds(t2), yerr=stds(y2 / 22.99), fmt='none', color='b', elinewidth=0.8)
 plt.xticks(np.arange(0, 11, 1))
 plt.yticks([])
+plt.xlabel(r'$U_{\hspace{-0.2ex} A} \mathbin{/} \unit{\volt}$')
 plt.savefig('build/plot2.pdf', dpi=100)
 plt.close()
 
@@ -167,10 +174,15 @@ plt.plot(noms(np.array([t2[0] + dt2[0] / 2, t2[7] + dt2[7] / 2, t2[-14] + dt2[-1
 plt.errorbar(noms(t2[:-1] + dt2 / 2), -noms(r2), xerr=stds(t2[:-1] + dt2 / 2), yerr=stds(r2) / 4, fmt='none', color='b', elinewidth=0.8)
 plt.xticks(np.arange(0, 11, 1))
 plt.yticks([])
+plt.xlabel(r'$U_{\hspace{-0.2ex} A} \mathbin{/} \unit{\volt}$')
 plt.savefig('build/plot22.pdf')
 plt.close()
 
-m = (t2[7] + dt2[7] / 2 + t2[-14] + dt2[-13] / 2) / 2
+s = t2[7] + dt2[7] / 2
+with open('build/s.tex', 'w') as f:
+	f.write(r'\qty{')
+	f.write(f'{s.n:.3f}({s.s:.3f})')
+	f.write(r'}{\volt}')
 
 t3a = 5 * ab3a + x3a * v3a[ab3a]
 plt.figure(figsize=(5.78, 4.1616))
@@ -179,6 +191,7 @@ plt.plot([0,30], [0,0], 'ob', mfc='none')
 plt.errorbar(noms(t3a), noms(y3a / 4.16), xerr=stds(t3a), yerr=stds(y3a / 4.16), fmt='none', color='b', elinewidth=0.8)
 plt.xticks(np.arange(0, 60, 5))
 plt.yticks([])
+plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
 plt.savefig('build/plot3a.pdf', dpi=100)
 plt.close()
 
@@ -189,6 +202,7 @@ plt.plot([0,20], [0,0], 'ob', mfc='none')
 plt.errorbar(noms(t3b), noms(y3b / 6), xerr=stds(t3b), yerr=stds(y3b / 6), fmt='none', color='b', elinewidth=0.8)
 plt.xticks(np.arange(0, 45, 5))
 plt.yticks([])
+plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
 plt.savefig('build/plot3b.pdf', dpi=100)
 plt.close()
 
@@ -199,6 +213,7 @@ plt.plot([0,30], [0,0], 'ob', mfc='none')
 plt.errorbar(noms(t4a), noms(y4a / 4.2), xerr=stds(t4a), yerr=stds(y4a / 4.2), fmt='none', color='b', elinewidth=0.8)
 plt.xticks(np.arange(0, 60, 5))
 plt.yticks([])
+plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
 plt.savefig('build/plot4a.pdf', dpi=100)
 plt.close()
 
@@ -209,6 +224,7 @@ plt.plot([0,20], [0,0], 'ob', mfc='none')
 plt.errorbar(noms(t4b), noms(y4b / 5.75), xerr=stds(t4b), yerr=stds(y4b / 5.75), fmt='none', color='b', elinewidth=0.8)
 plt.xticks(np.arange(0, 45, 5))
 plt.yticks([])
+plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
 plt.savefig('build/plot4b.pdf', dpi=100)
 plt.close()
 
@@ -219,6 +235,7 @@ plt.plot([0,25], [0,0], 'ob', mfc='none')
 plt.errorbar(noms(t5), noms(y5 / 4.12), xerr=stds(t5), yerr=stds(y5 / 4.12), fmt='none', color='b', elinewidth=0.8)
 plt.xticks(np.arange(0, 60, 5))
 plt.yticks([])
+plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
 plt.savefig('build/plot5.pdf', dpi=100)
 plt.close()
 
@@ -229,5 +246,7 @@ plt.plot([0,25], [0,0], 'ob', mfc='none')
 plt.errorbar(noms(t6), noms(y6 / 4.08), xerr=stds(t6), yerr=stds(y6 / 4.08), fmt='none', color='b', elinewidth=0.8)
 plt.xticks(np.arange(0, 60, 5))
 plt.yticks([])
+plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
 plt.savefig('build/plot6.pdf', dpi=100)
 plt.close()
+
