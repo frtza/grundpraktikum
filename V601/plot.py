@@ -131,7 +131,7 @@ plt.errorbar(noms(t1), noms(y1 / 22.99), xerr=stds(t1), yerr=stds(y1 / 22.99), f
 plt.xticks(np.arange(0, 10, 1))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} A} \mathbin{/} \unit{\volt}$')
-plt.savefig('build/plot1.pdf', dpi=100)
+#plt.savefig('build/plot1.pdf', dpi=100)
 plt.close()
 
 def betrag(x, a, b, c):
@@ -152,7 +152,7 @@ plt.errorbar(noms(t1[:-1] + dt1 / 2), -noms(r1), xerr=stds(t1[:-1] + dt1 / 2), y
 plt.xticks(np.arange(0, 10, 1))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} A} \mathbin{/} \unit{\volt}$')
-plt.savefig('build/plot11.pdf')
+#plt.savefig('build/plot11.pdf')
 plt.close()
 
 t2 = 1 * ab2 + x2 * v2[ab2]
@@ -167,7 +167,7 @@ plt.errorbar(noms(t2), noms(y2 / 22.99), xerr=stds(t2), yerr=stds(y2 / 22.99), f
 plt.xticks(np.arange(0, 11, 1))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} A} \mathbin{/} \unit{\volt}$')
-plt.savefig('build/plot2.pdf', dpi=100)
+#plt.savefig('build/plot2.pdf', dpi=100)
 plt.close()
 
 plt.plot(noms(np.array([t2[0] + dt2[0] / 2, t2[7] + dt2[7] / 2, t2[-14] + dt2[-13] / 2, t2[-2] + dt2[-1] / 2])),
@@ -176,7 +176,7 @@ plt.errorbar(noms(t2[:-1] + dt2 / 2), -noms(r2), xerr=stds(t2[:-1] + dt2 / 2), y
 plt.xticks(np.arange(0, 11, 1))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} A} \mathbin{/} \unit{\volt}$')
-plt.savefig('build/plot22.pdf')
+#plt.savefig('build/plot22.pdf')
 plt.close()
 
 s = t2[7] + dt2[7] / 2
@@ -193,7 +193,7 @@ plt.errorbar(noms(t3a), noms(y3a / 4.16), xerr=stds(t3a), yerr=stds(y3a / 4.16),
 plt.xticks(np.arange(0, 60, 5))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
-plt.savefig('build/plot3a.pdf', dpi=100)
+#plt.savefig('build/plot3a.pdf', dpi=100)
 plt.close()
 
 t3b = 5 * ab3b + x3b * v3b[ab3b]
@@ -204,7 +204,7 @@ plt.errorbar(noms(t3b), noms(y3b / 6), xerr=stds(t3b), yerr=stds(y3b / 6), fmt='
 plt.xticks(np.arange(0, 45, 5))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
-plt.savefig('build/plot3b.pdf', dpi=100)
+#plt.savefig('build/plot3b.pdf', dpi=100)
 plt.close()
 
 t4a = 5 * ab4a + x4a * v4a[ab4a]
@@ -215,7 +215,7 @@ plt.errorbar(noms(t4a), noms(y4a / 4.2), xerr=stds(t4a), yerr=stds(y4a / 4.2), f
 plt.xticks(np.arange(0, 60, 5))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
-plt.savefig('build/plot4a.pdf', dpi=100)
+#plt.savefig('build/plot4a.pdf', dpi=100)
 plt.close()
 
 t4b = 5 * ab4b + x4b * v4b[ab4b]
@@ -226,7 +226,7 @@ plt.errorbar(noms(t4b), noms(y4b / 5.75), xerr=stds(t4b), yerr=stds(y4b / 5.75),
 plt.xticks(np.arange(0, 45, 5))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
-plt.savefig('build/plot4b.pdf', dpi=100)
+#plt.savefig('build/plot4b.pdf', dpi=100)
 plt.close()
 
 t5 = 5 * ab5 + x5 * v5[ab5]
@@ -237,7 +237,7 @@ plt.errorbar(noms(t5), noms(y5 / 4.12), xerr=stds(t5), yerr=stds(y5 / 4.12), fmt
 plt.xticks(np.arange(0, 60, 5))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
-plt.savefig('build/plot5.pdf', dpi=100)
+#plt.savefig('build/plot5.pdf', dpi=100)
 plt.close()
 
 t6 = 5 * ab6 + x6 * v6[ab6]
@@ -248,7 +248,7 @@ plt.errorbar(noms(t6), noms(y6 / 4.08), xerr=stds(t6), yerr=stds(y6 / 4.08), fmt
 plt.xticks(np.arange(0, 60, 5))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
-plt.savefig('build/plot6.pdf', dpi=100)
+#plt.savefig('build/plot6.pdf', dpi=100)
 plt.close()
 
 # Tabellen ausgeben
@@ -268,7 +268,7 @@ ps = p(T)
 ws = w(T)
 rels = a / ws
 
-table_footer = r'''			\bottomrule
+table_footer = r'''		\bottomrule
 	\end{tabular}
 '''
 table_header = r'''	\sisetup{table-parse-only, retain-zero-uncertainty=true}
@@ -297,5 +297,235 @@ with open('build/table_1.tex', 'w') as f:
 	f.write('\n')
 	f.write(table_footer)
 
+table_footer = r'''		\bottomrule\bottomrule
+	\end{tabular}
+'''
+table_header_1 = r'''	\sisetup{table-parse-only, table-number-alignment=left}
+	\begin{tabular}{c S S S S S S S S}
+		\toprule\toprule
+		\multirow{2}[2]{*}{$N$} &
+		\multicolumn{2}{c}{Abbildung \ref{fig:4}} &
+		\multicolumn{2}{c}{Abbildung \ref{fig:5}} &
+		\multicolumn{2}{c}{Abbildung \ref{fig:6a}} &
+		\multicolumn{2}{c}{Abbildung \ref{fig:6b}} \\
+		\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+		& {$n$} & {$r \mathbin{/} \unit{\milli\volt}$} &
+		{$n$} & {$r \mathbin{/} \unit{\milli\volt}$} &
+		{$n$} & {$r \mathbin{/} \unit{\milli\volt}$} &
+		{$n$} & {$r \mathbin{/} \unit{\milli\volt}$} \\
+		\midrule
+'''
+table_header_2 = r'''		\bottomrule
+		\toprule
+		\multirow{2}[2]{*}{$N$} &
+		\multicolumn{2}{c}{Abbildung \ref{fig:7a}} &
+		\multicolumn{2}{c}{Abbildung \ref{fig:7b}} &
+		\multicolumn{2}{c}{Abbildung \ref{fig:8}} &
+		\multicolumn{2}{c}{Abbildung \ref{fig:9}} \\
+		\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+		& {$n$} & {$r \mathbin{/} \unit{\milli\volt}$} &
+		{$n$} & {$r \mathbin{/} \unit{\milli\volt}$} &
+		{$n$} & {$r \mathbin{/} \unit{\milli\volt}$} &
+		{$n$} & {$r \mathbin{/} \unit{\milli\volt}$} \\
+		\midrule
+'''
+v1 *= 1e3
+v2 *= 1e3
+v3a *= 1e3
+v3b *= 1e3
+v4a *= 1e3
+v4b *= 1e3
+v5 *= 1e3
+v6 *= 1e3
+row_template_1 = r'		{0:} & {1:.0f}({2:.0f}) & {3:.0f}({4:.0f}) & {5:.0f}({6:.0f}) & {7:.0f}({8:.0f}) & {9:.0f}({10:.0f}) & {11:.0f}({12:.0f}) & {13:.0f}({14:.0f}) & {15:.0f}({16:.0f}) \\'
+row_template_2 = r'		{0:} & {1:.0f}({2:.0f}) & {3:.0f}({4:.0f}) & {5:.0f}({6:.0f}) & {7:.0f}({8:.0f}) & {9:.0f}({10:.0f}) & {11:.0f}({12:.0f}) & & \\'
+row_template_3 = r'		{0:} & & & & & {1:.0f}({2:.0f}) & {3:.0f}({4:.0f}) & & \\'
+row_template_4 = r'		{0:} & {1:.0f}({2:.0f}) & {3:.0f}({4:.0f}) & & & {5:.0f}({6:.0f}) & {7:.0f}({8:.0f}) & {9:.0f}({10:.0f}) & {11:.0f}({12:.0f}) \\'
+ind = np.arange(0, 12, 1)
+with open('build/table_2.tex', 'w') as f:
+	f.write(table_header_1)
+	for row in zip(ind, noms(n1), stds(n1), noms(v1), stds(v1), noms(n2), stds(n2), noms(v2), stds(v2), noms(n3a), stds(n3a), noms(v3a), stds(v3a), noms(n3b), stds(n3b), noms(v3b), stds(v3b)):
+		f.write(row_template_1.format(*row))
+		f.write('\n')
+	for row in zip(ind, noms(n1), stds(n1), noms(v1), stds(v1), noms(n2), stds(n2), noms(v2), stds(v2), noms(n3a), stds(n3a), noms(v3a), stds(v3a)):
+		if row[0] > 7:
+			f.write(row_template_2.format(*row))
+			f.write('\n')
+	for row in zip(ind, noms(n3a), stds(n3a), noms(v3a), stds(v3a)):
+		if row[0] > 9:
+			f.write(row_template_3.format(*row))
+			f.write('\n')
+	f.write(r'		\midrule')
+	f.write('\n')
+	f.write(r'		{$\bar{n}$} & \multicolumn{2}{c}{$\num{')
+	f.write(f'{stat1.n:.1f}({stat1.s:.1f})')
+	f.write(r'}$} & \multicolumn{2}{c}{$\num{')
+	f.write(f'{stat2.n:.1f}({stat2.s:.1f})')
+	f.write(r'}$} & \multicolumn{2}{c}{$\num{')
+	f.write(f'{stat3a.n:.1f}({stat3a.s:.1f})')
+	f.write(r'}$} & \multicolumn{2}{c}{$\num{')
+	f.write(f'{stat3b.n:.1f}({stat3b.s:.1f})')
+	f.write(r'}$} \\')
+	f.write('\n')
+	f.write(table_header_2)
+	for row in zip(ind, noms(n4a), stds(n4a), noms(v4a), stds(v4a), noms(n4b), stds(n4b), noms(v4b), stds(v4b), noms(n5), stds(n5), noms(v5), stds(v5), noms(n6), stds(n6), noms(v6), stds(v6)):
+		f.write(row_template_1.format(*row))
+		f.write('\n')
+	for row in zip(ind, noms(n4a), stds(n4a), noms(v4a), stds(v4a), noms(n5), stds(n5), noms(v5), stds(v5), noms(n6), stds(n6), noms(v6), stds(v6)):
+		if row[0] > 7:
+			f.write(row_template_4.format(*row))
+			f.write('\n')
+	f.write(r'		\midrule')
+	f.write('\n')
+	f.write(r'		{$\bar{n}$} & \multicolumn{2}{c}{$\num{')
+	f.write(f'{stat4a.n:.1f}({stat4a.s:.1f})')
+	f.write(r'}$} & \multicolumn{2}{c}{$\num{')
+	f.write(f'{stat4b.n:.1f}({stat4b.s:.1f})')
+	f.write(r'}$} & \multicolumn{2}{c}{$\num{')
+	f.write(f'{stat5.n:.1f}({stat5.s:.1f})')
+	f.write(r'}$} & \multicolumn{2}{c}{$\num{')
+	f.write(f'{stat6.n:.1f}({stat6.s:.1f})')
+	f.write(r'}$} \\')
+	f.write('\n')
+	f.write(table_footer)
 
+table_footer = r'''		\bottomrule
+	\end{tabular}
+'''
+table_header = r'''	\sisetup{table-parse-only}
+	\begin{tabular}{S S[table-number-alignment=right] S S[table-number-alignment=right] S S[table-number-alignment=right] @{${}\pm{}$} S[table-number-alignment=left] S S[table-number-alignment=right] @{${}\pm{}$} S[table-number-alignment=left]}
+		\toprule
+		\multicolumn{4}{c}{Integrales Spektrum} & 
+		\multicolumn{6}{c}{Differentielles Spektrum} \\
+		\cmidrule(lr){1-4}\cmidrule(lr){5-10}
+		{$U_{\hspace{-0.2ex} A} \mathbin{/} \unit{\volt}$} & {$n$} &
+		{$U_{\hspace{-0.2ex} A} \mathbin{/} \unit{\volt}$} & {$n$} &
+		{$U_{\hspace{-0.2ex} A} \mathbin{/} \unit{\volt}$} & \multicolumn{2}{c}{$n'$} &
+		{$U_{\hspace{-0.2ex} A} \mathbin{/} \unit{\volt}$} & \multicolumn{2}{c}{$n'$} \\
+		\midrule
+'''
+row_template_1 = r'		{0:.2f}+-{1:.2f} & {2:.0f}+-{3:.0f} & {4:.2f}+-{5:.2f} & {6:.0f}+-{7:.0f} & {8:.2f}+-{9:.2f} & {10:.1f} & {11:.1f} & {12:.2f}+-{13:.2f} & {14:.1f} & {15:.1f} \\'
+row_template_2 = r'		{0:.2f}+-{1:.2f} & {2:.0f}+-{3:.0f} & {4:.2f}+-{5:.2f} & {6:.0f}+-{7:.0f} & {8:.2f}+-{9:.2f} & {10:.1f} & {11:.1f} & & \multicolumn{{2}}{{c}}{{$ $}} \\'
+row_template_3 = r'		{0:.2f}+-{1:.2f} & {2:.0f}+-{3:.0f} & & & {4:.2f}+-{5:.2f} & {6:.1f} & {7:.1f} & & \multicolumn{{2}}{{c}}{{$ $}} \\'
+with open('build/table_3.tex', 'w') as f:
+	f.write(table_header)
+	for row in zip(noms(t1[:15]), stds(t1[:15]), noms(y1[:15]), stds(y1[:15]), noms(t1[15:]), stds(t1[15:]), noms(y1[15:]), stds(y1[15:]), noms(t1[:15] + dt1[:15] / 2), stds(t1[:15] + dt1[:15] / 2), -noms(r1[:15]), stds(r1[:15]), noms(t1[15:-1] + dt1[15:] / 2), stds(t1[15:-1] + dt1[15:] / 2), -noms(r1[15:]), stds(r1[15:])):
+		f.write(row_template_1.format(*row))
+		f.write('\n')
+	i = 0
+	for row in zip(noms(t1[:15]), stds(t1[:15]), noms(y1[:15]), stds(y1[:15]), noms(t1[15:]), stds(t1[15:]), noms(y1[15:]), stds(y1[15:]), noms(t1[:15] + dt1[:15] / 2), stds(t1[:15] + dt1[:15] / 2), -noms(r1[:15]), stds(r1[:15])):
+		if i > 12:
+			f.write(row_template_2.format(*row))
+			f.write('\n')
+		i += 1
+	i = 0
+	for row in zip(noms(t1[:15]), stds(t1[:15]), noms(y1[:15]), stds(y1[:15]), noms(t1[:15] + dt1[:15] / 2), stds(t1[:15] + dt1[:15] / 2), -noms(r1[:15]), stds(r1[:15])):
+		if i > 13:
+			f.write(row_template_3.format(*row))
+			f.write('\n')
+		i += 1
+	f.write(table_footer)
+with open('build/table_4.tex', 'w') as f:
+	f.write(table_header)
+	for row in zip(noms(t2[:13]), stds(t2[:13]), noms(y2[:13]), stds(y2[:13]), noms(t2[13:]), stds(t2[13:]), noms(y2[13:]), stds(y2[13:]), noms(t2[:13] + dt2[:13] / 2), stds(t2[:13] + dt2[:13] / 2), -noms(r2[:13]), stds(r2[:13]), noms(t2[13:-1] + dt2[13:] / 2), stds(t2[13:-1] + dt2[13:] / 2), -noms(r2[13:]), stds(r2[13:])):
+		f.write(row_template_1.format(*row))
+		f.write('\n')
+	i = 0
+	for row in zip(noms(t2[:13]), stds(t2[:13]), noms(y2[:13]), stds(y2[:13]), noms(t2[13:]), stds(t2[13:]), noms(y2[13:]), stds(y2[13:]), noms(t2[:13] + dt2[:13] / 2), stds(t2[:13] + dt2[:13] / 2), -noms(r2[:13]), stds(r2[:13])):
+		if i > 11:
+			f.write(row_template_2.format(*row))
+			f.write('\n')
+		i += 1
+	f.write(table_footer)
 
+table_footer = r'''		\bottomrule\bottomrule
+	\end{tabular}
+'''
+table_header_1 = r'''	\sisetup{table-parse-only, table-number-alignment=right}
+	\begin{tabular}{c  S S  S S  S S  S S  S S  S S}
+		\toprule\toprule
+		\multirow{2}[2]{*}{$k$} &
+		\multicolumn{2}{c}{Abbildung \ref{fig:6a}} &
+		\multicolumn{2}{c}{Abbildung \ref{fig:6b}} \\
+		\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+		& {$U_{\hspace{-0.2ex} k} \mathbin{/} \unit{\volt}$} &
+		{$\increment U_{\hspace{-0.2ex} k} \mathbin{/} \unit{\volt}$} &
+		{$U_{\hspace{-0.2ex} k} \mathbin{/} \unit{\volt}$} &
+		{$\increment U_{\hspace{-0.2ex} k} \mathbin{/} \unit{\volt}$} \\
+		\midrule
+'''
+table_header_2 = r'''		\bottomrule
+		\toprule
+		\multirow{2}[2]{*}{$k$} &
+		\multicolumn{2}{c}{Abbildung \ref{fig:7a}} &
+		\multicolumn{2}{c}{Abbildung \ref{fig:7b}} \\
+		\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+		& {$U_{\hspace{-0.2ex} k} \mathbin{/} \unit{\volt}$} &
+		{$\increment U_{\hspace{-0.2ex} k} \mathbin{/} \unit{\volt}$} &
+		{$U_{\hspace{-0.2ex} k} \mathbin{/} \unit{\volt}$} &
+		{$\increment U_{\hspace{-0.2ex} k} \mathbin{/} \unit{\volt}$} \\
+		\midrule
+'''
+table_header_3 = r'''		\bottomrule
+		\toprule
+		\multirow{2}[2]{*}{$k$} &
+		\multicolumn{2}{c}{Abbildung \ref{fig:8}}  &
+		\multicolumn{2}{c}{Abbildung \ref{fig:9}} \\
+		\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+		& {$U_{\hspace{-0.2ex} k} \mathbin{/} \unit{\volt}$} &
+		{$\increment U_{\hspace{-0.2ex} k} \mathbin{/} \unit{\volt}$} &
+		{$U_{\hspace{-0.2ex} k} \mathbin{/} \unit{\volt}$} &
+		{$\increment U_{\hspace{-0.2ex} k} \mathbin{/} \unit{\volt}$} \\
+		\midrule
+'''
+row_template_1 = r'		{0:} & {1:.2f}+-{2:.2f} & {3:.2f}+-{4:.2f} & {5:.2f}+-{6:.2f} & {7:.2f}+-{8:.2f} \\'
+row_template_2 = r'		{0:} & {1:.2f}+-{2:.2f} & & {3:.2f}+-{4:.2f} & \\'
+row_template_3 = r'		{0:} & {1:.2f}+-{2:.2f} & {3:.2f}+-{4:.2f} & {5:.2f}+-{6:.2f} & \\'
+row_template_4 = r'		{0:} & {1:.2f}+-{2:.2f} & {3:.2f}+-{4:.2f} & & \\'
+row_template_5 = r'		{0:} & {1:.2f}+-{2:.2f} & & & \\'
+ind = np.arange(1, 10, 1)
+with open('build/table_5.tex', 'w') as f:
+	f.write(table_header_1)
+	for row in zip(ind, noms(t3a), stds(t3a), noms(t3a[1:] - t3a[:-1]), stds(t3a[1:] - t3a[:-1]), noms(t3b), stds(t3b), noms(t3b[1:] - t3b[:-1]), stds(t3b[1:] - t3b[:-1])):
+		f.write(row_template_1.format(*row))
+		f.write('\n')
+	for row in zip(ind, noms(t3a), stds(t3a), noms(t3b), stds(t3b)):
+		if row[0] > 4:
+			f.write(row_template_2.format(*row))
+			f.write('\n')
+	f.write(table_header_2)
+	for row in zip(ind, noms(t4a), stds(t4a), noms(t4a[1:] - t4a[:-1]), stds(t4a[1:] - t4a[:-1]), noms(t4b), stds(t4b), noms(t4b[1:] - t4b[:-1]), stds(t4b[1:] - t4b[:-1])):
+		f.write(row_template_1.format(*row))
+		f.write('\n')
+	for row in zip(ind, noms(t4a), stds(t4a), noms(t4b), stds(t4b)):
+		if row[0] > 4:
+			f.write(row_template_2.format(*row))
+			f.write('\n')
+	f.write(table_header_3)
+	for row in zip(ind, noms(t5), stds(t5), noms(t5[1:] - t5[:-1]), stds(t5[1:] - t5[:-1]), noms(t6), stds(t6), noms(t6[1:] - t6[:-1]), stds(t6[1:] - t6[:-1])):
+		f.write(row_template_1.format(*row))
+		f.write('\n')
+	for row in zip(ind, noms(t5), stds(t5), noms(t5[1:] - t5[:-1]), stds(t5[1:] - t5[:-1]), noms(t6), stds(t6)):
+		if row[0] > 6:
+			f.write(row_template_3.format(*row))
+			f.write('\n')
+	for row in zip(ind, noms(t5), stds(t5), noms(t5[1:] - t5[:-1]), stds(t5[1:] - t5[:-1])):
+		if row[0] > 7:
+			f.write(row_template_4.format(*row))
+			f.write('\n')
+	for row in zip(ind, noms(t5), stds(t5)):
+		if row[0] > 8:
+			f.write(row_template_5.format(*row))
+			f.write('\n')
+	f.write(table_footer)
+
+dtt = np.concatenate((t3a[1:] - t3a[:-1], t3b[1:] - t3b[:-1], t4a[1:] - t4a[:-1], t4b[1:] - t4b[:-1], t5[1:] - t5[:-1], t6[1:] - t6[:-1]))
+
+def weighted(uarr):
+	return sum(uarr / stds(uarr)**2) / sum(1 / stds(uarr)**2)
+
+dtt = ufloat(noms(weighted(dtt)), np.sqrt(stds(weighted(dtt))**2 + np.mean(stds(dtt))**2))
+with open('build/d.tex', 'w') as f:
+	f.write(r'\qty{')
+	f.write(f'{dtt.n:.2f}+-{dtt.s:.2f}')
+	f.write(r'}{\electronvolt}')

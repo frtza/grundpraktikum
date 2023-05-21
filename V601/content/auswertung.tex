@@ -14,23 +14,39 @@
 
 \subsection{Statistik zur graphischen Auswertung}
 
+\begin{table}[H]
+	\centering
+	\captionsetup{width=0.95\linewidth}
+	\caption{Anzahl $n$ der Skaleneinheiten im jeweiligen Abschnitt $N$ zwischen benachbarten Skalierungspunkten. Zur Bewertung ist die
+			 Spannung $r$ pro Einheit angezeigt.}
+	\input{build/table_2.tex}
+	\label{tab:2}
+\end{table}
+
 \subsection{Energiespektrum und Kontaktpotential}
 
-\renewcommand{\thefigure}{4a}
+\renewcommand{\thefigure}{4}
 \begin{figure}[H]
 	\includegraphics{build/plot1.pdf}
 	\captionsetup{width=0.8\linewidth}
 	\caption{Integrale Energieverteilung der mit $U_{\hspace{-0.2ex} B} = \qty{11}{\volt}$ beschleunigten Elektronen bei $T = \qty{297.45}{\kelvin}$.}
-	\label{fig:4a}
+	\label{fig:4}
 \end{figure}
 
-\renewcommand{\thefigure}{4b}
+\renewcommand{\thefigure}{4*}
 \begin{figure}[H]
 	\includegraphics{build/plot11.pdf}
 	\captionsetup{width=0.85\linewidth}
 	\caption{Differentielle Energieverteilung der mit $U_{\hspace{-0.2ex} B} = \qty{11}{\volt}$ beschleunigten Elektronen bei $T = \qty{297.45}{\kelvin}$.}
-	\label{fig:4b}
+	\label{fig:4*}
 \end{figure}
+
+\begin{table}[H]
+	\centering
+	\caption{}
+	\makebox[\textwidth][c]{\input{build/table_3.tex}}
+	\label{tab:3}
+\end{table}
 
 \begin{equation*}
 	I_{\hspace{-0.2ex} A} \sim |U_{\hspace{-0.2ex} A} - a| \cdot b + c
@@ -40,21 +56,28 @@
 	a = \input{build/a.tex}
 \end{equation*}
 
-\renewcommand{\thefigure}{5a}
+\renewcommand{\thefigure}{5}
 \begin{figure}[H]
 	\includegraphics{build/plot2.pdf}
 	\captionsetup{width=0.8\linewidth}
 	\caption{Integrale Energieverteilung der mit $U_{\hspace{-0.2ex} B} = \qty{11}{\volt}$ beschleunigten Elektronen bei $T = \qty{418.15(5.00)}{\kelvin}$.}
-	\label{fig:5a}
+	\label{fig:5}
 \end{figure}
 
-\renewcommand{\thefigure}{5b}
+\renewcommand{\thefigure}{5*}
 \begin{figure}[H]
 	\includegraphics{build/plot22.pdf}
 	\captionsetup{width=0.85\linewidth}
-	\caption{Differentielle Energieverteilung der mit $U_{\hspace{-0.2ex} B} = \qty{11}{\volt}$ beschleunigten Elektronen bei $T = \qty{297.45}{\kelvin}$.}
-	\label{fig:5b}
+	\caption{Differentielle Energieverteilung der mit $U_{\hspace{-0.2ex} B} = \qty{11}{\volt}$ beschleunigten Elektronen bei $T = \qty{418.15(5.00)}{\kelvin}$.}
+	\label{fig:5*}
 \end{figure}
+
+\begin{table}[H]
+	\centering
+	\caption{}
+	\makebox[\textwidth][c]{\input{build/table_4.tex}}
+	\label{tab:4}
+\end{table}
 
 \begin{equation*}
 	s = \input{build/s.tex}
@@ -65,36 +88,54 @@
 \renewcommand{\thefigure}{6a}
 \begin{figure}[H]
 	\includegraphics{build/plot3a.pdf}
+	\caption{Franck-Hertz-Kurve bei $U_{\hspace{-0.2ex} A} = \qty{1}{\volt}$ und $T = \qty{433.15(5.00)}{\kelvin}$.}
 	\label{fig:6a}
 \end{figure}
 
 \renewcommand{\thefigure}{6b}
 \begin{figure}[H]
 	\includegraphics{build/plot3b.pdf}
+	\captionsetup{width=0.85\linewidth}
+	\caption{Franck-Hertz-Kurve bei $U_{\hspace{-0.2ex} A} = \qty{1}{\volt}$ und $T = \qty{433.15(5.00)}{\kelvin}$. Vergrößerter Ausschnitt.}
 	\label{fig:6b}
 \end{figure}
 
 \renewcommand{\thefigure}{7a}
 \begin{figure}[H]
 	\includegraphics{build/plot4a.pdf}
+	\caption{Franck-Hertz-Kurve bei $U_{\hspace{-0.2ex} A} = \qty{2}{\volt}$ und $T = \qty{433.15(5.00)}{\kelvin}$.}
 	\label{fig:7a}
 \end{figure}
 
 \renewcommand{\thefigure}{7b}
 \begin{figure}[H]
 	\includegraphics{build/plot4b.pdf}
+	\captionsetup{width=0.85\linewidth}
+	\caption{Franck-Hertz-Kurve bei $U_{\hspace{-0.2ex} A} = \qty{2}{\volt}$ und $T = \qty{433.15(5.00)}{\kelvin}$. Vergrößerter Ausschnitt.}
 	\label{fig:7b}
 \end{figure}
 
 \renewcommand{\thefigure}{8}
 \begin{figure}[H]
 	\includegraphics{build/plot5.pdf}
+	\caption{Franck-Hertz-Kurve bei $U_{\hspace{-0.2ex} A} = \qty{2}{\volt}$ und $T = \qty{453.15(5.00)}{\kelvin}$.}
 	\label{fig:8}
 \end{figure}
 
 \renewcommand{\thefigure}{9}
 \begin{figure}[H]
 	\includegraphics{build/plot6.pdf}
+	\caption{Franck-Hertz-Kurve bei $U_{\hspace{-0.2ex} A} = \qty{1}{\volt}$ und $T = \qty{453.15(5.00)}{\kelvin}$.}
 	\label{fig:9}
 \end{figure}
 
+\begin{table}[H]
+	\centering
+	\caption{}
+	\input{build/table_5.tex}
+	\label{tab:5}
+\end{table}
+
+\begin{equation*}
+	\increment \bar{U}_{\hspace{-0.2ex} k} = \input{build/d.tex}
+\end{equation*}
