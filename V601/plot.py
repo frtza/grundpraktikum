@@ -124,7 +124,6 @@ dt1 = t1[1:] - t1[:-1]
 dy1 = y1[1:] - y1[:-1]
 r1 = dy1 / dt1
 
-plt.figure(figsize=(5.78, 3.87))
 plt.imshow(im1, extent=np.array([-96, 1200-96, -23, 864-23]) * 0.00911)
 plt.plot([0,5], [0,0], 'ob', mfc='none')
 plt.errorbar(noms(t1), noms(y1 / 22.99), xerr=stds(t1), yerr=stds(y1 / 22.99), fmt='none', color='b', elinewidth=0.8)
@@ -141,6 +140,7 @@ par, cov = curve_fit(betrag, noms(t1[-14:-4] + dt1[-13:-3] / 2), -noms(r1[-13:-3
 err = np.sqrt(np.diag(cov))
 
 a = ufloat(par[0], err[0])
+z = a
 with open('build/a.tex', 'w') as f:
 	f.write(r'\qty{')
 	f.write(f'{a.n:.3f}({a.s:.3f})')
@@ -160,7 +160,6 @@ dt2 = t2[1:] - t2[:-1]
 dy2 = y2[1:] - y2[:-1]
 r2 = dy2 / dt2
 
-plt.figure(figsize=(5.78, 3.87))
 plt.imshow(im2, extent=np.array([-66, 1200-66, -17, 864-17]) * 0.00925)
 plt.plot([0,5], [0,0], 'ob', mfc='none')
 plt.errorbar(noms(t2), noms(y2 / 22.99), xerr=stds(t2), yerr=stds(y2 / 22.99), fmt='none', color='b', elinewidth=0.8)
@@ -182,11 +181,10 @@ plt.close()
 s = t2[7] + dt2[7] / 2
 with open('build/s.tex', 'w') as f:
 	f.write(r'\qty{')
-	f.write(f'{s.n:.3f}({s.s:.3f})')
+	f.write(f'{s.n:.2f}({s.s:.2f})')
 	f.write(r'}{\volt}')
 
 t3a = 5 * ab3a + x3a * v3a[ab3a]
-plt.figure(figsize=(5.78, 3.87))
 plt.imshow(im3a, extent=np.array([-70, 1200-70, -23, 864-23]) * 0.05)
 plt.plot([0,30], [0,0], 'ob', mfc='none')
 plt.errorbar(noms(t3a), noms(y3a / 4.16), xerr=stds(t3a), yerr=stds(y3a / 4.16), fmt='none', color='b', elinewidth=0.8)
@@ -197,7 +195,6 @@ plt.savefig('build/plot3a.pdf', dpi=100)
 plt.close()
 
 t3b = 5 * ab3b + x3b * v3b[ab3b]
-plt.figure(figsize=(5.78, 3.87))
 plt.imshow(im3b, extent=np.array([-57, 1200-57, -26, 864-26]) * 0.0355)
 plt.plot([0,20], [0,0], 'ob', mfc='none')
 plt.errorbar(noms(t3b), noms(y3b / 6), xerr=stds(t3b), yerr=stds(y3b / 6), fmt='none', color='b', elinewidth=0.8)
@@ -208,7 +205,6 @@ plt.savefig('build/plot3b.pdf', dpi=100)
 plt.close()
 
 t4a = 5 * ab4a + x4a * v4a[ab4a]
-plt.figure(figsize=(5.78, 3.87))
 plt.imshow(im4a, extent=np.array([-74, 1200-74, -23, 864-23]) * 0.0501)
 plt.plot([0,30], [0,0], 'ob', mfc='none')
 plt.errorbar(noms(t4a), noms(y4a / 4.2), xerr=stds(t4a), yerr=stds(y4a / 4.2), fmt='none', color='b', elinewidth=0.8)
@@ -219,7 +215,6 @@ plt.savefig('build/plot4a.pdf', dpi=100)
 plt.close()
 
 t4b = 5 * ab4b + x4b * v4b[ab4b]
-plt.figure(figsize=(5.78, 3.87))
 plt.imshow(im4b, extent=np.array([-85, 1200-85, -25, 864-25]) * 0.0363)
 plt.plot([0,20], [0,0], 'ob', mfc='none')
 plt.errorbar(noms(t4b), noms(y4b / 5.75), xerr=stds(t4b), yerr=stds(y4b / 5.75), fmt='none', color='b', elinewidth=0.8)
@@ -230,7 +225,6 @@ plt.savefig('build/plot4b.pdf', dpi=100)
 plt.close()
 
 t5 = 5 * ab5 + x5 * v5[ab5]
-plt.figure(figsize=(5.78, 3.87))
 plt.imshow(im5, extent=np.array([-69, 1200-69, -24, 864-24]) * 0.051)
 plt.plot([0,25], [0,0], 'ob', mfc='none')
 plt.errorbar(noms(t5), noms(y5 / 4.12), xerr=stds(t5), yerr=stds(y5 / 4.12), fmt='none', color='b', elinewidth=0.8)
@@ -241,7 +235,6 @@ plt.savefig('build/plot5.pdf', dpi=100)
 plt.close()
 
 t6 = 5 * ab6 + x6 * v6[ab6]
-plt.figure(figsize=(5.78, 3.87))
 plt.imshow(im6, extent=np.array([-72, 1200-72, -36, 864-36]) * 0.0512)
 plt.plot([0,25], [0,0], 'ob', mfc='none')
 plt.errorbar(noms(t6), noms(y6 / 4.08), xerr=stds(t6), yerr=stds(y6 / 4.08), fmt='none', color='b', elinewidth=0.8)
@@ -530,4 +523,10 @@ dtt = ufloat(weighted_avg(dtt), weighted_std(dtt))
 with open('build/d.tex', 'w') as f:
 	f.write(r'\qty{')
 	f.write(f'{dtt.n:.2f}+-{dtt.s:.2f}')
+	f.write(r'}{\volt}')
+
+diff = dtt - (11 - z)
+with open('build/z.tex', 'w') as f:
+	f.write(r'\qty{')
+	f.write(f'{diff.n:.2f}+-{diff.s:.2f}')
 	f.write(r'}{\volt}')
