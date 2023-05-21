@@ -131,7 +131,7 @@ plt.errorbar(noms(t1), noms(y1 / 22.99), xerr=stds(t1), yerr=stds(y1 / 22.99), f
 plt.xticks(np.arange(0, 10, 1))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} A} \mathbin{/} \unit{\volt}$')
-#plt.savefig('build/plot1.pdf', dpi=100)
+plt.savefig('build/plot1.pdf', dpi=100)
 plt.close()
 
 def betrag(x, a, b, c):
@@ -152,7 +152,7 @@ plt.errorbar(noms(t1[:-1] + dt1 / 2), -noms(r1), xerr=stds(t1[:-1] + dt1 / 2), y
 plt.xticks(np.arange(0, 10, 1))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} A} \mathbin{/} \unit{\volt}$')
-#plt.savefig('build/plot11.pdf')
+plt.savefig('build/plot11.pdf')
 plt.close()
 
 t2 = 1 * ab2 + x2 * v2[ab2]
@@ -167,7 +167,7 @@ plt.errorbar(noms(t2), noms(y2 / 22.99), xerr=stds(t2), yerr=stds(y2 / 22.99), f
 plt.xticks(np.arange(0, 11, 1))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} A} \mathbin{/} \unit{\volt}$')
-#plt.savefig('build/plot2.pdf', dpi=100)
+plt.savefig('build/plot2.pdf', dpi=100)
 plt.close()
 
 plt.plot(noms(np.array([t2[0] + dt2[0] / 2, t2[7] + dt2[7] / 2, t2[-14] + dt2[-13] / 2, t2[-2] + dt2[-1] / 2])),
@@ -176,7 +176,7 @@ plt.errorbar(noms(t2[:-1] + dt2 / 2), -noms(r2), xerr=stds(t2[:-1] + dt2 / 2), y
 plt.xticks(np.arange(0, 11, 1))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} A} \mathbin{/} \unit{\volt}$')
-#plt.savefig('build/plot22.pdf')
+plt.savefig('build/plot22.pdf')
 plt.close()
 
 s = t2[7] + dt2[7] / 2
@@ -193,7 +193,7 @@ plt.errorbar(noms(t3a), noms(y3a / 4.16), xerr=stds(t3a), yerr=stds(y3a / 4.16),
 plt.xticks(np.arange(0, 60, 5))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
-#plt.savefig('build/plot3a.pdf', dpi=100)
+plt.savefig('build/plot3a.pdf', dpi=100)
 plt.close()
 
 t3b = 5 * ab3b + x3b * v3b[ab3b]
@@ -204,7 +204,7 @@ plt.errorbar(noms(t3b), noms(y3b / 6), xerr=stds(t3b), yerr=stds(y3b / 6), fmt='
 plt.xticks(np.arange(0, 45, 5))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
-#plt.savefig('build/plot3b.pdf', dpi=100)
+plt.savefig('build/plot3b.pdf', dpi=100)
 plt.close()
 
 t4a = 5 * ab4a + x4a * v4a[ab4a]
@@ -215,7 +215,7 @@ plt.errorbar(noms(t4a), noms(y4a / 4.2), xerr=stds(t4a), yerr=stds(y4a / 4.2), f
 plt.xticks(np.arange(0, 60, 5))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
-#plt.savefig('build/plot4a.pdf', dpi=100)
+plt.savefig('build/plot4a.pdf', dpi=100)
 plt.close()
 
 t4b = 5 * ab4b + x4b * v4b[ab4b]
@@ -226,7 +226,7 @@ plt.errorbar(noms(t4b), noms(y4b / 5.75), xerr=stds(t4b), yerr=stds(y4b / 5.75),
 plt.xticks(np.arange(0, 45, 5))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
-#plt.savefig('build/plot4b.pdf', dpi=100)
+plt.savefig('build/plot4b.pdf', dpi=100)
 plt.close()
 
 t5 = 5 * ab5 + x5 * v5[ab5]
@@ -237,7 +237,7 @@ plt.errorbar(noms(t5), noms(y5 / 4.12), xerr=stds(t5), yerr=stds(y5 / 4.12), fmt
 plt.xticks(np.arange(0, 60, 5))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
-#plt.savefig('build/plot5.pdf', dpi=100)
+plt.savefig('build/plot5.pdf', dpi=100)
 plt.close()
 
 t6 = 5 * ab6 + x6 * v6[ab6]
@@ -248,7 +248,7 @@ plt.errorbar(noms(t6), noms(y6 / 4.08), xerr=stds(t6), yerr=stds(y6 / 4.08), fmt
 plt.xticks(np.arange(0, 60, 5))
 plt.yticks([])
 plt.xlabel(r'$U_{\hspace{-0.2ex} B} \mathbin{/} \unit{\volt}$')
-#plt.savefig('build/plot6.pdf', dpi=100)
+plt.savefig('build/plot6.pdf', dpi=100)
 plt.close()
 
 # Tabellen ausgeben
