@@ -521,11 +521,13 @@ with open('build/table_5.tex', 'w') as f:
 
 dtt = np.concatenate((t3a[1:] - t3a[:-1], t3b[1:] - t3b[:-1], t4a[1:] - t4a[:-1], t4b[1:] - t4b[:-1], t5[1:] - t5[:-1], t6[1:] - t6[:-1]))
 
-def weighted(uarr):
-	return sum(uarr / stds(uarr)**2) / sum(1 / stds(uarr)**2)
+def weighted_avg(uarr):
+	return sum(noms(uarr) / stds(uarr)**1) / sum(1 / stds(uarr)**1)
+def weighted_std(uarr):
+	return np.sqrt(1 / sum(1 / stds(uarr)**1))
 
-dtt = ufloat(noms(weighted(dtt)), np.sqrt(stds(weighted(dtt))**2 + np.mean(stds(dtt))**2))
+dtt = ufloat(weighted_avg(dtt), weighted_std(dtt))
 with open('build/d.tex', 'w') as f:
 	f.write(r'\qty{')
 	f.write(f'{dtt.n:.2f}+-{dtt.s:.2f}')
-	f.write(r'}{\electronvolt}')
+	f.write(r'}{\volt}')
