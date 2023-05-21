@@ -8,7 +8,7 @@ Wenn es zu einem inelastischen Stoß kommt wird das Quecksilber-Atom aus seinem 
 ersten Zustand $E_1$ gehoben. Für die Differenzen lässt sich das Verhältnis 
 \begin{equation}
     \frac{m_0 \cdot v_{\text{vor}}^2}{2} - \frac{m_0 \cdot v_{\text{nach}}^2}{2} = E_1 - E_0
-    label{eqn:diff}
+    \label{eqn:diff}
 \end{equation}
 aufstellen. Dabei ist $m_0$ die Ruhemasse des Elektrons und $v_{\text{vor}}$ und $v_{\text{nach}}$ entsprechen den Geschwindigkeiten
 des Elektrons vor und nach dem Zusammenstoß.
@@ -72,7 +72,7 @@ passiert. Wenn durch das Erhöhen von $U_B$ die Elektronenenergie $E_1 - E_0$ er
 Dabei geben die Elektronen immer die Energiedifferenz $E_1 - E_0$ ab.
 Der Abstand $U_1$ zweier aufeinader folgender Maxima muss dem 1.Anregungspotential entsprechen
 \begin{equation}
-    U_{1}:=\frac{\left(E_{1}-E_{0}\right)}{e_{0}} \, .
+    U_1:=\frac{\left(E_{1}-E_{0}\right)}{e_{0}} \, .
     \label{eqn:u1}
 \end{equation}
 
@@ -92,14 +92,14 @@ in \autoref{fig:potential} dargestellt.
 	\label{fig:potential}
 \end{figure}
 
-Für das eigentliche Beschleunigungspotential $\mathrm{U}_{\mathrm{B}, \mathrm{eff}}$ gilt 
+Für das eigentliche Beschleunigungspotential $U_{\mathrm{B}, \mathrm{eff}}$ gilt 
 \begin{equation}
-    \mathrm{U}_{\mathrm{B}, \mathrm{eff}}=\mathrm{U}_{\mathrm{B}}-\frac{1}{\mathrm{e}_0}\left(\Phi_{\mathrm{B}}-\Phi_{\mathrm{G}}\right).
+    U_{\mathrm{B}, \mathrm{eff}}=\mathrm{U}_{\mathrm{B}}-\frac{1}{\mathrm{e}_0}\left(\phi_B-\phi_G\right).
     \label{eqn:potential}
 \end{equation}
 Der Ausdruck 
 \begin{equation}
-    K = \frac{\left( \Phi_\text{B} - \Phi_\text{G} \right)}{e_0} 
+    K = \frac{\left( \hi_B - \phi_G \right)}{e_0} 
     \label{eq:Kontaktpotential} 
 \end{equation}
 entspricht dem Kontaktpotential. Die gemessene Franck-Hertz Kurve ist dabei um den Wert $K$ verschoben.
@@ -109,4 +109,25 @@ Energie besitzen. Duese Annahme ist jedoch unzutreffend.Die Leitungselektronen b
 ein Energie-Spektrum, welches als Fermi-Dirac-Verteilung bezeichnet wird.
 Die unelastischen Stöße setzten bei einem sich erstreckten endlichen Einsatzbereich ein. Das führt dazu, dass
 sich die Franck-Hertz Kurve in ihren Anstieg bei Annäherung an ein Maximum verringern und nicht mehr unstetig auf den Wert 0 abfallen.
+Die Richtungsänderungen, die aufgrund von elastischen Stößen auftreten, führen zu keine merklichen Energieabnahmen der Elektronen.
+Erst wenn diese Stöße zwischen Beschleunigungselektrode und Auffänerelektrode vorkommen, ensteht eine Verteilung
+der z-Komponente der Geschwindigkeiten. Da das gegebene Gegenfeld eine $v_z$-Abhängigkeit vorweist, führen die elastischen
+Stöße zu einer Abflachung und Verbreiterung der Franck-Hertz-Kurve.
 
+Ebenfalls Einfluss auf den Verlauf der Franck-Hertz Kurve hat der Dampfdruck. Damit Zusammenstöße von Elektronen und Hg-Atomen 
+auftreten können, muss die mittlere freie Weglänge $\bar{w}$ der Atome klein gegen den Abstande $a$ zwischen Kathode und Beschleunigungselektrode
+sein. Die mittlere freie Weglänge $\bar{w}$ kann über den Sättigungsdampfdruck $p_{\text{sät}}$, der innerhalb der Röhre herrscht,
+eingestellt werden. Aus der kinetischen Gastheorie geht hervor
+
+\begin{equation}
+    \bar{w} \, \left[\unit{\centi\meter}\right] = \frac{0.0029}{p_{\text{sät}}} \, \left[ \frac{1}{\unit{\milli\bar}}\right].
+    \label{eqn:dampf1}
+\end{equation}
+Wenn der Dampfdruckbereich klein ist, kommt es auch bei gr0ßer Bremsspannung $U_B$ nur selten zu Anrgeungen, wobei bei einem 
+sehr hohen Dampfdruckbereich der Energieverlust der elastischen Stöße wichtig ist, da oft zu Zusammenstößen kommt.
+Die Dampfdruckkurve wird gemäß
+\begin{equation}
+    p_{\text{sät}} (T) = \num{5.5e7} \exp{\left( \frac{-6876}{T} \right)} 
+    \label{eqn:dampf2}
+\end{equation}
+berechnet.
