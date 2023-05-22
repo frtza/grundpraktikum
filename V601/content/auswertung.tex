@@ -3,6 +3,8 @@
 \section{Auswertung}
 \label{sec:auswertung}
 
+Unter Verwendung der bis zu dieser Stelle beschriebenen Zusammenhänge und Methoden werden die gewonnenen Messdaten nun untersucht.
+
 \subsection{Dampfdruck und mittlere freie Weglänge}
 
 Mithilfe der Gleichungen \eqref{eqn:dampf1} und \eqref{eqn:dampf2} lassen sich die in Tabelle~\ref{tab:1} nachgehaltenen Ergebnisse
@@ -10,52 +12,54 @@ für die gegebenen Temperaturen bestimmen.
 
 \begin{table}[H]
 	\centering
-	\caption{Zu Temperatur $T$ herrschender Dampfdruck $p$ und entsprechende mittlere freie Weglänge $\bar{w}$, sowie das Verhältnis $a / \bar{w}$ bei $a = \qty{1}{\centi\meter}$.}
+	\caption{Zu Temperatur $T$ herrschender Dampfdruck $p$ mit entsprechender mittleren freien Weglänge $\bar{w}$  und Verhältnis $a / \bar{w}$ bei $a = \qty{1}{\centi\meter}$.}
 	\makebox[\textwidth][c]{\input{build/table_1.tex}}
 	\label{tab:1}
 \end{table}
 
-Es wird deutlich, dass nur Messung 1 die geforderte Bedingung $a / \bar{w} \sim [1000, 4000]$ deutlich verfehlt. Bei Zimmertemperatur ist die
-Stoßwahrscheinlichkeit demnach nicht ausreichend, um den Franck-Hertz-Effekt zu beobachten. Alle weiteren Messungen sind dagegen gut dazu geeignet.
+Es wird deutlich, dass nur Messung 1 die geforderte Bedingung an $a / \bar{w} \sim [1000, 4000]$ deutlich verfehlt. Bei Zimmertemperatur ist die
+Stoßwahrscheinlichkeit demnach nicht ausreichend, um den Franck-Hertz-Effekt zu beobachten. Alle übrigen Messungen sind dagegen gut dafür geeignet.
 
 \subsection{Statistik zur graphischen Auswertung}
 
-Für eine Messreihe $x_i$ mit $N$ Einzelmessungen beschreibt der Ausdruck
+Für eine Messreihe $x_k$ mit $N$ Einzelmessungen beschreibt der Ausdruck
 \begin{equation*}
-	\overline{x} = \pfrac{1}{\hspace{-0.2ex} N \,} \sum_{i = 1}^{N} x_i
+	\overline{x} = \pfrac{1}{\hspace{-0.2ex} N \,} \sum_{k = 1}^{N} x_k
 \end{equation*}
 das arithmetische Mittel. Die zugehörige Standardabweichung folgt mit
 \begin{equation*}
 	\delta x = \sqrt{\hspace{0.2ex} \overline{x^2} - \overline{x}^2}
 \end{equation*}
-aus der Quadratwurzel der Varianz. Um den Fehler aus zwei unabhängigen Quellen zusammenzufassen, kann die idealisierte Annahme
+aus der Quadratwurzel der Varianz.
+
+Um den Fehler aus zwei unabhängigen Quellen zusammenzufassen, kann die idealisierte Annahme
 \begin{equation*}
 	\delta_{ab} x = \sqrt{\hspace{0.2ex} \delta_a x^2 + \delta_b x^2}
 \end{equation*}
-herangezogen werden. Auf diese Weise wird hier die statistische Streuung der Intervallbreite mit dem Ablesefehler vereint, um die Abweichung der
-in Tabelle~\ref{tab:2} aufgeführten mittleren Breiten $\bar{n}$ der Skalenbereiche anzugeben. Für die abschließende Bestimmung der Anregungsenergie
+herangezogen werden. Auf diese Weise wird im weiteren Verfahren die statistische Streuung der Intervallbreite mit dem Ablesefehler vereint, um die Unsicherheit
+der in Tabelle~\ref{tab:2} aufgeführten mittleren Breiten $\bar{n}$ der Skalenbereiche anzugeben. Für die abschließende Bestimmung der Anregungsenergie
 wird aus fehlerbehafteten Größen das gewichtete Mittel nach
 \begin{equation*}
-	\overline{x}_\delta = \frac{\sum_i x_i / \delta x_i}{\sum_i 1/\delta x_i}
+	\overline{x}_\delta = \frac{\sum_k x_k / \delta x_k}{\sum_k 1/\delta x_k}
 \end{equation*}
 gebildet. Als Gewichtung dient dabei die reziproke Standardabweichung. Die zugehörige Streuung ist dann durch
 \begin{equation*}
-	\delta x_\delta = \sqrt{\frac{1}{\sum_i 1/\delta x_i}}
+	\delta x_\delta = \sqrt{\frac{1}{\sum_k 1/\delta x_k}}
 \end{equation*}
-bemessen. Damit kann nun fortgefahren werden. In Tabelle~\ref{tab:2} ist vorbereitend die Skala der nachfolgenden Abbildungen ausgewertet.
+bemessen. Zur Vorbereitung der eigentlichen Auswertung ist in Tabelle~\ref{tab:2} zunächst die Skala der nachfolgenden Abbildungen ausgewertet.
 Abbildungen \ref{fig:4} und \ref{fig:4*} entsprechen der vorherigen Bezeichnung mit Messung 1, Messung 2 wird in Abbildung \ref{fig:5} und
 \ref{fig:5*} dargestellt. Die Messungen 3 und 4 werden je in den Abbildungen \ref{fig:6a} und \ref{fig:6b} sowie \ref{fig:7a} und \ref{fig:7b}
 angezeigt. Analog werden Abbildung \ref{fig:8} und \ref{fig:9} mit Messung 5 und 6 bezeichnet. In den Darstellungen ohne * ist je die Kurve
-des XY-Schreibers hinterlegt. Folglich werden die Achsen in der Horizontalen X und in der Vertikalen Y genannt, um die Beschreibung des Vorgehens zu
-erleichtern. Die Einheit in Y-Richtung ist nicht relevant, da es hier nur auf eine korrekte Nullkalibrierung und den relativen Kurvenverlauf propotional
-zum Auffängerstrom $I_{\hspace{-0.2ex} A}$ ankommt. Aus diesem Grund betrachtet Tabelle~\ref{tab:2} nur die X-Skalierung, für welche mittels Schreiberkopf
-in regelmäßigen Stufen der Speisespannung ein Punkt markiert wird. Weiter lassen sich durch Abzählen der kleinsten Skaleneinheiten zwischen den Markern
-auftretende Variationen der Schrittweite kompensieren. Wie oben beschrieben, wird aus dem Ablesefehler in der Größe einer X-Einheit und der
-statistischen Standardabweichung die zusammengesetzte Ungenauigkeit der jeweiligen Skalen gebildet, die für die Entnahme der tatsächlichen Messpunkte
-je als horizontale Toleranz dient. Außerdem sind in Tabelle~\ref{tab:2} noch die intervallspezifischen Einheiten der Speisespannung pro Skaleneinheit
-angegeben. Diese werden zur Berechnung aus der X-Koordinate nach dem unten beschriebenen Algorithmus verwendet.
+des XY-Schreibers hinterlegt. Um das nachfolgende Vorgehen zu beschreiben, werden die Achsen werden in der Horizontalen X und in der Vertikalen Y genannt.
+Die Dimension der Y-Richtung ist nicht relevant, da es hier nur auf eine korrekte Nullkalibrierung und den relativen Kurvenverlauf proportional
+zum Auffängerstrom $I_{\hspace{-0.2ex} A}$ ankommt. Aus diesem Grund betrachtet Tabelle~\ref{tab:2} ausschließlich die X-Skalierung, für welche mittels
+Schreiberkopf in regelmäßigen Stufen der Speisespannung ein Punkt markiert wird. Durch Abzählen der Skaleneinheiten zwischen benachbarten Markern lässt sich die
+auftretende Variationen der Schrittweite kompensieren. Wie oben beschrieben, wird aus dem Ablesefehler, welcher auf eine Einheit geschätzt wird, und
+der statistischen Standardabweichung die zusammengesetzte Ungenauigkeit der jeweiligen Skalen gebildet, welche für die Entnahme der tatsächlichen Messpunkte
+je als horizontale Toleranz Verwendung findet. Außerdem sind in Tabelle~\ref{tab:2} noch die intervallspezifischen Spannungseinheiten pro Skaleneinheit
+angegeben. Diese werden weiterhin zur Berechnung der Speisespannung aus der abgelesenen Koordinate nach dem unten beschriebenen Algorithmus verwendet.
 
-Die Skalierungspunkte entsprechen einer festen Schrittweite $\increment U$. Individuelle Bereiche zwischen den eingrenzenden Markierungen
+Die Skalierungspunkte entsprechen einer festen Schrittweite $\increment U$. Als aufsteigende Bezeichnung für die so eingegrenzten Bereiche wird
 haben die Spannungseinheit $r$ pro Kästchen. Nun wird die horizontale Kästchenzahl $x$ vom Messpunkt zum nächsten niedrigeren Grenzmarker gezählt. Indem
 diese einzelnen Skalierungsmarkierungen aufsteigend mit $N = {0,1,2,...}$ bezeichnet werden, ergibt sich
 \begin{equation*}
@@ -63,8 +67,6 @@ diese einzelnen Skalierungsmarkierungen aufsteigend mit $N = {0,1,2,...}$ bezeic
 \end{equation*}
 als tatsächlicher Spannungswert. Die entsprechenden $y$ Werte werden als Abstand zur Nulllinie aufgenommen, auf der die Skalenpunkte liegen,
 und zur Veranschaulichung so normiert, dass sie in etwa dem Kurvenverlauf folgen.
-\enlargethispage*{\parskip}
-\newpage
 
 \begin{table}[H]
 	\centering
