@@ -59,13 +59,15 @@ der statistischen Standardabweichung die zusammengesetzte Ungenauigkeit der jewe
 je als horizontale Toleranz Verwendung findet. Außerdem sind in Tabelle~\ref{tab:2} noch die intervallspezifischen Spannungseinheiten pro Skaleneinheit
 angegeben. Diese werden weiterhin zur Berechnung der Speisespannung aus der abgelesenen Koordinate nach dem unten beschriebenen Algorithmus verwendet.
 
-Die Skalierungspunkte entsprechen einer festen Schrittweite $\increment U$. Als aufsteigende Bezeichnung für die so eingegrenzten Bereiche wird
-haben die Spannungseinheit $r$ pro Kästchen. Nun wird die horizontale Kästchenzahl $x$ vom Messpunkt zum nächsten niedrigeren Grenzmarker gezählt. Indem
-diese einzelnen Skalierungsmarkierungen aufsteigend mit $N = {0,1,2,...}$ bezeichnet werden, ergibt sich
+Die Skalierungspunkte entsprechen einer festen Schrittweite $\increment U$, die so eingegrenzten Bereiche werden aufsteigend mit $N = {0,1,2,...}$ bezeichnet.
+Sie besitzen jeweils die Spannungseinheit $r_N$ pro Kästchen. Nun wird die horizontale Kästchenzahl $x$ vom Messpunkt zum nächstniedrigeren Grenzmarker gezählt.
+Es ergibt sich dann
 \begin{equation*}
 	U = N \cdot \increment U + x \cdot r
 \end{equation*}
-als tatsächlicher Spannungswert. Die entsprechenden $y$ Werte werden als Abstand zur Nulllinie aufgenommen, auf der die Skalenpunkte liegen,
+als tatsächlicher Spannungswert.
+
+Die entsprechenden $y$ Werte werden als Anzahl der vertikalen Kästchen zur Nulllinie aufgenommen, auf der die Skalenpunkte liegen,
 und zur Veranschaulichung so normiert, dass sie in etwa dem Kurvenverlauf folgen.
 
 \begin{table}[H]
@@ -111,7 +113,7 @@ Fehler sind mit den originalen Ablesewerten in willkürlichen Einheiten $n \sim 
 	\label{fig:4*}
 \end{figure}
 
-Damit die Lage des Wendepunktes der integralen beziehungsweise des Maximums der differentiellen Energieverteilung exakt bestimmt werden kann, 
+Damit die Lage des Wendepunktes der integralen oder äquivalent des Maximums der differentiellen Energieverteilung exakt bestimmt werden kann, 
 wird ein Modell der Form
 \begin{equation*}
 	I_{\hspace{-0.2ex} A} \sim |U_{\hspace{-0.2ex} A} - a| \cdot b + c
@@ -122,14 +124,16 @@ Für die Verschiebung ergibt sich dann über eine mit SciPy \cite{scipy} durchge
 \begin{equation*}
 	a = \input{build/a.tex}
 \end{equation*}
-als Wert, deren verhältnismäßig geringe Abweichung aus der Quadratwurzel der Diagonale der Kovarianzmatrix folgt. Demnach besitzt ein Großteil der
+als Wert, dessen verhältnismäßig geringe Abweichung aus der Quadratwurzel der Diagonale der Kovarianzmatrix folgt. Demnach besitzt ein Großteil der
 bei $U_{\hspace{-0.2ex} B} = \qty{11}{\volt}$ emittierten Elektronen eine Energie im Bereich $E = \qty{8.724+-0.007}{\electronvolt}$, die resultierende
 Differenz zur Beschleunigungsspannung bemisst nach \eqref{eq:Kontaktpotential} das Kontaktpotential der Apparatur mit $K = \qty{2.276+-0.007}{\volt}$.
 
 \begin{table}[H]
 	\centering
-	\caption{}
-	\makebox[\textwidth][c]{\input{build/table_3.tex}}
+	\captionsetup{width=\linewidth}
+	\caption{Abgelesene Punkte aus Abbildung~\ref{fig:4} mit den abgeleiteten Werten, die in Abbildung~\ref{fig:4*} aufgetragen sind. Entsprechen einer
+			 Messung bei $U_{\hspace{-0.2ex} B} = \qty{11}{\volt}$ und $T = \qty{297.45}{\kelvin}$.}
+	\makebox[\textwidth][c]{\scalebox{0.99}{\input{build/table_3.tex}}}
 	\label{tab:3}
 \end{table}
 
@@ -151,20 +155,41 @@ Differenz zur Beschleunigungsspannung bemisst nach \eqref{eq:Kontaktpotential} d
 
 \begin{table}[H]
 	\centering
-	\caption{}
-	\makebox[\textwidth][c]{\input{build/table_4.tex}}
+	\captionsetup{width=1.05\linewidth}
+	\caption{Abgelesene Punkte aus Abbildung~\ref{fig:5} mit den abgeleiteten Werten, die in Abbildung~\ref{fig:5*} aufgetragen sind. Entsprechen einer
+			 Messung bei $U_{\hspace{-0.2ex} B} = \qty{11}{\volt}$ und $T = \qty{418.15+-5.00}{\kelvin}$.}
+	\makebox[\textwidth][c]{\scalebox{0.99}{\input{build/table_4.tex}}}
 	\label{tab:4}
 \end{table}
 
+Auf analoge Weise wird für Messung 2 die differentielle Energieverteilung in Abbildung~\ref{fig:5*} bestimmt. Die zugehörigen Daten können aus
+Tabelle \ref{tab:4} entnommen werden, wobei die vertikalen Fehlerbalken in der Grafik der Klarheit wegen um einen Faktor 4 reduziert sind. Der
+grundlegende Verlauf der differentiellen Darstellung ist stark vereinfacht hinter die Datenpunkte gelegt und setzt sich aus zwei Plateaus sowie
+deren Verbindungsgerade zusammen. Damit können einige charakteristische Phänomene der angewendeten Messmethode beschrieben werden. Einerseits ist
+der Sättigungsdampfdruck bei der auf $\qty{145}{\celsius}$ erhöhten Temperatur schon so groß, dass die mittlere freie Weglänge $\bar{w}$ laut
+Tabelle~\ref{tab:1} bereits um den Faktor $\num{1.37(0.27)e3}$ kleiner als der Abstand $a = \qty{1}{\centi\meter}$ ist. Die Elektronen erfahren
+daher auf dem Weg von Kathode zu Elektrode vielfach elastische Stöße. Ihr Energiespektrum flacht sich bei dieser Streuung derartig ab, dass es
+innerhalb der konstanten Bereiche als annähernd uniform beobachtet wird. Der Sprung zwischen den beiden Stufen lässt sich auf die Anregung der
+Quecksilber-Atome zurückführen. An dieser Stelle wird auf den nächsten Abschnitt vorgegriffen, um das dazu ermittelte Energieniveau
+$\increment E = \qty{5.06(0.13)}{\electronvolt}$ anzugeben. Die Differenz
+\begin{equation*}
+	\increment \hspace{0.5ex}\overline{\hspace{-0.5ex} U}_{\hspace{-0.2ex} k} - K = \input{build/z.tex}
+\end{equation*}
+liegt in ungefährer Umgebung der grob genäherten Sprungspannung
 \begin{equation*}
 	s = \input{build/s.tex}
 \end{equation*}
-
-\begin{equation*}
-	\input{build/z.tex}
-\end{equation*}
+und entspricht dann der durch das Kontaktpotential gesenkten Anregungsspannung. Die meisten Elektronen mit Austrittsenergien oberhalb dieses Gebiets stoßen also
+inelastisch mit den Atomen, geben dabei genau das Energiequant $\increment \hspace{0.5ex}\overline{\hspace{-0.5ex} E}_{\hspace{-0.2ex} k}$ ab und
+werden nach weiteren elastischen Stößen Teil des niederenergetischen Plateaus des Auffängerstroms. Auf diese Weise entsteht ein idealerweise diskreter Einbruch
+des Spektrums, der hier aufgrund weiterer Fehlerquellen nur näherungsweise realisiert wird.
 
 \subsection{Anregungsenergie und Emission}
+
+Zur Bestimmung der Anregungsenergie werden nun die für diesen Versuch typischen Franck-Hertz-Kurven aufgenommen. Indem die Analyse verschiedene
+Arbeitsbereiche der Apparatur bezüglich Temperatur und Bremsspannung berücksichtigt, lassen sich etwaige Störeinflüsse reduzieren. Aus den
+unten abgebildeten Aufzeichnungen des XY-Schreibers werden die den jeweiligen Maxima entsprechenden Werte der Beschleunigungsspannung entnommen.
+Aus deren Differenzen berechnet sich die Anregungsenergie. Die Ergebnisse sind in Tabelle~\ref{tab:5} festgehalten.
 
 \renewcommand{\thefigure}{7a}
 \begin{figure}[H]
@@ -212,11 +237,25 @@ Differenz zur Beschleunigungsspannung bemisst nach \eqref{eq:Kontaktpotential} d
 
 \begin{table}[H]
 	\centering
-	\caption{}
+	\vspace{-3ex}
+	\caption{Aus den genannten Abbildungen entnommene Peaks mit entsprechenden Differenzen der jeweils benachbarten Spannungswerte.}
 	\input{build/table_5.tex}
 	\label{tab:5}
 \end{table}
 
+Der über die Standardabweichung gewichtete Mittelwert der Spannungsdifferenzen ist mit
+$\increment \hspace{0.5ex}\overline{\hspace{-0.5ex} U}_{\hspace{-0.2ex} k} = \input{build/d.tex}$ angegeben, folglich bemisst
 \begin{equation*}
-	\increment \hspace{0.5ex}\overline{\hspace{-0.5ex} U}_{\hspace{-0.2ex} k} = \input{build/d.tex}
+	\increment E = \qty{5.06(0.13)}{\electronvolt}
 \end{equation*}
+die erste Anregungsenergie der Quecksilberatome. Nach Formel~\eqref{eqn:freq} ergibt sich
+\begin{equation*}
+	\nu = \input{build/nu.tex}
+\end{equation*}
+als zugehörige Frequenz, wobei $h = \input{build/h.tex}$ die Planck-Konstante bezeichnet. Einsetzen der Lichtgeschwindigkeit
+$c = \input{build/c.tex}$ in den Term $c = \lambda \nu$ liefert
+\begin{equation*}
+	\lambda = \input{build/lam.tex}
+\end{equation*}
+für die Wellenlänge. Die Naturkonstanten werden hierzu aus SciPy \cite{scipy} abgegriffen.
+

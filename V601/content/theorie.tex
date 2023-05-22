@@ -45,16 +45,17 @@ Es befinden sich Hg-Atome im Beschleunigungsraum, daher wechselwirken diese mit 
 Wechselwirkung die auftreten können: Im ersten Fall ist die Elektronenenergie $E$ nicht hoch, so kommt es nur zu elastischen
 Stößen. Aufgrund des Massenverhältnisses $m_0/M$ ergibt sich ein vernachlässigbarer Energieverlust
 \begin{equation*}
-    \increment E=\frac{4 \, m_{0} \, M}{\left(m_{0} + M\right)^{2}} \cdot E \approx \num{1.1e{-5}} \, E \, .
+    \increment E=\frac{4 \, m_{0} \, M}{\left(m_{0} + M\right)^{2}} \cdot E \approx \num{1.1e{-5}} \, E \: .
 \end{equation*}
 Wichtig zu beachten ist dabei, dass die Elektronen beträchtliche Richtungsänderungen erfahren.
 Im zweiten Fall ist die Energie die Elektronen gleich oder größer der Energiedifferenz $E_1 - E_0$. Dann kommt es zu inelastischen
 Stößen. Auf die Quecksilber-Atome wird der Betrag der Energiedifferenz übertragen, wodurch diese angeregt werden.
 Daraufhin wird das Quecksilber-Atom unter Emission einer elektromagnetischen Welle wieder in den Grundzustand zurückgeführt.
 Der Lichtquant besitzt dabei eine Energie von 
-\begin{equation*}
-    h v=E_1-E_0 ,
-\end{equation*}
+\begin{equation}
+    h v=E_1-E_0 \: ,
+	\label{eqn:freq}
+\end{equation}
 wobei h das Plancksche Wirkungsquantum und $\nu$ die Frequenz der emittierten Strahlung ist.
 
 Um die Anregungsenergie der Hg-Atome zu bestimmen, wird der Auffängerstrom $I_A$ in Abhängigkeit zur Beschleunigungsspanung $U_B$
@@ -119,16 +120,15 @@ Ebenfalls Einfluss auf den Verlauf der Franck-Hertz Kurve hat der Dampfdruck. Da
 auftreten können, muss die mittlere freie Weglänge $\bar{w}$ der Atome klein gegen den Abstand $a$ zwischen Kathode und Beschleunigungselektrode
 sein. Die mittlere freie Weglänge $\bar{w}$ kann über den Sättigungsdampfdruck $p_{\text{sät}}$, der innerhalb der Röhre herrscht,
 eingestellt werden. Aus der kinetischen Gastheorie geht hervor
-
 \begin{equation}
     \bar{w} \, \left[\unit{\centi\meter}\right] = \frac{0.0029}{p_{\text{sät}}} \, \left[ \frac{1}{\unit{\milli\bar}}\right].
     \label{eqn:dampf1}
 \end{equation}
 Wenn der Dampfdruckbereich klein ist, kommt es auch bei großer Bremsspannung $U_B$ nur selten zu Anrgeungen, wobei bei einem 
 sehr hohen Dampfdruckbereich der Energieverlust der elastischen Stöße wichtig ist, da es oft zu Zusammenstößen kommt.
-Die Dampfdruckkurve wird gemäß
+Die Dampfdruckkurve berechnet sich gemäß
 \begin{equation}
-    p_{\text{sät}} (T) = \num{5.5e7} \exp{\left( \frac{-6876}{T} \right)} 
+    p_{\text{sät}} (T) = \num{5.5e7} \exp{\left( \frac{-6876}{T} \right)} .
     \label{eqn:dampf2}
 \end{equation}
-berechnet.
+\vspace{-6ex}

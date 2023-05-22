@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
-from matplotlib.ticker import AutoMinorLocator
 import numpy as np
-from scipy.constants import convert_temperature
+from scipy.constants import convert_temperature, physical_constants
 from scipy.optimize import curve_fit
 import uncertainties.unumpy as unp
 from uncertainties.unumpy import nominal_values as noms, std_devs as stds
@@ -530,3 +529,27 @@ with open('build/z.tex', 'w') as f:
 	f.write(r'\qty{')
 	f.write(f'{diff.n:.2f}+-{diff.s:.2f}')
 	f.write(r'}{\volt}')
+
+h = physical_constants['Planck constant in eV/Hz'][0]
+with open('build/h.tex', 'w') as f:
+	f.write(r'\qty{')
+	f.write(f'{1e15 * h:.3f}')
+	f.write(r'e-15}{\electronvolt\per\hertz}')
+
+nu = dtt / h
+with open('build/nu.tex', 'w') as f:
+	f.write(r'\qty{')
+	f.write(f'{1e-15 * nu.n:.2f}+-{1e-15 * nu.s:.2f}')
+	f.write(r'e15}{\hertz}')
+
+c = physical_constants['speed of light in vacuum'][0]
+with open('build/c.tex', 'w') as f:
+	f.write(r'\qty{')
+	f.write(f'{1e-8 * c:.3f}')
+	f.write(r'e8}{\meter\per\second}')
+
+lam = c / nu
+with open('build/lam.tex', 'w') as f:
+	f.write(r'\qty{')
+	f.write(f'{1e9 * lam.n:.1f}+-{1e9 * lam.s:.1f}')
+	f.write(r'}{\nano\meter}')
