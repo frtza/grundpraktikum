@@ -22,24 +22,26 @@ Abbildung \ref{fig:plot_comp_p} zu etwas größeren Winkeln hin verschoben, mit
 \end{equation*}
 entspricht es dem Brewsterwinkel, bei dem der parallel polarisierte Lichtanteil vollständig absorbiert wird. Die Kurven aus Theorie und einfacher
 Ausgleichsrechnung stimmen wegen ihrer ähnlichen Ergbnisse gut miteinander überein, nähern sich den Messergebnissen aber nur im Bereich des
-Intensitätsminimums lokal an. 
+Intensitätsminimums lokal an. Das aus den Messdaten entnommene Minimum beim Brewsterwinkel $\alpha_0 = \qty{76}{\degree}$ stimmt annähernd
+mit dem aus der Literatur abgeleiteten Wert von $\alpha_0 = \qty{75.27}{\degree}$ überein und liefert $n = \num{4.011}$ als Ergebnis, das
+sich ebenfalls gut mit dem Literaturwert verträgt.
 
-Es fällt auf, dass die gemessenen Amplitudenverhältnisse beider Polarisationsrichtungen Stauchungsfaktoren von $\input{build/s_s.tex}$
-beziehungsweise $\input{build/s_p.tex}$ aufweisen. Diese Tatsache weist auf die naheliegende Korrektur hin, statt der ungefilterten
-Gesamtintensität jeweils $I_0$ auf die direkte Intensität der betrachteten Polarisationsrichtung zu setzen. Damit ist dann auch die
-konkrete Gültigkeit der Fresnelschen Formeln erfüllt, welche sich auf die Verhältnisse gleich polarisierter Wellen beschränkt, und
-erfordert in jedem Fall nur eine zusätzliche Messung. Es ist davon auszugehen, dass die Berücksichtigung dieses Vorgehens die wesentlichen
-Abweichungen der Auswertungsergebnisse aufheben würde.
+Anhand der mit $s$  skalierten Ausgleichsrechnungen fällt auf, dass die Verhältnisse der Intensitäten beider Polarisationsrichtungen jeweils
+Stauchungsfaktoren von $\input{build/s_s.tex}$ beziehungsweise $\input{build/s_p.tex}$ zum Theorieverlauf aufweisen. Diese Tatsache führt auf die
+naheliegende Korrektur, statt der ungefilterten Gesamtintensität jeweils $I_0$ auf die direkte Intensität der betrachteten
+Polarisationsrichtung zu setzen. Damit ist dann auch die konkrete Gültigkeit der Fresnelschen Formeln erfüllt, welche sich
+auf die Verhältnisse gleich polarisierter Wellen beschränkt, und erfordert in jedem Fall nur eine zusätzliche Messung.
+Es ist davon auszugehen, dass die Berücksichtigung dieses Vorgehens die wesentlichen Abweichungen der
+Auswertungsergebnisse aufheben würde.
 
-Eine weitere mögliche Fehlerquelle ist durch den Einfluss oxidierter Oberflächenschichten gegeben, da $\ce{SiO2}$ bei
+Eine weitere mögliche systematische Fehlerquelle ist durch oxidierte Oberflächenschichten gegeben, da $\ce{SiO2}$ bei
 $\lambda = \qty{680.00}{\nano\meter}$ einen geringeren Brechungsindex von $n = \num{1.456}$ besitzt \cite{mal_fused_silica}.
 Weiter kann spekuliert werden, dass eine anisotrope Anordnung der Kristall-Struktur polarisationsspezifische Abweichungen hervorruft.
+
 Das gewichtete Mittel aller Resultate beträgt $n = \input{nn.tex}$ und liegt damit zwischen den bekannten Werten für $\ce{SiO2}$ und $\ce{Si}$.
 Es ist ebenso nicht auszuschließen, dass andere Verunreinigungen des Spiegels zu verfälschten Ergebnissen beitragen.
 
-Zuletzt können bei Justierung von Goniometer und Detektor Fehlereinflüsse auftreten, indem der Winkel der Spiegelfläche oder die Detektoröffnung
-unpräzise eingestellt und positioniert werden. So entstehende Abweichungen sollten aber generell durch mehrfache Messung kompensierbar sein.
-
-\enlargethispage*{\baselineskip}
-\newpage
+Zuletzt können bei Justierung von Goniometer und Detektor zufällige Fehlereinflüsse auftreten, indem der Winkel der Spiegelfläche oder die
+Detektoröffnung teils unpräzise eingestellt und positioniert werden. So entstehende Abweichungen sollten aber generell ohne einseitige Tendenz
+und entsprechend durch mehrfache Messung kompensierbar sein, sie werden daher auch als statistisch bezeichnet.
 

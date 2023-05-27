@@ -4,6 +4,8 @@
 \section{Auswertung}
 \label{sec:auswertung}
 
+Unter Verwendung der bis zu dieser Stelle beschriebenen Zusammenhänge werden die gewonnenen Messdaten nun untersucht.
+
 \subsection{Methoden und Messparameter}
 
 Für alle folgenden Messungen wird der verwendete Laser in einem Wellenlängenbereich von $\lambda_0 = \input{build/lam.tex}$ betrieben. Allgemein
@@ -95,18 +97,27 @@ Aus den so gewonnenen fehlerbehafteten Werten ergibt sich
 	n = \input{nn_s.tex}
 \end{equation*}
 als gewichtetes Mittel der Messreihe. Um eine Ausgleichsrechnung entlang der Daten durchzuführen, wird \eqref{eqn:LS} in Abbildung \ref{fig:plot_s}
-um einen Skalierungsfaktor $s$ erweitert, sodass
+um einen Skalierungsfaktor $s$ zu
+\begin{equation*}
+	I / I_0 = s \left( \scalebox{0.9}{$\pfrac{1}{n^2 - 1}$}
+	\raisebox{0.6ex}{\( \bigl( \raisebox{-0.6ex}{$\sqrt{n^2 - \sin^2 \alpha} - \cos \alpha $} \bigr)^{\! 2} \)} \right)^{\!\!\! 2}
+\end{equation*}
+erweitert. Die Einführung dieses zusätzlichen Freiheitsgrades ermöglicht eine bessere Behandlung von systematischen Messfehlern und weiteren
+stauchenden oder streckenden Störeinflüssen, da der Regressionsalgorithmus derartige Abweichungen vom theoretischen Verlauf nicht mehr
+ausschließlich über eine Verschiebung von $n$ ausgleichen muss.
+\newpage
+Dazu sind die Optimierungsparameter mit
 \begin{align*}
 	n = \input{nnn_s.tex} && s = \input{s_s.tex}
 \end{align*}
-die Optimierungsparameter bemessen. Eine einfache Regression entlang \eqref{eqn:LS} liefert
+bemessen. Eine einfache Regression entlang \eqref{eqn:LS} liefert stattdessen
 \begin{equation*}
 	n = \input{f_nnn_s.tex}
 \end{equation*}
 und wird in Abbildung \ref{fig:plot_comp_s} neben den Kurven der zuvor ermittelten Indizes $n$ aufgeführt. Die skalierte Regression
 dient hier als genäherte Veranschaulichung der Messdaten und ermöglicht einen übersichtlichen Vergleich der verschiedenen Verläufe.
 
-\newpage\null\vfill
+\null\vfill
 \begin{table}[H]
 	\caption{Messergebnisse bei $\qty{0}{\degree}$ am Polarisationsfilter für senkrecht polarisiertes Licht.}
 	\makebox[\textwidth]{
@@ -206,7 +217,11 @@ Auf gleiche Weise wie für senkrechte Polarisationsrichtung ergibt sich daraus
 \begin{equation*}
 	n = \input{nn_p.tex}
 \end{equation*}
-als über die Varianz gewichteter Mittelwert. Der skalierte Ansatz in Abbildung \ref{fig:plot_p} liefert
+als über die Varianz gewichteter Mittelwert. Der skalierte Ansatz in Abbildung \ref{fig:plot_p} lautet
+\begin{equation*}
+	I / I_0 = s \left( \pfrac{n^2 \cos \alpha - \sqrt{n^2 - \sin^2 \alpha}}{n^2 \cos \alpha + \sqrt{n^2 - \sin^2 \alpha}} \right)^{\!\!\! 2}
+\end{equation*}
+mit der gleichen Begründung wie für die senkrechte Polarisation und liefert
 \begin{align*}
 	n = \input{nnn_p.tex} && s = \input{s_p.tex}
 \end{align*}
@@ -224,6 +239,8 @@ zur Optimierung folgt. Die entsprechenden Kurven sind ebenfalls zum grafischen V
 		\input{build/table_p.tex}}
 	\label{tab:p}
 \end{table}
+Aus Tabelle \ref{tab:p} lässt sich eine minimale Intensität von $I = \qty{0.5(0.02)}{\micro\ampere}$ bei $\alpha_0 = \qty{76}{\degree}$ ablesen. 
+Mithilfe der für den Brewsterwinkel geltenden Beziehung $n = \tan \alpha_0$ ergibt sich daraus $n = \num{4.011}$ als Näherung für den Brechungsindex.
 \vfill\null\newpage
 
 \begin{figure}[H]

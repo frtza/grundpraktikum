@@ -399,3 +399,10 @@ with open('build/I_min.tex', 'w') as f:
 	f.write(f'{1000*I_min.n:.0f}({1000*I_min.s:.0f})')
 	f.write(r'}{\nano\ampere}')
 
+# Korrektur
+
+brew_ang = 76 * np.pi / 180
+brew_n = np.tan(brew_ang)
+brew_ang_theo = np.arctan(3.805) * 180 / np.pi
+
+print(f'Experimentell: Brechungsindex {brew_n:.3f}\nTheoretisch: Brewsterwinkel {brew_ang_theo:.2f}')
