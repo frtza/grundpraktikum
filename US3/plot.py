@@ -34,9 +34,9 @@ v15 = np.zeros(5)
 v30 = np.zeros(5)
 v60 = np.zeros(5)
 
-for j in range(5):
-    v15[j] = v(dnu15[j], alpha[0])
-    v30[j] = v(dnu30[j], alpha[1])
-    v60[j] = v(dnu60[j], alpha[2])
+# for j in range(5):
+#     v15[j] = v(dnu15[j], alpha[0])
+#     v30[j] = v(dnu30[j], alpha[1])
+#     v60[j] = v(dnu60[j], alpha[2])
 
 # Plot 1:
