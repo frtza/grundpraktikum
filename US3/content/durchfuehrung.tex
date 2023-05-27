@@ -11,3 +11,24 @@ und $c_\text{P} = \qty{2700}{\meter\per\second}$ in Ausdruck~\eqref{eqn:prisma} 
 \alpha (\qty{30}{\degree}) = \qty{70.53}{\degree} &&
 \alpha (\qty{60}{\degree}) = \qty{54.74}{\degree}
 \end{align*}
+
+Der Messappartur setzt sich aus einem Ultraschall-Doppler-Generator im Pulsbetrieb und einer daran angeschlossenen Ultraschallsonde zusammen,
+welche $\qty{2}{\mega\hertz}$ als Arbeitsfrequenz verwendet. Zur Aufnahme und Analyse der gewonnenen Daten ist ein Rechner mit dem
+entsprechenden Auswertungsprogramm \verb+FlowView+ angeschlossen. Damit wird ein Strömungsrohr mit Durchmesser $\qty{10}{\milli\meter}$
+untersucht, das die Dopplerphantomflüssigkeit enthält. Dabei handelt es sich um eine Mischung aus Wasser, Glycerin und Glaskugeln,
+dessen Viskosität so gewählt ist, dass sich bei den verwendeten Flussgeschwindigkeiten eine laminare Strömung ausbildet. Um die
+Strömungsgeschwindigkeit zu variieren, \mbox{ist zudem} eine Zentrifugalpumpe mit maximaler Leistung von
+$\qty[per-mode=symbol]{7.5}{\liter\per\minute}$ im Kreislauf verbaut. Zur Schonung der Gerätschaft werden $\qty{70}{\percent}$
+dieser Spitzenleistung nicht überschritten.
+
+Zunächst soll die Strömungsgeschwindigkeit als Funktion des Dopplerwinkels bestimmt werden. Dazu ist am Ultraschall-Generator
+das \verb+SAMPLE-VOLUME+ auf \verb+LARGE+ gestellt. An der Pumpe wird die Leistung beginnend bei $\qty[per-mode=symbol]{2.0}{\liter\per\minute}$
+in Stufen von $\qty[per-mode=symbol]{0.5}{\liter\per\minute}$ erhöht. Mithilfe von Doppler-Prisma und Kontakt-Gel werden dazu jeweils
+$\qty{15}{\degree}$, $\qty{45}{\degree}$ und $\qty{60}{\degree}$ als Winkel bei gleichbleibendem Abstand zum Rohr betrachtet. 
+
+Zur Untersuchung des Strömungsprofils am Schlauch wird bei \verb+SAMPLE-VOLUME+ auf \verb+SMALL+ und festem Ansetzwinkel gleich $\qty{15}{\degree}$
+über den Regler \verb+DEPTH+ die Messtiefe in aufsteigenden Schritten von $\qty{0.5}{\micro\second}$ eingestellt. In Acryl entsprechen
+$\qty{2}{\micro\second} = \qty{5}{\milli\meter}$, in der Flüssigkeit sind $\qty{2}{\micro\second} = \qty{3}{\milli\meter}$. Bei $\qty{45}{\percent}$
+und $\qty{70}{\percent}$ der maximalen Pumpleistung wird je die gesamte Rohrtiefe abgetastet, Momentangeschwindigkeit und Streuintensität 
+werden aufgezeichnet.
+
