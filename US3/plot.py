@@ -14,7 +14,7 @@ from uncertainties.unumpy import (nominal_values as noms,   # Wert:             
 messung1=pd.read_csv('data/messung1.txt',sep=' ', header=None, names=['lei', 'f15', 'f30', 'f60'])
 print(messung1.to_latex(index=False, column_format="c c c c"))
 
-speed1=pd.read_csv('data/speed1.txt',sep='', header=None, names=['d','s','sig'])
+speed1=pd.read_csv('data/speed1.txt',sep=' ', header=None, names=['d','s','sig'])
 print(speed1.to_latex(index=False, column_format="c c c"))
 
 lei, f15, f30, f60 = np.genfromtxt('data/messung1.txt', unpack=True, skip_header=1)  
