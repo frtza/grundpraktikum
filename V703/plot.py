@@ -14,6 +14,7 @@ from uncertainties.unumpy import (nominal_values as noms,   # Wert:             
 
 #latexTabelle der Messdaten zur Kennlinie des Geiger-Müller-Zählrohrs
 print('Tabelle zur Kennlinie:')
+
 kennlinie=pd.read_csv('data/kennlinie.txt',sep=' ', header=None, names=['Spannung', 'Zählrate', 'Strom'])
 print(kennlinie.to_latex(index=False, column_format="c c c"))
 

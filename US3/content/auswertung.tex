@@ -6,9 +6,16 @@
 \subsection{Vorbereitungsaufgabe}
 \label{sec:Vorbereitungsaufgabe}
 
-\begin{table}
+Der Dopplerwinkel lässt sich über die Gleichung 
+\begin{equation*}
+    \alpha = \qty{90}{°} - \arcsin\left(\sin\theta \frac{c_L}{c_p}\right)
+\end{equation*}
+bestimmen. Die berechneten Werte sind in der \autoref{tab:doppler} aufgetragen.
+
+\begin{table}{H}
     \centering
-    \caption{Vorbereitungsaufgabe: Dopplerwinkel zu den jeweiligen Prisemenwinkeln}
+    \caption{Vorbereitungsaufgabe: Dopplerwinkel zu den jeweiligen Prismenwinkeln.}
+    \label{tab:doppler}
 \begin{tabular}{c c}
     \toprule
     $\theta$ & $\alpha$ \\
@@ -23,12 +30,17 @@
 \subsection{Strömungsgeschwindigkeit}
 \label{sec:Strömungsgeschwindigkeit}
 
-\begin{table}
+In der \autoref{tab:messwerte1} sind die die aufgenommenen Messwerte der Frequenzdifferenzen $ \increment \nu = \nu_{\text{mean}} - \nu_{\text{max}}$ 
+der jeweiligen Prismenwinkel $\theta$ dargestellt. Die Frequenzdifferenzen wird für fünf verschiedene Leistungen für die drei Winkel $\theta$ gemessen. Die 
+verwendete Pumpe hat dabei eine maximale Leistung von $\SI{7.5}{\liter\per\minute}$.
+
+\begin{table}[H]
     \centering
-    \cation{Messwerte der Dopplerverschiebung}
+    \caption{Die Frequenzverschiebung der drei Prismenwinkel.}
+    \label{tab:messwerte1}
 \begin{tabular}{c c c c}
     \toprule
-     Leistung & $\increment\nu_15$ & $\increment \nu_30$ & $\icrement \nu_60$ \\
+     $v / \si{\liter\per\minute}$ & $ \increment \nu_{\qty{15}{°}}$ & $\increment \nu_{\qty{30}{°}}$ & $\increment \nu_{\qty{60}{°}}$ \\
     \midrule
        2 &  56 &  94 & 153 \\
      2.5 &  65 & 132 & 208 \\
@@ -37,4 +49,101 @@
        4 & 165 & 311 & 468 \\
     \bottomrule
 \end{tabular}
+\end{table}
+
+Anhand der \autoref{eqn:frequenz} wird die Strömungsgeschwindigkeit berechnet. Für die verwendete Sonde ist 
+$\nu_0$ angegeben als $\SI{2}{\mega\hertz}$.
+
+\begin{table}[H]
+    \centering
+    \caption{Die Strömungsgeschwindigekit der drei Prismenwinkel.}
+    \label{tab:geschw}
+\begin{tabular}{c c c}
+    \toprule
+     $v_{\qty{15}{°}} / \si{\meter \per \second}$ &  $v_{\qty{30}{°}} / \si{\meter \per \second}$ &  $v_{\qty{60}{°}} / \si{\meter \per \second}$ \\
+    \midrule
+       0.243 &    0.211 &    0.199 \\
+       0.282 &    0.297 &    0.270 \\
+       0.391 &    0.376 &    0.379 \\
+       0.495 &    0.569 &    0.434 \\
+       0.716 &    0.699 &    0.608 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+In den \autoref{tab:plot1}, \autoref{tab:plot2} und \autoref{tab:plot3} wird das Verhältnis von $\frac{\increment \nu}{\cos (\alpha)}$ in Abhängigkeit der Strömungsgeschwindigkeit
+$\nu$ aufgetragen. Zudem wurde eine Ausgleichgerade an die Messwerte gefittet.
+
+\begin{figure}[H]
+	\includegraphics{build/plot1.pdf}
+	\caption{Die Frequenzverschiebung in Abhängigkeit der Strömungsgeschwindigekeit für $\theta = \qty{15}{°}$.}
+	\label{fig:plot1}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics{build/plot2.pdf}
+	\caption{Die Frequenzverschiebung in Abhängigkeit der Strömungsgeschwindigekeit für $\theta = \qty{30}{°}$.}
+	\label{fig:plot2}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics{build/plot3.pdf}
+	\caption{Die Frequenzverschiebung in Abhängigkeit der Strömungsgeschwindigekeit für $\theta = \qty{60}{°}$.}
+	\label{fig:plot3}
+\end{figure}
+
+\subsection{Strömungsprofil}
+\label{sec:Strömungsprofil}
+
+\begin{table}[H]
+    \centering
+    \caption{Die Strömungsgeschwindigekeit und die Streuintensiät für größerwerdende Tiefen bei einer Leistung von $45 \%$.}
+\begin{tabular}{c c c}
+    \toprule
+    $d / \si{\micro\second}$ & $ v / \si{\centi \meter \per \second}$ & $I_S / 1000 \si{ V^2 \per \second} $\\
+    \midrule
+      12 &     0 &  20 \\
+    12.5 &     0 &  22 \\
+      13 &     0 &  25 \\
+    13.5 &  13.3 &  28 \\
+      14 &  37.1 &  35 \\
+    14.5 &  39.8 &  38 \\
+      15 &  42.4 &  40 \\
+    15.5 &  42.8 &  44 \\
+      16 &  42.4 &  46 \\
+    16.5 &  39.8 &  47 \\
+      17 &  34.5 &  46 \\
+    17.5 &  31.8 &  43 \\
+      18 &  34.5 &  65 \\
+    18.5 &  37.1 & 114 \\
+      19 &  37.1 & 117 \\
+    19.5 & 39.08 &  81 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Die Strömungsgeschwindigekeit und die Streuintensiät für größerwerdende Tiefen bei einer Leistung von $70 \%$.}
+\begin{tabular}{c c c}
+    \toprule
+    $d / \si{\micro\second}$ & $ v / \si{\centi \meter \per \second}$ & $I_S / 1000 \si{ V^2 \per \second} $\\
+    \midrule
+      12 &   71.6 &  119 \\
+    12.5 &   63.7 &  170 \\
+      13 &   69.0 &  256 \\
+    13.5 &  82.2 &  332 \\
+      14 &  98.2 &  440 \\
+    14.5 &  106.1 &  561 \\
+      15 &  108.8 &  600 \\
+    15.5 &  103.5 &  640 \\
+      16 &  95.5 &  630 \\
+    16.5 &  82.2 &  663 \\
+      17 &  74.3 &  865 \\
+    17.5 &  76.9 &  1399 \\
+      18 &  87.5 &  2060 \\
+    18.5 &  90.2 & 2478 \\
+      19 &  87.5 & 2174 \\
+    \bottomrule
+    \end{tabular}
 \end{table}
