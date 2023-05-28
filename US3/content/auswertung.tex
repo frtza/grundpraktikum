@@ -3,8 +3,8 @@
 \section{Auswertung}
 \label{sec:auswertung}
 
-Im Folgenden wird die Strömungsgeschwindigkeit der aufgeneommen Messwerte bestimmt.
-Außerdem wird das Strömungsprofil für zwei Pumpleistunegen betrachtet.
+Im Folgenden wird die Strömungsgeschwindigkeit der aufgenommen Messwerte bestimmt.
+Außerdem wird das Strömungsprofil für zwei Pumpleistungen betrachtet.
 
 \subsection{Vorbereitungsaufgabe}
 \label{sec:Vorbereitungsaufgabe}
@@ -15,7 +15,8 @@ Der Dopplerwinkel lässt sich über die Gleichung
 \end{equation*}
 bestimmen. Die berechneten Werte sind in der \autoref{tab:doppler} aufgetragen.
 
-\begin{table}{H}
+\newpage
+\begin{table}[H]
     \centering
     \caption{Vorbereitungsaufgabe: Dopplerwinkel zu den jeweiligen Prismenwinkeln.}
     \label{tab:doppler}
@@ -34,7 +35,7 @@ bestimmen. Die berechneten Werte sind in der \autoref{tab:doppler} aufgetragen.
 \label{sec:Strömungsgeschwindigkeit}
 
 In der \autoref{tab:messwerte1} sind die die aufgenommenen Messwerte der Frequenzdifferenzen $ \increment \nu = \nu_{\text{mean}} - \nu_{\text{max}}$ 
-der jeweiligen Prismenwinkel $\theta$ dargestellt. Die Frequenzdifferenzen wird für fünf verschiedene Leistungen für die drei Winkel $\theta$ gemessen. Die 
+der jeweiligen Prismenwinkel $\theta$ dargestellt. Die Frequenzdifferenz wird für fünf verschiedene Leistungen für die drei Winkel $\theta$ gemessen. Die 
 verwendete Pumpe hat dabei eine maximale Leistung von $\SI{7.5}{\liter\per\minute}$.
 
 \begin{table}[H]
@@ -59,7 +60,7 @@ $\nu_0$ angegeben als $\SI{2}{\mega\hertz}$.
 
 \begin{table}[H]
     \centering
-    \caption{Die Strömungsgeschwindigekit der drei Prismenwinkel.}
+    \caption{Die Strömungsgeschwindigkeit der drei Prismenwinkel.}
     \label{tab:geschw}
 \begin{tabular}{c c c}
     \toprule
@@ -74,24 +75,27 @@ $\nu_0$ angegeben als $\SI{2}{\mega\hertz}$.
     \end{tabular}
 \end{table}
 
-In den \autoref{tab:plot1}, \autoref{tab:plot2} und \autoref{tab:plot3} wird das Verhältnis von $\frac{\increment \nu}{\cos (\alpha)}$ in Abhängigkeit der Strömungsgeschwindigkeit
+In den Abbildungen \ref{fig:plot1}, \ref{fig:plot2} und \ref{fig:plot3} wird das Verhältnis von $\frac{\increment \nu}{\cos (\alpha)}$ in Abhängigkeit der Strömungsgeschwindigkeit
 $\nu$ aufgetragen. Zudem wurde eine Ausgleichgerade an die Messwerte gefittet.
 
 \begin{figure}[H]
 	\includegraphics{build/plot1.pdf}
-	\caption{Die Frequenzverschiebung in Abhängigkeit der Strömungsgeschwindigekeit für $\theta = \qty{15}{°}$.}
+	\captionsetup{width=0.765\linewidth}
+	\caption{Die Frequenzverschiebung in Abhängigkeit der Strömungsgeschwindigkeit für $\theta = \qty{15}{°}$.}
 	\label{fig:plot1}
 \end{figure}
 
 \begin{figure}[H]
 	\includegraphics{build/plot2.pdf}
-	\caption{Die Frequenzverschiebung in Abhängigkeit der Strömungsgeschwindigekeit für $\theta = \qty{30}{°}$.}
+	\captionsetup{width=0.765\linewidth}
+	\caption{Die Frequenzverschiebung in Abhängigkeit der Strömungsgeschwindigkeit für $\theta = \qty{30}{°}$.}
 	\label{fig:plot2}
 \end{figure}
 
 \begin{figure}[H]
 	\includegraphics{build/plot3.pdf}
-	\caption{Die Frequenzverschiebung in Abhängigkeit der Strömungsgeschwindigekeit für $\theta = \qty{60}{°}$.}
+	\captionsetup{width=0.765\linewidth}
+	\caption{Die Frequenzverschiebung in Abhängigkeit der Strömungsgeschwindigkeit für $\theta = \qty{60}{°}$.}
 	\label{fig:plot3}
 \end{figure}
 
@@ -99,13 +103,13 @@ $\nu$ aufgetragen. Zudem wurde eine Ausgleichgerade an die Messwerte gefittet.
 \label{sec:Strömungsprofil}
 
 Für den Prismawinkel $\theta = \qty{15}{°}$ wird für die Pumpleistungen $ 3.4 \si{\liter\per\minute}$ und $ 5.2 \si{\liter\per\minute}$, was jeweils
-$70\%$  und $45\%$ der maxmiamlen Pumpleitsung entspricht, die sStrömungsgescgwindigkeit sowie die Streuintensiät in Abhängiglkeit der tiefe gemessen.
-Dabei entspricht eine Messtiefe von $\qty{4}{\micro\second}$ in der Dopplerflüssigkeit $\qty{6}{\milli\meter}$
-Die aufgenommenen Werte sind in der \autoref{tab:sp1} und der \autoref{tab:sp2} augetragen.
+$45\%$  und $70\%$ der maximalen Pumpleistung entspricht, die Strömungsgeschwindigkeit sowie die Streuintensität in Abhängigkeit der Tiefe gemessen.
+Dabei entspricht eine Messtiefe von $\qty{4}{\micro\second}$ in der Dopplerflüssigkeit $\qty{6}{\milli\meter}$.
+Die aufgenommenen Werte sind in der \autoref{tab:sp1} und der \autoref{tab:sp2} aufgetragen.
 
 \begin{table}[H]
     \centering
-    \caption{Die Strömungsgeschwindigekeit und die Streuintensiät für größerwerdende Tiefen bei einer Leistung von $45 \%$.}
+    \caption{Die Strömungsgeschwindigkeit und die Streuintensität für größerwerdende Tiefen bei einer Leistung von $45 \%$.}
     \label{tab:sp1}
 \begin{tabular}{c c c}
     \toprule
@@ -133,7 +137,7 @@ Die aufgenommenen Werte sind in der \autoref{tab:sp1} und der \autoref{tab:sp2} 
 
 \begin{table}[H]
     \centering
-    \caption{Die Strömungsgeschwindigekeit und die Streuintensiät für größerwerdende Tiefen bei einer Leistung von $70 \%$.}
+    \caption{Die Strömungsgeschwindigkeit und die Streuintensität für größerwerdende Tiefen bei einer Leistung von $70 \%$.}
     \label{tab:sp2}
 \begin{tabular}{c c c}
     \toprule
@@ -158,7 +162,7 @@ Die aufgenommenen Werte sind in der \autoref{tab:sp1} und der \autoref{tab:sp2} 
     \end{tabular}
 \end{table}
 
-In der \autoref{fig:str1} und der \autoref{fig:str2} sind die Momentangeschwindigkeiten und die Streuinetnsitäten für die jeweiligen
+In der \autoref{fig:str1} und der \autoref{fig:str2} sind die Momentangeschwindigkeiten und die Streuintensitäten für die jeweiligen
 Pumpleistungen graphisch dargestellt.
 
 
@@ -166,17 +170,17 @@ Pumpleistungen graphisch dargestellt.
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[height=4.5cm]{build/plot4.pdf}
-    \caption{Momentangeschwindigkeit für v = $45\%$}
+    \caption{Momentangeschwindigkeit für v = $45\%$.}
     \label{fig:plot4}
   \end{subfigure}
   \hfill
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[height=4.5cm]{build/plot5.pdf}
-    \caption{Streuinetnsität für v = $45\%$}
+    \caption{Streuintensität für v = $45\%$.}
     \label{fig:plot5}
   \end{subfigure}
-  \caption{Strömungsprofil für $45\%$ der maxmiamlen Pumpleitsung. }
+  \caption{Strömungsprofil für $45\%$ der maximalen Pumpleistung.}
   \label{fig:str1}
 \end{figure}
 
@@ -184,16 +188,16 @@ Pumpleistungen graphisch dargestellt.
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[height=4.5cm]{build/plot6.pdf}
-    \caption{Momentangeschwindigkeit für v = $70\%$}
+    \caption{Momentangeschwindigkeit für v = $70\%$.}
     \label{fig:plot6}
   \end{subfigure}
   \hfill
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[height=4.5cm]{build/plot7.pdf}
-    \caption{Streuinetnsität für v = $70\%$}
+    \caption{Streuintensität für v = $70\%$.}
     \label{fig:plot7}
   \end{subfigure}
-  \caption{Strömungsprofil füt $70\%$ der maxmiamlen Pumpleitsung.}
+  \caption{Strömungsprofil für $70\%$ der maximalen Pumpleistung.}
   \label{fig:str2}
 \end{figure}
