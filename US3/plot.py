@@ -18,8 +18,7 @@ from uncertainties.unumpy import (nominal_values as noms,   # Wert:             
 # print(speed1.to_latex(index=False, column_format="c c c"))
 
 lei, f15, f30, f60 = np.genfromtxt('data/messung1.txt', unpack=True, skip_header=1)  
-d, s, sig = np.genfromtxt('data/speed1.txt', unpack=True, skip_header=1)
-d2, s2, sig2 = np.genfromtxt('data/speed2.txt', unpack=True, skip_header=1)
+
 
 #Prismawinkel
 alpha = [80.06, 70.53, 54.74]
@@ -130,3 +129,46 @@ print(speed1.to_latex(index=False, column_format="c c c"))
 
 speed2=pd.read_csv('data/speed2.txt',sep=' ', header=None, names=['d','s','sig'])
 print(speed2.to_latex(index=False, column_format="c c c"))
+
+#daten
+d1, s1, sig1 = np.genfromtxt('data/speed1.txt', unpack=True, skip_header=1)
+d2, s2, sig2 = np.genfromtxt('data/speed2.txt', unpack=True, skip_header=1)
+
+print(d1)
+x_mm = (6/4) * d1 
+
+plt.plot(d1, s1, 'xr', markersize=6 , label = 'Momentangeschwindigkeit für P = 70%')
+
+plt.xlabel(r'$x \, / \, \mathrm{mm}$')
+plt.ylabel(r'$v \, / \, \mathrm{cms^{-1}}$')
+plt.legend(loc="best")                  
+plt.grid(True)
+plt.savefig('build/plot4.pdf',bbox_inches = "tight")
+plt.clf()
+
+plt.plot(d1, sig1, 'xr', markersize=6 , label = 'Momentangeschwindigkeit für P = 70%')
+
+plt.xlabel(r'$x \, / \, \mathrm{mm}$')
+plt.ylabel(r'$v \, / \, \mathrm{cms^{-1}}$')
+plt.legend(loc="best")                  
+plt.grid(True)
+plt.savefig('build/plot5.pdf',bbox_inches = "tight")
+plt.clf()
+
+plt.plot(d2, s2, 'xr', markersize=6 , label = 'Momentangeschwindigkeit für P = 45%')
+
+plt.xlabel(r'$x \, / \, \mathrm{mm}$')
+plt.ylabel(r'$v \, / \, \mathrm{cms^{-1}}$')
+plt.legend(loc="best")                  
+plt.grid(True)
+plt.savefig('build/plot6.pdf',bbox_inches = "tight")
+plt.clf()
+
+plt.plot(d2, sig2, 'xr', markersize=6 , label = 'Momentangeschwindigkeit für P = 45%')
+
+plt.xlabel(r'$x \, / \, \mathrm{mm}$')
+plt.ylabel(r'$v \, / \, \mathrm{cms^{-1}}$')
+plt.legend(loc="best")                  
+plt.grid(True)
+plt.savefig('build/plot7.pdf',bbox_inches = "tight")
+plt.clf()
