@@ -135,9 +135,9 @@ d1, s1, sig1 = np.genfromtxt('data/speed1.txt', unpack=True, skip_header=1)
 d2, s2, sig2 = np.genfromtxt('data/speed2.txt', unpack=True, skip_header=1)
 
 print(d1)
-x_mm = (6/4) * d1 
+d1 = (6/4) * d1 
 
-plt.plot(d1, s1, 'xr', markersize=6 , label = 'Momentangeschwindigkeit für P = 70%')
+plt.plot(d1, s1, 'xr', markersize=6 , label = 'Momentangeschwindigkeit für P = 45%')
 
 plt.xlabel(r'$x \, / \, \mathrm{mm}$')
 plt.ylabel(r'$v \, / \, \mathrm{cms^{-1}}$')
@@ -146,7 +146,7 @@ plt.grid(True)
 plt.savefig('build/plot4.pdf',bbox_inches = "tight")
 plt.clf()
 
-plt.plot(d1, sig1, 'xr', markersize=6 , label = 'Momentangeschwindigkeit für P = 70%')
+plt.plot(d1, sig1, 'xr', markersize=6 , label = 'Momentangeschwindigkeit für P = 45%')
 
 plt.xlabel(r'$x \, / \, \mathrm{mm}$')
 plt.ylabel(r'$v \, / \, \mathrm{cms^{-1}}$')
@@ -155,7 +155,8 @@ plt.grid(True)
 plt.savefig('build/plot5.pdf',bbox_inches = "tight")
 plt.clf()
 
-plt.plot(d2, s2, 'xr', markersize=6 , label = 'Momentangeschwindigkeit für P = 45%')
+d2 = (6/4) * d2 
+plt.plot(d2, s2, 'xr', markersize=6 , label = 'Momentangeschwindigkeit für P = 70%')
 
 plt.xlabel(r'$x \, / \, \mathrm{mm}$')
 plt.ylabel(r'$v \, / \, \mathrm{cms^{-1}}$')
@@ -164,7 +165,7 @@ plt.grid(True)
 plt.savefig('build/plot6.pdf',bbox_inches = "tight")
 plt.clf()
 
-plt.plot(d2, sig2, 'xr', markersize=6 , label = 'Momentangeschwindigkeit für P = 45%')
+plt.plot(d2, sig2, 'xr', markersize=6 , label = 'Momentangeschwindigkeit für P = 70%')
 
 plt.xlabel(r'$x \, / \, \mathrm{mm}$')
 plt.ylabel(r'$v \, / \, \mathrm{cms^{-1}}$')
