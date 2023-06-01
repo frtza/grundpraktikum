@@ -9,7 +9,9 @@ mit Hilfe der Maxwellschen Gleichungen
     \nabla \times \vec{E}&=-\mu \mu_{0} \partial_t \vec{H}
     \label{eqn:maxwell}
 \end{align}
-beschrieben wird.
+beschrieben wird. $\vec{H} $ und $\vec{E}$ ensprechen dabei der magnetischen, beziehungsweise der elektrischen Feldstärke,
+$\vec{j} $ der Stromdichte, $\varepsilon$ der relativen Dielektrizitätskonstante und $\mu$ der Permeabilität des Mediums. $\varepsilon_0$
+ist die Influenzkonstante und $\mu_0$ die Induktionskonstante.
 Im Folgenden werden nicht-ferromagnetische und nicht elektrisch leitende Materialien betrachtet, somit gilt $\mu \approx 1$
 und $\vec{j} =0$.
 Die elektrische und magnetische Arbeit 
@@ -17,7 +19,7 @@ Die elektrische und magnetische Arbeit
     W_\text{{elektrisch}} &\coloneq \frac{1}{2} \varepsilon \varepsilon_0 \vec{E}^2 \quad \text{und}\\
     W_{\text{magnetisch}} &\coloneq \frac{1}{2} \mu_0 \vec{H}^2
 \end{align*}
-stellen den Zusammenhang zwischen Energie pro Volumeneinheit eines elektrischen beziehungsweise magnetischen Feldes dar.
+stellen den Zusammenhang zwischen Energie pro Volumeneinheit eines elektrischen, beziehungsweise magnetischen Feldes dar.
 Der Poynting Vektor 
 \begin{align}
     \vec{S} &= \vec{E} \times \vec{H} \quad  \text{und}\\
@@ -25,9 +27,12 @@ Der Poynting Vektor
     \label{eqn:poynting}
 \end{align}
 besitzt die Dimension Leistung/Fläche und stellt die Strahlungsleistung pro Flächeneinheit eines 
-elektromagnetischen Feldes dar.
+elektromagnetischen Feldes dar. Wenn eine Welle reflektiert wird, wird diese an einer Grenzfläche zurückgeworfen.
+An dieser Grenzfläche ändert sich der Wellenwiderstand oder der Brechungsindex des Auabreitungsmediums.
+Während eine Welle gebrochen wird, wechselt die Ausbreitungsrichtung der Welle durch eine räumliche Änderung des Brechungsindex
+des Mediums, das durchlaufen wird.
 Beim Einfallen einer Welle aus dem Vakuum auf eine Grenzfläche unter einem Winkel $\alpha$, wird ein Bruchteil dieser
-refelktiert und der andere dringt in das Medium ein. Der Lichtstrahl, welcher in das Medium eindringt erfährt eine Richtungsänderung 
+refelktiert und der andere dringt in das Medium ein. Der Lichtstrahl, welcher in das optisch dichtere Medium eindringt, erfährt eine Richtungsänderung 
 und wird so gebrochen, dass der Beugungswinkel $\beta < \alpha$ ist. Es werden nur nicht absorbierende Medien verwendet und es gilt somit
 \begin{align*}
     \symup{S}_e \symup{F}_e &= \symup{S}_r \symup{F}_e + \symup{S}_d \symup{F}_d \quad \text{oder}\\
@@ -38,7 +43,7 @@ Diese Gleichung kann umgeschrieben werden zu
         c \varepsilon_0 \vec{E}_e^2 \cos \alpha=c \varepsilon_0 \vec{E}_r^2 \cos \alpha+v \varepsilon \varepsilon_0 \vec{E}_d^2 \cos \beta.
         \label{eqn:strahlung}
 \end{equation}
-Für den Brechungsindex ergibt sich das Verhältnis
+Für den Brechungsindex, welcher eine optische Materialeigenschaft beschreibt, die angibt, wie schnell ein Lichtstrahl durch ein Medium drignt,  ergibt sich das Verhältnis
 \begin{equation}
     n = \frac{c}{v}.
     \label{eqn:brechungsindex}
