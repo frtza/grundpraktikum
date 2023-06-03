@@ -41,7 +41,7 @@ herangezogen, wobei die Verschiebung $B$ als zusätzlicher Freiheitsgrad dient.
 
 \begin{figure}[H]
 	\includegraphics{build/fig_reflexion.pdf}
-	\caption{}
+	\caption{Reflexionswinkel $\beta$ gegen Einfallswinkel $\alpha$ aufgetragen.}
 	\label{fig:reflexion}
 \end{figure}
 
@@ -54,7 +54,7 @@ Anhand der Messwerte in Tabelle \ref{tab:reflexion} lässt sich dazu noch der Mi
 
 \begin{table}[H]
 	\centering
-	\caption{}
+	\caption{Datenpunkte der Winkel $\alpha$ und $\beta$ sowie deren Verhältnis.}
 	\input{build/tab_reflexion.tex}
 	\label{tab:reflexion}
 \end{table}
@@ -75,7 +75,7 @@ durchgeführt und das Ergebnis in Abbildung \ref{fig:brechung} angezeigt.
 
 \begin{figure}[H]
 	\includegraphics{build/fig_brechung.pdf}
-	\caption{}
+	\caption{Brechungswinkel $\sin(\beta)$ gegen Einfallswinkel $\sin(\alpha)$ aufgetragen.}
 	\label{fig:brechung}
 \end{figure}
 
@@ -87,7 +87,7 @@ lässt sich aus dem Kehrwert von $A$ der Brechungsindex $n = \input{build/n_bre.
 
 \begin{table}[H]
 	\centering
-	\caption{}
+	\caption{Messung der Winkel $\alpha$ und $\beta$ mit Brechungsindex $n$ als abgeleiteter Wert.}
 	\input{build/tab_brechung.tex}
 	\label{tab:brechung}
 \end{table}
@@ -110,13 +110,13 @@ in Abhängigkeit von Einfallswinkel $\alpha$ und Brechungswinkel $\beta$ formuli
 
 \begin{table}[H]
 	\centering
-	\caption{}
+	\caption{Strahlversatz $s$ mit verwendeten Winkelmessungen.}
 	\input{build/tab_plan.tex}
 	\label{tab:plan}
 \end{table}
 
 Tabelle \ref{tab:plan} enthält die Brechungswinkel $\beta$ aus direkter Messung sowie $\hat{\beta}$ aus der Vorhersage des Brechungsgesetzes zum
-eingestellten Einfallswinkel $\alpha$. Entsprechend werden $s$ aus $\beta$ und $\hat{s}$ aus $\hat{\beta}$ berechnet.
+eingestellten Einfallswinkel $\alpha$. Entsprechend wird $s$ aus $\beta$ und $\hat{s}$ aus $\hat{\beta}$ berechnet.
 
 
 \subsection{Dispersion}
@@ -133,7 +133,7 @@ zum roten Laser bei $\lambda = \qty{635}{\nano\meter}$ eingetragen.
 
 \begin{table}[H]
 	\centering
-	\caption{}
+	\caption{Messwerte zur Bestimmung der Ablenkung $\delta$ für grünes Licht.}
 %	\makebox[\textwidth][c]{\input{build/tab_pris.tex}}
 	\input{build/tab_pris_g.tex}
 	\label{tab:pris_g}
@@ -143,7 +143,7 @@ Im Mittel gilt eine Ablenkung von $\delta_G = \input{build/d_pris_g.tex}$ für d
 
 \begin{table}[H]
 	\centering
-	\caption{}
+	\caption{Messwerte zur Bestimmung der Ablenkung $\delta$ für rotes Licht.}
 %	\makebox[\textwidth][c]{\input{build/tab_pris.tex}}
 	\input{build/tab_pris_r.tex}
 	\label{tab:pris_r}
@@ -151,51 +151,56 @@ Im Mittel gilt eine Ablenkung von $\delta_G = \input{build/d_pris_g.tex}$ für d
 
 Für rotes Licht gibt $\delta_R = \input{build/d_pris_r.tex}$ den Mittelwert an.
 
-
+\newpage
 \subsection{Beugung}
 
-Zuletzt soll die Wellennatur des Lichts untersucht werden.
-
+Zuletzt soll die Wellennatur des Lichts untersucht werden. Zur Berechnung der Wellenlänge wird in den Tabellen \ref{tab:beugung_g} und
+\ref{tab:beugung_r} die umgestellte Gleichung
 \begin{equation*}
 	\lambda = d \: \frac{\sin(\varphi)}{k}
 \end{equation*}
-
-\begin{figure}[H]
-	\includegraphics{build/fig_beugung.pdf}
-	\caption{}
-	\label{fig:beugung}
-\end{figure}
-
+verwendet. Da Maxima nullter Beugungsordnung trivial sind und keine Rückschlüsse auf die Wellenlänge zulassen, werden sie an dieser Stelle
+vernachlässigt. Zur linearen Ausgleichsrechnung wird der Ausdruck
 \begin{equation*}
 	d \sin(\varphi) = \lambda k + \Lambda
 \end{equation*}
+mit konstantem Verschiebungsfaktor $\Lambda$ gewählt.
 
+\begin{figure}[H]
+	\includegraphics{build/fig_beugung.pdf}
+	\captionsetup{width=0.997\linewidth}
+	\caption{Wegunterschied $d \sin(\varphi)$ gegen Beugungsordnung $k$ aufgetragen. Passend farblich kodiert und zur besseren
+			 Lesbarkeit entlang der ganzzahligen Ordnung verschoben.}
+	\label{fig:beugung}
+\end{figure}
+
+Aus den Daten für grünes Licht in Tabelle \ref{tab:beugung_g} ergeben sich
 \begin{align*}
 	\lambda_G = \input{build/fit_beu_g_0.tex} && \Lambda_G = \input{build/fit_beu_g_1.tex}
 \end{align*}
-
+als optimale Parameter. Die Koeffizienten
 \begin{align*}
 	\lambda_R = \input{build/fit_beu_r_0.tex} && \Lambda_R = \input{build/fit_beu_r_1.tex}
 \end{align*}
+folgen aus den Messwerten in Tabelle \ref{tab:beugung_r}.
+\newpage
 
 \begin{table}[H]
 	\centering
-	\caption{}
+	\caption{Messwerte zur Bestimmung der Wellenlänge $\lambda$ für grünes Licht.}
 	\input{build/tab_beugung_g.tex}
 	\label{tab:beugung_g}
 \end{table}
 
-\begin{equation*}
-	\lambda_G = \input{build/stat_beu_g.tex}
-\end{equation*}
+Für den grünen Laser beschreibt $\lambda_G = \input{build/stat_beu_g.tex}$ die mittlere Wellenlänge.
 
 \begin{table}[H]
 	\centering
-	\caption{}
+	\caption{Messwerte zur Bestimmung der Wellenlänge $\lambda$ für rotes Licht.}
 	\input{build/tab_beugung_r.tex}
 	\label{tab:beugung_r}
 \end{table}
 
-\begin{equation*}
-	\lambda_R = \input{build/stat_beu_r.tex}
-\end{equation*}
+Mit $\lambda_R = \input{build/stat_beu_r.tex}$ ist der Mittelwert des roten Lasers angegeben.
+
+\newpage
