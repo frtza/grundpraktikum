@@ -3,8 +3,40 @@
 \section{Auswertung}
 \label{sec:auswertung}
 
+Im folgenden Abschnitt sollen die zuvor beschriebenen Zusammenhänge experimentell realisiert und überprüft werden.
+
+\subsection{Statistik}
+
+Dazu ist an dieser Stelle zunächst das Vorgehen zur Behandlung von fehlerbehafteten Daten ausgeführt. Alle Messungen werden mit einer
+Unsicherheit von einer Einheit der jeweils zum Ablesen verwendeten Skala angegeben. Mithilfe von \verb+uncertainties+ \cite{uncertainties}
+lassen sich diese Abweichungen bei der Berechnung abgeleiteter Größen mittels linearer Fehlerfortpflanzung automatisiert mitführen. Weiter gibt
+\begin{equation*}
+	\overline{x}_{\hspace{-0.2ex}\Delta} =
+	\frac{\sum_k x_k / \hspace{-0.2ex}\Delta\hspace{0.2ex} x_k}{\raisebox{-0.2ex}{$\sum_k 1/ \hspace{-0.2ex}\Delta\hspace{0.2ex} x_k$}}
+\end{equation*}
+das mit dem reziproken Fehler $\hspace{-0.2ex}\Delta\hspace{0.2ex} x_k$ gewichtete arithmetische Mittel einer Messreihe $x_k$ an. Als zugehöriges
+Streumaß wird die Standardabweichung
+\begin{equation*}
+	\hspace{-0.2ex}\Delta\hspace{0.2ex}\overline{x}_{\hspace{-0.2ex}\Delta} =
+	\frac{\raisebox{-0.4ex}{$1$}}{\sqrt{\sum_k 1/ \hspace{-0.2ex}\Delta\hspace{0.2ex} x_k}}
+\end{equation*}
+verwendet, sodass der Mittelwert
+$x = \overline{x}_{\hspace{-0.2ex}\Delta\hspace{-0.2ex}} {}\pm{} \hspace{-0.2ex}\Delta\hspace{0.2ex}\overline{x}_{\hspace{-0.2ex}\Delta}$
+definiert werden kann. Zur grafischen Auswertung durch \verb+matplotlib+ \cite{matplotlib} wird entlang den Datenpunkten eine lineare Regression
+unter Anwendung von \verb+numpy+ \cite{numpy} durchgeführt. Abweichungen der Optimierungsvariablen werden dabei der Kovarianzmatrix entnommen.
+
 
 \subsection{Reflexion}
+
+Unter Variation des Einfallswinkels $\alpha$ wird in Tabelle \ref{tab:reflexion} der Reflexionswinkel $\beta$ aufgetragen, für den nach
+Reflexionsgesetz $\beta = \alpha$ gelten muss. Das ebenso angegebene Verhältnis $\beta / \alpha$ bemisst die relative Abweichung vom
+erwarteten Zusammenhang.
+
+Für die in Abbildung \ref{fig:reflexion} dargestellte Ausgleichsrechnung wird ein Modell der Form
+\begin{equation*}
+	\beta = A \alpha + B
+\end{equation*}
+herangezogen, wobei die Verschiebung $B$ als zusätzlicher Freiheitsgrad dient.
 
 \begin{figure}[H]
 	\includegraphics{build/fig_reflexion.pdf}
@@ -12,17 +44,12 @@
 	\label{fig:reflexion}
 \end{figure}
 
-\begin{equation*}
-	\beta = \alpha
-\end{equation*}
-
-\begin{equation*}
-	\beta = A \alpha + B
-\end{equation*}
-
+Dies liefert die Parameter
 \begin{align*}
 	A = \input{build/fit_ref_0.tex} && B = \input{build/fit_ref_1.tex}
 \end{align*}
+als Ergebnis. Mit der Geradensteigung $A = \input{build/fit_ref_0.tex}$ ist analog zum Winkelverhältnis ein Maß für die Güte der Theorie gegeben.
+Anhand der Messwerte in Tabelle \ref{tab:reflexion} lässt sich dazu noch der Mittelwert $\beta / \alpha = \input{build/stat_ref.tex}$ schreiben.
 
 \begin{table}[H]
 	\centering
@@ -31,12 +58,19 @@
 	\label{tab:reflexion}
 \end{table}
 
-\begin{equation*}
-	\beta / \alpha = \input{build/stat_ref.tex}
-\end{equation*}
-
 
 \subsection{Brechung}
+
+Laut Brechungsgesetz sollten Einfallswinkel $\alpha$ und Brechungswinkel $\beta$ eines Lichtstrahls an der Grenzfläche zwischen Luft mit
+Brechungsindex $n_0 \approx 1$ und einer optisch dichteren planparallelen Platte aus Plexiglas mit $n$ als Brechungsindex der Formel
+\begin{equation*}
+	\frac{\sin(\alpha)}{\sin(\beta)} = n
+\end{equation*}
+gehorchen. Es wird entlang der Messung in Tabelle \ref{tab:brechung} eine Regression nach
+\begin{equation*}
+	\sin(\beta) = A \sin(\alpha) + B
+\end{equation*}
+durchgeführt und das Ergebnis in Abbildung \ref{fig:brechung} angezeigt.
 
 \begin{figure}[H]
 	\includegraphics{build/fig_brechung.pdf}
@@ -44,27 +78,11 @@
 	\label{fig:brechung}
 \end{figure}
 
-\begin{equation*}
-	\frac{\sin(\alpha)}{\sin(\beta)} = n
-\end{equation*}
-
-\begin{equation*}
-	\sin(\beta) = A \sin(\alpha) + B
-\end{equation*}
-
+Anhand den so erhaltenen Fit-Parametern
 \begin{align*}
 	A = \input{build/fit_bre_0.tex} && B = \input{build/fit_bre_1.tex}
 \end{align*}
-
-\begin{equation*}
-	n = \input{build/n_bre.tex}
-\end{equation*}
-
-$c = \input{build/c.tex}$
-
-\begin{equation*}
-	c = \input{build/c_n.tex}
-\end{equation*}
+lässt sich aus dem Kehrwert von $A$ der Brechungsindex $n = \input{build/n_bre.tex}$ bestimmen. 
 
 \begin{table}[H]
 	\centering
@@ -73,26 +91,21 @@ $c = \input{build/c.tex}$
 	\label{tab:brechung}
 \end{table}
 
-\begin{equation*}
-	n = \input{build/stat_bre.tex}
-\end{equation*}
+Über die Lichtgeschwindigkeit im Vakuum $c = \input{build/c.tex}$ \cite{scipy} und die Beziehung $c = nv$ folgt mit $n = \input{build/n_bre.tex}$
+die Geschwindigkeit $v = \input{build/c_n.tex}$ für die Ausbreitung in Plexiglas. Analog liefert der Mittelwert $n = \input{build/stat_bre.tex}$
+mit $c = \input{build/c_stat.tex}$ ein leicht abweichendes Ergebnis.
 
-\begin{equation*}
-	c = \input{build/c_stat.tex}
-\end{equation*}
 
 
 \subsection{Strahlversatz}
 
-$d = \input{build/d_plan.tex}$
-
+Zur Untersuchung der Verschiebung des Lichtstrahls wird weiterhin der bereits in Tabelle~\ref{tab:brechung} einsehbare Datensatz für die
+planparallele Platte mit Dicke $d = \input{build/d_plan.tex}$ \cite{reflex} genutzt. Deren Brechungsindex ist hier als Mittelwert
+$n = \input{build/n_plan.tex}$ der vorherigen Ergebnisse angenommen. Aus geometrischer Überlegung lässt sich der Versatz
 \begin{equation*}
 	s = d \: \frac{\sin(\alpha - \beta)}{\cos(\beta)}
 \end{equation*}
-
-\begin{equation*}
-	n = \input{build/n_plan.tex}
-\end{equation*}
+in Abhängigkeit von Einfallswinkel $\alpha$ und Brechungswinkel $\beta$ formulieren.
 
 \begin{table}[H]
 	\centering
@@ -101,20 +114,21 @@ $d = \input{build/d_plan.tex}$
 	\label{tab:plan}
 \end{table}
 
+Tabelle \ref{tab:plan} enthält die Brechungswinkel $\beta$ aus direkter Messung sowie $\hat{\beta}$ aus der Vorhersage des Brechungsgesetzes zum
+eingestellten Einfallswinkel $\alpha$. Entsprechend werden $s$ aus $\beta$ und $\hat{s}$ aus $\hat{\beta}$ berechnet.
+
 
 \subsection{Dispersion}
 
-\begin{equation*}
-	n = \input{build/n_pris.tex}
-\end{equation*}
-
+Nun wird ein Prisma aus Kronglas mit einem Brechungsindex $n = \input{build/n_pris.tex}$ und Innenwinkeln $\gamma = \qty{60}{\degree}$ \cite{reflex}
+verwendet. Durchläuft ein Lichtstrahl das Prisma, erfährt dieser abhängig von seiner jeweiligen Wellenlänge $\lambda$ eine Ablenkung, welche sich nach
 \begin{equation*}
 	\delta = (\alpha_1 + \alpha_2) - (\beta_1 + \beta_2)
 \end{equation*}
-
-$\sin(\alpha) = n \sin(\beta)$
-
-$\gamma = \beta_1 + \beta_2$
+berechnet. Gemessen werden die Winkel $\alpha$ in Luft, über $\sin(\alpha) = n \sin(\beta)$ ergeben sich die Verläufe innerhalb des Mediums.
+Mithilfe der Beziehung $\gamma = \beta_1 + \beta_2$ kann die Gültigkeit der Rechnung überprüft werden. Tabelle \ref{tab:pris_g} gibt die
+Ergebnisse der Messung für grünes Licht mit $\lambda = \qty{532}{\nano\meter}$ an, in Tabelle \ref{tab:pris_r} sind Daten und abgeleitete Größen
+zum roten Laser bei $\lambda = \qty{635}{\nano\meter}$ eingetragen.
 
 \begin{table}[H]
 	\centering
@@ -124,9 +138,7 @@ $\gamma = \beta_1 + \beta_2$
 	\label{tab:pris_g}
 \end{table}
 
-\begin{equation*}
-	\delta_G = \input{build/d_pris_g.tex}
-\end{equation*}
+Im Mittel gilt eine Ablenkung von $\delta_G = \input{build/d_pris_g.tex}$ für den grünen Laser.
 
 \begin{table}[H]
 	\centering
@@ -136,12 +148,12 @@ $\gamma = \beta_1 + \beta_2$
 	\label{tab:pris_r}
 \end{table}
 
-\begin{equation*}
-	\delta_R = \input{build/d_pris_r.tex}
-\end{equation*}
+Für rotes Licht gibt $\delta_R = \input{build/d_pris_r.tex}$ den Mittelwert an.
 
 
 \subsection{Beugung}
+
+Zuletzt soll die Wellennatur des Lichts untersucht werden.
 
 \begin{equation*}
 	\lambda = d \: \frac{\sin(\varphi)}{k}
