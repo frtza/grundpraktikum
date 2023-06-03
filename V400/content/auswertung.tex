@@ -12,6 +12,14 @@
 	\label{fig:reflexion}
 \end{figure}
 
+\begin{equation*}
+	\beta = \alpha
+\end{equation*}
+
+\begin{equation*}
+	\beta = A \alpha + B
+\end{equation*}
+
 \begin{align*}
 	A = \input{build/fit_ref_0.tex} && B = \input{build/fit_ref_1.tex}
 \end{align*}
@@ -35,6 +43,14 @@
 	\caption{}
 	\label{fig:brechung}
 \end{figure}
+
+\begin{equation*}
+	\frac{\sin(\alpha)}{\sin(\beta)} = n
+\end{equation*}
+
+\begin{equation*}
+	\sin(\beta) = A \sin(\alpha) + B
+\end{equation*}
 
 \begin{align*}
 	A = \input{build/fit_bre_0.tex} && B = \input{build/fit_bre_1.tex}
@@ -68,6 +84,12 @@ $c = \input{build/c.tex}$
 
 \subsection{Strahlversatz}
 
+$d = \input{build/d_plan.tex}$
+
+\begin{equation*}
+	s = d \: \frac{\sin(\alpha - \beta)}{\cos(\beta)}
+\end{equation*}
+
 \begin{equation*}
 	n = \input{build/n_plan.tex}
 \end{equation*}
@@ -86,16 +108,33 @@ $c = \input{build/c.tex}$
 	n = \input{build/n_pris.tex}
 \end{equation*}
 
+\begin{equation*}
+	\delta = (\alpha_1 + \alpha_2) - (\beta_1 + \beta_2)
+\end{equation*}
+
+$\sin(\alpha) = n \sin(\beta)$
+
+$\gamma = \beta_1 + \beta_2$
+
 \begin{table}[H]
 	\centering
 	\caption{}
-	\makebox[\textwidth][c]{\input{build/tab_pris.tex}}
-	\label{tab:pris}
+%	\makebox[\textwidth][c]{\input{build/tab_pris.tex}}
+	\input{build/tab_pris_g.tex}
+	\label{tab:pris_g}
 \end{table}
 
 \begin{equation*}
 	\delta_G = \input{build/d_pris_g.tex}
 \end{equation*}
+
+\begin{table}[H]
+	\centering
+	\caption{}
+%	\makebox[\textwidth][c]{\input{build/tab_pris.tex}}
+	\input{build/tab_pris_r.tex}
+	\label{tab:pris_r}
+\end{table}
 
 \begin{equation*}
 	\delta_R = \input{build/d_pris_r.tex}
@@ -104,8 +143,46 @@ $c = \input{build/c.tex}$
 
 \subsection{Beugung}
 
+\begin{equation*}
+	\lambda = d \: \frac{\sin(\varphi)}{k}
+\end{equation*}
+
 \begin{figure}[H]
 	\includegraphics{build/fig_beugung.pdf}
 	\caption{}
 	\label{fig:beugung}
 \end{figure}
+
+\begin{equation*}
+	d \sin(\varphi) = \lambda k + \Lambda
+\end{equation*}
+
+\begin{align*}
+	\lambda_G = \input{build/fit_beu_g_0.tex} && \Lambda_G = \input{build/fit_beu_g_1.tex}
+\end{align*}
+
+\begin{align*}
+	\lambda_R = \input{build/fit_beu_r_0.tex} && \Lambda_R = \input{build/fit_beu_r_1.tex}
+\end{align*}
+
+\begin{table}[H]
+	\centering
+	\caption{}
+	\input{build/tab_beugung_g.tex}
+	\label{tab:beugung_g}
+\end{table}
+
+\begin{equation*}
+	\lambda_G = \input{build/stat_beu_g.tex}
+\end{equation*}
+
+\begin{table}[H]
+	\centering
+	\caption{}
+	\input{build/tab_beugung_r.tex}
+	\label{tab:beugung_r}
+\end{table}
+
+\begin{equation*}
+	\lambda_R = \input{build/stat_beu_r.tex}
+\end{equation*}

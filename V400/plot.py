@@ -180,8 +180,8 @@ table_header = r'''	\sisetup{table-parse-only}
 		{$\alpha \mathbin{/} \unit{\degree}$} &
 		{$\beta \mathbin{/} \unit{\degree}$} &
 		{$\hat{\beta} \mathbin{/} \unit{\degree}$} &
-		{$s \mathbin{/} \unit{\meter}$} &
-		{$\hat{s} \mathbin{/} \unit{\meter}$} \\
+		{$s \mathbin{/} \unit{\centi\meter}$} &
+		{$\hat{s} \mathbin{/} \unit{\centi\meter}$} \\
 		\midrule
 '''
 table_footer = r'''		\bottomrule
@@ -227,13 +227,43 @@ table_header = r'''	\sisetup{table-parse-only}
 		{$\delta_R \mathbin{/} \unit{\degree}$} \\
 		\midrule
 '''
+table_header_1 = r'''	\sisetup{table-parse-only}
+	\begin{tabular}{S S S S S S}
+		\toprule
+		{$\alpha_1 \mathbin{/} \unit{\degree}$} &
+		{$\beta_1 \mathbin{/} \unit{\degree}$} &
+		{$\alpha_2 \mathbin{/} \unit{\degree}$} &
+		{$\beta_2 \mathbin{/} \unit{\degree}$} &
+		{$\beta_1 + \beta_2 \mathbin{/} \unit{\degree}$} &
+		{$\delta_G \mathbin{/} \unit{\degree}$} \\
+		\midrule
+'''
+table_header_2 = r'''	\sisetup{table-parse-only}
+	\begin{tabular}{S S S S S S}
+		\toprule
+		{$\alpha_1 \mathbin{/} \unit{\degree}$} &
+		{$\beta_1 \mathbin{/} \unit{\degree}$} &
+		{$\alpha_2 \mathbin{/} \unit{\degree}$} &
+		{$\beta_2 \mathbin{/} \unit{\degree}$} &
+		{$\beta_1 + \beta_2 \mathbin{/} \unit{\degree}$} &
+		{$\delta_R \mathbin{/} \unit{\degree}$} \\
+		\midrule
+'''
 table_footer = r'''		\bottomrule
 	\end{tabular}
 '''
-row_template = r'		{0:} & {1:} & {2:} & {3:} & {4:} & {5:} & {6:} & {7:} & {8:} & {9:} \\'
-with open('build/tab_pris.tex', 'w') as f:
-	f.write(table_header)
-	for row in zip(r(a_dis, 0), r(b(a_dis, n), 1), r(g_dis, 0), r(b(g_dis, n), 1), r(b(a_dis, n) + b(g_dis, n), 1), r(d(a_dis, g_dis, b(a_dis, n), b(g_dis, n)), 1), r(r_dis, 0), r(b(r_dis, n), 1), r(b(a_dis, n) + b(r_dis, n), 1), r(d(a_dis, r_dis, b(a_dis, n), b(r_dis, n)), 1)):
+row_template = r'		{0:} & {1:} & {2:} & {3:} & {4:} & {5:} \\'
+with open('build/tab_pris_g.tex', 'w') as f:
+	f.write(table_header_1)
+#	for row in zip(r(a_dis, 0), r(b(a_dis, n), 1), r(g_dis, 0), r(b(g_dis, n), 1), r(b(a_dis, n) + b(g_dis, n), 1), r(d(a_dis, g_dis, b(a_dis, n), b(g_dis, n)), 1), r(r_dis, 0), r(b(r_dis, n), 1), r(b(a_dis, n) + b(r_dis, n), 1), r(d(a_dis, r_dis, b(a_dis, n), b(r_dis, n)), 1)):
+	for row in zip(r(a_dis, 0), r(b(a_dis, n), 1), r(g_dis, 0), r(b(g_dis, n), 1), r(b(a_dis, n) + b(g_dis, n), 1), r(d(a_dis, g_dis, b(a_dis, n), b(g_dis, n)), 1)):
+		f.write(row_template.format(*row))
+		f.write('\n')
+	f.write(table_footer)
+with open('build/tab_pris_r.tex', 'w') as f:
+	f.write(table_header_2)
+#	for row in zip(r(a_dis, 0), r(b(a_dis, n), 1), r(g_dis, 0), r(b(g_dis, n), 1), r(b(a_dis, n) + b(g_dis, n), 1), r(d(a_dis, g_dis, b(a_dis, n), b(g_dis, n)), 1), r(r_dis, 0), r(b(r_dis, n), 1), r(b(a_dis, n) + b(r_dis, n), 1), r(d(a_dis, r_dis, b(a_dis, n), b(r_dis, n)), 1)):
+	for row in zip(r(a_dis, 0), r(b(a_dis, n), 1), r(r_dis, 0), r(b(r_dis, n), 1), r(b(a_dis, n) + b(r_dis, n), 1), r(d(a_dis, r_dis, b(a_dis, n), b(r_dis, n)), 1)):
 		f.write(row_template.format(*row))
 		f.write('\n')
 	f.write(table_footer)
@@ -278,15 +308,13 @@ plt.legend()
 plt.savefig('build/fig_beugung.pdf')
 plt.close()
 
-print(k_beu)
-
 # Formel zur Beugung
 def l(d, p, k):
 	return d * sin(p) / k
 
 # Tabelle
-table_header = r'''	\sisetup{table-parse-only}
-	\begin{tabular}{S S S S S S S S S S}
+table_header = r'''	\sisetup{table-parse-only, table-number-alignment=right}
+	\begin{tabular}{S S S S S[table-number-alignment=left] S[table-number-alignment=left] S S S[table-number-alignment=left] S[table-number-alignment=left]}
 		\toprule
 		& &
 		\multicolumn{4}{c}{Grünes Licht} &
@@ -299,13 +327,52 @@ table_header = r'''	\sisetup{table-parse-only}
 		\multicolumn{2}{c}{$\lambda \mathbin{/} \unit{\nano\meter}$} \\
 		\midrule
 '''
+table_header_1 = r'''	\sisetup{table-parse-only, table-number-alignment=right}
+	\begin{tabular}{S[table-text-alignment=right] S @{\hspace{5ex}} S S @{\hspace{5ex}} S[table-number-alignment=left] S[table-number-alignment=left]}
+		\toprule
+		{$d \mathbin{/} \unit{\micro\meter}$} & {$k$} &
+		\multicolumn{2}{c}{$\varphi \mathbin{/} \unit{\degree} \hspace{5ex}$} &
+		\multicolumn{2}{c}{$\lambda_G \mathbin{/} \unit{\nano\meter} \hspace{3ex}$} \\
+		\midrule
+'''
+table_header_2 = r'''	\sisetup{table-parse-only, table-number-alignment=right}
+	\begin{tabular}{S[table-text-alignment=right] S @{\hspace{5ex}} S S @{\hspace{5ex}} S[table-number-alignment=left] S[table-number-alignment=left]}
+		\toprule
+		{$d \mathbin{/} \unit{\micro\meter}$} & {$k$} &
+		\multicolumn{2}{c}{$\varphi \mathbin{/} \unit{\degree} \hspace{5ex}$} &
+		\multicolumn{2}{c}{$\lambda_R \mathbin{/} \unit{\nano\meter} \hspace{3ex}$} \\
+		\midrule
+'''
 table_footer = r'''		\bottomrule
 	\end{tabular}
 '''
-row_template = r'		{0:} & {1:} & {2:} & {3:} & {4:} & {5:} & {6:} & {7:} & {8:} & {9:} \\'
-with open('build/tab_beugung.tex', 'w') as f:
-	f.write(table_header)
-	for row in zip(d, k_beu, r(g_beu_1, 0), r(g_beu_2, 0), l(d, g_beu_1, k_beu), l(d, g_beu_2, k_beu), r(r_beu_1, 0), r(r_beu_2, 0), l(d, r_beu_1, k_beu), l(d, r_beu_2, k_beu)):
+row_template = r'		{0:.2f} & {1:.0f} & {2:} & {3:} & {4:} & {5:} \\'
+m = k_beu != 0.0
+with open('build/tab_beugung_g.tex', 'w') as f:
+	f.write(table_header_1)
+#	for row in zip(d[m], k_beu[m], r(g_beu_1[m], 0), r(g_beu_2[m], 0), r(1e3 * l(d[m], g_beu_1[m], k_beu[m]), 0), r(1e3 * l(d[m], g_beu_2[m], k_beu[m]), 0), r(r_beu_1[m], 0), r(r_beu_2[m], 0), r(1e3 * l(d[m], r_beu_1[m], k_beu[m]), 0), r(1e3 * l(d[m], r_beu_2[m], k_beu[m]), 0)):
+	for row in zip(d[m], k_beu[m], r(g_beu_1[m], 0), r(g_beu_2[m], 0), r(1e3 * l(d[m], g_beu_1[m], k_beu[m]), 0), r(1e3 * l(d[m], g_beu_2[m], k_beu[m]), 0)):
 		f.write(row_template.format(*row))
 		f.write('\n')
 	f.write(table_footer)
+with open('build/tab_beugung_r.tex', 'w') as f:
+	f.write(table_header_2)
+#	for row in zip(d[m], k_beu[m], r(g_beu_1[m], 0), r(g_beu_2[m], 0), r(1e3 * l(d[m], g_beu_1[m], k_beu[m]), 0), r(1e3 * l(d[m], g_beu_2[m], k_beu[m]), 0), r(r_beu_1[m], 0), r(r_beu_2[m], 0), r(1e3 * l(d[m], r_beu_1[m], k_beu[m]), 0), r(1e3 * l(d[m], r_beu_2[m], k_beu[m]), 0)):
+	for row in zip(d[m], k_beu[m], r(r_beu_1[m], 0), r(r_beu_2[m], 0), r(1e3 * l(d[m], r_beu_1[m], k_beu[m]), 0), r(1e3 * l(d[m], r_beu_2[m], k_beu[m]), 0)):
+		f.write(row_template.format(*row))
+		f.write('\n')
+	f.write(table_footer)
+
+# Ergebnisse
+with open('build/fit_beu_g_0.tex', 'w') as f:
+	f.write(f'\\qty{{{r(1e3 * fit_g[0], 0)}}}{{\\nano\\meter}}')
+with open('build/fit_beu_g_1.tex', 'w') as f:
+	f.write(f'\\qty{{{r(1e3 * fit_g[1], 0)}}}{{\\nano\\meter}}')
+with open('build/stat_beu_g.tex', 'w') as f:
+	f.write(f'\\qty{{{r(stat(1e3 * l(d[m], g_beu[m], k_beu[m])), 0)}}}{{\\nano\\meter}}')
+with open('build/fit_beu_r_0.tex', 'w') as f:
+	f.write(f'\\qty{{{r(1e3 * fit_r[0], 0)}}}{{\\nano\\meter}}')
+with open('build/fit_beu_r_1.tex', 'w') as f:
+	f.write(f'\\qty{{{r(1e3 * fit_r[1], 0)}}}{{\\nano\\meter}}')
+with open('build/stat_beu_r.tex', 'w') as f:
+	f.write(f'\\qty{{{r(stat(1e3 * l(d[m], r_beu[m], k_beu[m])), 0)}}}{{\\nano\\meter}}')
