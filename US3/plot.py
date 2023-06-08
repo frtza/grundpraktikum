@@ -23,7 +23,7 @@ lei, f15, f30, f60 = np.genfromtxt('data/messung1.txt', unpack=True, skip_header
 #Prismawinkel
 alpha = [80.06, 70.53, 54.74]
 alpha = np.multiply(alpha, (np.pi/180))
-c = const.speed_of_light
+c = 1800
 nu0 = 2e6 
 
 #Strömungsgeschwindigkeit
@@ -60,17 +60,21 @@ fa, fb = np.sqrt(np.diag(pcov))
 ua = ufloat(a, fa) 
 ub = ufloat(b, fb)
 
-xx = np.linspace(0, 1, 10**4)
+print('Ausgleichsgerade1:')
+print(ua)
+print(ub)
+xx = np.linspace(0, 0.8, 10**4)
 plt.plot(xx, g(xx, a, b), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
 
 plt.xlabel(r'$v \, / \, \mathrm{ms^{-1}}$')
-plt.ylabel(r'$\frac{\Delta \nu}{\cos (\alpha)}$')
+plt.ylabel(r'$\Delta \nu$')
 plt.legend(loc="best")                  
 plt.grid(True)                          
-plt.xlim(0, 1)                  
+plt.xlim(0, 0.000006)                  
 plt.ylim(0, 0.014)
 
 plt.savefig('build/plot1.pdf', bbox_inches = "tight")
+#plt.show()
 plt.clf() 
 
 #plot2
@@ -83,15 +87,17 @@ a, b = para
 fa, fb = np.sqrt(np.diag(pcov))
 ua = ufloat(a, fa) 
 ub = ufloat(b, fb)
-
-xx = np.linspace(0, 1.4, 10**4)
+print('Ausgleichsgerade2:')
+print(ua)
+print(ub)
+xx = np.linspace(0, 0.014, 10**4)
 plt.plot(xx, g(xx, a, b), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
 
 plt.xlabel(r'$v \, / \, \mathrm{ms^{-1}}$')
-plt.ylabel(r'$\frac{\Delta \nu}{\cos (\alpha)}$')
+plt.ylabel(r'$\Delta \nu$')
 plt.legend(loc="best")                  
 plt.grid(True)                          
-plt.xlim(0, 1.3)                  
+plt.xlim(0, 0.000006)                  
 plt.ylim(0, 0.018)
 
 plt.savefig('build/plot2.pdf', bbox_inches = "tight")
@@ -107,15 +113,17 @@ a, b = para
 fa, fb = np.sqrt(np.diag(pcov))
 ua = ufloat(a, fa) 
 ub = ufloat(b, fb)
-
-xx = np.linspace(0, 1.4, 10**4)
+print('Ausgleichsgerade3:')
+print(ua)
+print(ub)
+xx = np.linspace(0, 0.014, 10**4)
 plt.plot(xx, g(xx, a, b), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
 
 plt.xlabel(r'$v \, / \, \mathrm{ms^{-1}}$')
-plt.ylabel(r'$\frac{\Delta \nu}{\cos (\alpha)}$')
+plt.ylabel(r'$\Delta \nu$')
 plt.legend(loc="best")                  
 plt.grid(True)                          
-plt.xlim(0, 1.3)                  
+plt.xlim(0, 0.000006)                  
 plt.ylim(0, 0.018)
 
 plt.savefig('build/plot3.pdf', bbox_inches = "tight")
@@ -125,10 +133,10 @@ plt.clf()
 #Strömungsprofil
 
 speed1=pd.read_csv('data/speed1.txt',sep=' ', header=None, names=['d','s','sig'])
-print(speed1.to_latex(index=False, column_format="c c c"))
+#print(speed1.to_latex(index=False, column_format="c c c"))
 
 speed2=pd.read_csv('data/speed2.txt',sep=' ', header=None, names=['d','s','sig'])
-print(speed2.to_latex(index=False, column_format="c c c"))
+#print(speed2.to_latex(index=False, column_format="c c c"))
 
 #daten
 d1, s1, sig1 = np.genfromtxt('data/speed1.txt', unpack=True, skip_header=1)

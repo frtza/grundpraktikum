@@ -75,8 +75,12 @@ $\nu_0$ angegeben als $\SI{2}{\mega\hertz}$.
     \end{tabular}
 \end{table}
 
-In den Abbildungen \ref{fig:plot1}, \ref{fig:plot2} und \ref{fig:plot3} wird das Verhältnis von $\frac{\increment \nu}{\cos (\alpha)}$ in Abhängigkeit der Strömungsgeschwindigkeit
-$\nu$ aufgetragen. Zudem wurde eine Ausgleichgerade an die Messwerte gefittet.
+In den Abbildungen \ref{fig:plot1}, \ref{fig:plot2} und \ref{fig:plot3} wird das Verhältnis von $\increment \nu$ in Abhängigkeit der Strömungsgeschwindigkeit
+$\nu$ aufgetragen. Zudem wurde eine Ausgleichgerade der Form 
+\begin{equation*}
+  a x + b 
+\end{equation*}
+durch die Messwerte gefittet.
 
 \begin{figure}[H]
 	\includegraphics{build/plot1.pdf}
@@ -84,21 +88,33 @@ $\nu$ aufgetragen. Zudem wurde eine Ausgleichgerade an die Messwerte gefittet.
 	\caption{Die Frequenzverschiebung in Abhängigkeit der Strömungsgeschwindigkeit für $\theta = \qty{15}{°}$.}
 	\label{fig:plot1}
 \end{figure}
-
+Die Parameter der Fittfunktion für den Winkel $\theta = \qty{15}{°}$ entsprechen
+\begin{align*}
+  a &= (2222.222 \pm 0.0000028) \mathrm{m}^{-1}\\
+  b &= -(2.5\pm 0.8) \cdot 10^{-11}\,\mathrm{s}.
+\end{align*}
 \begin{figure}[H]
 	\includegraphics{build/plot2.pdf}
 	\captionsetup{width=0.765\linewidth}
 	\caption{Die Frequenzverschiebung in Abhängigkeit der Strömungsgeschwindigkeit für $\theta = \qty{30}{°}$.}
 	\label{fig:plot2}
 \end{figure}
-
+Die Parameter der Fittfunktion für den Winkel $\theta = \qty{30}{°}$ entsprechen
+\begin{align*}
+  a &= (2222.222 \pm 0.0000027) \mathrm{m}^{-1}\\
+  b &= -(2.4\pm 0.6) \cdot 10^{-11}\,\mathrm{s}.
+\end{align*}
 \begin{figure}[H]
 	\includegraphics{build/plot3.pdf}
 	\captionsetup{width=0.765\linewidth}
 	\caption{Die Frequenzverschiebung in Abhängigkeit der Strömungsgeschwindigkeit für $\theta = \qty{60}{°}$.}
 	\label{fig:plot3}
 \end{figure}
-
+Die Parameter der Fittfunktion für den Winkel $\theta = \qty{60}{°}$ entsprechen
+\begin{align*}
+  a &= (2222.222 \pm 0.0000017) \mathrm{m}^{-1}\\
+  b &= -(1.58\pm 0.18) \cdot 10^{-11}\,\mathrm{s}.
+\end{align*}
 \subsection{Strömungsprofil}
 \label{sec:Strömungsprofil}
 
