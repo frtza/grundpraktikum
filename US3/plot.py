@@ -154,7 +154,7 @@ plt.grid(True)
 plt.savefig('build/plot4.pdf',bbox_inches = "tight")
 plt.clf()
 
-plt.plot(d1, sig1, 'xr', markersize=6 , label = 'Momentangeschwindigkeit für P = 45%')
+plt.plot(d1, sig1, 'xr', markersize=6 , label = 'Streuintensität für P = 45%')
 
 plt.xlabel(r'$x \, / \, \mathrm{mm}$')
 plt.ylabel(r'$v \, / \, \mathrm{cms^{-1}}$')
@@ -173,7 +173,7 @@ plt.grid(True)
 plt.savefig('build/plot6.pdf',bbox_inches = "tight")
 plt.clf()
 
-plt.plot(d2, sig2, 'xr', markersize=6 , label = 'Momentangeschwindigkeit für P = 70%')
+plt.plot(d2, sig2, 'xr', markersize=6 , label = 'Streuintensität für P = 70%')
 
 plt.xlabel(r'$x \, / \, \mathrm{mm}$')
 plt.ylabel(r'$v \, / \, \mathrm{cms^{-1}}$')
