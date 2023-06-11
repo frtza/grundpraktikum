@@ -69,3 +69,18 @@ print(np.mean(db))
 
 bscan=pd.read_csv('data/bscan.txt', sep=' ', header=None, names=['n','a','b'])
 print(bscan.to_latex(index=False, column_format="c c c"))
+
+### Daten zu Aufloesungsgvermoegen einlesen:
+def conv(x):
+	return x.replace(',', '.').encode()
+asc1 = np.genfromtxt((conv(x) for x in open('data/US1_daten/A-Scan-1MHz.txt')))
+asc2 = np.genfromtxt((conv(x) for x in open('data/US1_daten/A-Scan-2MHz.txt')))
+
+# Tiefe [mm]
+d1 = asc1[:, 0]
+d2 = asc2[:, 0]
+
+# Spannung [V]
+U1 = asc1[:, 1]
+U2 = asc2[:, 1]
+
