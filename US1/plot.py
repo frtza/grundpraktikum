@@ -20,7 +20,8 @@ acryl=pd.read_csv('data/acryl.txt', sep=' ', header=None, names=['n','t'])
 
 n, t = np.genfromtxt('data/acryl.txt', unpack=True, skip_header=1) 
 n2, ak, bk, d,f = np.genfromtxt('data/ausmessung.txt', unpack=True , skip_header=1)
-
+d = d * 10**(-3)
+t = t * 10**(-6)
 plt.plot(t,2*d[1:8], 'xr', markersize=6 , label = 'Messdaten')
 
 def g(x, a, b):
@@ -36,5 +37,5 @@ print('Ausgleichsgerade1:')
 print(ua)
 print(ub)
 xx = np.linspace(3,45 , 100)
-plt.plot(xx, g(xx, a, b), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
+plt.plot(xx* 10**(-6), g(xx* 10**(-6), a, b), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
 plt.show()
