@@ -44,8 +44,8 @@ Die Messdaten der Abstände $a_k$ und $b_k$ sind in \autoref{tab:lab} zu sehen.
     \toprule
     Loch & $a_k / \si{\milli\meter}$ & $b_k / \si{\milli\meter}$ & $d / \si{\milli\meter}$\\
     \midrule
-    1 &     &       & 1.45 \\
-    2 &     &       & 1.5 \\
+    1 &   -  &    -   & 1.45 \\
+    2 &   -  &    -   & 1.5 \\
     3 & 13.5 & 61.85 &    6  \\
     4 &21.85 &  54.4 &  4.9  \\
     5 &30.3 &  47.0 &    4  \\
@@ -61,7 +61,9 @@ Die Messdaten der Abstände $a_k$ und $b_k$ sind in \autoref{tab:lab} zu sehen.
 
 \subsection{Untersuchung der Störstellen des Aceylblocks mit A-Scan}
 \label{Untersuchung der Störstellen des Aceylblocks mit A-Scan}
-
+Mit Hilfe des A-Scans wurden die Laufzeiten für die Löcher k = 3 bis k = 9 bestimmt und in der 
+\autoref{tab:Laufzeit} aufgetragen. Es wurde dabei von oben gemassen und somit wurden die Laufzeiten für die
+$a_k's$ aufgenommen. 
 \begin{table}[H]
     \centering
     \caption{Laufzeit von Loch k=3 bis k=9.}
@@ -78,5 +80,104 @@ Die Messdaten der Abstände $a_k$ und $b_k$ sind in \autoref{tab:lab} zu sehen.
      8 &  41.1 \\
      9 &  46.7 \\
     \bottomrule
+\end{tabular}
+\end{table}
+Die Messwerte der Laufzeiten wurden in einem Plot dargestellt, wobei eine lineare Regression der Form 
+\begin{equation*}
+    a \cdot x + b
+\end{equation*}
+durchgeführt wurde. Der Plot ist in der \autoref{fig:plot1} dargestellt.
+
+\begin{figure}[H]
+	\includegraphics{build/plot1.pdf}
+	\captionsetup{width=0.765\linewidth}
+	\caption{Die Laufzeit des A-Scans gegen die Abstände $a_k$ aufgetragen und die lineare Ausgleichsgerade.}
+	\label{fig:plot1}
+\end{figure}
+
+Für die Parameter der Ausgleichsfunktion gilt
+\begin{align*}
+    a &= \left(2708 \pm 23\right) \si{\meter \per \second}\\
+    b &= \left(14 \pm 0.7\right) \si{\milli\meter}.
+\end{align*}
+Dabei entspricht $a$ der Steigung der Geraden, welche die Schallgeschwindigkeit $\zeta_{\text{exp}}$ in dem Material ist.
+Der Literaturwert der Schallgeschwindigkeit $\zeta_{\text{theo}} = \SI{2730}{\meter\per\second}$ wird im weiteren Verlauf für die 
+Messungen des A-Scans als auch des B-Scans verwendet.
+Der y-Achsen-Abschnitt gibt die Dicke der Anpassungsschicht an. 
+
+Die aufgenommenen Messdaten des A-Scans sind in der \autoref{tab:ascan} dargestellt.
+\begin{table}[H]
+    \centering
+    \caption{Messwerte des A-Scan.}
+    \label{tab:ascan}
+\begin{tabular}{c c c}
+    \toprule
+    Loch & $\text{Laufzeit} t / \si{\micro\second} $\\
+    \midrule
+     3 & 14.7 & 63.0 \\
+     4 & 23.5 & 55.4 \\
+     5 & 32.1 & 47.8 \\
+     6 & 40.8 & 40.4 \\
+     7 & 48.4 & 32.2 \\
+     8 & 56.2 & 24.4 \\
+     9 & 64.2 & 16.8 \\
+    10 & 73.1 &  8.7 \\
+    11 & 17.2 & 56.8 \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+Um die Abstände, welche mittels Schieblehre bestimmt worden sind, mit den Abständen, welche über einen A-Scan aufgenommen worden sind,
+vergleichen zu können, werden die Differenzen der jeweiligen $a_k$ und $b_k$ gemittelt.
+Die Messwerte der Schieblehre sind in der \autoref{tab:lab} aufgelistet und die des A-Scans in der \autoref{tab:ascan}.
+Für die Mittel der Differenzen ergeben sich die Werte
+\begin{align*}
+\bar{\increment a_k} &= \SI{1.761}{\milli\meter} \\
+\bar{\increment b_k} &= \SI{3.719}{\milli\meter}.
+\end{align*}
+
+\subsection{Untersuchung der Störstellen des Aceylblocks mit B-Scan}
+\label{Untersuchung der Störstellen des Aceylblocks mit B-Scan}
+
+Mittels des B-Scan wurden Aufnahmen von der oberen und der unteren Kante des Acryl-Blocks durchgeführt.
+Diese sind in den \autoref{fig:oben} und \autoref{fig:unten} zu sehen. Anhand des Cursors können die jeweiligen Störstellen 
+lokalisiert werden.
+
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=0.8\linewidth]{data/US1_daten/b_scan_oben.jpg}
+    \captionsetup{width=0.765\linewidth}
+	\caption{Abbildung des Acrylblocks mit B-Scan.}
+	\label{fig:oben}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=0.8\linewidth]{data/US1_daten/b_scan_u.jpg}
+    \captionsetup{width=0.765\linewidth}
+	\caption{Abbildung des Acrylblocks mit B-Scan.}
+	\label{fig:unten}
+\end{figure}
+
+Die Messwerte des B-Scan sind in der \autoref{tab:bscan} aufgetragen. Für $k =10$ konnte kein Wert aufgenommen werden, daher wird dieser
+im Folgenden ignoriert.
+\begin{table}[H]
+    \centering
+    \caption{Messwerte des B-Scan.}
+    \label{tab:bscan}
+\begin{tabular}{c c c}
+\toprule
+Loch & $\text{Laufzeit} t / \si{\micro\second} $\\
+\midrule
+ 3 & 15.1 & 63.3 \\
+ 4 & 23.6 & 55.8 \\
+ 5 & 32.4 & 48.2 \\
+ 6 & 40.8 & 40.8 \\
+ 7 & 48.9 & 33.0 \\
+ 8 & 56.5 & 24.8 \\
+ 9 & 64.7 & 16.8 \\
+10 & - &  9.0 \\
+11 & 17.2 & 57.4 \\
+\bottomrule
 \end{tabular}
 \end{table}
