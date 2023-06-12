@@ -77,6 +77,15 @@ print(np.mean(db))
 
 bscan=pd.read_csv('data/bscan.txt', sep=' ', header=None, names=['n','a','b'])
 #print(bscan.to_latex(index=False, column_format="c c c"))
+na, a, b = np.genfromtxt('data/bscan.txt', unpack=True, skip_header=1)
+print('bscan differenzen:')
+a = a*10**(-3)
+ba = a - ak
+b = a*10**(-3)
+bb = bk - b
+print(np.mean(bb))
+print(np.mean(ba))
+
 
 ### Daten zu Aufloesungsgvermoegen einlesen:
 def conv(x):
