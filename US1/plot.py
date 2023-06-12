@@ -11,7 +11,7 @@ from uncertainties.unumpy import uarray                     # Array von Fehler: 
 from uncertainties.unumpy import (nominal_values as noms,   # Wert:             noms(fehlerwert) = x
                                   std_devs as stds)
 
-
+atheo = 2730
 
 acryl=pd.read_csv('data/acryl.txt', sep=' ', header=None, names=['n','t'])
 #print(acryl.to_latex(index=False, column_format="c c"))
@@ -47,11 +47,19 @@ ub = ufloat(b, fb)
 print('Ausgleichsgerade1:')
 print(ua)
 print(ub)
+abw = (a - atheo) / atheo
+print('Abweichung')
+print(abw)
 xx = np.linspace(3,50 , 10**4)
 plt.plot(xx* 10**(-6), g(xx* 10**(-6), a, b), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
+plt.xlabel(r'$t \, / \, ( s \cdot 10^6)$')
+plt.ylabel(r'$ 2 d \, / \, mm$')
+plt.grid(ls=':')
+plt.legend(loc="best")
 plt.savefig('build/plot1.pdf',bbox_inches = "tight")
+plt.clf()
 #plt.show()
-
+#r'$t / \mathrm{s}$
 ascan=pd.read_csv('data/ascan.txt', sep=' ', header=None, names=['n','a','b'])
 #print(ascan.to_latex(index=False, column_format="c c c"))
 
@@ -68,7 +76,7 @@ db = bk - b
 print(np.mean(db))
 
 bscan=pd.read_csv('data/bscan.txt', sep=' ', header=None, names=['n','a','b'])
-print(bscan.to_latex(index=False, column_format="c c c"))
+#print(bscan.to_latex(index=False, column_format="c c c"))
 
 ### Daten zu Aufloesungsgvermoegen einlesen:
 def conv(x):
@@ -84,3 +92,17 @@ d2 = asc2[:, 0]
 U1 = asc1[:, 1]
 U2 = asc2[:, 1]
 
+plt.plot(d1, U1, markersize=6, label='Messdaten')
+#plt.xlabel(r'$  d \, / \, mm$')
+plt.xlabel(r'$t \, / \, ( s \cdot 10^6)$')
+plt.ylabel(r'$U / \mathrm{V}$')
+plt.savefig('build/plot2.pdf', bbox_inches="tight")
+plt.clf()
+#plt.show()
+
+plt.plot(d2, U2, markersize=6, label='Messdaten')
+#plt.xlabel(r'$  d \, / \, mm$')
+plt.xlabel(r'$t \, / \, ( s \cdot 10^6)$')
+plt.ylabel(r'$U / \mathrm{V}$')
+plt.savefig('build/plot3.pdf', bbox_inches="tight")
+plt.clf()
