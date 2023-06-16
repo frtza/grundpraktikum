@@ -7,6 +7,12 @@ from uncertainties.unumpy import nominal_values as noms, std_devs as stds, uarra
 # punkte
 s = np.array([-1e4, 1e4])
 
+# formatieren
+def r(s, p):
+	if p == 0:
+		return np.char.add(np.char.add(noms(s).round(p).astype(int).astype(str), '+-'), stds(s).round(p).astype(int).astype(str))
+	return np.char.add(np.char.add(noms(s).round(p).astype(str), '+-'), stds(s).round(p).astype(str))	
+
 
 # NULLEFFEKT ----------------------------------------------------------------------------------------------------------------------------
 
@@ -161,6 +167,31 @@ fig.supylabel(r'$N\;/\;$s$^{-1}$')
 plt.savefig('build/plot_1.pdf')
 plt.close()
 
+# tabelle
+table_header = r'''	\sisetup{table-parse-only}
+	\begin{tabular}{S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S}
+		\toprule
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} &
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} &
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} &
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} \\
+		\midrule
+'''
+table_footer = r'''		\bottomrule
+	\end{tabular}
+'''
+row_template = r'		{0:} & {1:} & {2:} & {3:} & {4:} & {5:} & {6:} & {7:} \\'
+with open('build/tab_1.tex', 'w') as f:
+	f.write(table_header)
+	for row in zip(r(t_u, 0)[:15], r(N_u, 1)[:15], r(t_u, 0)[15:30], r(N_u, 1)[15:30], r(t_u, 0)[30:45], r(N_u, 1)[30:45], r(t_u, 0)[45:], r(N_u, 1)[45:]):
+		f.write(row_template.format(*row))
+		f.write('\n')
+	f.write(table_footer)
+
 
 # ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -233,6 +264,29 @@ print(f'\nV-52\n\n\nHalbwertszeit:\n\nlam = {lam_V:.5f}  [1/s]\ntau = {tau_V:.2f
 print(f'Ergebnis:\n{(tau_V.n - tau_V.n % 60) / 60:.0f} min {tau_V % 60:.0f} s\n')
 print(f'Literatur:\n3 min 44.6 s\n\n\nStartaktivität:\n')
 print(f'num = {num_V:.3f}   [ln(1/s)]\nstt = {stt_V:.3f}     [1/s]\n')
+
+# tabelle
+table_header = r'''	\sisetup{table-parse-only}
+	\begin{tabular}{S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S}
+		\toprule
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} &
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} &
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} \\
+		\midrule
+'''
+table_footer = r'''		\bottomrule
+	\end{tabular}
+'''
+row_template = r'		{0:} & {1:} & {2:} & {3:} & {4:} & {5:} \\'
+with open('build/tab_2.tex', 'w') as f:
+	f.write(table_header)
+	for row in zip(r(t, 0)[:10], r(N, 1)[:10], r(t, 0)[10:20], r(N, 1)[10:20], r(t, 0)[20:], r(N, 1)[20:]):
+		f.write(row_template.format(*row))
+		f.write('\n')
+	f.write(table_footer)
 
 
 # ---------------------------------------------------------------------------------------------------------------------------------------
@@ -346,7 +400,7 @@ num_Rh_1i = rN_1i[1]
 stt_Rh_1i = akt(num_Rh_1i)
 
 # ausgabe
-print(f'\nRh-104i\n\n\nHalbwertszeit:\n\nlam = {lam_Rh_1i:.5f}  [1/s]\ntau = {tau_Rh_1i:.2f}      [s]\n')
+print(f'\nRh-104i\n\n\nHalbwertszeit:\n\nlam = {lam_Rh_1i:.5f}  [1/s]\ntau = {tau_Rh_1i:.2f}        [s]\n')
 print(f'Ergebnis:\n{tau_Rh_1i % 60:.0f} s\n')
 print(f'Literatur:\n42.3 s\n\n\nStartaktivität:\n')
 print(f'num =  {num_Rh_1i:.3f}   [ln(1/s)]\nstt = {stt_Rh_1i:.3f}     [1/s]\n')
@@ -490,7 +544,7 @@ num_Rh_2i = rN_2i[1]
 stt_Rh_2i = akt(num_Rh_2i)
 
 # ausgabe
-print(f'\nRh-104i\n\n\nHalbwertszeit:\n\nlam = {lam_Rh_2i:.5f}  [1/s]\ntau = {tau_Rh_2i:.2f}      [s]\n')
+print(f'\nRh-104i\n\n\nHalbwertszeit:\n\nlam = {lam_Rh_2i:.5f}  [1/s]\ntau = {tau_Rh_2i:.2f}        [s]\n')
 print(f'Ergebnis:\n{tau_Rh_2i % 60:.0f} s\n')
 print(f'Literatur:\n42.3 s\n\n\nStartaktivität:\n')
 print(f'num =  {num_Rh_2i:.3f}   [ln(1/s)]\nstt = {stt_Rh_2i:.3f}     [1/s]\n')
@@ -528,3 +582,58 @@ ax1.set_xlabel(r'$t\;/\;$s')
 ax1.set_ylabel(r'$N\;/\;$s$^{-1}$')
 plt.savefig('build/plot_3_b_.pdf')
 plt.close()
+
+# tabellen
+table_header = r'''	\sisetup{table-parse-only}
+	\begin{tabular}{S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S}
+		\toprule
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} &
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} &
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} &
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} &
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} \\
+		\midrule
+'''
+table_footer = r'''		\bottomrule
+	\end{tabular}
+'''
+row_template = r'		{0:} & {1:} & {2:} & {3:} & {4:} & {5:} & {6:} & {7:} & {8:} & {9:} \\'
+with open('build/tab_3_a.tex', 'w') as f:
+	f.write(table_header)
+	for row in zip(r(t_1, 0)[:18], r(N_1, 1)[:18], r(t_1, 0)[18:36], r(N_1, 1)[18:36], r(t_1, 0)[36:54], r(N_1, 1)[36:54], r(t_1, 0)[54:72], r(N_1, 1)[54:72], r(t_1, 0)[72:], r(N_1, 1)[72:]):
+		f.write(row_template.format(*row))
+		f.write('\n')
+	f.write(table_footer)
+
+table_header = r'''	\sisetup{table-parse-only}
+	\begin{tabular}{S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S}
+		\toprule
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} &
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} &
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} &
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} \\
+		\midrule
+'''
+table_footer = r'''		\bottomrule
+	\end{tabular}
+'''
+row_template_1 = r'		{0:} & {1:} & {2:} & {3:} & {4:} & {5:} & {6:} & {7:} \\'
+row_template_2 = r'		{0:} & {1:} & {2:} & {3:} & {4:} & {5:} & & \\'
+with open('build/tab_3_b.tex', 'w') as f:
+	f.write(table_header)
+	for row in zip(r(t_2, 0)[:13], r(N_2, 1)[:13], r(t_2, 0)[13:26], r(N_2, 1)[13:26], r(t_2, 0)[26:39], r(N_2, 1)[26:39], r(t_2, 0)[39:], r(N_2, 1)[39:]):
+		f.write(row_template_1.format(*row))
+		f.write('\n')
+	for row in zip(r(t_2, 0)[11:13], r(N_2, 1)[11:13], r(t_2, 0)[24:26], r(N_2, 1)[24:26], r(t_2, 0)[37:39], r(N_2, 1)[37:39]):
+		f.write(row_template_2.format(*row))
+		f.write('\n')
+	f.write(table_footer)
