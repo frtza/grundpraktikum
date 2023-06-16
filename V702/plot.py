@@ -1,17 +1,14 @@
-#!/usr/bin/env python
-# coding: utf-8
+# pakete importieren
+import numpy as np
+import matplotlib.pyplot as plt
+import uncertainties.unumpy as unp
+from uncertainties.unumpy import nominal_values as noms, std_devs as stds, uarray as uar
 
-# #### Test
-
-# In[1]:
-
-
-get_ipython().run_cell_magic('capture', '', "\n%config InlineBackend.figure_formats = ['svg']\n\npwd = %pwd\npwd += '/..'\n\n%env TEXINPUTS=$pwd\n%env MATPLOTLIBRC=$pwd/matplotlibrc\n\n%matplotlib inline\n\nimport matplotlib as mpl\n\nmpl.rc_file('../matplotlibrc')\n\nmpl.use('module://matplotlib_inline.backend_inline')\nmpl.style.use('default')\n\nfrom matplotlib.backends.backend_pgf import FigureCanvasPgf\nmpl.backend_bases.register_backend('pdf', FigureCanvasPgf)\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport uncertainties.unumpy as unp\nfrom uncertainties.unumpy import nominal_values as noms, std_devs as stds, uarray as uar\n\ns = np.array([-1e4, 1e4])")
+# punkte
+s = np.array([-1e4, 1e4])
 
 
-# Nulleffekt
-
-# In[2]:
+# NULLEFFEKT ----------------------------------------------------------------------------------------------------------------------------
 
 
 # zentriertes gleitendes mittel
@@ -30,9 +27,6 @@ N_u /= t_u
 
 # zeitschritte
 t_u = np.arange(0, t_u * len(N_u), t_u) + t_u
-
-# dimension
-plt.figure(figsize=(9, 6))
 
 # grenzen
 plt.plot(t_u, N_u, 'k.', ms=0)
@@ -56,18 +50,14 @@ plt.plot(t_uu, N_uu, 'k.', ms=5, label='Messdaten')
 plt.xlabel(r'$t\;/\;$s')
 plt.ylabel(r'$N\;/\;$s$^{-1}$')
 
-# anzeigen
-plt.legend()
+# schliessen
+leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
+leg.get_frame().set_linewidth(0.6)
 plt.close()
 print(mN_u)
 
-
-# In[3]:
-
-
 # dimensionen
-fig = plt.figure(figsize=(10.5, 7))
-
+fig = plt.figure(figsize=(3/2 * 5.78, 3/2 * 2/3 * 5.78))
 
 # einteilung
 ax1 = fig.add_subplot(221)
@@ -88,7 +78,8 @@ plt.fill_between(s, noms(mN_u) - stds(mN_u) * s/s, noms(mN_u) + stds(mN_u) * s/s
 plt.plot(t_u_5, N_u_5, 'k.', ms=5, label='Messdaten')
 
 # anzeige
-plt.legend()
+leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
+leg.get_frame().set_linewidth(0.6)
 plt.xlabel('$n = 5$')
 
 
@@ -111,7 +102,8 @@ plt.fill_between(s, noms(mN_u) - stds(mN_u) * s/s, noms(mN_u) + stds(mN_u) * s/s
 plt.plot(t_u_10, N_u_10, 'k.', ms=5, label='Messdaten')
 
 # anzeige
-plt.legend()
+leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
+leg.get_frame().set_linewidth(0.6)
 plt.xlabel('$n = 10$')
 
 
@@ -134,7 +126,8 @@ plt.fill_between(s, noms(mN_u) - stds(mN_u) * s/s, noms(mN_u) + stds(mN_u) * s/s
 plt.plot(t_u_20, N_u_20, 'k.', ms=5, label='Messdaten')
 
 # anzeige
-plt.legend()
+leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
+leg.get_frame().set_linewidth(0.6)
 plt.xlabel('$n = 20$')
 
 
@@ -157,20 +150,22 @@ plt.fill_between(s, noms(mN_u) - stds(mN_u) * s/s, noms(mN_u) + stds(mN_u) * s/s
 plt.plot(t_u_40, N_u_40, 'k.', ms=5, label='Messdaten')
 
 # anzeige
-plt.legend()
+leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
+leg.get_frame().set_linewidth(0.6)
 plt.xlabel('$n = 40$')
 
 
 # anzeigen
 fig.supxlabel(r'$t\;/\;$s')
 fig.supylabel(r'$N\;/\;$s$^{-1}$')
-plt.subplots_adjust(hspace=0.25, left=0.075)
-plt.show()
+plt.savefig('build/plot_1.pdf')
+plt.close()
 
 
-# Vanadium
+# ---------------------------------------------------------------------------------------------------------------------------------------
 
-# In[4]:
+
+# VANADIUM ------------------------------------------------------------------------------------------------------------------------------
 
 
 # intervall
@@ -187,9 +182,6 @@ N = N - mN_u
 
 # zeitschritte
 t = np.arange(0, t * len(N), t) + t
-
-# dimension
-plt.figure(figsize=(9, 6))
 
 # skala konfigurieren
 ax1 = plt.subplot(111)
@@ -213,14 +205,13 @@ plt.plot(s, par[0] * s + par[1], c='olivedrab', label='Regression')
 plt.errorbar(t, np.log(noms(N)), yerr=stds(unp.log(N)), fmt='k.', ms=5, label='Messdaten')
 
 # anzeigen
-plt.legend()
+leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
+leg.get_frame().set_linewidth(0.6)
 ax1.set_xlabel(r'$t\;/\;$s')
 ax1.set_ylabel(r'$N\;/\;$s$^{-1}$')
-plt.show()
+plt.savefig('build/plot_2.pdf')
+plt.close()
 print(rN)
-
-
-# In[5]:
 
 
 # halbwertszeit aus zerfallskonstante
@@ -244,9 +235,10 @@ print(f'Literatur:\n3 min 44.6 s\n\n\nStartaktivität:\n')
 print(f'num = {num_V:.3f}   [ln(1/s)]\nstt = {stt_V:.3f}     [1/s]\n')
 
 
-# Rhodium
+# ---------------------------------------------------------------------------------------------------------------------------------------
 
-# In[6]:
+
+# RHODIUM -------------------------------------------------------------------------------------------------------------------------------
 
 
 # intervall
@@ -263,9 +255,6 @@ N_1 = N_1 - mN_u
 
 # zeitschritte
 t_1 = np.arange(0, t_1 * len(N_1), t_1) + t_1
-
-# dimension
-plt.figure(figsize=(9, 6))
 
 # skala konfigurieren
 ax1 = plt.subplot(111)
@@ -293,15 +282,13 @@ plt.plot(s, par_1[0] * s + par_1[1], c='olivedrab', label='Regression')
 plt.plot(t_1, np.log(noms(N_1)), 'k.', ms=5, label='Messdaten')
 
 # anzeigen
-plt.legend()
+leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
+leg.get_frame().set_linewidth(0.6)
 ax1.set_xlabel(r'$t\;/\;$s')
 ax1.set_ylabel(r'$N\;/\;$s$^{-1}$')
-plt.show()
+plt.savefig('build/plot_3_a.pdf')
+plt.close()
 print(rN_1)
-
-
-# In[7]:
-
 
 # berechnen
 lam_Rh_1 = -rN_1[0]
@@ -315,15 +302,8 @@ print(f'Ergebnis:\n{(tau_Rh_1.n - tau_Rh_1.n % 60) / 60:.0f} min {tau_Rh_1 % 60:
 print(f'Literatur:\n4 min 20 s\n\n\nStartaktivität:\n')
 print(f'num = {num_Rh_1:.3f}   [ln(1/s)]\nstt = {stt_Rh_1:.3f}     [1/s]\n')
 
-
-# In[8]:
-
-
 # bereinigen
 N_1i = N_1 - unp.exp(rN_1[0] * t_1 + rN_1[1])
-
-# dimension
-plt.figure(figsize=(9, 6))
 
 # skala konfigurieren
 ax1 = plt.subplot(111)
@@ -351,15 +331,13 @@ plt.plot(s, par_1i[0] * s + par_1i[1], c='olivedrab', label='Regression')
 plt.plot(t_1, np.log(abs(noms(N_1i))), 'k.', ms=5, label='Messdaten')
 
 # anzeigen
-plt.legend()
+leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
+leg.get_frame().set_linewidth(0.6)
 ax1.set_xlabel(r'$t\;/\;$s')
 ax1.set_ylabel(r'$N\;/\;$s$^{-1}$')
-plt.show()
+plt.savefig('build/plot_3i_a.pdf')
+plt.close()
 print(rN_1i)
-
-
-# In[9]:
-
 
 # berechnen
 lam_Rh_1i = -rN_1i[0]
@@ -373,18 +351,11 @@ print(f'Ergebnis:\n{tau_Rh_1i % 60:.0f} s\n')
 print(f'Literatur:\n42.3 s\n\n\nStartaktivität:\n')
 print(f'num =  {num_Rh_1i:.3f}   [ln(1/s)]\nstt = {stt_Rh_1i:.3f}     [1/s]\n')
 
-
-# In[10]:
-
-
 # probe
 tt_1 = 410
 ttt_1 = 80
 print(f'\nBedingung:\n\nt* = {tt_1}  [s]\nt** = {ttt_1}  [s]\n')
 print(f'Ni(t*) = {unp.exp(rN_1i[0]*tt_1+rN_1i[1])}  [1/s] << N(t*) = {unp.exp(rN_1[0]*tt_1+rN_1[1])}  [1/s]\n')
-
-# dimension
-plt.figure(figsize=(9, 6))
 
 # skala konfigurieren
 ax1 = plt.subplot(111)
@@ -407,14 +378,12 @@ plt.plot(xx, noms(yy), c='olivedrab', label='Superposition')
 plt.errorbar(t_1, np.log(noms(N_1)), yerr=stds(unp.log(N_1)), fmt='k.', ms=5, label='Messpunkte')
 
 # anzeigen
-plt.legend()
+leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
+leg.get_frame().set_linewidth(0.6)
 ax1.set_xlabel(r'$t\;/\;$s')
 ax1.set_ylabel(r'$N\;/\;$s$^{-1}$')
-plt.show()
-
-
-# In[11]:
-
+plt.savefig('build/plot_3_a_.pdf')
+plt.close()
 
 # intervall
 t_2 = 15
@@ -430,9 +399,6 @@ N_2 = N_2 - mN_u
 
 # zeitschritte
 t_2 = np.arange(0, t_2 * len(N_2), t_2) + t_2
-
-# dimension
-plt.figure(figsize=(9, 6))
 
 # skala konfigurieren
 ax1 = plt.subplot(111)
@@ -460,15 +426,13 @@ plt.plot(s, par_2[0] * s + par_2[1], c='olivedrab', label='Regression')
 plt.plot(t_2, np.log(noms(N_2)), 'k.', ms=5, label='Messdaten')
 
 # anzeigen
-plt.legend()
+leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
+leg.get_frame().set_linewidth(0.6)
 ax1.set_xlabel(r'$t\;/\;$s')
 ax1.set_ylabel(r'$N\;/\;$s$^{-1}$')
-plt.show()
+plt.savefig('build/plot_3_b.pdf')
+plt.close()
 print(rN_2)
-
-
-# In[12]:
-
 
 # berechnen
 lam_Rh_2 = -rN_2[0]
@@ -482,15 +446,8 @@ print(f'Ergebnis:\n{(tau_Rh_2.n - tau_Rh_2.n % 60) / 60:.0f} min {tau_Rh_2 % 60:
 print(f'Literatur:\n4 min 20 s\n\n\nStartaktivität:\n')
 print(f'num = {num_Rh_2:.3f}   [ln(1/s)]\nstt = {stt_Rh_2:.3f}     [1/s]\n')
 
-
-# In[13]:
-
-
 # bereinigen
 N_2i = N_2 - unp.exp(rN_2[0] * t_2 + rN_2[1])
-
-# dimension
-plt.figure(figsize=(9, 6))
 
 # skala konfigurieren
 ax1 = plt.subplot(111)
@@ -518,15 +475,13 @@ plt.plot(s, par_2i[0] * s + par_2i[1], c='olivedrab', label='Regression')
 plt.plot(t_2, np.log(abs(noms(N_2i))), 'k.', ms=5, label='Messdaten')
 
 # anzeigen
-plt.legend()
+leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
+leg.get_frame().set_linewidth(0.6)
 ax1.set_xlabel(r'$t\;/\;$s')
 ax1.set_ylabel(r'$N\;/\;$s$^{-1}$')
-plt.show()
+plt.savefig('build/plot_3i_b.pdf')
+plt.close()
 print(rN_2i)
-
-
-# In[14]:
-
 
 # berechnen
 lam_Rh_2i = -rN_2i[0]
@@ -540,18 +495,11 @@ print(f'Ergebnis:\n{tau_Rh_2i % 60:.0f} s\n')
 print(f'Literatur:\n42.3 s\n\n\nStartaktivität:\n')
 print(f'num =  {num_Rh_2i:.3f}   [ln(1/s)]\nstt = {stt_Rh_2i:.3f}     [1/s]\n')
 
-
-# In[15]:
-
-
 # probe
 tt_2 = 420
 ttt_2 = 210
 print(f'\nBedingung:\n\nt*  = {tt_2}  [s]\nt** = {ttt_2}  [s]\n')
 print(f'Ni(t*) = {unp.exp(rN_2i[0]*tt_2+rN_2i[1])}  [1/s] << N(t*) = {unp.exp(rN_2[0]*tt_2+rN_2[1])}  [1/s]\n')
-
-# dimension
-plt.figure(figsize=(9, 6))
 
 # skala konfigurieren
 ax1 = plt.subplot(111)
@@ -574,8 +522,9 @@ plt.plot(xx, noms(yy), c='olivedrab', label='Superposition')
 plt.errorbar(t_2, np.log(noms(N_2)), yerr=stds(unp.log(N_2)), fmt='k.', ms=5, label='Messpunkte')
 
 # anzeigen
-plt.legend()
+leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
+leg.get_frame().set_linewidth(0.6)
 ax1.set_xlabel(r'$t\;/\;$s')
 ax1.set_ylabel(r'$N\;/\;$s$^{-1}$')
-plt.show()
-
+plt.savefig('build/plot_3_b_.pdf')
+plt.close()
