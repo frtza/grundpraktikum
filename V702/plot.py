@@ -60,7 +60,7 @@ plt.ylabel(r'$N\;/\;$s$^{-1}$')
 leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
 leg.get_frame().set_linewidth(0.6)
 plt.close()
-print(mN_u)
+print(f'{mN_u:.5f}')
 
 # dimensionen
 fig = plt.figure(figsize=(3/2 * 5.78, 3/2 * 2/3 * 5.78))
@@ -611,8 +611,10 @@ with open('build/tab_3_a.tex', 'w') as f:
 	f.write(table_footer)
 
 table_header = r'''	\sisetup{table-parse-only}
-	\begin{tabular}{S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S}
+	\begin{tabular}{S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S}
 		\toprule
+		{$t \mathbin{/} \unit{\second}$} &
+		{$N \mathbin{/} \unit{\per\second}$} &
 		{$t \mathbin{/} \unit{\second}$} &
 		{$N \mathbin{/} \unit{\per\second}$} &
 		{$t \mathbin{/} \unit{\second}$} &
@@ -626,14 +628,10 @@ table_header = r'''	\sisetup{table-parse-only}
 table_footer = r'''		\bottomrule
 	\end{tabular}
 '''
-row_template_1 = r'		{0:} & {1:} & {2:} & {3:} & {4:} & {5:} & {6:} & {7:} \\'
-row_template_2 = r'		{0:} & {1:} & {2:} & {3:} & {4:} & {5:} & & \\'
+row_template = r'		{0:} & {1:} & {2:} & {3:} & {4:} & {5:} & {6:} & {7:} & {8:} & {9:} \\'
 with open('build/tab_3_b.tex', 'w') as f:
 	f.write(table_header)
-	for row in zip(r(t_2, 0)[:13], r(N_2, 1)[:13], r(t_2, 0)[13:26], r(N_2, 1)[13:26], r(t_2, 0)[26:39], r(N_2, 1)[26:39], r(t_2, 0)[39:], r(N_2, 1)[39:]):
-		f.write(row_template_1.format(*row))
-		f.write('\n')
-	for row in zip(r(t_2, 0)[11:13], r(N_2, 1)[11:13], r(t_2, 0)[24:26], r(N_2, 1)[24:26], r(t_2, 0)[37:39], r(N_2, 1)[37:39]):
-		f.write(row_template_2.format(*row))
+	for row in zip(r(t_2, 0)[:10], r(N_2, 1)[:10], r(t_2, 0)[10:20], r(N_2, 1)[10:20], r(t_2, 0)[20:30], r(N_2, 1)[20:30], r(t_2, 0)[30:40], r(N_2, 1)[30:40], r(t_2, 0)[40:], r(N_2, 1)[40:]):
+		f.write(row_template.format(*row))
 		f.write('\n')
 	f.write(table_footer)
