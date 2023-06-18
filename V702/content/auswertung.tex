@@ -4,43 +4,109 @@
 \section{Auswertung}
 \label{sec:auswertung}
 
+Die beschriebenen Zusammenhänge werden nun angewendet und geprüft.
+
+\subsection{Methodik}
+
+Für eine Stichprobe $x$ aus $K$ Messpunkten $x_k$ ist der Mittelwert mit
+\begin{align*}
+	\mu(x) = \pfrac{1}{\hspace{-0.25ex}K\hspace{0.25ex}} \sum_{k\hspace{0.25ex} = 1}^K x_k
+\end{align*}
+gegeben. Über diesen ist auch die Standardabweichung
+\begin{align*}
+	\sigma(x) = \sqrt{\mu(x^2) - \mu(x)^2}
+\end{align*}
+als Streumaß definiert. Zum weiteren Vorgehen wird die Berechnung und Fortpflanzung von Abweichungen mithilfe der Bibliothek
+\verb+uncertainties+ \cite{uncertainties} automatisiert. Lineare Ausgleichsrechnungen werden mit \verb+numpy+ \cite{numpy}
+durchgeführt. Dabei ergeben sich die Fehler aus der jeweiligen Kovarianzmatrix. Zur Erstellung von Grafiken kommt
+\verb+matplotlib+ \cite{matplotlib} zum Einsatz. Alle Programme werden unter \verb+python+ \cite{python} ausgeführt.
+Passende Zeiten zur Aktivierung sowie günstige Messintervalle werden Abbildung~\ref{fig:liste} entnommen.
+
 \subsection{Nulleffekt}
 
 \begin{table}[H]
 	\centering
-	\caption{}
+	\caption{Messdaten zum Nulleffekt bei $\Delta t = \qty{10}{\second}$.}
 	\makebox[\linewidth][c]{\input{build/tab_1.tex}}
 	\label{tab:1}
 \end{table}
 
+Aus den Messwerten in Tabelle~\ref{tab:1} ergibt sich die gemittelte Größe
+\begin{align*}
+	N = \qty{0.392+-0.185}{\per\second}
+\end{align*}
+für die Hintergrundzählrate. Alle anschließenden Messreihen müssen durch Subtraktion von $N$ bereinigt werden, damit sich daraus
+sinnvolle Werte ergeben. Zur Beurteilung des Streuverhaltens und der Annahme, dass der Nulleffekt über große Zeiträume konstant
+ist, wird ein gleitender Mittelwert implementiert, der aus $n$ benachbarten Messpunkten zentriert das arithmetische Mittel
+berechnet. Abbildung~\ref{fig:1} stellt dazu einige Fälle dar.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{build/plot_1.pdf}
-	\caption{}
+	\caption{Streuverhalten der Hintergrundzählrate.}
 	\label{fig:1}
 \end{figure}
 
+Der Bereich der Standardabweichung des Nulleffekts ist farblich hinterlegt. Es lässt sich eine gleichmäßige Konvergenz der geglätteten
+Daten aus Tabelle~\ref{tab:1} gegen den Mittelwert erkennen. Die Vorraussetzung einer uniform verteilten Zufallsgröße scheint also
+erfüllt zu sein, sodass mit der weiteren Auswertung fortgefahren werden kann.
+
 \subsection{Vanadium}
+
+Anhand des Isotops $\ce{^{52}V}$ als Aktivierungsprdukt von $\ce{^{51}V}$ wird exemplarisch ein relativ einfacher Zerfallsprozess
+analysiert. Dazu werden die Werte in Tabelle~\ref{tab:2} logarithmiert, eine lineare Regression liefert dann die gesuchten Parameter.
 
 \begin{table}[H]
 	\centering
-	\caption{}
+	\caption{Bereinigte Messdaten zu $\ce{^{52}V}$ bei $\Delta t = \qty{30}{\second}$.}
 	\makebox[\linewidth][c]{\input{build/tab_2.tex}}
 	\label{tab:2}
 \end{table}
 
+Mit dem konstanten Faktor $C = N_0 \hspace{0.25ex} \bigl(1 - \exp(-\lambda)\bigr)$ kann die Aktivität als
+\begin{align*}
+	N(t) = C \exp(-\lambda t)
+\end{align*}
+zusammengefasst werden. Entlang der logarithmischen Formulierung kann
+\begin{align*}
+	\ln(N(t)) = a\hspace{0.25ex}t + b
+\end{align*}
+als lineares Modell mit $\lambda = -a$ und $C = \exp(b)$ angesetzt werden.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{build/plot_2.pdf}
-	\caption{}
+	\caption{Halblogarithmisches Zerfallsdiagramm für $\ce{^{52}V}$.}
 	\label{fig:2}
 \end{figure}
 
+Die resultierende Ausgleichsgerade mit den Optimierungsparametern
+\begin{align*}
+	a = \qty[group-minimum-digits=6]{-0.00303+-0.00016}{\per\second} && b = \num{1.719+-0.087}
+\end{align*}
+ist in Abbildung~\ref{fig:2} eingetragen. Aus $a$ folgen die Zerfallskonstante
+\begin{align*}
+	\lambda = \qty[group-minimum-digits=6]{0.00303+-0.00016}{\per\second}
+\end{align*}
+und über den Zusammenhang $T = \ln (2) \hspace{0.25ex} \lambda^{-1}$ die Halbwertszeit
+\begin{align*}
+	T = \qty{228.4+-12.3}{\second}
+\end{align*}
+für $\ce{^{52}V}$. Der konstante Faktor $C$ berechnet sich aus $b$ zu
+\begin{align*}
+	C = \qty{5.580+-0.486}{\per\second}
+\end{align*}
+und gibt ein Maß für die initiale Aktivität an.
+
 \subsection{Rhodium}
+
+Neben dem instabilen Isotop $\ce{^{104}Rh}$ produziert die Neutronenaktivierung von $\ce{^{103}Rh}$ mit dem metastabilen $\ce{^{104m}Rh}$
+auch dazu isomere Kerne. Dadurch tritt ein komplexer Zerfallsvorgang auf, bei dessen Untersuchung die Beiträge der gemischten Isotope
+separiert werden müssen, bevor eine weitere Verarbeitung der Daten möglich ist.
 
 \begin{table}[H]
 	\centering
-	\caption{}
+	\caption{Bereinigte Messdaten zum $\ce{^{104}Rh}$-Gemisch bei $\Delta t = \qty{8}{\second}$.}
 	\makebox[\linewidth][c]{\input{build/tab_3_a.tex}}
 	\label{tab:3_a}
 \end{table}
@@ -48,27 +114,82 @@
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{build/plot_3_a.pdf}
-	\caption{}
+	\caption{Halblogarithmisches Zerfallsdiagramm für $\ce{^{104m}Rh}$ bei $\Delta t = \qty{8}{\second}$.}
 	\label{fig:3_a}
 \end{figure}
+
+Anhand Abbildung~\ref{fig:3_a} wird ein Zeitpunkt $t_1 = \qty{410}{\second}$ geschätzt, ab dem die logarithmierten Daten aus
+Tabelle~\ref{tab:3_a} um eine Gerade streuen, also nur noch das langlebigere $\ce{^{104m}Rh}$ zur Aktivität beiträgt. Die Messwerte
+$t \geq t_1$ werden dann zur linearen Ausgleichsrechnung herangezogen. Der entsprechende Bereich ist farblich gekennzeichnet.
+
+
+Die weitere Rechnung verläuft analog zum einfachen Zerfall. Mit den Koeffizienten
+\begin{align*}
+	a_1 = \qty[group-minimum-digits=6]{-0.00273+-0.00079}{\per\second} && b_1 = \num{1.476+-0.459}
+\end{align*}
+folgt aus $a_1$ die Zerfallskonstante
+\begin{align*}
+	\lambda_1 = \qty[group-minimum-digits=6]{0.00273+-0.00079}{\per\second}
+\end{align*}
+und damit die Halbwerszeit
+\begin{align*}
+	T_1 = \qty{254.3+-74.4}{\second}
+\end{align*}
+für $\ce{^{104m}Rh}$. Aus $b_1$ kann
+\begin{align*}
+	C_1 = \qty{4.376+-2.008}{\per\second}
+\end{align*}
+berechnet werden.
+\\[5em]
+Für den Zerfall von $\ce{^{104}Rh}$ muss die soeben bestimmte Zählrate $N_1(t) = C_1 \exp(-\lambda_1 t)$ von den in Tabelle~\ref{tab:3_a}
+nachgehaltenen Messwerten abgezogen werden. Die Ergebnisse dieser Korrektur sind in Abbildung~\ref{fig:3i_a} visualisiert. Nun wird ein
+Zeitpunkt $t_2 = \qty{80}{\second}$ gewählt, wobei $t_2 < t_1$ gefordert ist. Punkte $t \leq t_2$ verlaufen annähernd geradelinig und
+erlauben erneut eine Regressionsrechnung. Wieder ist der verwendete Bereich farblich hervorgehoben.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{build/plot_3i_a.pdf}
-	\caption{}
+	\caption{Halblogarithmisches Zerfallsdiagramm für $\ce{^{104}Rh}$ bei $\Delta t = \qty{8}{\second}$.}
 	\label{fig:3i_a}
 \end{figure}
+
+Die geringste Abweichung zwischen Modell und Messung ist durch
+\begin{align*}
+	a_2 = \qty[group-minimum-digits=6]{-0.01703+-0.00153}{\per\second} && b_2 = \num{3.500+-0.076}
+\end{align*}
+gegeben. Aus $a_2$ folgt die Zerfallskonstante
+\begin{align*}
+	\lambda_2 = \qty[group-minimum-digits=6]{0.01703+-0.00153}{\per\second}
+\end{align*}
+und damit eine Halbwertzeit von
+\begin{align*}
+	T_2 = \qty{40.7+-3.7}{\second}
+\end{align*}
+für $\ce{^{104}Rh}$. Aus $b_2$ lässt sich
+\begin{align*}
+	C_2 = \qty{33.105+-2.517}{\per\second}
+\end{align*}
+bestimmen. 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{build/plot_3_a_.pdf}
-	\caption{}
+	\caption{Halblogarithmisches Zerfallsdiagramm zum $\ce{^{104}Rh}$-Gemisch bei $\Delta t = \qty{8}{\second}$.}
 	\label{fig:3_a_}
 \end{figure}
 
+Der Verlauf des Zerfalls der Isotopen-Mischung sollte der Superposition der Resultate
+\begin{align*}
+	N(t) = C_1 \exp(-\lambda_1 t) + C_2 \exp(-\lambda_2 t)
+\end{align*}
+gehorchen. Abbildung~\ref{fig:3_a_} erlaubt eine Beurteilung der Güte dieses Modells. Darin werden nun auch Fehlerbalken zu den
+Messwerten eingetragen, welche in den Abbildungen~\ref{fig:3_a}~und~\ref{fig:3i_a} zur besseren Lesbarkeit ausgelassen sind.
+
+Völlig analog wird eine zweite Messreihe mit größeren Zeitintervallen ausgewertet.
+
 \begin{table}[H]
 	\centering
-	\caption{}
+	\caption{Bereinigte Messdaten zum $\ce{^{104}Rh}$-Gemisch bei $\Delta t = \qty{15}{\second}$.}
 	\makebox[\linewidth][c]{\input{build/tab_3_b.tex}}
 	\label{tab:3_b}
 \end{table}
@@ -76,20 +197,69 @@
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{build/plot_3_b.pdf}
-	\caption{}
+	\caption{Halblogarithmisches Zerfallsdiagramm für $\ce{^{104m}Rh}$ bei $\Delta t = \qty{15}{\second}$.}
 	\label{fig:3_b}
 \end{figure}
+
+Für $t_1 = \qty{420}{\second}$ ergeben sich aus der in Abbildung~\ref{fig:3_b} dargestellten linearen Regression
+\begin{align*}
+	a_1 = \qty[group-minimum-digits=6]{-0.00259+-0.00059}{\per\second} && b_1 = \num{1.516+-0.349}
+\end{align*}
+als Parameter. Mit $a_1$ folgen daraus die Zerfallskonstante
+\begin{align*}
+	\lambda_1 = \qty[group-minimum-digits=6]{0.00259+-0.00059}{\per\second}
+\end{align*}
+sowie die entsprechende Halbwertszeit
+\begin{align*}
+	T_1 = \qty{268.1+-60.9}{\second}
+\end{align*}
+für $\ce{^{104m}Rh}$. Mit $b_1$ kann der Faktor
+\begin{align*}
+	C_1 = \qty{4.555+-1.589}{\per\second}
+\end{align*}
+bestimmt werden.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{build/plot_3i_b.pdf}
-	\caption{}
+	\caption{Halblogarithmisches Zerfallsdiagramm für $\ce{^{104}Rh}$ bei $\Delta t = \qty{15}{\second}$.}
 	\label{fig:3i_b}
 \end{figure}
+
+Die bereinigten Werte in Abbildung~\ref{fig:3i_b} liefern mit $t_2 = \qty{210}{\second}$ auf gleiche Weise wie zuvor
+\begin{align*}
+	a_2 = \qty[group-minimum-digits=6]{-0.01702+-0.00051}{\per\second} && b_2 = \num{3.988+-0.065}
+\end{align*}
+als Regressionsparameter. Aus $a_2$ folgt die Zerfallskonstante
+\begin{align*}
+	\lambda_2 = \qty[group-minimum-digits=6]{0.01702+-0.00051}{\per\second}
+\end{align*}
+und damit die zugehörige Halbwertszeit
+\begin{align*}
+	T_2 = \qty{40.7+-1.2}{\second}
+\end{align*}
+für $\ce{^{104}Rh}$. Über $b_2$ lässt sich
+\begin{align*}
+	C_2 = \qty{53.941+-3.492}{\per\second}
+\end{align*}
+berechnen.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{build/plot_3_b_.pdf}
-	\caption{}
+	\captionsetup{width=0.909\linewidth}
+	\caption{Halblogarithmisches Zerfallsdiagramm zum $\ce{^{104}Rh}$-Gemisch bei $\Delta t = \qty{15}{\second}$.}
 	\label{fig:3_b_}
 \end{figure}
+
+Abbildung~\ref{fig:3_b_} enthält wie Abbildung~\ref{fig:3_a_} die Superposition der Ergebnisse samt grafischer Darstellung der
+fehlerbehafteten Messgrößen aus Tabelle~\ref{tab:3_b}.
+
+Es lässt sich noch die Wahl der Zeitpunkte $t_1$ und $t_2$ überprüfen, indem in die Bedingung $N_2(t_2) \ll N_1(t_2)$ eingesetzt wird.
+
+Für $\Delta t = \qty{8}{\second}$ ist diese Forderung mit $\qty{0.031+-0.019}{\per\second} \ll \qty{1.431+-0.807}{\per\second}$ erfüllt.
+
+Mit $\qty{0.042+-0.009}{\per\second} \ll \qty{1.538+-0.657}{\per\second}$ genügt auch $\Delta t = \qty{15}{\second}$ der Voraussetzung.
+
+Um die Ergebnisse zusammenzufassen, wird zuletzt für beide Messreihen der Mittelwert aufgestellt. Die Halbwertszeiten belaufen sich dann auf
+$T = \qty{261.2+-48.1}{\second}$ für $\ce{^{104m}Rh}$ und $T = \qty{40.7+-1.9}{\second}$ für $\ce{^{104}Rh}$.

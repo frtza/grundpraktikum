@@ -2,7 +2,7 @@ all:
 	make -k -C template
 	make -k -C US1
 	make -k -C US3
-	make -k -C V401
+	make -k -C V400
 	make -k -C V407
 	make -k -C V500
 	make -k -C V503
@@ -22,8 +22,8 @@ US1:
 US3:
 	make -C US3
 
-V401:
-	make -C V401
+V400:
+	make -C V400
 
 V407:
 	make -C V407
@@ -56,7 +56,7 @@ clean:
 	make -k -C template clean
 	make -k -C US1 clean
 	make -k -C US3 clean
-	make -k -C V401 clean
+	make -k -C V400 clean
 	make -k -C V407 clean
 	make -k -C V500 clean
 	make -k -C V503 clean
@@ -67,4 +67,4 @@ clean:
 	make -k -C V702 clean
 	make -k -C V703 clean
 
-.PHONY: clean template US1 US3 V401 V407 V500 V503 V504 V601 V606 V701 V702 V703
+.PHONY: clean template US1 US3 V400 V407 V500 V503 V504 V601 V606 V701 V702 V703
