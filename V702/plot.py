@@ -54,7 +54,7 @@ plt.plot(t_uu, N_uu, 'k.', ms=5, label='Messdaten')
 
 # beschriftung
 plt.xlabel(r'$t\;/\;$s')
-plt.ylabel(r'$N\;/\;$s$^{-1}$')
+plt.ylabel(r'$A\;/\;$s$^{-1}$')
 
 # schliessen
 leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
@@ -163,7 +163,7 @@ plt.xlabel('$n = 40$')
 
 # anzeigen
 fig.supxlabel(r'$t\;/\;$s')
-fig.supylabel(r'$N\;/\;$s$^{-1}$')
+fig.supylabel(r'$A\;/\;$s$^{-1}$')
 plt.savefig('build/plot_1.pdf')
 plt.close()
 
@@ -172,13 +172,13 @@ table_header = r'''	\sisetup{table-parse-only}
 	\begin{tabular}{S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S}
 		\toprule
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} &
+		{$A \mathbin{/} \unit{\per\second}$} &
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} &
+		{$A \mathbin{/} \unit{\per\second}$} &
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} &
+		{$A \mathbin{/} \unit{\per\second}$} &
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} \\
+		{$A \mathbin{/} \unit{\per\second}$} \\
 		\midrule
 '''
 table_footer = r'''		\bottomrule
@@ -239,7 +239,7 @@ plt.errorbar(t, np.log(noms(N)), yerr=stds(unp.log(N)), fmt='k.', ms=5, label='M
 leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
 leg.get_frame().set_linewidth(0.6)
 ax1.set_xlabel(r'$t\;/\;$s')
-ax1.set_ylabel(r'$N\;/\;$s$^{-1}$')
+ax1.set_ylabel(r'$A\;/\;$s$^{-1}$')
 plt.savefig('build/plot_2.pdf')
 plt.close()
 print(rN)
@@ -270,11 +270,11 @@ table_header = r'''	\sisetup{table-parse-only}
 	\begin{tabular}{S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S}
 		\toprule
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} &
+		{$A \mathbin{/} \unit{\per\second}$} &
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} &
+		{$A \mathbin{/} \unit{\per\second}$} &
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} \\
+		{$A \mathbin{/} \unit{\per\second}$} \\
 		\midrule
 '''
 table_footer = r'''		\bottomrule
@@ -339,7 +339,7 @@ plt.plot(t_1, np.log(noms(N_1)), 'k.', ms=5, label='Messdaten')
 leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
 leg.get_frame().set_linewidth(0.6)
 ax1.set_xlabel(r'$t\;/\;$s')
-ax1.set_ylabel(r'$N\;/\;$s$^{-1}$')
+ax1.set_ylabel(r'$A\;/\;$s$^{-1}$')
 plt.savefig('build/plot_3_a.pdf')
 plt.close()
 print(rN_1)
@@ -388,7 +388,7 @@ plt.plot(t_1, np.log(abs(noms(N_1i))), 'k.', ms=5, label='Messdaten')
 leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
 leg.get_frame().set_linewidth(0.6)
 ax1.set_xlabel(r'$t\;/\;$s')
-ax1.set_ylabel(r'$N\;/\;$s$^{-1}$')
+ax1.set_ylabel(r'$A\;/\;$s$^{-1}$')
 plt.savefig('build/plot_3i_a.pdf')
 plt.close()
 print(rN_1i)
@@ -435,7 +435,7 @@ plt.errorbar(t_1, np.log(noms(N_1)), yerr=stds(unp.log(N_1)), fmt='k.', ms=5, la
 leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
 leg.get_frame().set_linewidth(0.6)
 ax1.set_xlabel(r'$t\;/\;$s')
-ax1.set_ylabel(r'$N\;/\;$s$^{-1}$')
+ax1.set_ylabel(r'$A\;/\;$s$^{-1}$')
 plt.savefig('build/plot_3_a_.pdf')
 plt.close()
 
@@ -483,7 +483,7 @@ plt.plot(t_2, np.log(noms(N_2)), 'k.', ms=5, label='Messdaten')
 leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
 leg.get_frame().set_linewidth(0.6)
 ax1.set_xlabel(r'$t\;/\;$s')
-ax1.set_ylabel(r'$N\;/\;$s$^{-1}$')
+ax1.set_ylabel(r'$A\;/\;$s$^{-1}$')
 plt.savefig('build/plot_3_b.pdf')
 plt.close()
 print(rN_2)
@@ -532,7 +532,7 @@ plt.plot(t_2, np.log(abs(noms(N_2i))), 'k.', ms=5, label='Messdaten')
 leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
 leg.get_frame().set_linewidth(0.6)
 ax1.set_xlabel(r'$t\;/\;$s')
-ax1.set_ylabel(r'$N\;/\;$s$^{-1}$')
+ax1.set_ylabel(r'$A\;/\;$s$^{-1}$')
 plt.savefig('build/plot_3i_b.pdf')
 plt.close()
 print(rN_2i)
@@ -579,7 +579,7 @@ plt.errorbar(t_2, np.log(noms(N_2)), yerr=stds(unp.log(N_2)), fmt='k.', ms=5, la
 leg = plt.legend(loc='upper right', framealpha=1, facecolor='w', edgecolor='k')
 leg.get_frame().set_linewidth(0.6)
 ax1.set_xlabel(r'$t\;/\;$s')
-ax1.set_ylabel(r'$N\;/\;$s$^{-1}$')
+ax1.set_ylabel(r'$A\;/\;$s$^{-1}$')
 plt.savefig('build/plot_3_b_.pdf')
 plt.close()
 
@@ -588,15 +588,15 @@ table_header = r'''	\sisetup{table-parse-only}
 	\begin{tabular}{S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S}
 		\toprule
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} &
+		{$A \mathbin{/} \unit{\per\second}$} &
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} &
+		{$A \mathbin{/} \unit{\per\second}$} &
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} &
+		{$A \mathbin{/} \unit{\per\second}$} &
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} &
+		{$A \mathbin{/} \unit{\per\second}$} &
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} \\
+		{$A \mathbin{/} \unit{\per\second}$} \\
 		\midrule
 '''
 table_footer = r'''		\bottomrule
@@ -614,15 +614,15 @@ table_header = r'''	\sisetup{table-parse-only}
 	\begin{tabular}{S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S @{\hspace{5ex}} S S}
 		\toprule
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} &
+		{$A \mathbin{/} \unit{\per\second}$} &
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} &
+		{$A \mathbin{/} \unit{\per\second}$} &
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} &
+		{$A \mathbin{/} \unit{\per\second}$} &
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} &
+		{$A \mathbin{/} \unit{\per\second}$} &
 		{$t \mathbin{/} \unit{\second}$} &
-		{$N \mathbin{/} \unit{\per\second}$} \\
+		{$A \mathbin{/} \unit{\per\second}$} \\
 		\midrule
 '''
 table_footer = r'''		\bottomrule

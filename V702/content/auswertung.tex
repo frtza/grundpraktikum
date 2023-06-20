@@ -33,9 +33,9 @@ Passende Zeiten zur Aktivierung sowie günstige Messintervalle werden Abbildung~
 
 Aus den Messwerten in Tabelle~\ref{tab:1} ergibt sich die gemittelte Größe
 \begin{align*}
-	N = \qty{0.392+-0.185}{\per\second}
+	A = \qty{0.392+-0.185}{\per\second}
 \end{align*}
-für die Hintergrundzählrate. Alle anschließenden Messreihen müssen durch Subtraktion von $N$ bereinigt werden, damit sich daraus
+für die Hintergrundzählrate. Alle anschließenden Messreihen müssen durch Subtraktion von $A$ bereinigt werden, damit sich daraus
 sinnvolle Werte ergeben. Zur Beurteilung des Streuverhaltens und der Annahme, dass der Nulleffekt über große Zeiträume konstant
 ist, wird ein gleitender Mittelwert implementiert, der aus $n$ benachbarten Messpunkten zentriert das arithmetische Mittel
 berechnet. Abbildung~\ref{fig:1} stellt dazu einige Fälle dar.
@@ -63,13 +63,13 @@ analysiert. Dazu werden die Werte in Tabelle~\ref{tab:2} logarithmiert, eine lin
 	\label{tab:2}
 \end{table}
 
-Mit dem konstanten Faktor $C = N_0 \hspace{0.25ex} \bigl(1 - \exp(-\lambda)\bigr)$ kann die Aktivität als
+Mit dem konstanten Faktor $C = A_0 \hspace{0.25ex} \bigl(1 - \exp(-\lambda)\bigr)$ kann die Aktivität als
 \begin{align*}
-	N(t) = C \exp(-\lambda t)
+	A(t) = C \exp(-\lambda t)
 \end{align*}
 zusammengefasst werden. Entlang der logarithmischen Formulierung kann
 \begin{align*}
-	\ln(N(t)) = a\hspace{0.25ex}t + b
+	\ln(A(t)) = a\hspace{0.25ex}t + b
 \end{align*}
 als lineares Modell mit $\lambda = -a$ und $C = \exp(b)$ angesetzt werden.
 
@@ -141,7 +141,7 @@ für $\ce{^{104m}Rh}$. Aus $b_1$ kann
 \end{align*}
 berechnet werden.
 \\[5em]
-Für den Zerfall von $\ce{^{104}Rh}$ muss die soeben bestimmte Zählrate $N_1(t) = C_1 \exp(-\lambda_1 t)$ von den in Tabelle~\ref{tab:3_a}
+Für den Zerfall von $\ce{^{104}Rh}$ muss die soeben bestimmte Zählrate $A_1(t) = C_1 \exp(-\lambda_1 t)$ von den in Tabelle~\ref{tab:3_a}
 nachgehaltenen Messwerten abgezogen werden. Die Ergebnisse dieser Korrektur sind in Abbildung~\ref{fig:3i_a} visualisiert. Nun wird ein
 Zeitpunkt $t_2 = \qty{80}{\second}$ gewählt, wobei $t_2 < t_1$ gefordert ist. Punkte $t \leq t_2$ verlaufen annähernd geradelinig und
 erlauben erneut eine Regressionsrechnung. Wieder ist der verwendete Bereich farblich hervorgehoben.
@@ -180,7 +180,7 @@ bestimmen.
 
 Der Verlauf des Zerfalls der Isotopen-Mischung sollte der Superposition der Resultate
 \begin{align*}
-	N(t) = C_1 \exp(-\lambda_1 t) + C_2 \exp(-\lambda_2 t)
+	A(t) = C_1 \exp(-\lambda_1 t) + C_2 \exp(-\lambda_2 t)
 \end{align*}
 gehorchen. Abbildung~\ref{fig:3_a_} erlaubt eine Beurteilung der Güte dieses Modells. Darin werden nun auch Fehlerbalken zu den
 Messwerten eingetragen, welche in den Abbildungen~\ref{fig:3_a}~und~\ref{fig:3i_a} zur besseren Lesbarkeit ausgelassen sind.
@@ -255,7 +255,7 @@ berechnen.
 Abbildung~\ref{fig:3_b_} enthält wie Abbildung~\ref{fig:3_a_} die Superposition der Ergebnisse samt grafischer Darstellung der
 fehlerbehafteten Messgrößen aus Tabelle~\ref{tab:3_b}.
 
-Es lässt sich noch die Wahl der Zeitpunkte $t_1$ und $t_2$ überprüfen, indem in die Bedingung $N_2(t_2) \ll N_1(t_2)$ eingesetzt wird.
+Es lässt sich noch die Wahl der Zeitpunkte $t_1$ und $t_2$ überprüfen, indem in die Bedingung $A_2(t_2) \ll A_1(t_2)$ eingesetzt wird.
 
 Für $\Delta t = \qty{8}{\second}$ ist diese Forderung mit $\qty{0.031+-0.019}{\per\second} \ll \qty{1.431+-0.807}{\per\second}$ erfüllt.
 
