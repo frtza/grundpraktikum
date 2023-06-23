@@ -47,7 +47,8 @@ df = pd.DataFrame(data = f)
 def f(v):
     return (2 * nu0 * v)/c
 
-plt.plot(v15, f(v15)/np.cos((80.06*np.pi)/180), 'xr', markersize=6 , label = 'Messdaten')
+#plt.plot(v15, f(v15)/np.cos((80.06*np.pi)/180), 'xr', markersize=6 , label = 'Messdaten')
+plt.plot(v15, f(v15), 'xr', markersize=6 , label = 'Messdaten')
 print(v15)
 
 #Ausgleichsgerade 
@@ -81,7 +82,8 @@ plt.clf()
 #plot2
 
 v30 = abs(v30)
-plt.plot(v30, f(v30)/np.cos((70.53*np.pi)/180), 'xr', markersize=6 , label = 'Messdaten')
+#plt.plot(v30, f(v30)/np.cos((70.53*np.pi)/180), 'xr', markersize=6 , label = 'Messdaten')
+plt.plot(v30, f(v30), 'xr', markersize=6 , label = 'Messdaten')
 
 para, pcov = curve_fit(g, v30, f(v30))
 a, b = para
@@ -98,8 +100,8 @@ plt.xlabel(r'$v \, / \, \mathrm{ms^{-1}}$')
 plt.ylabel(r'$\frac{\Delta \nu}{\cos (\alpha)}$')
 plt.legend(loc="best")                  
 plt.grid(True)                          
-plt.xlim(0, 1)                  
-plt.ylim(0, 0.018)
+#plt.xlim(0, 1)                  
+#plt.ylim(0, 0.018)
 
 plt.savefig('build/plot2.pdf', bbox_inches = "tight")
 plt.clf() 
@@ -107,7 +109,8 @@ plt.clf()
 #plot3
 
 v60 = abs(v60)
-plt.plot(v60, f(v60)/np.cos((54.74*np.pi)/180), 'xr', markersize=6 , label = 'Messdaten')
+#plt.plot(v60, f(v60)/np.cos((54.74*np.pi)/180), 'xr', markersize=6 , label = 'Messdaten')
+plt.plot(v60, f(v60), 'xr', markersize=6 , label = 'Messdaten')
 
 para, pcov = curve_fit(g, v60, f(v60))
 a, b = para
@@ -125,8 +128,8 @@ plt.xlabel(r'$v \, / \, \mathrm{ms^{-1}}$')
 plt.ylabel(r'$\frac{\Delta \nu}{\cos (\alpha)}$')
 plt.legend(loc="best")                  
 plt.grid(True)                          
-plt.xlim(0, 1)                  
-plt.ylim(0, 0.015)
+#plt.xlim(0, 1)                  
+#plt.ylim(0, 0.015)
 
 plt.savefig('build/plot3.pdf', bbox_inches = "tight")
 #plt.show()
