@@ -25,7 +25,7 @@ Der Fehler des Mittelwertes ist gegeben durch
 \subsection{Vermessung des Acrylblocks mit einer Schieblehre}
 \label{Vermessung des Acrylblocks mit einer Schieblehre}
 
-Der gegeben Acrylblock und dessen Bohrungen wurde wie in \autoref{fig:abmes} dargestellt, vermessen.
+Der gegeben Acrylblock und dessen Bohrungen wurde wie in \autoref{fig:mess} dargestellt, vermessen.
 Der Block ist $\SI{80.4}{\milli\meter}$ breit, $\SI{150.3}{\milli\meter}$ lang und $\SI{40.3}{\milli\meter}$ tief.
 Für die Abstände $a_k$ und $b_k$ und den Durchmesser $d$ der jeweiligen Bohrungen wurde ein Ablesefehler von $\SI{0.05}{\milli\meter}$
 angenommen.
@@ -34,8 +34,9 @@ angenommen.
     \includegraphics[width=0.9\linewidth]{content/grafik/abmessung.jpg}
 	\captionsetup{width=0.765\linewidth}
 	\caption{Acrylblock mit Bohrungen und Maßen. \cite{scan}}
-    \label{fig:abmes}
+    \label{fig:mess}
 \end{figure}
+
 Die Messdaten der Abstände $a_k$ und $b_k$ sind in \autoref{tab:lab} zu sehen. 
 \begin{table}[H]
     \centering
@@ -59,6 +60,7 @@ Die Messdaten der Abstände $a_k$ und $b_k$ sind in \autoref{tab:lab} zu sehen.
     \bottomrule
     \end{tabular}
 \end{table}
+Die ersten beiden Löcher werden nur zur Untersuchung des Auflösevermögens verwendet, daher wurden nur die Durchmesser aufgenommen.
 
 \subsection{Untersuchung der Störstellen des Acrylblocks mit A-Scan}
 \label{Untersuchung der Störstellen des Aceylblocks mit A-Scan}
@@ -85,7 +87,7 @@ $a_k's$ aufgenommen.
 \end{table}
 Die Messwerte der Laufzeiten wurden in einem Plot dargestellt, wobei eine lineare Regression der Form 
 \begin{equation*}
-    a \cdot x + b
+   f(x) = a \cdot x + b
 \end{equation*}
 durchgeführt wurde. Der Plot ist in der \autoref{fig:plot1} dargestellt.
 
@@ -102,7 +104,7 @@ Für die Parameter der Ausgleichsfunktion gilt
     b &= \left(14 \pm 0.7\right) \si{\milli\meter}.
 \end{align*}
 Dabei entspricht $a$ der Steigung der Geraden, welche die Schallgeschwindigkeit $\zeta_{\text{exp}}$ in dem Material ist.
-Der Literaturwert der Schallgeschwindigkeit $\zeta_{\text{theo}} = \SI{2730}{\meter\per\second}$ wird im weiteren Verlauf für die 
+Der Literaturwert der Schallgeschwindigkeit $\zeta_{\text{theo}} = \SI{2700}{\meter\per\second}$ \cite{doppler}wird im weiteren Verlauf für die 
 Messungen des A-Scans als auch des B-Scans verwendet.
 Der y-Achsen-Abschnitt $b$ gibt die Dicke der Anpassungsschicht an. 
 
@@ -133,8 +135,8 @@ vergleichen zu können, werden die Differenzen der jeweiligen $a_k$ und $b_k$ ge
 Die Messwerte der Schieblehre sind in der \autoref{tab:lab} aufgelistet und die des A-Scans in der \autoref{tab:ascan}.
 Für die Mittel der Differenzen ergeben sich die Werte
 \begin{align*}
-\bar{\increment a_k} &= \SI{1.761}{\milli\meter} \\
-\bar{\increment b_k} &= \SI{3.719}{\milli\meter}.
+\bar{\increment a_k} &= 1.1\% \\
+\bar{\increment b_k} &= 5.9\%.
 \end{align*}
 
 \subsection{Untersuchung der Störstellen des Acrylblocks mit B-Scan}
@@ -148,7 +150,7 @@ lokalisiert werden.
     \centering
 	\includegraphics[width=0.8\linewidth]{data/US1_daten/b_scan_oben.jpg}
     \captionsetup{width=0.765\linewidth}
-	\caption{Abbildung des Acrylblocks mit B-Scan.}
+	\caption{Abbildung des Acrylblocks mit B-Scan von oben.}
 	\label{fig:oben}
 \end{figure}
 
@@ -156,7 +158,7 @@ lokalisiert werden.
     \centering
 	\includegraphics[width=0.8\linewidth]{data/US1_daten/b_scan_u.jpg}
     \captionsetup{width=0.765\linewidth}
-	\caption{Abbildung des Acrylblocks mit B-Scan.}
+	\caption{Abbildung des Acrylblocks mit B-Scan von unten.}
 	\label{fig:unten}
 \end{figure}
 
@@ -185,9 +187,11 @@ Loch & $\text{Laufzeit} t / \si{\micro\second} $& $ d/ \si{mm}$\\
 
 Für die Mittel der Differenzen ergeben sich die Werte
 \begin{align*}
-\bar{\increment a_k} &= \SI{0.539}{\milli\meter} \\
-\bar{\increment b_k} &= \SI{3.719}{\milli\meter}.
+\bar{\increment a_k} &= 1.2 \% \\
+\bar{\increment b_k} &= 4.5 \%.
 \end{align*}
+Für die prozentuale Abweichung erhält man als Mittel
+
 
 \subsection{Untersuchung des Auflösungsvermögens} % Auslösungsverfahrens} % (fold)
 \label{sec:Untersuchung des Auslösungsverfahrens}
@@ -237,5 +241,6 @@ die unbrauchbaren Bilder verworfen.
 \end{figure}
 
 Anhand der \autoref{fig:b2} kann gesagt werden, dass es sich bei den zwei oberen Arealen um die gesuchten
-Störstellen handelt. Der rechte obere Fleck ist aufgrund der farblich gekennzeichneten höheren Dichte der Tumor. Der linke Bereich deutet auf eine 
+Störstellen handelt. Der rechte obere Fleck ist aufgrund der farblich gekennzeichneten höheren Dichte der Tumor.
+Die rötliche Farbe ist heller und damit wird mehr refletiert, dementsprechend ist das Gewebe dichter. Der linke Bereich deutet auf eine 
 Zyste hin, da diese kein Knoten, sondern ein Hohlraum ist und auf dem Bild diffuser erscheint.

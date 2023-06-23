@@ -75,14 +75,15 @@ b = a*10**(-3)
 db = bk - b
 print(np.mean(db))
 
-bscan=pd.read_csv('data/bscan.txt', sep=' ', header=None, names=['n','a','b'])
+ascan=pd.read_csv('data/ascan.txt', sep=' ', header=None, names=['n','a','b'])
 #print(bscan.to_latex(index=False, column_format="c c c"))
-na, a, b = np.genfromtxt('data/bscan.txt', unpack=True, skip_header=1)
-print('bscan differenzen:')
+na, a, b = np.genfromtxt('data/ascan.txt', unpack=True, skip_header=1)
+print('ascan differenzen:')
 a = a*10**(-3)
-ba = a - ak
+ba = (a-ak) /ak
 b = a*10**(-3)
-bb = bk - b
+bb = (b-bk) / bk
+print('prozentuale abweichung')
 print(np.mean(bb))
 print(np.mean(ba))
 
