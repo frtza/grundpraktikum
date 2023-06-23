@@ -29,7 +29,7 @@ nu0 = 2e6
 #Strömungsgeschwindigkeit
 
 def v(nu, a):
-    return (nu * c)/(2 * nu0 * np.cos(a)) /1e5
+    return (nu * c)/(2 * nu0 * np.cos(a)) 
 
 v15 = np.zeros(5)
 v30 = np.zeros(5)
