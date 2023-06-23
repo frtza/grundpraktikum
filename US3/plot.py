@@ -23,7 +23,7 @@ lei, f15, f30, f60 = np.genfromtxt('data/messung1.txt', unpack=True, skip_header
 #Prismawinkel
 alpha = [80.06, 70.53, 54.74]
 alpha = np.multiply(alpha, (np.pi/180))
-c = 1800
+c = const.speed_of_light
 nu0 = 2e6 
 
 #Strömungsgeschwindigkeit
@@ -42,12 +42,13 @@ for j in range(5):
 
 f = {'v15/m/s': np.around(v15, 3), 'v30/m/s': np.around(v30, 3), 'v60/m/s': np.around(v60, 3)}
 df = pd.DataFrame(data = f)
-print(df.to_latex(index = False, column_format= "c c c", decimal=',')) 
+# print(df.to_latex(index = False, column_format= "c c c", decimal=',')) 
 
 def f(v):
-    return 2 * nu0 * (v/c)
+    return (2 * nu0 * v)/c
 
-plt.plot(v15, f(v15), 'xr', markersize=6 , label = 'Messdaten')
+plt.plot(v15, f(v15)/np.cos(15), 'xr', markersize=6 , label = 'Messdaten')
+print(v15)
 
 #Ausgleichsgerade 
 
@@ -60,44 +61,44 @@ fa, fb = np.sqrt(np.diag(pcov))
 ua = ufloat(a, fa) 
 ub = ufloat(b, fb)
 
-print('Ausgleichsgerade1:')
-print(ua)
-print(ub)
-xx = np.linspace(0, 0.8, 10**4)
+# print('Ausgleichsgerade1:')
+# print(ua)
+# print(ub)
+xx = np.linspace(0, 1, 10**4)
 plt.plot(xx, g(xx, a, b), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
 
 plt.xlabel(r'$v \, / \, \mathrm{ms^{-1}}$')
-plt.ylabel(r'$\Delta \nu$')
+plt.ylabel(r'$\frac{\Delta \nu}{\cos (\alpha)}$')
 plt.legend(loc="best")                  
 plt.grid(True)                          
-plt.xlim(0, 0.000006)                  
+plt.xlim(0, 1)                  
 plt.ylim(0, 0.014)
 
 plt.savefig('build/plot1.pdf', bbox_inches = "tight")
-#plt.show()
+plt.show()
 plt.clf() 
 
 #plot2
 
 v30 = abs(v30)
-plt.plot(v30, f(v30), 'xr', markersize=6 , label = 'Messdaten')
+plt.plot(v30, f(v30)/np.cos(30), 'xr', markersize=6 , label = 'Messdaten')
 
 para, pcov = curve_fit(g, v30, f(v30))
 a, b = para
 fa, fb = np.sqrt(np.diag(pcov))
 ua = ufloat(a, fa) 
 ub = ufloat(b, fb)
-print('Ausgleichsgerade2:')
-print(ua)
-print(ub)
-xx = np.linspace(0, 0.014, 10**4)
+# print('Ausgleichsgerade2:')
+# print(ua)
+# print(ub)
+xx = np.linspace(0, 1, 10**4)
 plt.plot(xx, g(xx, a, b), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
 
 plt.xlabel(r'$v \, / \, \mathrm{ms^{-1}}$')
-plt.ylabel(r'$\Delta \nu$')
+plt.ylabel(r'$\frac{\Delta \nu}{\cos (\alpha)}$')
 plt.legend(loc="best")                  
 plt.grid(True)                          
-plt.xlim(0, 0.000006)                  
+plt.xlim(0, 1)                  
 plt.ylim(0, 0.018)
 
 plt.savefig('build/plot2.pdf', bbox_inches = "tight")
@@ -106,25 +107,26 @@ plt.clf()
 #plot3
 
 v60 = abs(v60)
-plt.plot(v60, f(v60), 'xr', markersize=6 , label = 'Messdaten')
+plt.plot(v60, f(v60)/np.cos(60), 'xr', markersize=6 , label = 'Messdaten')
 
 para, pcov = curve_fit(g, v60, f(v60))
 a, b = para
 fa, fb = np.sqrt(np.diag(pcov))
 ua = ufloat(a, fa) 
 ub = ufloat(b, fb)
-print('Ausgleichsgerade3:')
-print(ua)
-print(ub)
-xx = np.linspace(0, 0.014, 10**4)
+# print('Ausgleichsgerade3:')
+# print(v60)
+# print(ua)
+# print(ub)
+xx = np.linspace(0, 1, 10**4)
 plt.plot(xx, g(xx, a, b), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
 
 plt.xlabel(r'$v \, / \, \mathrm{ms^{-1}}$')
-plt.ylabel(r'$\Delta \nu$')
+plt.ylabel(r'$\frac{\Delta \nu}{\cos (\alpha)}$')
 plt.legend(loc="best")                  
 plt.grid(True)                          
-plt.xlim(0, 0.000006)                  
-plt.ylim(0, 0.018)
+plt.xlim(0, 1)                  
+plt.ylim(0, 0.015)
 
 plt.savefig('build/plot3.pdf', bbox_inches = "tight")
 #plt.show()
@@ -142,7 +144,7 @@ speed2=pd.read_csv('data/speed2.txt',sep=' ', header=None, names=['d','s','sig']
 d1, s1, sig1 = np.genfromtxt('data/speed1.txt', unpack=True, skip_header=1)
 d2, s2, sig2 = np.genfromtxt('data/speed2.txt', unpack=True, skip_header=1)
 
-print(d1)
+#print(d1)
 d1 = (6/4) * d1 
 
 plt.plot(d1, s1, 'xr', markersize=6 , label = 'Momentangeschwindigkeit für P = 45%')
