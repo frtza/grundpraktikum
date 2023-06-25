@@ -6,8 +6,12 @@ build/plot.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
 	# set matplotlibrc in main directory
 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python plot.py
 
+# notebook
+build/test.ipynb: test.ipynb
+	jupyter nbconvert --to=notebook --output=build/test.ipynb --ExecutePreprocessor.enabled=True test.ipynb
+
 # dependencies
-build/main.pdf: build/plot.pdf
+build/main.pdf: build/plot.pdf build/test.ipynb
 
 build/main.pdf: FORCE | build
 	# find header file in main directory
