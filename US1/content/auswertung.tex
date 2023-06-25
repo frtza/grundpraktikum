@@ -133,14 +133,24 @@ Die aufgenommenen Messdaten des A-Scans sind in der \autoref{tab:ascan} dargeste
 % \end{tabular}
 \end{table}
 
-Um die Abstände, welche mittels Schieblehre bestimmt worden sind, mit den Abständen, welche über einen A-Scan aufgenommen worden sind,
-vergleichen zu können, werden die Differenzen der jeweiligen $a_k$ und $b_k$ gemittelt.
-Die Messwerte der Schieblehre sind in der \autoref{tab:lab} aufgelistet und die des A-Scans in der \autoref{tab:ascan}.
-Für die relativen Abweichungen ergeben sich im Mittel die Werte
+%%%%%
+In Tabelle~\ref{tab:ascan} sind die mittels A-Scan aufgenommenen Werte sowie deren Verhältnisse zu den vorherigen Messungen mit der Schieblehre
+aus Tabelle~\ref{tab:lab} eingetragen. Die bereits in Tabelle~\ref{tab:lab} nachgehaltenen Messdaten werden an dieser Stelle zur Unterscheidung mit
+$a'_k$ und $b'_k$ markiert. Nach Formel~\eqref{eqn:mittelwert} können daraus die mittleren Verhältnisse $\num{1,059}$ für $a_k \, / \, a'_k$ und
+$\num{1.055}$ für $b_k \, / \, b'_k$ berechnet werden. Die relativen Abweichungen lauten~dann
 \begin{align*}
-\bar{\increment a_k} &= 1.1\% \\
-\bar{\increment b_k} &= 5.9\%.
+	\increment a_k &= a_k \, / \, a'_k - 1 = \qty{5.9}{\percent} \\
+	\increment b_k &= b_k \, / \, b'_k - 1 = \qty{5.5}{\percent} \: .
 \end{align*}
+%%%%%
+% Um die Abstände, welche mittels Schieblehre bestimmt worden sind, mit den Abständen, welche über einen A-Scan aufgenommen worden sind,
+% vergleichen zu können, werden die Differenzen der jeweiligen $a_k$ und $b_k$ gemittelt.
+% Die Messwerte der Schieblehre sind in der \autoref{tab:lab} aufgelistet und die des A-Scans in der \autoref{tab:ascan}.
+% Für die relativen Abweichungen ergeben sich im Mittel die Werte
+% \begin{align*}
+% \bar{\increment a_k} &= 1.1\% \\
+% \bar{\increment b_k} &= 5.9\%.
+% \end{align*}
 
 \subsection{Untersuchung der Störstellen des Acrylblocks mit B-Scan}
 \label{sec:Untersuchung der Störstellen des Aceylblocks mit B-Scan}
@@ -156,7 +166,6 @@ lokalisiert werden.
 	\caption{Abbildung des Acrylblocks mit B-Scan von oben.}
 	\label{fig:oben}
 \end{figure}
-
 \begin{figure}[H]
     \centering
 	\includegraphics[width=0.8\linewidth]{data/US1_daten/b_scan_u.jpg}
@@ -165,8 +174,11 @@ lokalisiert werden.
 	\label{fig:unten}
 \end{figure}
 
-Die Messwerte des B-Scan sind in der \autoref{tab:bscan} aufgetragen. Für $k =10$ konnte kein Wert aufgenommen werden, daher wird dieser
-im Folgenden ignoriert.
+Die Messwerte des B-Scan sind in der \autoref{tab:bscan} aufgetragen. Für $k =10$ konnte kein Wert
+%%%%%
+$a_k$
+%%%%%
+aufgenommen werden, daher wird dieser im Folgenden ignoriert.
 \begin{table}[H]
     \centering
     \caption{Messwerte des B-Scan.}
@@ -191,11 +203,20 @@ im Folgenden ignoriert.
 % \end{tabular}
 \end{table}
 
-Für die prozentuale Abweichung erhält man als Mittel
+%%%%%
+Analog zu den Daten in Tabelle~\ref{tab:ascan} lassen sich aus den Verhältnissen in Tabelle~\ref{tab:bscan} die Mittelwerte $\num{1.046}$
+für $a_k \, / \, a'_k$ und $\num{1.069}$ für $b_k \, / \, b'_k$ nach Vorschrift~\eqref{eqn:mittelwert} berechnen. Gleiches Vorgehen wie
+zuvor liefert dann die prozentualen Abweichungen
 \begin{align*}
-\bar{\increment a_k} &= 1.2 \% \\
-\bar{\increment b_k} &= 4.5 \%.
+	\increment a_k &= a_k \, / \, a'_k - 1 = \qty{4.6}{\percent} \\
+	\increment b_k &= b_k \, / \, b'_k - 1 = \qty{6.9}{\percent} \: .
 \end{align*}
+%%%%%
+% Für die prozentuale Abweichung erhält man als Mittel
+% \begin{align*}
+% \bar{\increment a_k} &= 1.2 \% \\
+% \bar{\increment b_k} &= 4.5 \%.
+% \end{align*}
 
 
 \subsection{Untersuchung des Auflösungsvermögens} % Auslösungsverfahrens} % (fold)
